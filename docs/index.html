@@ -1,8 +1,624 @@
-<!DOCTYPE html>
-<html>
-<head><title>CyberThreat Dashboard</title></head>
-<body>
-    <h1>Dashboard is loading...</h1>
-    <p>Зачекайте, поки GitHub Action оновить дані.</p>
-</body>
-</html>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cyber Intel Dashboard</title>
+        <style>
+            :root {
+                --bg: #0d1117;
+                --card-bg: #161b22;
+                --text: #c9d1d9;
+                --accent: #58a6ff;
+                --border: #30363d;
+            }
+            body {
+                background-color: var(--bg);
+                color: var(--text);
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .container { max-width: 1000px; width: 100%; }
+            header {
+                width: 100%;
+                padding: 40px 0;
+                border-bottom: 1px solid var(--border);
+                margin-bottom: 30px;
+            }
+            h1 { margin: 0; font-size: 32px; color: #f0f6fc; }
+            .status { font-size: 14px; color: #8b949e; margin-top: 10px; }
+            .grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+            .card {
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 24px;
+                transition: border-color 0.2s;
+            }
+            .card:hover { border-color: #8b949e; }
+            .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+            .cve-id { font-family: monospace; font-size: 16px; color: var(--accent); font-weight: bold; }
+            .severity {
+                font-size: 10px;
+                padding: 2px 8px;
+                border-radius: 12px;
+                font-weight: 600;
+            }
+            .card-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #f0f6fc; }
+            .card-body { font-size: 14px; line-height: 1.5; color: #8b949e; margin-bottom: 20px; }
+            .card-footer { 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center;
+                padding-top: 15px;
+                border-top: 1px solid var(--border);
+                font-size: 12px;
+                color: #484f58;
+            }
+            .card-footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+            footer { margin-top: 60px; padding: 20px; font-size: 12px; color: #484f58; text-align: center; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>🛡️ Cyber Threat Intelligence</h1>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-01 14:14 UTC</div>
+            </header>
+            <div class="grid">
+                
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25129</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.7
+                </span>
+            </div>
+            <div class="card-title">PsySH has Local Privilege Escalation via CWD .psysh.php auto-load</div>
+            <div class="card-body">### Summary
+PsySH automatically loads and executes a `.psysh.php` file from the Current Working Directory (CWD) on startup. If an attacker can write to a directory that a victim later uses as their CWD when launching PsySH, the attacker can trigger arbitrary code execution in the victim's context. When the victim runs PsySH with elevated privileges...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-30</span>
+                <a href="https://github.com/advisories/GHSA-4486-gxhx-5mg7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25141</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Orval has Code Injection via unsanitized x-enum-descriptions using JS comments</div>
+            <div class="card-body">[CVE-2026-23947](https://github.com/advisories/GHSA-h526-wf6g-67jv) had an incomplete fix
+
+While the current [jsStringEscape](https://github.com/orval-labs/orval/blob/02211fc413524be340ba9ace866a2ef68845ca7c/packages/core/src/utils/string.ts#L227) function properly handles single quotes ('), double quotes (") and other characters, it fails to sanit...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-30</span>
+                <a href="https://github.com/advisories/GHSA-gch2-phqh-fg9q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25130</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.7
+                </span>
+            </div>
+            <div class="card-title">CAI find_file Agent Tool has Command Injection Vulnerability Through Argument Injection</div>
+            <div class="card-body">## Summary
+
+The CAI (Cybersecurity AI) framework contains multiple argument injection vulnerabilities in its function tools. User-controlled input is passed directly to shell commands via `subprocess.Popen()` with `shell=True`, allowing attackers to execute arbitrary commands on the host system.
+
+## Vulnerable Component 
+
+**Function:** `find_file()...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-30</span>
+                <a href="https://github.com/advisories/GHSA-jfpc-wj3m-qw2m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25128</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fast-xml-parser has RangeError DoS Numeric Entities Bug</div>
+            <div class="card-body">### Summary
+A RangeError vulnerability exists in the numeric entity processing of fast-xml-parser when parsing XML with out-of-range entity code points (e.g., `&#9999999;` or `&#xFFFFFF;`). This causes the parser to throw an uncaught exception, crashing any application that processes untrusted XML input.
+
+### Details
+The vulnerability exists in `/s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-30</span>
+                <a href="https://github.com/advisories/GHSA-37qj-frw5-hhjh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25050</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Vendure vulnerable to timing attack that enables user enumeration in NativeAuthenticationStrategy</div>
+            <div class="card-body">### Summary
+The `NativeAuthenticationStrategy.authenticate()` method is vulnerable to a timing attack that allows attackers to enumerate valid usernames (email addresses).
+
+### Details
+In `packages/core/src/config/auth/native-authentication-strategy.ts`, the authenticate method returns immediately if a user is not found:
+
+```typescript
+const user =...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-30</span>
+                <a href="https://github.com/advisories/GHSA-6f65-4fv2-wwch" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24687</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Umbraco.Forms has Path Traversal and File Enumeration Vulnerabilities in Linux/Mac</div>
+            <div class="card-body">### Impact
+It's possible for an authenticated backoffice-user to enumerate and traverse paths/files on the systems filesystem and read their contents, on Mac/Linux Umbraco installations using Forms. As Umbraco Cloud runs in a Windows environment, Cloud users aren't affected. 
+
+### Patches
+This issue affects versions 16 and 17 of Umbraco Forms and i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-30</span>
+                <a href="https://github.com/advisories/GHSA-hm5p-82g6-m3xh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25211</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.2
+                </span>
+            </div>
+            <div class="card-title">Llama Stack exposes secret in initialization log</div>
+            <div class="card-body">Llama Stack (aka llama-stack) before 0.4.0rc3 does not censor the pgvector password in the initialization log....</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-30</span>
+                <a href="https://github.com/advisories/GHSA-xmfj-7pp5-fxr6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25047</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">deepHas vulnerable to Prototype Pollution via constructor.prototype</div>
+            <div class="card-body">### Summary
+A prototype pollution vulnerability exists in version 1.0.7 of the deephas npm package that allows an attacker to modify global object behavior. This issue was fixed in version 1.0.8.
+
+### Details
+The vulnerability resides in the `add()` function and `indexer()` function implemented within `deepHas.js`. Although version 1.0.7 attempts t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-2733-6c58-pf27" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24846</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">malcontent vulnerable to symlink Path Traversal via handleSymlink argument confusion in archive extraction</div>
+            <div class="card-body">malcontent could be made to create symlinks outside the intended extraction directory when scanning a specially crafted tar or deb archive. The `handleSymlink` function received arguments in the wrong order, causing the symlink target to be used as the symlink location. Additionally, symlink targets were not validated to ensure they resolved within...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-923j-vrcg-hxwh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24845</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">malcontent OCI image pull credential exfiltration via malicious registry token realm</div>
+            <div class="card-body">Malcontent could be made to expose Docker registry credentials if it scanned a specially crafted OCI image reference. Malcontent uses [google/go-containerregistry](https://github.com/google/go-containerregistry) for OCI image pulls, which by default uses the Docker credential keychain. A malicious registry could return a `WWW-Authenticate` header r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-9m43-p3cx-w8j5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vg9h-jx4v-cwx2</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Unfurl's debug mode cannot be disabled due to string config parsing (Werkzeug debugger exposure)</div>
+            <div class="card-body">### Summary
+The Unfurl web app enables Flask debug mode even when configuration sets `debug = False`. The config value is read as a string and passed directly to `app.run(debug=...)`, so any non-empty string evaluates truthy. This leaves the Werkzeug debugger active by default.
+
+### Details
+- `unfurl/app.py:web_app()` reads `debug` via `config['UNF...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-vg9h-jx4v-cwx2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-h5qv-qjv4-pc5m</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Unfurl's unbounded zlib decompression allows decompression bomb DoS</div>
+            <div class="card-body">### Summary
+The compressed data parser uses `zlib.decompress()` without a maximum output size. A small, highly compressed payload can expand to a very large output, causing memory exhaustion and denial of service.
+
+### Details
+- `unfurl/parsers/parse_compressed.py` calls `zlib.decompress(decoded)` with no size limit.
+- Inputs are accepted from URL ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-h5qv-qjv4-pc5m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-1237</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Juju has broken CMR authorization</div>
+            <div class="card-body">### Impact
+
+Cross-model Relation authorization is broken and has a potential security vulnerability. If the controller does not have the root key to verify the macaroon (or if the macaroon has expired), an unvalidated and therefore untrusted macaroon is used to extract declared caveats. Facts from these caveats are then blindly used to mint a new m...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-j477-6vpg-6c8x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24888</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Maker.js has Unsafe Property Copying in makerjs.extendObject</div>
+            <div class="card-body">### Summary
+The `makerjs.extendObject` function copies properties from source objects without proper validation, potentially exposing applications to security risks. The function lacks `hasOwnProperty()` checks and does not filter dangerous keys, allowing inherited properties and potentially malicious properties to be copied to target objects.
+
+###...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-2cp6-34r9-54xx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-c4jr-5q7w-f6r9</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">SiYuan has Arbitrary File Write via /api/file/copyFile leading to RCE</div>
+            <div class="card-body">## Summary
+
+The `/api/file/copyFile` endpoint does not validate the `dest` parameter, allowing authenticated users to write files to arbitrary locations on the filesystem. This can lead to Remote Code Execution (RCE) by writing to sensitive locations such as cron jobs, SSH authorized_keys, or shell configuration files.
+
+- Affected Version: 3.5.3 (a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-c4jr-5q7w-f6r9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24780</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">AutoGPT is Vulnerable to RCE via Disabled Block Execution</div>
+            <div class="card-body">### Summary
+
+AutoGPT Platform's block execution endpoints (both main web API and external API) allow executing blocks by UUID without checking the `disabled` flag. Any authenticated user can execute the disabled `BlockInstallationBlock`, which writes arbitrary Python code to the server filesystem and executes it via `__import__()`, achieving Remote...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-r277-3xc5-c79v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-23864</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">React Server Components have multiple Denial of Service Vulnerabilities</div>
+            <div class="card-body">## Impact
+
+It was found that the fixes to address DoS in React Server Components were incomplete and we found multiple denial of service vulnerabilities still exist in React Server Components.
+
+We recommend updating immediately.
+
+The vulnerability exists in versions 19.0.0, 19.0.1, 19.0.2, 19.0.3, 19.1.0, 19.1.1, 19.1.2, 19.1.3, 19.1.4, 19.2.0, 19....</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-29</span>
+                <a href="https://github.com/advisories/GHSA-83fc-fqcc-2hmg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-f72r-2h5j-7639</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">SiYuan File Read API Case Sensitivity Bypass can Lead to Path Traversal</div>
+            <div class="card-body">## Vulnerability Name
+File Read API Case Sensitivity Bypass Vulnerability
+
+## Overview
+The `/api/file/getFile` endpoint uses case-sensitive string equality checks to intercept access to sensitive files. On Windows (case-insensitive file systems), attackers can bypass these protections using mixed-case paths to read protected configuration files.
+
+#...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-f72r-2h5j-7639" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24889</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">soroban-sdk has overflow in Bytes::slice, Vec::slice, GenRange::gen_range for u64</div>
+            <div class="card-body">### Impact
+
+Arithmetic overflow can be triggered in the `Bytes::slice`, `Vec::slice`, and `Prng::gen_range` (for `u64`) methods in the `soroban-sdk` in versions prior to and including `25.0.1`.
+
+Contracts that pass user-controlled or computed range bounds to `Bytes::slice`, `Vec::slice`, or `Prng::gen_range` may silently operate on incorrect data r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-96xm-fv9w-pf3f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24766</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">NocoDB has Prototype Pollution in Connection Test Endpoint, Leading to DoS</div>
+            <div class="card-body">### Summary
+
+An authenticated user with org-level-creator permissions can exploit prototype pollution in the `/api/v2/meta/connection/test` endpoint, causing all database write operations to fail application-wide until server restart.
+
+While the pollution technically bypasses SUPER_ADMIN authorization checks, no practical privileged actions can be ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-95ff-46g6-6gw9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24767</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">NocoDB has Blind SSRF via Unvalidated HEAD Request in uploadViaURL Functionality</div>
+            <div class="card-body">## Summary
+
+A **blind Server-Side Request Forgery (SSRF)** vulnerability exists in the `uploadViaURL` functionality due to an unprotected `HEAD` request. While the subsequent file retrieval logic correctly enforces SSRF protections, the initial metadata request executes without validation.
+
+This allows limited outbound requests to arbitrary URLs be...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-xr7v-j379-34v9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24768</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB has Unvalidated Redirect in Login Flow via continueAfterSignIn Parameter</div>
+            <div class="card-body">### Summary
+
+An **unvalidated redirect (open redirect)** vulnerability exists in NocoDB’s login flow due to missing validation of the `continueAfterSignIn` parameter.
+
+During authentication, NocoDB processes a user-controlled redirect value and conditionally performs client-side navigation without enforcing any restrictions on the destination’s ori...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-3hmw-8mw3-rmpj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24769</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">NocoDB Vulnerable to Stored Cross-Site Scripting via SVG upload</div>
+            <div class="card-body">## Summary
+
+A **stored Cross-site Scripting (XSS)** vulnerability exists in NocoDB’s attachment handling mechanism. Authenticated users can upload malicious SVG files containing embedded JavaScript, which are later rendered inline and executed in the browsers of other users who view the attachment.
+
+Because the malicious payload is stored server-si...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-q5c6-h22r-qpwr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24838</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">DotNetNuke.Core Vulnerable to Stored XSS via Module Title</div>
+            <div class="card-body">Module title supports richtext which could include scripts that would execute in certain scenarios....</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-w9pf-h6m6-v89h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24739</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.3
+                </span>
+            </div>
+            <div class="card-title">Symfony's incorrect argument escaping under MSYS2/Git Bash can lead to destructive file operations on Windows</div>
+            <div class="card-body">### Summary
+The Symfony Process component did not correctly treat some characters (notably `=`) as “special” when escaping arguments on Windows. When PHP is executed from an MSYS2-based environment (e.g. Git Bash) and Symfony Process spawns native Windows executables, MSYS2’s argument/path conversion can mishandle unquoted arguments containing thes...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-r39x-jcww-82v6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-22243</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">EGroupware has SQL Injection in Nextmatch Filter Processing</div>
+            <div class="card-body">### Summary
+**Critical Authenticated SQL Injection in Nextmatch Widget Filter Processing**
+
+A critical SQL Injection vulnerability exists in the core components of EGroupware, specifically in the `Nextmatch` filter processing. The flaw allows authenticated attackers to inject arbitrary SQL commands into the `WHERE` clause of database queries. This ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-rvxj-7f72-mhrx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-57283</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">BrowserStack Local vulnerable to Command Injection through logfile variable</div>
+            <div class="card-body">The Node.js package browserstack-local 1.5.8 contains a command injection vulnerability. This occurs because the logfile variable is not properly sanitized in lib/Local.js....</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-g4w6-c99w-4wh7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24850</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">ML-DSA Signature Verification Accepts Signatures with Repeated Hint Indices</div>
+            <div class="card-body">**Affected Crate:** `ml-dsa`  
+**Affected Versions:** v0.1.0-rc.2 (and commits since `b01c3b7`)  
+**Severity:** Medium  
+**Reporter:** Oren Yomtov (Fireblocks)
+
+## Summary
+
+The ML-DSA signature verification implementation in the RustCrypto `ml-dsa` crate incorrectly accepts signatures with repeated (duplicate) hint indices. According to the ML-DSA ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-5x2r-hc65-25f9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24842</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal</div>
+            <div class="card-body">### Summary
+node-tar contains a vulnerability where the security check for hardlink entries uses different path resolution semantics than the actual hardlink creation logic. This mismatch allows an attacker to craft a malicious TAR archive that bypasses path traversal protections and creates hardlinks to arbitrary files outside the extraction direc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-34x7-hfp2-rc4v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24837</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">DotNetNuke.Core Vulnerable to Stored XSS in Module Deletion Confirmation Modal</div>
+            <div class="card-body">A module friendly name could include scripts that will run during some module operations in the Persona Bar....</div>
+            <div class="card-footer">
+                <span>Published: 2026-01-28</span>
+                <a href="https://github.com/advisories/GHSA-vm5q-8qww-h238" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+            </div>
+            <footer>
+                &copy; 2026 Automated Security Dashboard • Powered by GitHub Actions
+            </footer>
+        </div>
+    </body>
+    </html>
+    
