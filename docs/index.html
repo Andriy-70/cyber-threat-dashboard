@@ -68,10 +68,461 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-03 18:38 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-04 00:56 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-hrr4-3wgr-68x3</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Navidrome affected by Denial of Service and disk exhaustion via oversized `size` parameter in `/rest/getCoverArt` and `/share/img/<token>` endpoints</div>
+            <div class="card-body">### Summary
+Authenticated users can crash the Navidrome server by supplying an excessively large `size` parameter to `/rest/getCoverArt` or to a shared-image URL (`/share/img/<token>`). When processing such requests, the server attempts to create an extremely large resized image, causing uncontrolled memory growth. This triggers the Linux OOM kille...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-04</span>
+                <a href="https://github.com/advisories/GHSA-hrr4-3wgr-68x3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-rh3r-8pxm-hg4w</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">Navidrome has XSS via comment from song metadata</div>
+            <div class="card-body">### Summary
+
+An XSS vulnerability in the frontend allows a malicious attacker to inject code through the comment metadata of a song to exfiltrate user credentials.
+
+An attacker's maliciously crafted song has to be added to Navidrome to exploit the vulnerability.
+
+### Details
+
+The frontend is using React. In various places, the code uses the `danger...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-04</span>
+                <a href="https://github.com/advisories/GHSA-rh3r-8pxm-hg4w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25145</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">melange has a path traversal in license-path which allows reading files outside workspace </div>
+            <div class="card-body">An attacker who can influence a melange configuration file (e.g., through pull request-driven CI or build-as-a-service scenarios) could read arbitrary files from the host system. The `LicensingInfos` function in `pkg/config/config.go` reads license files specified in `copyright[].license-path` without validating that paths remain within the workspa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-04</span>
+                <a href="https://github.com/advisories/GHSA-2w4f-9fgg-q2v9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25143</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">melange affected by potential host command execution via license-check YAML mode patch pipeline </div>
+            <div class="card-body">An attacker who can influence inputs to the patch pipeline could execute arbitrary shell commands on the build host. The patch pipeline in pkg/build/pipelines/patch.yaml embeds input-derived values (series paths, patch filenames, and numeric parameters) into shell scripts without proper quoting or validation, allowing shell metacharacters to break ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-04</span>
+                <a href="https://github.com/advisories/GHSA-rf4g-89h5-crcr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25140</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">apko affected by potential unbounded resource consumption in expandapk.ExpandApk on attacker-controlled .apk streams</div>
+            <div class="card-body">An attacker who controls or compromises an APK repository used by apko could cause resource exhaustion on the build host. The ExpandApk function in pkg/apk/expandapk/expandapk.go expands .apk streams without enforcing decompression limits, allowing a malicious repository to serve a small, highly-compressed .apk that inflates into a large tar stream...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-04</span>
+                <a href="https://github.com/advisories/GHSA-f4w5-5xv9-85f6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25122</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">apko affected by unbounded resource consumption in expandapk.Split on attacker-controlled .apk streams </div>
+            <div class="card-body">`expandapk.Split` drains the first gzip stream of an APK archive via `io.Copy(io.Discard, gzi)` without explicit bounds. With an attacker-controlled input stream, this can force large gzip inflation work and lead to resource exhaustion (availability impact).                                                                                            ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-6p9p-q6wh-9j89" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25121</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">apko has a path traversal in apko dirFS which allows filesystem writes outside base</div>
+            <div class="card-body">A Path Traversal vulnerability was discovered in apko's dirFS filesystem abstraction. An attacker who can supply a malicious APK package (e.g., via a compromised or typosquatted repository) could create directories or symlinks outside the intended installation root. The MkdirAll, Mkdir, and Symlink methods in pkg/apk/fs/rwosfs.go use filepath.Join(...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-5g94-c2wx-8pxw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24844</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">melange pipeline working-directory could allow command injection</div>
+            <div class="card-body">An attacker who can provide build input values, but not modify pipeline definitions, could execute arbitrary shell commands if the pipeline uses `${{vars.*}}` or `${{inputs.*}}` substitutions in `working-directory`. The field is embedded into shell scripts without proper quote escaping.
+
+**Fix:** Fixed with [e51ca30c](https://github.com/chainguard-...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-vqqr-rmpc-hhg2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24843</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">melange QEMU runner could write files outside workspace directory</div>
+            <div class="card-body">An attacker who can influence the tar stream from a QEMU guest VM could write files outside the intended workspace directory on the host. The `retrieveWorkspace` function extracts tar entries without validating that paths stay within the workspace, allowing Path Traversal via `../` sequences.
+
+**Fix:** Fixed in [6e243d0d](https://github.com/chaingu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-qxx2-7h4c-83f4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-67v7-3g49-mxh2</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">PrestaShop affected by time based enumeration in FO login form</div>
+            <div class="card-body">### Impact
+A time-based user enumeration vulnerability in the user authentication functionality of PrestaShop. This vulnerability allows an attacker to determine whether a customer account exists in the system by measuring response times.
+
+### Patches
+8.2.4 and 9.0.3
+
+### Workarounds
+None...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-67v7-3g49-mxh2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25155</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Qwik City CSRF protection middleware does not work properly for content type header with parameters (eg. multipart/form-data)</div>
+            <div class="card-body">### Summary
+A typo in the regular expression within isContentType causes incorrect parsing of certain Content-Type headers.
+
+### Impact
+An attacker can bypass Qwik City’s Origin-based CSRF protections and perform forged form submissions, potentially causing unauthorized state changes....</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-vm6g-8r4h-22x8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25149</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Qwik City Open Redirect via fixTrailingSlash</div>
+            <div class="card-body">### Summary
+
+**Description**
+An Open Redirect (CWE-601) vulnerability in Qwik City's default request handler middleware allows a remote attacker to redirect users to arbitrary protocol-relative URLs. Successful exploitation permits attackers to craft convincing phishing links that appear to originate from the trusted domain but redirect the victim ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-92j7-wgmg-f32m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25151</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Qwik City has a CSRF Protection Bypass via Content-Type Header Validation</div>
+            <div class="card-body">### Summary
+Qwik City’s server-side request handler inconsistently interprets HTTP request headers, which can be abused by a remote attacker to circumvent form submission CSRF protections using specially crafted or multi-valued Content-Type headers.
+
+### Impact
+A vulnerability in checkCSRF lets an attacker bypass Origin-based CSRF checks by using m...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-r666-8gjf-4v5f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25150</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">Prototype Pollution via FormData Processing in Qwik City</div>
+            <div class="card-body">### Summary
+
+A Prototype Pollution vulnerability exists in the `formToObj()` function within `@builder.io/qwik-city` middleware. The function processes form field names with dot notation (e.g., `user.name`) to create nested objects, but fails to sanitize dangerous property names like `__proto__`, `constructor`, and `prototype`. This allows unauthen...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-xqg6-98cw-gxhq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25148</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Qwik SSR XSS via Unsafe Virtual Node Serialization</div>
+            <div class="card-body">### Summary
+
+**Description**
+A Cross-site Scripting (CWE-79) vulnerability in Qwik.js' server-side rendering virtual attribute serialization allows a remote attacker to inject arbitrary web scripts into server-rendered pages via virtual attributes. Successful exploitation permits script execution in a victim's browser in the context of the affected...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-m6jq-g7gq-5w3c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-7h2j-956f-4vf2</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">@isaacs/brace-expansion has Uncontrolled Resource Consumption</div>
+            <div class="card-body">### Summary
+
+`@isaacs/brace-expansion` is vulnerable to a Denial of Service (DoS) issue caused by unbounded brace range expansion. When an attacker provides a pattern containing repeated numeric brace ranges, the library attempts to eagerly generate every possible combination synchronously. Because the expansion grows exponentially, even a small in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-7h2j-956f-4vf2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24887</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Claude Code has a Command Injection in find Command Bypasses User Approval Prompt</div>
+            <div class="card-body">Due to an error in command parsing, it was possible to bypass the Claude Code confirmation prompt to trigger execution of untrusted commands through the find command. Reliably exploiting this required the ability to add untrusted content into a Claude Code context window. 
+
+Users on standard Claude Code auto-update have received this fix already. U...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-qgqw-h4xq-7w8w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24053</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Cluade Code has a Path Restriction Bypass via ZSH Clobber which Allows Arbitrary File Writes</div>
+            <div class="card-body">Due to a Bash command validation flaw in parsing ZSH clobber syntax, it was possible to bypass directory restrictions and write files outside the current working directory without user permission prompts. Exploiting this required the user to use ZSH and the ability to add untrusted content into a Claude Code context window. 
+
+Users on standard Clau...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-q728-gf8j-w49r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25543</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">HtmlSanitizer has a bypass via template tag</div>
+            <div class="card-body">### Impact
+
+If the `template` tag is allowed, its contents are not sanitized. The `template` tag is a special tag that does not usually render its contents, unless the `shadowrootmode` attribute is set to `open` or `closed`. 
+
+The lack of sanitization of the template tag brings up two bypasses:
+
+1. it is still possible to forcibly render the conten...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-j92c-7v7g-gj3f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25541</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">bytes has integer overflow in BytesMut::reserve</div>
+            <div class="card-body"># Details
+
+In the unique reclaim path of `BytesMut::reserve`, the condition
+```rs
+if v_capacity >= new_cap + offset
+```
+uses an unchecked addition. When `new_cap + offset` overflows `usize` in release builds, this condition may incorrectly pass, causing `self.cap` to be set to a value that exceeds the actual allocated capacity. Subsequent APIs such...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-434x-w66g-qw3r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24052</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Claude Code has a Domain Validation Bypass which Allows Automatic Requests to Attacker-Controlled Domains</div>
+            <div class="card-body">Claude Code contained insufficient URL validation in its trusted domain verification mechanism for WebFetch requests. The application used a `startsWith()` function to validate trusted domains (e.g., `docs.python.org`, `modelcontextprotocol.io`), this could have enabled attackers to register domains like `modelcontextprotocol.io.example.com` that w...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-vhw5-3g5m-8ggf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-69215</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenSTAManager has an SQL Injection in the Stampe Module</div>
+            <div class="card-body">## Vulnerability Details
+
+### Location
+- **File:** `modules/stampe/actions.php`
+- **Line:** 26
+- **Vulnerable Code:**
+```php
+case 'update':
+    if (!empty(intval(post('predefined'))) && !empty(post('module'))) {
+        $dbo->query('UPDATE `zz_prints` SET `predefined` = 0 WHERE `id_module` = '.post('module'));
+        // ↑ Direct concatenation with...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-qx9p-w3vj-q24q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25537</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">jsonwebtoken has Type Confusion that leads to potential authorization bypass</div>
+            <div class="card-body">## Summary:
+
+It has been discovered that there is a Type Confusion vulnerability in jsonwebtoken, specifically, in its claim validation logic.
+
+When a standard claim (such as nbf or exp) is provided with an incorrect JSON type (Like a String instead of a Number), the library’s internal parsing mechanism marks the claim as “FailedToParse”. Crucially...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-h395-gr6q-cpjc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-69213</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenSTAManager has a SQL Injection in ajax_complete.php (get_sedi endpoint)</div>
+            <div class="card-body">## Summary
+A SQL Injection vulnerability exists in the `ajax_complete.php` endpoint when handling the `get_sedi` operation. An authenticated attacker can inject malicious SQL code through the `idanagrafica` parameter, leading to unauthorized database access.
+
+
+## Proof of Concept
+
+### Vulnerable Code
+**File:** `modules/anagrafiche/ajax/complete.php...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-w995-ff8h-rppg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-1664</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Cloudflare Agents SDK has Insecure Direct Object Reference (IDOR) via Header-Based Email Routing</div>
+            <div class="card-body">### Summary
+An Insecure Direct Object Reference (CWE-639) has been found to exist in createHeaderBasedEmailResolver() function within the Cloudflare Agents SDK. The issue occurs because the Message-ID and References headers are parsed to derive the target agentName and agentId without proper validation or origin checks, allowing an external attacke...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-r7x9-8ph7-w8cg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-25517</span>
@@ -90,6 +541,59 @@ Due to a missing permission check on the preview endpoints, a user with access t
         
         <div class="card">
             <div class="card-header">
+                <span class="cve-id">CVE-2025-70849</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Podinfo affected by Arbitrary File Upload that leads to Stored Cross-Site Scripting (XSS)</div>
+            <div class="card-body">Arbitrary File Upload in podinfo thru 6.9.0 allows unauthenticated attackers to upload arbitrary files via crafted POST request to the /store endpoint. The application renders uploaded content without a restrictive Content-Security-Policy (CSP) or adequate Content-Type validation, leading to Stored Cross-Site Scripting (XSS)....</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-mw8w-q3f7-2v85" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-23794</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">Apache Syncope: Reflected XSS on Enduser Login</div>
+            <div class="card-body">Reflected XSS in Apache Syncope's Enduser Login page.
+
+An attacker that tricks a legitimate user into clicking a malicious link and logging in to Syncope Enduser could steal that user's credentials.
+
+This issue affects Apache Syncope: from 3.0 through 3.0.15, from 4.0 through 4.0.3.
+
+Users are recommended to upgrade to version 3.0.16 / 4.0.4, which...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-v84m-gfw5-hm2w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-23795</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">Apache Syncope: Console XXE on Keymaster parameters</div>
+            <div class="card-body">Improper Restriction of XML External Entity Reference vulnerability in Apache Syncope Console. An administrator with adequate entitlements to create or edit Keymaster parameters via Console can construct malicious XML text to launch an XXE attack, thereby causing sensitive data leakage occurs.
+
+This issue affects Apache Syncope: from 3.0 through 3....</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-03</span>
+                <a href="https://github.com/advisories/GHSA-73f3-rqqf-2j54" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
                 <span class="cve-id">CVE-2026-25514</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
@@ -101,562 +605,6 @@ Due to a missing permission check on the preview endpoints, a user with access t
             <div class="card-footer">
                 <span>Published: 2026-02-03</span>
                 <a href="https://github.com/advisories/GHSA-pqqg-5f4f-8952" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25513</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">FacturaScripts has SQL Injection in API ORDER BY Clause</div>
-            <div class="card-body">### Summary
-**FacturaScripts contains a critical SQL Injection vulnerability in the REST API** that allows authenticated API users to execute arbitrary SQL queries through the `sort` parameter. The vulnerability exists in the `ModelClass::getOrderBy()` method where user-supplied sorting parameters are directly concatenated into the SQL ORDER BY cla...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-cjfx-qhwm-hf99" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25526</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">JinJava Bypass through ForTag leads to Arbitrary Java Execution</div>
-            <div class="card-body">## Impact
-
-**Vulnerability Type**: Sandbox Bypass / Remote Code Execution
-
-**Affected Component**: Jinjava
-
-**Affected Users**:
-- Organizations using HubSpot's Jinjava template rendering engine for user-provided template content
-- Any system that renders untrusted Jinja templates using HubSpot's Jinjava implementation
-- Users with the ability to cr...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-gjx9-j8f8-7j74" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-64712</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Unstructured has Path Traversal via Malicious MSG Attachment that Allows Arbitrary File Write</div>
-            <div class="card-body">A Path Traversal vulnerability in the `partition_msg` function allows an attacker to write or overwrite arbitrary files on the filesystem when processing malicious MSG files with attachments.
-
-  ## Impact
-  An attacker can craft a malicious .msg file with attachment filenames containing path traversal sequences (e.g.,
-  `../../../etc/cron.d/malicio...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-gm8q-m8mv-jj5m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-24884</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.4
-                </span>
-            </div>
-            <div class="card-title">Compressing Vulnerable to Arbitrary File Write via Symlink Extraction</div>
-            <div class="card-body"># Arbitrary File Write via Symlink Extraction in `github.com/node-modules/compressing`
-
-## Brief Introduction
-
-The `compressing` npm package extracts TAR archives while restoring symbolic links without validating their targets. 
-By embedding symlinks that resolve outside the intended extraction directory, an attacker can cause subsequent file entri...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-cc8f-xg8v-72m3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-24762</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">RustFS Logs Sensitive Credentials in Plaintext</div>
-            <div class="card-body">### Summary
-RustFS logs sensitive credential material (access key, secret key, session token) to application logs at INFO level. This results in credentials being recorded in plaintext in log output, which may be accessible to internal or external log consumers and could lead to compromise of sensitive credentials. This vulnerability is classified ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-r54g-49rx-98cr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-21862</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">RustFS has SourceIp bypass via spoofed X-Forwarded-For/Real-IP headers</div>
-            <div class="card-body">### Summary
-IP-based access control can be bypassed: get_condition_values trusts client-supplied X-Forwarded-For/X-Real-Ip without verifying a trusted proxy, so any reachable client can spoof aws:SourceIp and satisfy IP-allowlist policies.
-
-### Details
-
-  - Vulnerable code: `rustfs/src/auth.rs:289-304` sets `remote_addr` from `X-Forwarded-For`/`X-R...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-fc6g-2gcp-2qrq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-65017</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Decidim's private data exports can lead to data leaks</div>
-            <div class="card-body">### Impact
-Private data exports can lead to data leaks in cases where the UUID generation causes collisions for the generated UUIDs.
-
-The bug was introduced by #13571 and affects Decidim versions 0.30.0 or newer (currently 2025-09-23).
-
-This issue  was discovered by running the following spec several times in a row, as it can randomly fail due to t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-3cx6-j9j4-54mp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-70958</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">Subrion CMS vulnerable to cross-site scripting</div>
-            <div class="card-body">Multiple reflected Cross-site Scripting (XSS) vulnerabilities in the installation module of Subrion CMS v4.2.1 allow attackers to execute arbitrary Javascript in the context of the user's browser via injecting a crafted payload into the dbuser, dbpwd, and dbname parameters....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-03</span>
-                <a href="https://github.com/advisories/GHSA-9jjm-mc56-3qxv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25157</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">OpenClaw/Clawdbot has OS Command Injection via Project Root Path in sshNodeCommand</div>
-            <div class="card-body">Two related vulnerabilities existed in the macOS application's SSH remote connection handling (`CommandResolver.swift`):
-
-## Details
-
-The `sshNodeCommand` function constructed a shell script without properly escaping the user-supplied project path in an error message. When the `cd` command failed, the unescaped path was interpolated directly into a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-q284-4pvr-m585" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25253</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">OpenClaw/Clawdbot has 1-Click RCE via Authentication Token Exfiltration From gatewayUrl</div>
-            <div class="card-body">## Summary
-
-The Control UI trusts `gatewayUrl` from the query string without validation and auto-connects on load, sending the stored gateway token in the WebSocket connect payload.
-
-Clicking a crafted link or visiting a malicious site can send the token to an attacker-controlled server. The attacker can then connect to the victim's local gateway, ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-g8p2-7wf7-98mq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-24763</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">OpenClaw/Clawdbot Docker Execution has Authenticated Command Injection via PATH Environment Variable</div>
-            <div class="card-body">### Summary
-A Command Injection vulnerability existed in Clawdbot’s Docker sandbox execution mechanism due to unsafe handling of the PATH environment variable when constructing shell commands.
-
-An authenticated user able to control environment variables could influence command execution within the container context.
-This issue has been fixed and re...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-mc68-q9jw-2h3v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-1777</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">SageMaker Python SDK has Exposed HMAC</div>
-            <div class="card-body">### Summary
-
-SageMaker Python SDK is an open source library for training and deploying machine learning models on Amazon SageMaker. An issue where the HMAC secret key is stored in environment variables and disclosed via the DescribeTrainingJob API has been identified.
-
-### Impact
-
-- Function and Payload Tampering: Attackers with DescribeTrainingJob...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-rjrp-m2jw-pv9c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-1778</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">SageMaker Python SDK has Insecure TLS Configuration</div>
-            <div class="card-body">### Summary
-SageMaker Python SDK is an open source library for training and deploying machine learning models on Amazon SageMaker. An issue where SSL certificate verification was globally disabled in the Triton Python backend has been found.
-
-### Impact
-Arbitrary Code Execution: Disabling SSL verification allows third parties to intercept HTTPS tra...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-62rc-f4v9-h543" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25523</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Magento's X-Original-Url header can expose admin url</div>
-            <div class="card-body">### Impact
-
-The admin url can be discovered without prior knowledge of its location by exploiting the X-Original-Url header on some configurations.
-
-### Patches
-
-The bug comes from the Zend library.
-
-### Workarounds
-
-Unset the X-Original-Url header in the web server configuration.
-
-### Resources
-
-https://hackerone.com/bugs?subject=openmage&report_i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-jg68-vhv3-9r8f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25522</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored XSS in Shipping Zone (Name & Description) Fields Leading to Potential Privilege Escalation</div>
-            <div class="card-body">## Summary
-A stored XSS vulnerability in Craft Commerce allows attackers to execute malicious JavaScript in an administrator’s browser. This occurs because the Shipping Zone (Name & Description) fields in the **Store Management** section are not properly sanitized before being displayed in the admin panel.
-
----
-## Proof of Concept
-
-### Requirments
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-h9r9-2pxg-cx9m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25490</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title"> Craft Commerce has Stored XSS in Inventory Location Address Leading to Potential Privilege Escalation</div>
-            <div class="card-body">## Summary
-A stored XSS vulnerability in Craft Commerce allows attackers to execute malicious JavaScript in an administrator’s browser. This occurs because the 'Address Line 1' field in Inventory Locations is not properly sanitized before being displayed in the admin panel.
-
-## Proof of Concept
-
-### Required Permissions
-- General permissions:
-	- Ac...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-wq2m-r96q-crrf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25489</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored XSS in Tax Zones (Name & Description) Leading to Potential Privilege Escalation</div>
-            <div class="card-body">## Summary
-A stored XSS vulnerability in Craft Commerce allows attackers to execute malicious JavaScript in an administrator’s browser. This occurs because the **Name & Description** fields in **Tax Zones** are not properly sanitized before being displayed in the admin panel.
-
-
-## Proof of Concept
-
-### Requirments
-- General permissions:
-	- Access t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-v585-mf6r-rqrc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25488</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored XSS in Tax Categories (Name & Description) Fields Leading to Potential Privilege Escalation</div>
-            <div class="card-body">## Summary
-
-A stored XSS vulnerability in Craft Commerce allows attackers to execute malicious JavaScript in an administrator’s browser. This occurs because the Tax Categories (Name & Description) fields in the **Store Management** section are not properly sanitized before being displayed in the admin panel.
-
----
-## Proof of Concept
-
-### Requirment...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-p6w8-q63m-72c8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25487</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft CMS has Stored XSS in Tax Rates Name Leading to Potential Privilege Escalation</div>
-            <div class="card-body">## Summary
-A stored XSS vulnerability in Craft Commerce allows attackers to execute malicious JavaScript in an administrator's browser. This occurs because the Tax Rates 'Name' field in the **Store Management** section is not properly sanitized before being displayed in the admin panel.
-
-## Proof of Concept
-
-### Requirments
-- General permissions:
-	...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-wqc5-485v-3hqh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25486</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored XSS in Shipping Methods Name Field Leading to Potential Privilege Escalation</div>
-            <div class="card-body">## Summary
-
-A stored XSS vulnerability in Craft Commerce allows attackers to execute malicious JavaScript in an administrator’s browser. This occurs because the Shipping Methods Name field in the **Store Management** section is not properly sanitized before being displayed in the admin panel.
-
----
-## Proof of Concept
-
-### Requirments
-- General perm...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-g92v-wpv7-6w22" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25485</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored XSS in Shipping Categories (Name & Description) Fields Leading to Potential Privilege Escalation</div>
-            <div class="card-body">## Summary
-A stored XSS vulnerability in Craft Commerce allows attackers to execute malicious JavaScript in an administrator’s browser. This occurs because the Shipping Categories (Name & Description) fields in the **Store Management** section are not properly sanitized before being displayed in the admin panel.
-
----
-## Proof of Concept
-
-### Requir...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-w8gw-qm8p-j9j3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25484</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored XSS in Product Type Name</div>
-            <div class="card-body">## Summary
-
-Stored XSS via Product Type names. The name is not sanitized when displayed in user permissions settings.
-
-The vulnerable input (source) is in Commerce (Product Type settings), but the sink is in CMS user permissions settings. Reporting to Commerce GHSA since the input originates here.
-
-Users are recommended to update to the patched 5.5...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-2h2m-v2mg-656c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25483</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored XSS via Order Status Message with potential database exfiltration</div>
-            <div class="card-body">## Summary
-
-A stored XSS vulnerability exists in Craft Commerce’s Order Status History Message. The message is rendered using the `|md` filter, which permits raw HTML, enabling malicious script execution. If a user has database backup utility permissions (which do not require an elevated session), an attacker can exfiltrate the entire database, inc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-8478-rmjg-mjj5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25482</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Craft Commerce has Stored DOM XSS in Order Status Name (Reflects in "Recent Orders" Dashboard Widget)</div>
-            <div class="card-body">## Summary
-
-A stored DOM XSS vulnerability exists in the **"Recent Orders"** dashboard widget. The Order Status Name is rendered via JavaScript string concatenation without proper escaping, allowing script execution when any admin visits the dashboard.
-
-Users are recommended to update to the patched 5.5.2 release to mitigate the issue.
-
----
-## Proo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-frj9-9rwc-pw9j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25228</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.0
-                </span>
-            </div>
-            <div class="card-title">SignalK Server has Path Traversal leading to information disclosure</div>
-            <div class="card-body">### Summary
-A Path Traversal vulnerability in SignalK Server's `applicationData` API allows authenticated users on Windows systems to read, write, and list arbitrary files and directories on the filesystem. The `validateAppId()` function blocks forward slashes (`/`) but not backslashes (`\`), which are treated as directory separators by `path.join(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-vrhw-v2hw-jffx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25224</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Fastify Vulnerable to DoS via Unbounded Memory Allocation in sendWebStream</div>
-            <div class="card-body">### Impact
-A Denial of Service vulnerability in Fastify’s Web Streams response handling can allow a remote client to exhaust server memory. Applications that return a `ReadableStream` (or `Response` with a Web Stream body) via `reply.send()` are impacted. A slow or non-reading client can trigger unbounded buffering when backpressure is ignored, lea...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-mrq3-vjjr-p77c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25223</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Fastify's Content-Type header tab character allows body validation bypass</div>
-            <div class="card-body">### Impact
-
-A validation bypass vulnerability exists in Fastify where request body validation schemas specified by Content-Type can be completely circumvented. By appending a tab character (`\t`) followed by arbitrary content to the Content-Type header, attackers can bypass body validation while the server still processes the body as the original c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-jx2c-rxcm-jvmq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25521</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">locutus is vulnerable to Prototype Pollution</div>
-            <div class="card-body">### Summary
-A Prototype Pollution vulnerability exists in the the npm package locutus (>2.0.12). Despite a previous fix that attempted to mitigate Prototype Pollution by checking whether user input contained a forbidden key, it is still possible to pollute Object.prototype via a crafted input using String.prototype. This issue was fixed in version ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-02</span>
-                <a href="https://github.com/advisories/GHSA-rxrv-835q-v5mh" target="_blank">Full Report →</a>
             </div>
         </div>
         
