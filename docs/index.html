@@ -68,596 +68,648 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-17 18:39 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-18 01:03 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-hr7j-63v7-vj7g</span>
+                <span class="cve-id">GHSA-v6c6-vqqg-w888</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
+                    HIGH 7.2
                 </span>
             </div>
-            <div class="card-title">Pterodactyl Panel's SFTP sessions remain active after user account deletion or password change</div>
-            <div class="card-body">### Summary
-Deleting a user account with SFTP access or changing the user's password does not immediately terminate existing SFTP sessions, allowing continued filesystem access after credentials are revoked.
-This can result in unintended and unauthorized access to server files even after administrators believe access has been fully invalidated.
-
-
-#...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-hr7j-63v7-vj7g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-xc7w-v5x6-cc87</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">OpenClaw has a webhook auth bypass when gateway is behind a reverse proxy (loopback remoteAddress trust)</div>
+            <div class="card-title">OpenClaw affected by potential code execution via unsafe hook module path handling in Gateway</div>
             <div class="card-body">## Summary
 
-The BlueBubbles webhook handler previously treated any request whose socket `remoteAddress` was loopback (`127.0.0.1`, `::1`, `::ffff:127.0.0.1`) as authenticated. When OpenClaw Gateway is behind a reverse proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok), the proxy typically connects to the gateway over loopback, allowing...</div>
+OpenClaw Gateway supports hook mappings with optional JavaScript/TypeScript transform modules. In affected versions, the gateway did not sufficiently constrain configured module paths before passing them to dynamic `import()`. Under some configurations, a user who can modify gateway configuration could cause the gateway process to load ...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-xc7w-v5x6-cc87" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-v6c6-vqqg-w888" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-56f2-hvwg-5743</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.6
-                </span>
-            </div>
-            <div class="card-title">OpenClaw affected by SSRF in Image Tool Remote Fetch</div>
-            <div class="card-body">## Summary
-
-A server-side request forgery (SSRF) vulnerability in the Image tool allowed attackers to force OpenClaw to make HTTP requests to arbitrary internal or restricted network targets.
-
-## Affected Versions
-
-- npm: openclaw <= 2026.2.1
-
-## Patched Versions
-
-- npm: openclaw 2026.2.2 and later
-
-## Fix Commits
-
-- 81c68f582d4a9a20d9cca9f367d2da9...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-56f2-hvwg-5743" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-qw99-grcx-4pvm</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">OpenClaw's Chrome extension relay binds publicly due to wildcard treated as loopback</div>
-            <div class="card-body">## Summary
-The Chrome extension relay (`ensureChromeExtensionRelayServer`) previously treated wildcard hosts (`0.0.0.0` / `::`) as loopback, which could make it bind the relay HTTP/WS server to all interfaces when a wildcard `cdpUrl` was passed.
-
-## Impact
-If configured with a wildcard `cdpUrl`, relay HTTP endpoints could become reachable off-host,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-qw99-grcx-4pvm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-3hcm-ggvf-rch5</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw has an exec allowlist bypass via command substitution/backticks inside double quotes</div>
-            <div class="card-body">### Summary
-
-Exec approvals allowlist bypass via command substitution/backticks inside double quotes.
-
-### Affected Packages / Versions
-
-- Package: `openclaw` (npm)
-- Affected: `<= 2026.2.1`
-- Fixed: `>= 2026.2.2`
-
-### Impact
-
-Only affects setups that explicitly enable the optional exec approvals allowlist feature. Default installs are unaffected.
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-3hcm-ggvf-rch5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mr32-vwc2-5j6h</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw's Browser Relay /cdp websocket is missing auth which could allow cross-tab cookie access</div>
-            <div class="card-body">### Summary
-In affected versions, the Browser Relay `/cdp` WebSocket endpoint did not require an authentication token. As a result, a website running in the browser could potentially connect to the local relay (via loopback WebSocket) and use CDP to access cookies from other open tabs and run JavaScript in the context of other tabs.
-
-### Affected P...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-mr32-vwc2-5j6h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-qj77-c3c8-9c3q</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw's Windows cmd.exe parsing may bypass exec allowlist/approval gating</div>
-            <div class="card-body">### Summary
-
-On Windows nodes, exec requests were executed via `cmd.exe /d /s /c <rawCommand>`. In allowlist/approval-gated mode, the allowlist analysis did not model Windows `cmd.exe` parsing and metacharacter behavior. A crafted command string could cause `cmd.exe` to interpret additional operations (for example command chaining via `&`, or expan...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-qj77-c3c8-9c3q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-64qx-vpxx-mvqf</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">OpenClaw has an arbitrary transcript path file write via gateway sessionFile</div>
-            <div class="card-body">## Summary
-
-In OpenClaw versions prior to 2026.2.12, the gateway accepted an untrusted `sessionFile` path when resolving the session transcript file. This could allow an authenticated gateway client to create and append OpenClaw session transcript records at an arbitrary path on the gateway host.
-
-## Affected Versions
-
-- Affected: openclaw `< 2026....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-64qx-vpxx-mvqf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hv93-r4j3-q65f</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">OpenClaw Hook Session Key Override Enables Targeted Cross-Session Routing</div>
-            <div class="card-body">## Summary
-The issue is not deterministic session keys by itself. The exploitable path was accepting externally supplied `sessionKey` values on authenticated hook ingress, allowing a hook token holder to route messages into chosen sessions.
-
-## Affected Behavior
-- `POST /hooks/agent` accepted payload `sessionKey` and used it directly for session ro...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-hv93-r4j3-q65f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-24126</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.6
-                </span>
-            </div>
-            <div class="card-title">Weblate has an argument injection in management console</div>
-            <div class="card-body">### Impact
-The SSH management console did not validate the passed input while adding the SSH host key, which could lead to an argument injection to `ssh-add`.
-
-### Patches
-* https://github.com/WeblateOrg/weblate/pull/17722
-
-### Workarounds
-Properly limit access to the management console.
-
-### References
-This issue was reported to us by [alexb_616](...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-33fm-6gp7-4p47" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-rv39-79c4-7459</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw's gateway connect could skip device identity checks when auth.token was present but not yet validated</div>
-            <div class="card-body">### Summary
-
-The gateway WebSocket `connect` handshake could allow skipping device identity checks when `auth.token` was present but not yet validated.
-
-### Details
-
-In `src/gateway/server/ws-connection/message-handler.ts`, the device-identity requirement could be bypassed based on the *presence* of a non-empty `connectParams.auth.token` rather tha...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-rv39-79c4-7459" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-22860</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Rack has a Directory Traversal via Rack:Directory</div>
-            <div class="card-body">## Summary
-
-`Rack::Directory`’s path check used a string prefix match on the expanded path. A request like `/../root_example/` can escape the configured root if the target path starts with the root string, allowing directory listing outside the intended root.
-
-## Details
-
-In `directory.rb`, `File.expand_path(File.join(root, path_info)).start_with?(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-mxw3-3hh2-x2mh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-69287</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">BSV Blockchain SDK has an Authentication Signature Data Preparation Vulnerability</div>
-            <div class="card-body"># BRC-104 Authentication Signature Data Preparation Vulnerability
-
-### Summary
-A critical cryptographic vulnerability in the TypeScript SDK's BRC-104 authentication implementation caused incorrect signature data preparation, resulting in signature incompatibility [between SDK implementations](https://github.com/F1r3Hydr4nt/brc104-cross-language-tes...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-17</span>
-                <a href="https://github.com/advisories/GHSA-vjpq-xx5g-qvmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-2469</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 7.6
-                </span>
-            </div>
-            <div class="card-title">ImapEngine affected by command injection via the ID command parameters</div>
-            <div class="card-body">Versions of the package `directorytree/imapengine` before 1.22.3 are vulnerable to Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') via the id() function in ImapConnection.php due to improperly escaping user input before including it in IMAP ID commands. This allows attackers to read or delete victi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-14</span>
-                <a href="https://github.com/advisories/GHSA-rfq9-4wcm-64gh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-26273</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Known affected by Account Takeover via Password Reset Token Leakage</div>
-            <div class="card-body">### Summary
-A Critical Broken Authentication vulnerability exists in Known 1.6.2. The application leaks the password reset token within a hidden HTML input field on the password reset page. This allows any unauthenticated attacker to retrieve the reset token for any user by simply querying the user's email, leading to full Account Takeover (ATO) wi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-78wq-6gcv-w28r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-w5cr-2qhr-jqc5</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Cloudflare Agents has a Reflected Cross-Site Scripting (XSS) vulnerability in AI Playground site</div>
-            <div class="card-body">## Summary
-
-A Reflected Cross-Site Scripting (XSS) vulnerability was discovered in the AI Playground's OAuth callback handler. The error_description query parameter was directly interpolated into an HTML script tag without proper escaping, allowing attackers to execute arbitrary JavaScript in the context of the victim's session.
-
-### Root cause
-
-Th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-w5cr-2qhr-jqc5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-p5vf-5754-x7p3</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">`polymarket-client-sdks` was removed from crates.io for malicious code</div>
-            <div class="card-body">It appeared to be typosquatting existing crate [`polymarket-client-sdk`](https://crates.io/crates/polymarket-client-sdk) (`sdks` vs `sdk`) and attempting to steal credentials from local files.
-
-The malicious crate had 1 version published on 2026-02-09 and had been downloaded only 33 times. There were no crates depending on this crate on crates.io.
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-p5vf-5754-x7p3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-c7ph-f7jm-xv4w</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">rPGP's integrity protection of encrypted data was not always checked</div>
-            <div class="card-body">### Summary
-For some messages, rPGP returned incorrectly decrypted data without signaling that integrity protection was invalid.
-
-### Details
-When decrypting SEIPD (Symmetrically Encrypted and Integrity Protected Data Packet), rPGP previously did not under all circumstances report the absence of valid integrity protection to callers of the library....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-c7ph-f7jm-xv4w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8h58-w33p-wq3g</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">rPGP affected by crash in message handling for deeply nested messages</div>
-            <div class="card-body">### Summary
-Previous rPGP versions could be caused to crash with a "stack overflow" when parsing messages that contain deeply nested message layers, such as messages with many signatures.
-
-rPGP 0.19.0 resolves this issue with a more robust message handling implementation (via https://github.com/rpgp/rpgp/pull/625).
-
-### Impact
-An attacker could cau...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-8h58-w33p-wq3g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7587-4wv6-m68m</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">rPGP vulnerable to parser crash on crafted RSA secret key packets through CVE-2026-21895</div>
-            <div class="card-body">### Summary
-It was possible to trigger an unhandled edge case in the Rust Crypto rsa crate through rPGP packet parsing functionality, and crash the process that runs rPGP. This problem has been patched in a new rsa version. The new release of rPGP ensures a patched version of the rsa crate is in use, which prevents this issue.
-
-### Details
-While pa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-7587-4wv6-m68m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8wc6-vgrq-x6cf</span>
+                <span class="cve-id">GHSA-5xfq-5mr7-426q</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.5
                 </span>
             </div>
-            <div class="card-title">Child processes spawned by Renovate incorrectly have full access to environment variables</div>
-            <div class="card-body">When Renovate spawns child processes, their access to environment variables is filtered to an allowlist, to prevent unauthorized access to privileged credentials that the Renovate process has access to.
+            <div class="card-title">OpenClaw's unsanitized session ID enables path traversal in transcript file operations</div>
+            <div class="card-body">## Description
 
-Since [42.68.1](https://github.com/renovatebot/renovate/releases/tag/42.68.1) (2025-12-30), this filtering had been **inadvertently removed**, and...</div>
+OpenClaw versions **<= 2026.2.9** construct transcript file paths using an unsanitized `sessionId` and also accept `sessionFile` paths without enforcing that they stay within the agent sessions directory.
+
+A crafted `sessionId` and/or `sessionFile` (example: `../../etc/passwd`) can cause path traversal when the gateway performs tran...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-8wc6-vgrq-x6cf" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-5xfq-5mr7-426q" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2025-23368</span>
+                <span class="cve-id">CVE-2026-26960</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
+                    HIGH 7.1
                 </span>
             </div>
-            <div class="card-title">Wildfly Elytron integration susceptible to brute force attacks via CLI</div>
-            <div class="card-body">### Impact
-
-A flaw was found in Wildfly Elytron integration. The component does not implement sufficient measures to prevent multiple failed authentication attempts within a short time frame, making it more susceptible to brute force attacks via CLI.
-
-### Patches
-
-The default behaviour has been changed in WildFly Core 31.0.3.Final, and 32.0.0.Beta3...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-qhp6-6p8p-2rqh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-g433-pq76-6cmf</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Bug fixes in hpke-rs, hpke-rs-rust-crypto</div>
-            <div class="card-body">We publish a GitHub security advisory for any releases whose CHANGELOG includes bug-fixes, and encourage our users to upgrade. The latest releases of the hpke-rs and hpke-rs-rust-crypto crates contain the following bug-fixes:
-
-## hpke-rs
-- [#127](https://github.com/cryspen/hpke-rs/pull/127): Fix `KemAlgorithm::TryFrom<u16>` mapping where `0x004D` i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-g433-pq76-6cmf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-26226</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">beautiful-mermaid contains an SVG attribute injection issue that can lead to cross-site scripting (XSS)</div>
-            <div class="card-body">beautiful-mermaid versions prior to 0.1.3 contain an SVG attribute injection issue that can lead to cross-site scripting (XSS) when rendering attacker-controlled Mermaid diagrams. User-controlled values from Mermaid style and classDef directives are interpolated into SVG attribute values without proper escaping, allowing crafted input to break out ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-cgmm-x5ww-q5cr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-27jp-wm6q-gp25</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">sqlparse: formatting list of tuples leads to denial of service</div>
+            <div class="card-title">Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction</div>
             <div class="card-body">### Summary
-The below gist hangs while attempting to format a long list of tuples.
+`tar.extract()` in Node `tar` allows an attacker-controlled archive to create a hardlink inside the extraction directory that points to a file outside the extraction root, using default options.
 
-This was found while [drafting a regression test for Dja
-ngo 5.2's composite primary key feature](https://code.djangoproject.com/ticket/36416#comment:3), which allows querying composite fields with tuples.
+This enables **arbitrary file read and write** as the extracting user (no root, no chmod, no `preservePaths`).
 
-###...</div>
+Severity is high because the p...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-27jp-wm6q-gp25" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-83g3-92jg-28cx" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-26187</span>
+                <span class="cve-id">GHSA-w5c7-9qqw-6645</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">lakeFS vulnerable to path traversal in local block adapter allow cross-namespace and sibling directory access</div>
+            <div class="card-title">OpenClaw inter-session prompts could be treated as direct user instructions</div>
             <div class="card-body">## Summary
 
-Two path traversal vulnerabilities in the local block adapter allow authenticated users to read and write files outside their designated storage boundaries.
+Inter-session messages sent via `sessions_send` could be interpreted as direct end-user instructions because they were persisted as `role: "user"` without provenance metadata.
+
+## Affected Packages / Versions
+
+- Package: `openclaw` (npm)
+- Affected versions: `<= 2026.2.12` (i.e. `< 2026.2.13`)
+- Fixed in: `2026.2.13` (patched versions `...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-w5c7-9qqw-6645" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26957</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Libredesk has a SSRF Vulnerability in Webhooks</div>
+            <div class="card-body">**Date:** 2025-12-07
+**Vulnerability:** Server-Side Request Forgery (SSRF)
+**Component:** Webhooks Module
+
+## Executive Summary
+A critical security vulnerability exists in the LibreDesk Webhooks module that allows an authenticated "Application Admin" to compromise the underlying cloud infrastructure or internal corporate network where this service ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-wgm6-9rvv-3438" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jqpq-mgvm-f9r6</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">OpenClaw: Command hijacking via unsafe PATH handling (bootstrapping + node-host PATH overrides)</div>
+            <div class="card-body"># Command hijacking via PATH handling
+
+**Discovered:** 2026-02-04
+**Reporter:** @akhmittra
+
+## Summary
+
+OpenClaw previously accepted untrusted PATH sources in limited situations. In affected versions, this could cause OpenClaw to resolve and execute an unintended binary ("command hijacking") when running host commands.
+
+This issue primarily matters...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-jqpq-mgvm-f9r6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-pg2v-8xwh-qhcc</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw affected by SSRF in optional Tlon (Urbit) extension authentication</div>
+            <div class="card-body">## Summary
+The optional Tlon (Urbit) extension previously accepted a user-provided base URL for authentication and used it to construct an outbound HTTP request, enabling server-side request forgery (SSRF) in affected deployments.
+
+## Impact
+This only affects deployments that have installed and configured the Tlon (Urbit) extension, and where an at...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-pg2v-8xwh-qhcc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-c37p-4qqg-3p76</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw Twilio voice-call webhook auth bypass when ngrok loopback compatibility is enabled</div>
+            <div class="card-body">## Summary
+
+A Twilio webhook signature-verification bypass in the voice-call extension could allow unauthenticated webhook requests when a specific ngrok free-tier compatibility option is enabled.
+
+## Impact
+
+This issue is limited to configurations that explicitly enable and expose the voice-call webhook endpoint.
+
+Not affected by default:
+- The vo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-c37p-4qqg-3p76" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-mj5r-hh7j-4gxf</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">OpenClaw Telegram allowlist authorization accepted mutable usernames</div>
+            <div class="card-body">## Summary
+Telegram allowlist authorization could match on `@username` (mutable/recyclable) instead of immutable numeric sender IDs.
+
+## Impact
+Operators who treat Telegram allowlists as strict identity controls could unintentionally grant access if a username changes hands (identity rebinding/spoof risk). This can allow an unauthorized sender to i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-mj5r-hh7j-4gxf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-rq6g-px6m-c248</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenClaw Google Chat shared-path webhook target ambiguity allowed cross-account policy-context misrouting</div>
+            <div class="card-body">## Summary
+When multiple Google Chat webhook targets are registered on the same HTTP path, and request verification succeeds for more than one target, inbound webhook events could be routed by first-match semantics. This can cause cross-account policy/context misrouting.
+
+## Affected Packages / Versions
+- npm: `openclaw` <= 2026.2.13
+- npm: `clawdb...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-rq6g-px6m-c248" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26317</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">OpenClaw affected by cross-site request forgery (CSRF) through loopback browser mutation endpoints</div>
+            <div class="card-body">## Summary
+Browser-facing localhost mutation routes accepted cross-origin browser requests without explicit Origin/Referer validation. Loopback binding reduces remote exposure but does not prevent browser-initiated requests from malicious origins.
+
+## Impact
+A malicious website can trigger unauthorized state changes against a victim's local OpenCla...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-3fqr-4cg8-h96q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-q447-rj3r-2cgh</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw affected by denial of service via unbounded webhook request body buffering</div>
+            <div class="card-body">### Summary
+Multiple webhook handlers accepted and buffered request bodies without a strict unified byte/time limit. A remote unauthenticated attacker could send oversized payloads and cause memory pressure, degrading availability.
+
+### Details
+Affected packages:
+- `openclaw` (npm): `<2026.2.12`
+- `clawdbot` (npm): `<=2026.1.24-3`
+
+Root cause:
+- We...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-q447-rj3r-2cgh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-h89v-j3x9-8wqj</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw affected by denial of service through unguarded archive extraction allowing high expansion/resource abuse (ZIP/TAR)</div>
+            <div class="card-body">## Summary
+Archive extraction lacked strict resource budgets, allowing high-expansion ZIP/TAR archives to consume excessive CPU/memory/disk during install/update flows.
+
+## Affected Packages / Versions
+- openclaw (npm): <= 2026.2.13
+- clawdbot (npm): <= 2026.1.24-3
 
 ## Details
+Affected component: `src/infra/archive.ts` (`extractArchive`).
 
-The local block adapter in `pkg/block/local/adapter.go` had two path traversal vulnerabilities:
-
-### 1. Prefix Bypass Vulnerability
-
-The `verifyRelPath` function used `...</div>
+The extr...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-699m-4v95-rmpm" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-h89v-j3x9-8wqj" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-20796</span>
+                <span class="cve-id">GHSA-w2cg-vxx6-5xjg</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw: denial of service through large base64 media files allocating large buffers before limit checks</div>
+            <div class="card-body">## Summary
+
+Base64-backed media inputs could be decoded into Buffers before enforcing decoded-size budgets. An attacker supplying oversized base64 payloads can force large allocations, causing memory pressure and denial of service.
+
+## Attack Scenario Notes
+
+- Recommended deployments bind the gateway to loopback by default and require gateway auth ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-w2cg-vxx6-5xjg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-j27p-hq53-9wgc</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw affected by denial of service via unbounded URL-backed media fetch</div>
+            <div class="card-body">### Summary
+URL-backed media fetch handling allocated the entire response payload in memory (`arrayBuffer`) before enforcing `maxBytes`, allowing oversized responses to cause memory exhaustion.
+
+### Affected Versions
+- `openclaw` (npm): < `2026.2.14`
+- `clawdbot` (npm): <= `2026.1.24-3`
+
+### Patched Versions
+- `openclaw` (npm): `2026.2.14`
+
+### Fix...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-j27p-hq53-9wgc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-v773-r54f-q32w</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">OpenClaw Slack: dmPolicy=open allowed any DM sender to run privileged slash commands</div>
+            <div class="card-body">## Summary
+
+When Slack DMs are configured with `dmPolicy=open`, the Slack slash-command handler incorrectly treated any DM sender as command-authorized. This allowed any Slack user who could DM the bot to execute privileged slash commands via DM, bypassing intended allowlist/access-group restrictions.
+
+## Affected Packages / Versions
+
+- Package: `o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-v773-r54f-q32w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xvhf-x56f-2hpp</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.7
+                </span>
+            </div>
+            <div class="card-title">OpenClaw exec approvals: safeBins could bypass stdin-only constraints via shell expansion</div>
+            <div class="card-body">## Summary
+
+OpenClaw's exec-approvals allowlist supports a small set of "safe bins" intended to be stdin-only (no positional file arguments) when running `tools.exec.host=gateway|node` with `security=allowlist`.
+
+In affected configurations, the allowlist validation checked pre-expansion argv tokens, but execution used a real shell (`sh -c`) which e...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-xvhf-x56f-2hpp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26323</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenClaw has a command injection in maintainer clawtributors updater</div>
+            <div class="card-body">### Summary
+Command injection in the maintainer/dev script `scripts/update-clawtributors.ts`.
+
+### Impact
+Affects contributors/maintainers (or CI) who run `bun scripts/update-clawtributors.ts` in a source checkout that contains a malicious commit author email (e.g. crafted `@users.noreply.github.com` values).
+
+Normal CLI usage is not affected (`npm...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-m7x8-2w3w-pr42" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26329</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenClaw has a path traversal in browser upload allows local file read</div>
+            <div class="card-body">## Summary
+
+Authenticated attackers can read arbitrary files from the Gateway host by supplying absolute paths or path traversal sequences to the browser tool's `upload` action. The server passed these paths to Playwright's `setInputFiles()` APIs without restricting them to a safe root.
+
+Severity remains **High** due to the impact (arbitrary local ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-cv7m-c9jx-vg7q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26328</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw iMessage group allowlist authorization inherited DM pairing-store identities</div>
+            <div class="card-body">## Summary
+Under iMessage `groupPolicy=allowlist`, group authorization could be satisfied by sender identities coming from the DM pairing store, broadening DM trust into group contexts.
+
+## Details
+Affected component: `src/imessage/monitor/monitor-provider.ts`.
+
+Vulnerable logic derived `effectiveGroupAllowFrom` using both the static group allowlis...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-g34w-4xqq-h79m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26327</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenClaw allows unauthenticated discovery TXT records could steer routing and TLS pinning</div>
+            <div class="card-body">## Summary
+
+Discovery beacons (Bonjour/mDNS and DNS-SD) include TXT records such as `lanHost`, `tailnetDns`, `gatewayPort`, and `gatewayTlsSha256`. TXT records are unauthenticated.
+
+Prior to the fix, some clients treated TXT values as authoritative routing/pinning inputs:
+
+- iOS and macOS: used TXT-provided host hints (`lanHost`/`tailnetDns`) and p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-18</span>
+                <a href="https://github.com/advisories/GHSA-pv58-549p-qh99" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-chm2-m3w2-wcxm</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.1
+                    LOW None
                 </span>
             </div>
-            <div class="card-title">Mattermost doesn't properly validate channel membership at the time of data retrieval</div>
-            <div class="card-body">Mattermost versions 10.11.x <= 10.11.9 fail to properly validate channel membership at the time of data retrieval which allows a deactivated user to learn team names they should not have access to via a race condition in the /common_teams API endpoint.. Mattermost Advisory ID: MMSA-2025-00549...</div>
+            <div class="card-title">OpenClaw Google Chat spoofing access with allowlist authorized mutable email principal despite sender-ID mismatch</div>
+            <div class="card-body">### Summary
+Google Chat allowlisting supports matching by sender email in addition to immutable sender resource name (`users/<id>`). This weakens identity binding if a deployment assumes allowlists are strictly keyed by immutable principals.
+
+### Affected Packages / Versions
+(As of 2026-02-14; based on latest published npm versions)
+- `openclaw` (n...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-2xf7-hmf6-p64j" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-chm2-m3w2-wcxm" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2025-33042</span>
+                <span class="cve-id">CVE-2026-26326</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Apache Avro Java SDK is Vulnerable to Code Injection</div>
-            <div class="card-body">Improper Control of Generation of Code ('Code Injection') vulnerability in Apache Avro Java SDK when generating specific records from untrusted Avro schemas.
+            <div class="card-title">OpenClaw skills.status could leak secrets to operator.read clients</div>
+            <div class="card-body">### Summary
 
-This issue affects Apache Avro Java SDK: all versions through 1.11.4 and version 1.12.0.
+`skills.status` could disclose secrets to `operator.read` clients by returning raw resolved config values in `configChecks` for skill `requires.config` paths.
 
-Users are recommended to upgrade to version 1.12.1 or 1.11.5, which fix the issue....</div>
+### Affected Packages / Versions
+
+- Package: `openclaw` (npm)
+- Affected: `<= 2026.2.13`
+- Patched: `2026.2.14`
+
+### Details
+
+The gateway method `skills.status` returned a requi...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-rp46-r563-jrc7" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-8mh7-phf8-xgfm" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-22892</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
+                <span class="cve-id">CVE-2026-26325</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
                 </span>
             </div>
-            <div class="card-title">Mattermost doesn't validate user permissions when creating Jira issues from Mattermost posts</div>
-            <div class="card-body">Mattermost versions 11.1.x <= 11.1.2, 10.11.x <= 10.11.9, 11.2.x <= 11.2.1 fail to validate user permissions when creating Jira issues from Mattermost posts, which allows an authenticated attacker with access to the Jira plugin to read post content and attachments from channels they do not have access to via the /create-issue API endpoint by provid...</div>
+            <div class="card-title">OpenClaw Node host system.run rawCommand/command mismatch can bypass allowlist/approvals</div>
+            <div class="card-body">## Summary
+
+A mismatch between `rawCommand` and `command[]` in the node host `system.run` handler could cause allowlist/approval evaluation to be performed on one command while executing a different argv.
+
+## Affected Configurations
+
+This only impacts deployments that:
+
+- Use the node host / companion node execution path (`system.run` on a node).
+-...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-9pj7-jh2r-87g8" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-h3f9-mjwj-w476" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-1721</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                <span class="cve-id">CVE-2026-26324</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">Cloudflare Agents is Vulnerable to Reflected Cross-Site Scripting in the AI Playground's OAuth callback handler</div>
-            <div class="card-body">Summary
+            <div class="card-title">OpenClaw has a SSRF guard bypass via full-form IPv4-mapped IPv6 (loopback / metadata reachable)</div>
+            <div class="card-body">### Summary
 
-A Reflected Cross-Site Scripting (XSS) vulnerability was discovered in the AI Playground's OAuth callback handler. The `error_description` query parameter was directly interpolated into an HTML script tag without proper escaping, allowing attackers to execute arbitrary JavaScript in the context of the victim's session.
+OpenClaw's SSRF protection could be bypassed using full-form IPv4-mapped IPv6 literals such as `0:0:0:0:0:ffff:7f00:1` (which is `127.0.0.1`). This could allow requests that should be blocked (loopback / private network / link-local metadata) to pass the SSRF guard.
 
-Root cause
-
-The OAu...</div>
+- Vulnerable component: SSRF guard (`src/infra/net/ssrf.ts`)
+- Issue ...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-13</span>
-                <a href="https://github.com/advisories/GHSA-cvhv-6xm6-c3v4" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-jrvc-8ff5-2f9f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26322</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.6
+                </span>
+            </div>
+            <div class="card-title">OpenClaw Gateway tool allowed unrestricted gatewayUrl override</div>
+            <div class="card-body">## Summary
+The Gateway tool accepted a tool-supplied `gatewayUrl` without sufficient restrictions, which could cause the OpenClaw host to attempt outbound WebSocket connections to user-specified targets.
+
+## Affected Packages / Versions
+- Package: `openclaw` (npm)
+- Affected versions: `<= 2026.2.13`
+- Patched versions: `>= 2026.2.14` (planned)
+
+## ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-g6q9-8fvw-f7rf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26321</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw has a local file disclosure via sendMediaFeishu in Feishu extension</div>
+            <div class="card-body">### Summary
+The Feishu extension previously allowed `sendMediaFeishu` to treat attacker-controlled `mediaUrl` values as local filesystem paths and read them directly.
+
+### Affected versions
+- `< 2026.2.14`
+
+### Patched versions
+- `>= 2026.2.14`
+
+### Impact
+If an attacker can influence tool calls (directly or via prompt injection), they may be able ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-8jpq-5h99-ff5r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26320</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenClaw macOS deep link confirmation truncation can conceal executed agent message</div>
+            <div class="card-body">### Summary
+OpenClaw macOS desktop client registers the `openclaw://` URL scheme. For `openclaw://agent` deep links without an unattended `key`, the app shows a confirmation dialog that previously displayed only the first 240 characters of the message, but executed the full message after the user clicked "Run".
+
+At the time of writing, the OpenClaw...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-7q2j-c4q5-rm27" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26319</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaw is Missing Webhook Authentication in Telnyx Provider Allows Unauthenticated Requests</div>
+            <div class="card-body">## Summary
+
+In affected versions, OpenClaw's optional `@openclaw/voice-call` plugin Telnyx webhook handler could accept unsigned inbound webhook requests when `telnyx.publicKey` was not configured, allowing unauthenticated callers to forge Telnyx events.
+
+This only impacts deployments where the Voice Call plugin is installed, enabled, and the webho...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-4hg8-92x6-h2f3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-qrq5-wjgg-rvqw</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">OpenClaw has a Path Traversal in Plugin Installation</div>
+            <div class="card-body">### Summary
+
+OpenClaw's plugin installation path derivation could be abused by a malicious plugin `package.json` `name` to escape the intended extensions directory and write files to a parent directory.
+
+### Affected Packages / Versions
+
+- Package: `openclaw` (npm)
+- Affected: `>= 2026.1.20, < 2026.2.1`
+- Fixed: `>= 2026.2.1`
+- Latest published as ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-17</span>
+                <a href="https://github.com/advisories/GHSA-qrq5-wjgg-rvqw" target="_blank">Full Report →</a>
             </div>
         </div>
         
