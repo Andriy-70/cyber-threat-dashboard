@@ -68,10 +68,397 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-24 18:42 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-25 01:04 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27598</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Dagu: Path traversal in DAG creation allows arbitrary YAML file write outside DAGs directory</div>
+            <div class="card-body">The `CreateNewDAG` API endpoint (`POST /api/v1/dags`) does not validate the DAG name before passing it to the file store. While `RenameDAG` calls `core.ValidateDAGName()` to reject names containing path separators (line 273 in `dags.go`), `CreateNewDAG` skips this validation entirely and passes user input directly to `dagStore.Create()`.
+
+In `inter...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-6v48-fcq6-ff23" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-mxhj-88fx-4pcv</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Fickling: OBJ opcode call invisibility bypasses all safety checks</div>
+            <div class="card-body"># Assessment
+
+The interpreter so it behaves closer to CPython when dealing with `OBJ`, `NEWOBJ`, and `NEWOBJ_EX` opcodes (https://github.com/trailofbits/fickling/commit/ff423dade2bb1f72b2b48586c022fac40cbd9a4a).
+
+# Original report
+
+## Summary
+
+All 5 of fickling's safety interfaces -- `is_likely_safe()`, `check_safety()`, CLI `--check-safety`, `alwa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-mxhj-88fx-4pcv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27593</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">Statamic is vulnerable to account takeover via password reset link injection</div>
+            <div class="card-body">## Impact
+
+An attacker may leverage a vulnerability in the password reset feature to capture a user's token and reset the password on their behalf.
+
+The attacker must know the email address of a valid account on the site, and the actual user must blindly click the link in their email even though they didn't request the reset.
+
+## Patches
+
+This has ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-jxq9-79vj-rgvw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27572</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Wasmtime can panic when adding excessive fields to a `wasi:http/types.fields` instance</div>
+            <div class="card-body">### Impact
+
+Wasmtime's implementation of the `wasi:http/types.fields` resource is susceptible to panics when too many fields are added to the set of headers. Wasmtime's implementation in the `wasmtime-wasi-http` crate is backed by a data structure which panics when it reaches excessive capacity and this condition was not handled gracefully in Wasmt...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-243v-98vx-264h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25882</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Fiber has a Denial of Service Vulnerability via Route Parameter Overflow</div>
+            <div class="card-body">A denial of service vulnerability exists in Fiber v2 and v3 that allows remote attackers to crash the application by sending requests to routes with more than 30 parameters. The vulnerability results from missing validation during route registration combined with an unbounded array write during request matching.
+
+## Affected Versions
+
+- **Fiber v3....</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-mrq8-rjmw-wpq3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25899</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Fiber is Vulnerable to Denial of Service via Flash Cookie Unbounded Allocation</div>
+            <div class="card-body">### Summary
+The use of the `fiber_flash` cookie can force an unbounded allocation on any server. A crafted 10-character cookie value triggers an attempt to allocate up to 85GB of memory via unvalidated msgpack deserialization. No authentication is required. Every GoFiber v3 endpoint is affected regardless of whether the application uses flash messa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-2mr3-m5q5-wgp6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25891</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Fiber has an Arbitrary File Read in Static Middleware on Windows</div>
+            <div class="card-body">### Summary
+
+**Description**
+A Path Traversal (CWE-22) vulnerability in Fiber allows a remote attacker to bypass the static middleware sanitizer and read arbitrary files on the server file system on Windows. This affects Fiber v3 through version 3.0.0. This has been patched in Fiber v3 version 3.1.0.
+ 
+### Details
+The vulnerability resides in `midd...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-m3c2-496v-cw3v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27204</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Wasmtime WASI implementations are vulnerable to guest-controlled resource exhaustion</div>
+            <div class="card-body">### Impact
+
+Wasmtime's implementation of WASI host interfaces are susceptible to guest-controlled resource exhaustion on the host. Wasmtime did not appropriately place limits on resource allocations requested by the guests. This serves as a Denial of Service vector where a guest can induce a range of crashing behaviors on the host such as:
+
+* Alloc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-852m-cvvp-9p4w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27195</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Wasmtime is vulnerable to panic when dropping a `[Typed]Func::call_async` future</div>
+            <div class="card-body">The affected versions of Wasmtime can panic if the host embedder drops the future returned by `wasmtime::component::[Typed]Func::call_async` before it resolves.
+
+### Details
+
+Starting with Wasmtime 39.0.0, the `component-model-async` feature became the default, which brought with it a new implementation of `[Typed]Func::call_async` which made it ca...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-xjhv-v822-pf94" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27590</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Caddy: Unicode case-folding length expansion causes incorrect split_path index in FastCGI transport</div>
+            <div class="card-body">### Summary
+
+Caddy's FastCGI path splitting logic computes the split index on a lowercased copy of the request path and then uses that byte index to slice the original path. This is unsafe for Unicode because `strings.ToLower()` can change UTF-8 byte length for some characters. As a result, Caddy can derive an incorrect `SCRIPT_NAME`/`SCRIPT_FILENA...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-5r3v-vc8m-m96g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27589</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Caddy is vulnerable to cross-origin config application via local admin API /load </div>
+            <div class="card-body">commit: e0f8d9b2047af417d8faf354b675941f3dac9891 (as-of 2026-02-04)
+channel: GitHub security advisory (per SECURITY.md)
+
+## summary
+
+The local caddy admin API (default listen `127.0.0.1:2019`) exposes a state-changing `POST /load` endpoint that replaces the entire running configuration.
+
+When origin enforcement is not enabled (`enforce_origin` not ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-879p-475x-rqh2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27588</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Caddy: MatchHost becomes case-sensitive for large host lists (>100), enabling host-based route/auth bypass</div>
+            <div class="card-body">### Summary
+Caddy's HTTP `host` request matcher is documented as case-insensitive, but when configured with a large host list (>100 entries) it becomes case-sensitive due to an optimized matching path. An attacker can bypass host-based routing and any access controls attached to that route by changing the casing of the `Host` header.
+
+### Details
+I...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-x76f-jf84-rqj8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27587</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Caddy: MatchPath %xx (escaped-path) branch skips case normalization, enabling path-based route/auth bypass</div>
+            <div class="card-body">### Summary
+Caddy's HTTP `path` request matcher is intended to be case-insensitive, but when the match pattern contains percent-escape sequences (`%xx`) it compares against the request's escaped path without lowercasing. An attacker can bypass path-based routing and any access controls attached to that route by changing the casing of the request pa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-g7pc-pc7g-h8jh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27586</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Caddy: mTLS client authentication silently fails open when CA certificate file is missing or malformed</div>
+            <div class="card-body">### Summary
+
+Two swallowed errors in `ClientAuthentication.provision()` cause mTLS client certificate authentication to silently fail open when a CA certificate file is missing, unreadable, or malformed. The server starts without error but accepts any client certificate signed by any system-trusted CA, completely bypassing the intended private CA t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-hffm-g8v7-wrv7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27585</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Caddy: Improper sanitization of glob characters in file matcher may lead to bypassing security protections</div>
+            <div class="card-body">### Summary
+
+The path sanitization in [file matcher](https://github.com/caddyserver/caddy/blob/68d50020eef0d4c3398b878f17c8092ca5b58ca0/modules/caddyhttp/fileserver/matcher.go#L361) doesn't sanitize backslashes which can lead to bypassing path related security protections.
+
+### Details
+
+The [try_files](https://caddyserver.com/docs/caddyfile/directi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-4xrr-hq4w-6vf4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27584</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">ActualBudget server is Missing Authentication for SimpleFIN and Pluggy AI bank sync endpoints</div>
+            <div class="card-body">### Summary
+
+Missing authentication middleware in the ActualBudget server component allows any unauthenticated user to query the SimpleFIN and Pluggy.ai integration endpoints and read sensitive bank account balance and transaction information.
+
+### Impact
+
+This vulnerability allows an unauthenticated attacker to read the bank account balance and tr...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-m2cq-xjgm-f668" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27567</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Payload: Server-Side Request Forgery (SSRF) in External File URL Uploads</div>
+            <div class="card-body">### Impact
+
+A Server-Side Request Forgery (SSRF) vulnerability exists in Payload's external file upload functionality. When processing external URLs for file uploads, insufficient validation of HTTP redirects could allow an authenticated attacker to access internal network resources.
+
+**Users are affected if ALL of these are true**:
+
+- Payload vers...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-hhfx-5x8j-f5f6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27483</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">MindsDB: Path Traversal in /api/files Leading to Remote Code Execution</div>
+            <div class="card-body">### Summary
+
+There is a path traversal vulnerability in Mindsdb's /api/files interface, which an authenticated attacker can exploit to achieve remote command execution.
+
+### Details
+
+The vulnerability exists in the "Upload File" module, which corresponds to the API endpoint /api/files. The affected code is located at mindsdb/api/http/namespaces/fil...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-4894-xqv6-vrfq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27461</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Pimcore vulnerable to SQL injection via unsanitized filter value in Dependency Dao RLIKE clause</div>
+            <div class="card-body">The filter query parameter in the dependency listing endpoints is JSON-decoded and the value field is concatenated directly into RLIKE clauses without sanitization or parameterized queries.
+
+Affected code in models/Dependency/Dao.php:
+- getFilterRequiresByPath() lines 90, 95, 100
+- getFilterRequiredByPath() lines 148, 153, 158
+
+All 6 locations use ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-vxg3-v4p6-f3fp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27156</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 6.1
+                </span>
+            </div>
+            <div class="card-title">NiceGUI vulnerable to XSS via Code Injection during client-side element function execution</div>
+            <div class="card-body">### Summary
+
+Several NiceGUI APIs that execute methods on client-side elements (`Element.run_method()`, `AgGrid.run_grid_method()`, `EChart.run_chart_method()`, and others) use an `eval()` fallback in the JavaScript-side `runMethod()` function. When user-controlled input is passed as the method name, an attacker can inject arbitrary JavaScript that...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-24</span>
+                <a href="https://github.com/advisories/GHSA-78qv-3mpx-9cqq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-27571</span>
@@ -239,370 +626,6 @@ Direct leak of 13512 byte(s) in 1 object(s) allocated from:
             <div class="card-footer">
                 <span>Published: 2026-02-24</span>
                 <a href="https://github.com/advisories/GHSA-42p5-62qq-mmh7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25985</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Memory allocation with excessive without limits in the internal SVG decoder</div>
-            <div class="card-body">A crafted SVG file containing an malicious element causes ImageMagick to attempt to allocate ~674 GB of memory, leading to an out-of-memory abort.
-
-Found via AFL++ fuzzing with afl-clang-lto instrumentation and AddressSanitizer....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-v7g2-m8c5-mf84" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25983</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has Use After Free in MSLStartElement in "coders/msl.c"</div>
-            <div class="card-body">A crafted MSL script triggers a heap-use-after-free. The operation element handler replaces and frees the image while the parser continues reading from it, leading to a UAF in ReadBlobString during further parsing....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-fwqw-2x5x-w566" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25969</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Image Magick has a Memory Leak in coders/ashlar.c</div>
-            <div class="card-body">Memory leak exists in `coders/ashlar.c`. The `WriteASHLARImage` allocates a structure.  However, when an exception is thrown, the allocated memory is not properly released, resulting in a potential memory leak.
-
-```
-```bash
-==78968== Memcheck, a memory error detector
-==78968== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==78968=...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-xgm3-v4r9-wfgm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25967</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Stack buffer overflow in FTXT reader via oversized integer field</div>
-            <div class="card-body">### Summary
-A stack-based buffer overflow exists in the ImageMagick FTXT image reader. A crafted FTXT file can cause out-of-bounds writes on the stack, leading to a crash.
-
-```
-=================================================================
-==3537074==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffee4850ef0 at pc 0x5607c408fb33 bp...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-72hf-fj62-w6j4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25966</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">ImageMagick's Security Policy Bypass through config/policy-secure.xml via "fd handler" leads to stdin/stdout access</div>
-            <div class="card-body">The shipped “secure” security policy includes a rule intended to prevent reading/writing from standard streams:
-
-```xml
-<policy domain="path" rights="none" pattern="-"/>
-```
-
-However, ImageMagick also supports fd:<n> pseudo-filenames (e.g., fd:0, fd:1). This path form is not blocked by the secure policy templates, and therefore bypasses the protect...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-xwc6-v6g8-pw2h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25965</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Policy bypass through path traversal allows reading restricted content despite secured policy</div>
-            <div class="card-body">ImageMagick’s path security policy is enforced on the raw filename string before the filesystem resolves it. As a result, a policy rule such as /etc/* can be bypassed by a path traversal. The OS resolves the traversal and opens the sensitive file, but the policy matcher only sees the unnormalized path and therefore allows the read. This enables loc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-8jvj-p28h-9gm7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25898</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has Global Buffer Overflow (OOB Read) via Negative Pixel Index in UIL and XPM Writer</div>
-            <div class="card-body">The UIL and XPM image encoder do not validate the pixel index value returned by `GetPixelIndex()` before using it as an array subscript. In HDRI builds, `Quantum` is a floating-point type, so pixel index values can be negative. An attacker can craft an image with negative pixel index values to trigger a global buffer overflow read during conversion...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-vpxv-r9pg-7gpr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25897</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Heap overflow in sun decoder on 32-bit systems may result in out of bounds write</div>
-            <div class="card-body">An Integer Overflow vulnerability exists in the sun decoder. On 32-bit systems/builds, a carefully crafted image can lead to an out of bounds heap write.
-
-```
-=================================================================
-==1967675==ERROR: AddressSanitizer: heap-buffer-overflow on address 0xf190b50e at pc 0x5eae8777 bp 0xffb0fdd8 sp 0xffb0fdd0
-W...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-6j5f-24fw-pqp4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25799</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has Division-by-Zero in YUV sampling factor validation, which leads to crash</div>
-            <div class="card-body">A logic error in YUV sampling factor validation allows an invalid sampling factor to bypass checks and trigger a division-by-zero during image loading, resulting in a reliable denial-of-service.
-
-```
-coders/yuv.c:210:47: runtime error: division by zero
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-=...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-543g-8grm-9cw6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25798</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has NULL Pointer Dereference in ClonePixelCacheRepository via crafted image</div>
-            <div class="card-body">A NULL pointer dereference in ClonePixelCacheRepository allows a remote attacker to crash any application linked against ImageMagick by supplying a crafted image file, resulting in Denial of Service.
-
-```
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==3704942==ERROR: AddressSanitizer: UNKNOWN SIGNA...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-p863-5fgm-rgq4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25797</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.7
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Code Injection via PostScript header in ps coders</div>
-            <div class="card-body">The ps encoders, responsible for writing PostScript files, fails to sanitize the input before writing it into the PostScript header.  An attacker can provide a malicious file and inject arbitrary PostScript code. When the resulting file is processed by a printer or a viewer (like Ghostscript), the injected code is interpreted and executed.
-
-The htm...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-rw6c-xp26-225v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25796</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has memory leak of watermark Image object in ReadSTEGANOImage on multiple error/early-return paths</div>
-            <div class="card-body">### Summary
-
-In `ReadSTEGANOImage()` (`coders/stegano.c`), the `watermark` Image object is not freed on three early-return paths, resulting in a definite memory leak (~13.5KB+ per invocation) that can be exploited for denial of service.
-
-```
-Direct leak of 13512 byte(s) in 1 object(s) allocated from:
-    #0 0x7f5c11e27887 in __interceptor_malloc .....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-g2pr-qxjg-7r2w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25795</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has NULL pointer dereference in ReadSFWImage after DestroyImageInfo (sfw.c)</div>
-            <div class="card-body">In `ReadSFWImage()` (`coders/sfw.c`), when temporary file creation fails, `read_info` is destroyed before its `filename` member is accessed, causing a NULL pointer dereference and crash.
-
-```
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==1414421==ERROR: AddressSanitizer: UNKNOWN SIGNAL on unknown ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-p33r-fqw2-rqmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25794</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has heap-buffer-overflow via signed integer overflow in WriteUHDRImage when writing UHDR images with large dimensions</div>
-            <div class="card-body">`WriteUHDRImage` in `coders/uhdr.c` uses `int` arithmetic to compute the pixel buffer size. When image dimensions are large, the multiplication overflows 32-bit `int`, causing an undersized heap allocation followed by an out-of-bounds write. This can crash the process or potentially lead to an out of bounds heap write.
-```
-==1575126==ERROR: Address...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-vhqj-f5cj-9x8h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25638</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has memory leak in msl encoder</div>
-            <div class="card-body">Memory leak exists in `coders/msl.c`. In the `WriteMSLImage` function of the `msl.c` file, resources are allocated. But the function returns early without releasing these allocated resources. 
-
-```
-==78983== Memcheck, a memory error detector
-==78983== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==78983== Using Valgrind-3.22.0 an...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-gxcx-qjqp-8vjw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25637</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Possible memory leak in ASHLAR encoder</div>
-            <div class="card-body">A memory leak in the ASHLAR image writer allows an attacker to exhaust process memory by providing a crafted image that results in small objects that are allocated but never freed.
-
-```
-==880062== Memcheck, a memory error detector
-==880062== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==880062== Using Valgrind-3.18.1 and LibVEX;...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-gm37-qx7w-p258" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25576</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.1
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Out of bounds read in multiple coders read raw pixel data</div>
-            <div class="card-body">A heap buffer over-read vulnerability exists in multiple raw image format handles. The vulnerability occurs when processing images with -extract dimensions larger than -size dimensions, causing out-of-bounds memory reads from a heap-allocated buffer....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-jv4p-gjwq-9r2j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-24485</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Infinite loop vulnerability when parsing a PCD file</div>
-            <div class="card-body">When a PCD file does not contain a valid marker, the DecodeImage() function becomes trapped in an infinite loop while searching for the marker, causing the program to become unresponsive and continuously consume CPU resources, ultimately leading to system resource exhaustion and denial of service....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-pqgj-2p96-rx85" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-24484</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Converting multi-layer nested MVG to SVG can cause DoS</div>
-            <div class="card-body">Magick fails to check for multi-layer nested mvg conversions to svg, leading to DoS....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-wg3g-gvx5-2pmv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-24481</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has Possible Heap Information Disclosure in PSD ZIP Decompression</div>
-            <div class="card-body">### Description
-A heap information disclosure vulnerability exists in ImageMagick's PSD (Adobe Photoshop) format handler. When processing a maliciously crafted PSD file containing ZIP-compressed layer data that decompresses to less than the expected size, uninitialized heap memory is leaked into the output image.
-
-### Expected Impact
-Information di...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-24</span>
-                <a href="https://github.com/advisories/GHSA-96pc-27rx-pr36" target="_blank">Full Report →</a>
             </div>
         </div>
         
