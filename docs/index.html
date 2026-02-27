@@ -68,10 +68,68 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-27 12:29 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-27 18:28 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27969</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Vitess users with backup storage access can write to arbitrary file paths on restore</div>
+            <div class="card-body">### Impact
+
+Anyone with read/write access to the backup storage location (e.g. an S3 bucket) can manipulate backup manifest files so that files in the manifest — which may be files that they have also added to the manifest and backup contents — are written to any accessible location on restore. This is a common [Path Traversal](https://owasp.org/ww...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-27</span>
+                <a href="https://github.com/advisories/GHSA-r492-hjgh-c9gw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-747p-wmpv-9c78</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">AWS CLI: cli_history database does not restrict file permissions on Unix systems</div>
+            <div class="card-body">**Summary**
+AWS CLI is a command line tool for interacting with AWS services. When the cli_history feature is enabled, the history database file is created with default permissions, potentially allowing other local users on a multi-user system to read the file.
+
+**Impact**
+When cli_history is enabled, AWS CLI stores command history including comman...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-27</span>
+                <a href="https://github.com/advisories/GHSA-747p-wmpv-9c78" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27966</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Langflow has Remote Code Execution in CSV Agent</div>
+            <div class="card-body"># 1. Summary
+
+
+The CSV Agent node in Langflow hardcodes `allow_dangerous_code=True`, which automatically exposes LangChain’s Python REPL tool (`python_repl_ast`). As a result, an attacker can execute arbitrary Python and OS commands on the server via prompt injection, leading to full Remote Code Execution (RCE).
+
+# 2. Description
+
+## 2.1 Intended F...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-27</span>
+                <a href="https://github.com/advisories/GHSA-3645-fxcv-hqr4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-27965</span>
@@ -597,59 +655,6 @@ Fleet’s device lock and wipe commands generate a 6-...</div>
             <div class="card-footer">
                 <span>Published: 2026-02-26</span>
                 <a href="https://github.com/advisories/GHSA-ppwx-5jq7-px2w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mqpr-49jj-32rc</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.0
-                </span>
-            </div>
-            <div class="card-title">n8n: Webhook Forgery on Github Webhook Trigger</div>
-            <div class="card-body">## Impact
-An attacker who knows the webhook URL of a workflow using the GitHub Webhook Trigger node could send unsigned POST requests and trigger the workflow with arbitrary data. The node did not implement the HMAC-SHA256 signature verification that GitHub provides to authenticate webhook deliveries, allowing any party to spoof GitHub webhook even...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-mqpr-49jj-32rc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f3f2-mcxc-pwjx</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 8.2
-                </span>
-            </div>
-            <div class="card-title">n8n: SQL Injection in MySQL, PostgreSQL, and Microsoft SQL nodes</div>
-            <div class="card-body">## Impact
-An authenticated user with permission to create or modify workflows and access to a database credential could unknowingly create a workflow that was vulnerable to SQL injection, even while expecting inputs to be handled safely through escaped parameters. By supplying specially crafted table or column names, an attacker could inject arbitr...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-f3f2-mcxc-pwjx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27819</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
-                </span>
-            </div>
-            <div class="card-title">Vikunja has Path Traversal in CLI Restore</div>
-            <div class="card-body">### Summary
-
-Path Traversal (Zip Slip) and Denial of Service (DoS) vulnerability discovered in the Vikunja CLI's restore functionality.
-
-### Details
-
-The restoreConfig function in vikunja/pkg/modules/dump/restore.go of the https://github.com/go-vikunja/vikunja/tree/main repository fails to sanitize file paths within the provided ZIP archive. A mali...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-42wg-38gx-85rh" target="_blank">Full Report →</a>
             </div>
         </div>
         
