@@ -68,10 +68,211 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-28 00:53 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-02-28 06:21 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5c6j-r48x-rmvq</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Serialize JavaScript is Vulnerable to RCE via RegExp.flags and Date.prototype.toISOString()</div>
+            <div class="card-body">### Impact
+
+The serialize-javascript npm package (versions <= 7.0.2) contains a code injection vulnerability. It is an incomplete fix for CVE-2020-7660.
+
+While `RegExp.source` is sanitized, `RegExp.flags` is interpolated directly into the generated output without escaping. A similar issue exists in `Date.prototype.toISOString()`.
+
+If an attacker ca...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-5c6j-r48x-rmvq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28407</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">malcontent: Nested archive extraction failure can drop content from scan inputs</div>
+            <div class="card-body">Previously, malcontent would remove nested archives which failed to extract which could potentially leave malicious content. A better approach is to preserve these archives so that malcontent can attempt a best-effort scan of the archive bytes.
+
+**Fix**:  https://github.com/chainguard-dev/malcontent/pull/1383
+
+**Acknowledgements**
+
+malcontent thank...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-945p-3jhm-6rcp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28338</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">PMD Designer has Stored XSS in VBHTMLRenderer and YAHTMLRenderer via unescaped violation messages</div>
+            <div class="card-body">### Summary
+PMD's `vbhtml` and `yahtml` report formats insert rule violation messages into HTML output without escaping. When PMD analyzes untrusted source code containing crafted string literals, the generated HTML report contains executable JavaScript that runs when opened in a browser.
+
+While the default `html` format is not affected via rule vi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-8rr6-2qw5-pc7r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-j8cj-hw74-64jv</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Hive has Double-free and Use After Free Vulnerabilities</div>
+            <div class="card-body">`Drop` implementation for `Hive` did perform free, but so did `Hive::close`, which, at the end of the scope performed `Drop`, therefore triggering double-free.
+
+Additionally, function `Hive::from_handle` was not marked as unsafe, making it, in combination with `as_handle` easy to clone and trigger double-free in safe code or triggering UB when usin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-j8cj-hw74-64jv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-2880</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">@fastify/middie has Improper Path Normalization when Using Path-Scoped Middleware</div>
+            <div class="card-body">## Summary
+A path normalization inconsistency in `@fastify/middie` can result in authentication/authorization bypass when using path-scoped middleware (for example, `app.use('/secret', auth)`).
+
+When Fastify router normalization options are enabled (such as `ignoreDuplicateSlashes`, `useSemicolonDelimiter`, and related trailing-slash behavior), cra...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-8p85-9qpw-fwgw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28351</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">pypdf: Manipulated RunLengthDecode streams can exhaust RAM</div>
+            <div class="card-body">### Impact
+
+An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing the content stream using the RunLengthDecode filter.
+
+### Patches
+This has been fixed in [pypdf==6.7.4](https://github.com/py-pdf/pypdf/releases/tag/6.7.4).
+
+### Workarounds
+If you cannot upgrade yet, consider applying the ch...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-f2v5-7jq9-h8cg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28280</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">osctrl has Stored Cross-Site Scripting (XSS) in On-Demand Query List</div>
+            <div class="card-body">### Summary
+A stored Cross-site Scripting (XSS) vulnerability exists in the `osctrl-admin` on-demand query list. A user with query-level permissions can inject arbitrary JavaScript via the query parameter when running an on-demand query. The payload is stored and executes in the browser of any user (including administrators) who visits the query li...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-4rv8-5cmm-2r22" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28279</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">osctrl is Vulnerable to OS Command Injection via Environment Configuration</div>
+            <div class="card-body">### Summary
+An OS command injection vulnerability exists in the `osctrl-admin` environment configuration. An authenticated administrator can inject arbitrary shell commands via the hostname parameter when creating or editing environments. These commands are embedded into enrollment one-liner scripts generated using Go's `text/template` package (whi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-rchw-322g-f7rm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-fpg4-jhqr-589c</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">SvelteKit  has deserialization expansion in unvalidated `form` remote function leading to Denial of Service (experimental only)</div>
+            <div class="card-body">Some relatively small inputs can cause very large files arrays in `form` handlers. If the SvelteKit application code doesn't check `files.length` or individual files' sizes and performs expensive processing with them, it can result in Denial of Service.
+
+Only users with `experimental.remoteFunctions: true` who are using the `form` function and are ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-fpg4-jhqr-589c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-72hv-8253-57qq</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition</div>
+            <div class="card-body">### Summary
+The non-blocking (async) JSON parser in `jackson-core` bypasses the `maxNumberLength` constraint (default: 1000 characters) defined in `StreamReadConstraints`. This allows an attacker to send JSON with arbitrarily long numbers through the async parser API, leading to excessive memory allocation and potential CPU exhaustion, resulting in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-72hv-8253-57qq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28268</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Vikunja Vulnerable to Account Takeover via Password Reset Token Reuse</div>
+            <div class="card-body">**Summary**
+A critical business logic vulnerability exists in the password reset mechanism of vikunja/api that allows password reset tokens to be reused indefinitely. Due to a failure to invalidate tokens upon use and a critical logic bug in the token cleanup cron job, reset tokens remain valid forever.
+
+This allows an attacker who intercepts a sin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-02-28</span>
+                <a href="https://github.com/advisories/GHSA-rfjg-6m84-crj2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-28208</span>
@@ -367,280 +568,61 @@ The CSV Agent node in Langflow hardcodes `allow_dangerous_code=True`, which auto
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-27965</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
+                <span class="cve-id">CVE-2025-12150</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
                 </span>
             </div>
-            <div class="card-title">Vitess users with backup storage access can gain unauthorized access to production deployment environments</div>
-            <div class="card-body">### Impact
-
-Any user with read/write access to the backup storage location (e.g. an S3 bucket) can manipulate backup manifest files so that arbitrary code is later executed when that backup is restored. This can be used to provide that attacker with unintended/unauthorized access to the production deployment environment — allowing them to access in...</div>
+            <div class="card-title">Keycloak REST Services has a WebAuthn Attestation Statement Verification Bypass</div>
+            <div class="card-body">A flaw was found in Keycloak’s WebAuthn registration component. This vulnerability allows an attacker to bypass the configured attestation policy and register untrusted or forged authenticators via submission of an attestation object with fmt: "none", even when the realm is configured to require direct attestation. This can lead to weakened authent...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-8g8j-r87h-p36x" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-27</span>
+                <a href="https://github.com/advisories/GHSA-7g5x-9c4v-4w5r" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-22728</span>
+                <span class="cve-id">CVE-2026-0871</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 4.9
                 </span>
             </div>
-            <div class="card-title">Sealed Secrets for Kubernetes: Rotate API Allows Scope Widening from Strict/Namespace-Wide to Cluster-Wide via Untrusted Template Annotations</div>
-            <div class="card-body">This report shows a scope-widening issue in the rotate (re-encrypt) flow: the output scope can be derived from untrusted `spec.template.metadata.annotations` on the input sealed secret.
-
-If a victim sealed secret is strict- or namespace-scoped, an attacker who can submit it to the rotate endpoint can set `sealedsecrets.bitnami.com/cluster-wide=true...</div>
+            <div class="card-title">Keycloak Server Private SPI: Improper Access Control Allows Administrators to Bypass Attribute Visibility Restrictions and Modify Unmanaged User Profile Attributes</div>
+            <div class="card-body">A flaw was found in Keycloak. An administrator with `manage-users` permission can bypass the "Only administrators can view" setting for unmanaged attributes, allowing them to modify these attributes. This improper access control can lead to unauthorized changes to user profiles, even when the system is configured to restrict such modifications....</div>
             <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-465p-v42x-3fmj" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-27</span>
+                <a href="https://github.com/advisories/GHSA-v4jw-m6rm-399h" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-gj6x-q8rh-wj6x</span>
+                <span class="cve-id">CVE-2026-0980</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
+                    HIGH 8.3
                 </span>
             </div>
-            <div class="card-title">Curio exposes database credentials to users with network access through verbose HTTP error responses</div>
-            <div class="card-body">## Summary
-
-Multiple HTTP handlers in Curio passed raw database error messages to HTTP clients via `http.Error()`. When the PostgreSQL/YugabyteDB driver (pgx) returned errors, these could contain the database connection string — including hostname, port, username, and password. Additionally, the internal connection string was constructed with the p...</div>
+            <div class="card-title">rubyipmi is vulnerable to OS Command Injection through malicious usernames</div>
+            <div class="card-body">A flaw was found in rubyipmi, a gem used in the Baseboard Management Controller (BMC) component of Red Hat Satellite. An authenticated attacker with host creation or update permissions could exploit this vulnerability by crafting a malicious username for the BMC interface. This could lead to remote code execution (RCE) on the system....</div>
             <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-gj6x-q8rh-wj6x" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-27</span>
+                <a href="https://github.com/advisories/GHSA-hfcp-477w-3wjw" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-38c7-23hj-2wgq</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.0
-                </span>
-            </div>
-            <div class="card-title">n8n has Webhook Forgery on Zendesk Trigger Node</div>
-            <div class="card-body">## Impact
-An attacker who knows the webhook URL of a workflow using the ZendeskTrigger node could send unsigned POST requests and trigger the workflow with arbitrary data. The node does not verify the HMAC-SHA256 signature that Zendesk attaches to every outbound webhook, allowing any party to inject crafted payloads into the connected workflow.
-
-##...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-38c7-23hj-2wgq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-fvfv-ppw4-7h2w</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 3.7
-                </span>
-            </div>
-            <div class="card-title">n8n has a Guardrail Node Bypass</div>
-            <div class="card-body">## Impact
-An end user interacting with a workflow that uses the Guardrail node could craft an input that bypasses the default guardrail instructions.
-
-## Patches
-The issue has been fixed in n8n version 2.10.0. Users should upgrade to this version or later to remediate the vulnerability.
-
-## Workarounds
-If upgrading is not immediately possible, admi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-fvfv-ppw4-7h2w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-jh8h-6c9q-7gmw</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">n8n has an Authentication Bypass in its Chat Trigger Node</div>
-            <div class="card-body">## Impact
-When the Chat Trigger node is configured with n8n User Auth authentication, the authentication check could be circumvented. 
-- This issue requires the Chat Trigger node to be configured with n8n User Auth authentication (non-default).
-
-## Patches
-The issue has been fixed in n8n versions 2.10.1, 2.9.3, and 1.123.22. Users should upgrade to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-jh8h-6c9q-7gmw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-vjf3-2gpj-233v</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
-                </span>
-            </div>
-            <div class="card-title">n8n has an SSO Enforcement Bypass in its Self-Service Settings API</div>
-            <div class="card-body">## Impact
-An authenticated user signed in through Single Sign-On (SSO) could disable SSO enforcement for their own account through the n8n API. This allowed the user to create a local password and authenticate directly with email and password, completely bypassing the organization's SSO policy, centralized identity management, and any identity-prov...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-vjf3-2gpj-233v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27959</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Koa has Host Header Injection via ctx.hostname</div>
-            <div class="card-body">## Summary
-
-Koa's `ctx.hostname` API performs naive parsing of the HTTP Host header, extracting everything before the first colon without validating the input conforms to RFC 3986 hostname syntax. When a malformed Host header containing a `@` symbol (e.g., `evil.com:fake@legitimate.com`) is received, `ctx.hostname` returns `evil.com` - an attacker-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-7gcc-r8m5-44qm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27948</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Copyparty vulnerable to reflected XSS via setck parameter</div>
-            <div class="card-body">### Summary
-An XSS allows for reflected cross-site scripting via URL-parameter `?setck=...`
-
-### Details
-A reflected cross-site scripting (XSS) vulnerability could allow an attacker to execute malicious javascript by tricking users into accessing a malicious link.
-
-The worst-case outcome of this is being able to move or delete existing files on the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-62cr-6wp5-q43h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27942</span>
+                <span class="cve-id">CVE-2026-3293</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
+                    LOW 3.3
                 </span>
             </div>
-            <div class="card-title">fast-xml-parser has stack overflow in XMLBuilder with preserveOrder</div>
-            <div class="card-body">### Impact
-Application crashes with stack overflow when user use XML builder with `prserveOrder:true` for following or similar input:
-
-```
-[{
-    'foo': [
-        { 'bar': [{ '@_V': 'baz' }] }
-    ]
-}]
-```
-
-Cause: `arrToStr` was not validating if the input is an array or a string and treating all non-array values as text content.
-_What kind of vuln...</div>
+            <div class="card-title">Snowflake JDBC Driver is Vulnerable to Uncontrolled Resource Consumption through SdkProxyRoutePlanner</div>
+            <div class="card-body">A weakness has been identified in Snowflake JDBC Driver up to 4.0.1. Impacted is the function SdkProxyRoutePlanner of the file src/main/java/net/snowflake/client/internal/core/SdkProxyRoutePlanner.java of the component JDBC URL Handler. Executing a manipulation of the argument nonProxyHosts can lead to inefficient regular expression complexity. The...</div>
             <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-fj3w-jwp8-x2g3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27902</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Svelte: XSS via HTML Comment Injection in SSR Error Boundary Hydration Markers</div>
-            <div class="card-body">Errors from `transformError` were not correctly escaped prior to being embedded in the HTML output, causing potential HTML injection and XSS if attacker-controlled content is returned from `transformError`....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-qgvg-pr8v-6rr3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27901</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Svelte vulnerable to XSS during SSR with contenteditable `bind:innerText` and `bind:textContent`</div>
-            <div class="card-body">The contents of `bind:innerText` and `bind:textContent` on `contenteditable` elements were not properly escaped. This could enable HTML injection and Cross-site Scripting (XSS) if rendering untrusted data as the binding's initial value on the server....</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-phwv-c562-gvmh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27899</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">WireGuard Portal is Vulnerable to Privilege Escalation via User Self-Update to Admin Level</div>
-            <div class="card-body"># Privilege Escalation to Admin via User Self-Update in wg-portal
-
-## Summary
-
-Any authenticated non-admin user can become a full administrator by sending a single PUT request to their own user profile endpoint with `"IsAdmin": true` in the JSON body. After logging out and back in, the session picks up admin privileges from the database.
-
-Tested ag...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-5rmx-256w-8mj9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27896</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">MCP Go SDK Vulnerable to Improper Handling of Case Sensitivity</div>
-            <div class="card-body">The Go MCP SDK used Go's standard encoding/json.Unmarshal for JSON-RPC and MCP protocol message parsing. Go's standard library performs case-insensitive matching of JSON keys to struct field tags — a field tagged json:"method" would also match "Method", "METHOD", etc. Additionally, Go's standard library folds the Unicode characters ſ (U+017F) and K...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-wvj2-96wp-fq3f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27839</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">wger: IDOR in nutritional_values endpoints exposes private dietary data via direct ORM lookup</div>
-            <div class="card-body">## Summary
-
-Three `nutritional_values` action endpoints fetch objects via `Model.objects.get(pk=pk)` — a raw ORM call that bypasses the user-scoped queryset. Any authenticated user can read another user's private nutrition plan data, including caloric intake and full macro breakdown, by supplying an arbitrary PK.
-
-### Details
-
-DRF detail actions do...</div>
-            <div class="card-footer">
-                <span>Published: 2026-02-26</span>
-                <a href="https://github.com/advisories/GHSA-g8gc-6c4h-jg86" target="_blank">Full Report →</a>
+                <span>Published: 2026-02-27</span>
+                <a href="https://github.com/advisories/GHSA-gx6c-pv62-9mcf" target="_blank">Full Report →</a>
             </div>
         </div>
         
