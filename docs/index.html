@@ -68,10 +68,86 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-04 12:28 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-04 18:30 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26999</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Traefik: tcp router clears read deadlines before tls forwarding, enabling stalled handshakes (Slowloris DOS)</div>
+            <div class="card-body">## Impact
+
+There is a potential vulnerability in Traefik managing TLS handshake on TCP routers.
+
+When Traefik processes a TLS connection on a TCP router, the read deadline used to bound protocol sniffing is cleared before the TLS handshake is completed. When a TLS handshake read error occurs, the code attempts a second handshake with different conn...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-04</span>
+                <a href="https://github.com/advisories/GHSA-xw98-5q62-jx94" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26998</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.4
+                </span>
+            </div>
+            <div class="card-title">Traefik has unbounded io.ReadAll on auth server response body that causes OOM DOS</div>
+            <div class="card-body">## Impact
+
+There is a potential vulnerability in Traefik managing the ForwardAuth middleware responses.
+
+When Traefik is configured to use the ForwardAuth middleware, the response body from the authentication server is read entirely into memory without any size limit. There is no `maxResponseBodySize` configuration to restrict the amount of data re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-04</span>
+                <a href="https://github.com/advisories/GHSA-fw45-f5q2-2p4x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-68467</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.4
+                </span>
+            </div>
+            <div class="card-title">Dark Reader gives users the ability to request style sheets from local web servers</div>
+            <div class="card-body">### Description
+Dark Reader versions prior to 4.9.117 included a behavior where a website could request a style sheet from a locally running web server, for example `http://localhost:8080/style.css`, If an address was available and returned a `text/css` content type.
+
+### Patches
+The problem was fixed in version 4.9.117, released on December 3, 202...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-04</span>
+                <a href="https://github.com/advisories/GHSA-x369-mcw8-8rvj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-66024</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">XWiki Blog Application home page vulnerable to Stored XSS via Post Title</div>
+            <div class="card-body">### Impact
+
+The Blog Application is vulnerable to Stored Cross-Site Scripting (XSS) via the Blog Post Title. The vulnerability arises because the post title is injected directly into the HTML <title> tag without proper escaping.
+
+An attacker with permissions to create or edit blog posts can inject malicious JavaScript into the title field. This scr...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-04</span>
+                <a href="https://github.com/advisories/GHSA-h2xq-h7f9-vh6c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-gq83-8q7q-9hfx</span>
@@ -585,87 +661,6 @@ When `autoAllowSkills=true`, a path-scoped executable such as `./skill-bin` coul
             <div class="card-footer">
                 <span>Published: 2026-03-03</span>
                 <a href="https://github.com/advisories/GHSA-xgf2-vxv2-rrmg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-62f6-mrcj-v8h5</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw's runtime /debug override path accepted prototype-reserved keys</div>
-            <div class="card-body">### Summary
-OpenClaw accepted prototype-reserved keys in runtime `/debug set` override object values (`__proto__`, `constructor`, `prototype`).
-
-### Impact
-`/debug` is disabled by default, and exploitation requires an already authorized `/debug set` caller. No unauthenticated vector was identified.
-
-This issue affects runtime in-memory overrides on...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-03</span>
-                <a href="https://github.com/advisories/GHSA-62f6-mrcj-v8h5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-27cr-4p5m-74rj</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw has a workspace-only sandbox guard mismatch for @-prefixed absolute paths</div>
-            <div class="card-body">A workspace-only file-system guard mismatch allowed `@`-prefixed absolute paths to bypass boundary validation in some tool path checks.
-
-### Impact
-When `tools.fs.workspaceOnly=true`, certain `@`-prefixed absolute paths (for example `@/etc/passwd`) could be validated before canonicalization while runtime path handling normalized the prefix differen...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-03</span>
-                <a href="https://github.com/advisories/GHSA-27cr-4p5m-74rj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-w9cg-v44m-4qv8</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw affected by BASH_ENV / ENV startup-file injection into spawned shell commands</div>
-            <div class="card-body">### Summary
-`BASH_ENV` / `ENV` startup-file injection could lead to unintended pre-command shell execution when attacker-controlled environment values were admitted and then inherited by host command execution paths.
-
-### Affected Packages / Versions
-- Package: `openclaw` (npm)
-- Affected: `<= 2026.2.19-2`
-- Fixed on `main`: `2cdbadee1f8fcaa93302d7...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-03</span>
-                <a href="https://github.com/advisories/GHSA-w9cg-v44m-4qv8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-r294-2894-92j3</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw has stored XSS in exported session HTML viewer via markdown/raw-HTML rendering</div>
-            <div class="card-body">## Summary
-
-The exported session HTML viewer allowed stored XSS when untrusted session content included raw HTML markdown tokens or unescaped metadata fields.
-
-## Impact
-
-Opening a crafted exported HTML session could execute attacker-controlled JavaScript in the viewer context. This can expose session content in the page and enable phishing or UI s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-03</span>
-                <a href="https://github.com/advisories/GHSA-r294-2894-92j3" target="_blank">Full Report →</a>
             </div>
         </div>
         
