@@ -68,10 +68,530 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-16 12:40 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-16 18:43 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32266</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Google Cloud Storage for Craft CMS has an Information Disclosure Vulnerability</div>
+            <div class="card-body">Unauthenticated users can view a list of buckets the plugin has access to.
+
+The `DefaultController->actionLoadBucketData()` endpoint allows unauthenticated users with a valid CSRF token to view a list of buckets that the plugin is allowed to see.
+
+Users should update to version 2.2.1 of the plugin to mitigate the issue....</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-67cr-jmh8-4jpq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32265</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Amazon S3 for Craft CMS has an Information Disclosure vulnerability</div>
+            <div class="card-body">Unauthenticated users can view a list of buckets the plugin has access to.
+
+The `BucketsController->actionLoadBucketData()` endpoint allows unauthenticated users with a valid CSRF token to view a list of buckets that the plugin is allowed to see.
+
+Users should update to version 2.2.5 of the plugin to mitigate the issue....</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-hwj7-4vgc-j3v9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32264</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS vulnerable to behavior injection RCE ElementIndexesController and FieldsController</div>
+            <div class="card-body">The fix for https://github.com/advisories/GHSA-7jx7-3846-m7w7 (commit https://github.com/craftcms/cms/commit/395c64f0b80b507be1c862a2ec942eaacb353748) only patched `src/services/Fields.php`, but the same vulnerable pattern exists in `ElementIndexesController` and `FieldsController`.
+
+You need Craft control panel administrator permissions, and allow...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-4484-8v2f-5748" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32263</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS vulnerable to behavior injection RCE via EntryTypesController</div>
+            <div class="card-body">The fix for GHSA-7jx7-3846-m7w7 (commit 395c64f0b80b507be1c862a2ec942eaacb353748) only patched `src/services/Fields.php`, but the same vulnerable pattern exists in `EntryTypesController::actionApplyOverrideSettings()`.
+
+In `src/controllers/EntryTypesController.php` lines 381-387:
+
+```php
+$settingsStr = $this->request->getBodyParam('settings');
+pars...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-qx2q-q59v-wf3j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32262</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS has a Path Traversal Vulnerability in AssetsController</div>
+            <div class="card-body">The `AssetsController->replaceFile()` method has a `targetFilename` body parameter that is used unsanitized in a `deleteFile()` call before `Assets::prepareAssetName()` is applied on save. This allows an authenticated user with `replaceFiles` permission to delete arbitrary files within the same filesystem root by injecting `../` path traversal sequ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-472v-j2g4-g9h2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32261</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">RCE via SSTI for users with permissions to access the Craft CMS Webhooks plugin</div>
+            <div class="card-body">The Webhooks plugin renders user-supplied template content through Twig’s `renderString()` function without sandbox protection. This allows an authenticated user with access to the Craft control panel and permissions to access the Webhooks plugin to inject Twig template code that calls arbitrary PHP functions.
+
+This is possible even if `allowAdminC...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-8wg7-wm29-2rvg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32723</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">SandboxJS has an execution-quota bypass (cross-sandbox currentTicks race) in SandboxJS timers</div>
+            <div class="card-body">## Summary
+
+Assumed repo path is `/Users/zwique/Downloads/SandboxJS-0.8.34` (no `/Users/zwique/Downloads/SandboxJS` found). A global tick state (`currentTicks.current`) is shared between sandboxes. Timer string handlers are compiled at execution time using that global tick state rather than the scheduling sandbox's tick object. In multi-tenant / co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-7p5m-xrh7-769r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32722</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.6
+                </span>
+            </div>
+            <div class="card-title">Stored XSS in Memray-generated HTML reports via unescaped command-line metadata</div>
+            <div class="card-body">## Summary
+
+Prior to Memray 1.19.2, Memray rendered the command line of the tracked process directly into generated HTML reports without escaping. Because there was no escaping, attacker-controlled command line arguments were inserted as raw HTML into the generated report.
+
+This allowed JavaScript execution when a victim opened the generated report...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-r5pr-887v-m2w9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32732</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">XSS in @leanprover/unicode-input-component</div>
+            <div class="card-body">### Impact
+Projects that use [@leanprover/unicode-input-component](https://www.npmjs.com/package/@leanprover/unicode-input-component) are vulnerable to an XSS exploit in 0.1.9 of the package and lower. 
+The component re-inserted text in the input element back into the input element as unescaped HTML.
+
+### Patches
+The issue has been resolved in 0.2....</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-6ggm-pwr9-r5h2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32638</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.7
+                </span>
+            </div>
+            <div class="card-title">StudioCMS REST getUsers Exposes Owner Account Records to Admin Tokens</div>
+            <div class="card-body">## Summary
+
+The REST API `getUsers` endpoint in StudioCMS uses the attacker-controlled `rank` query parameter to decide whether owner accounts should be filtered from the result set. As a result, an admin token can request `rank=owner` and receive owner account records, including IDs, usernames, display names, and email addresses, even though the a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-xvf4-ch4q-2m24" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32634</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Glances Central Browser Autodiscovery Leaks Reusable Credentials to Zeroconf-Spoofed Servers</div>
+            <div class="card-body">## Summary
+
+In Central Browser mode, Glances stores both the Zeroconf-advertised server name and the discovered IP address for dynamic servers, but later builds connection URIs from the untrusted advertised name instead of the discovered IP. When a dynamic server reports itself as protected, Glances also uses that same untrusted name as the lookup ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-vx5f-957p-qpvm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32633</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Glances's Browser API Exposes Reusable Downstream Credentials via `/api/4/serverslist`</div>
+            <div class="card-body">## Summary
+
+In Central Browser mode, the `/api/4/serverslist` endpoint returns raw server objects from `GlancesServersList.get_servers_list()`. Those objects are mutated in-place during background polling and can contain a `uri` field with embedded HTTP Basic credentials for downstream Glances servers, using the reusable pbkdf2-derived Glances auth...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-r297-p3v4-wp8m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32632</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Glances's REST/WebUI Lacks Host Validation and Remains Exposed to DNS Rebinding</div>
+            <div class="card-body">## Summary
+
+Glances recently added DNS rebinding protection for the MCP endpoint, but the main REST/WebUI FastAPI application still accepts arbitrary `Host` headers and does not apply `TrustedHostMiddleware` or an equivalent host allowlist.
+
+As a result, the REST API, WebUI, and token endpoint remain reachable through attacker-controlled domains in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-hhcg-r27j-fhv9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32611</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.0
+                </span>
+            </div>
+            <div class="card-title">Glances has a SQL Injection in DuckDB Export via Unparameterized DDL Statements</div>
+            <div class="card-body">## Summary
+
+The GHSA-x46r fix (commit 39161f0) addressed SQL injection in the TimescaleDB export module by converting all SQL operations to use parameterized queries and `psycopg.sql` composable objects. However, the DuckDB export module (`glances/exports/glances_duckdb/__init__.py`) was not included in this fix and contains the same class of vulne...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-49g7-2ww7-3vf5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32610</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Glances's Default CORS Configuration Allows Cross-Origin Credential Theft</div>
+            <div class="card-body">## Summary
+
+The Glances REST API web server ships with a default CORS configuration that sets `allow_origins=["*"]` combined with `allow_credentials=True`. When both of these options are enabled together, Starlette's `CORSMiddleware` reflects the requesting `Origin` header value in the `Access-Control-Allow-Origin` response header instead of return...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-9jfm-9rc6-2hfq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32609</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Glances has Incomplete Secrets Redaction: /api/v4/args Endpoint Leaks Password Hash and SNMP Credentials</div>
+            <div class="card-body">## Summary
+
+The GHSA-gh4x fix (commit 5d3de60) addressed unauthenticated configuration secrets exposure on the `/api/v4/config` endpoints by introducing `as_dict_secure()` redaction. However, the `/api/v4/args` and `/api/v4/args/{item}` endpoints were not addressed by this fix. These endpoints return the complete command-line arguments namespace vi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-cvwp-r2g2-j824" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32608</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.0
+                </span>
+            </div>
+            <div class="card-title">Glances has a Command Injection via Process Names in Action Command Templates</div>
+            <div class="card-body">## Summary
+
+The Glances action system allows administrators to configure shell commands that execute when monitoring thresholds are exceeded. These commands support Mustache template variables (e.g., `{{name}}`, `{{key}}`) that are populated with runtime monitoring data. The `secure_popen()` function, which executes these commands, implements its o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-vcv2-q258-wrg7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32606</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">IncusOS has a LUKS encryption bypass due to insufficient TPM policy</div>
+            <div class="card-body">The default configuration of systemd-cryptenroll as used by IncusOS through mkosi allows for an attacker with physical access to the machine to access the encrypted data without requiring any interaction by the system's owner or any tampering of Secure Boot state or kernel (UKI) boot image.
+
+That's because in this configuration, the LUKS key is mad...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-wj2j-qwcf-cfcc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32596</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Glances exposes the REST API without authentication</div>
+            <div class="card-body">### Summary
+Glances web server runs without authentication by default when started with `glances -w`, exposing REST API with sensitive system information including process command-lines containing credentials (passwords, API keys, tokens) to any network client.
+
+### Details
+Root Cause: Authentication is optional and disabled by default. When no pas...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-wvxv-4j8q-4wjq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28500</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
+                </span>
+            </div>
+            <div class="card-title">ONNX Untrusted Model Repository Warnings Suppressed by silent=True in onnx.hub.load() — Silent Supply-Chain Attack</div>
+            <div class="card-body">### Summary
+
+A security control bypass exists in onnx.hub.load() due to improper logic in the repository trust verification mechanism. While the function is designed to warn users when loading models from non-official sources, the use of the silent=True parameter completely suppresses all security warnings and confirmation prompts.
+### The Technica...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-hqmj-h5c6-369m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28499</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">LeafKit's HTML escaping may be skipped for Collection values, enabling XSS</div>
+            <div class="card-body">### Summary
+LeafKit HTML-escaping is not working correctly when a template prints a collection (Array / Dictionary) via `#(value)`. This can result in XSS, allowing potentially untrusted input to be rendered unescaped.
+
+### Details
+LeafKit attempts to escape expressions during serialization, but due to [`LeafData.htmlEscaped()`](https://github.com/...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-6jj5-j4j8-8473" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27459</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">pyOpenSSL DTLS cookie callback buffer overflow</div>
+            <div class="card-body">If a user provided callback to `set_cookie_generate_callback` returned a cookie value greater than 256 bytes, pyOpenSSL would overflow an OpenSSL provided buffer.
+
+Cookie values that are too long are now rejected....</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-5pwr-322w-8jr4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-29112</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Uncontrolled memory allocation via crafted SVG dimensions in @dicebear/converter</div>
+            <div class="card-body">### Impact
+
+The `ensureSize()` function in `@dicebear/converter` (versions < 9.4.0) read the `width` and `height` attributes from the input SVG to determine the output canvas size for rasterization (PNG, JPEG, WebP, AVIF). An attacker who can supply a crafted SVG with extremely large dimensions (e.g. `width="999999999"`) could force the server to a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-v3r3-4qgc-vw66" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28498</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Authlib: Fail-Open Cryptographic Verification in OIDC Hash Binding</div>
+            <div class="card-body">## 1. Executive Summary
+
+A critical library-level vulnerability was identified in the **Authlib** Python library concerning the validation of OpenID Connect (OIDC) ID Tokens. Specifically, the internal hash verification logic (`_verify_hash`) responsible for validating the `at_hash` (Access Token Hash) and `c_hash` (Authorization Code Hash) claims ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-m344-f55w-2m6j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-28490</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Authlib Vulnerable to JWE RSA1_5 Bleichenbacher Padding Oracle</div>
+            <div class="card-body">## 1. Executive Summary
+
+A cryptographic padding oracle vulnerability was identified in the Authlib Python library
+concerning the implementation of the JSON Web Encryption (JWE) `RSA1_5` key management
+algorithm. Authlib registers `RSA1_5` in its default algorithm registry without requiring
+explicit opt-in, and actively destroys the constant-time B...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-7432-952r-cw78" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27962</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Authlib JWS JWK Header Injection: Signature Verification Bypass</div>
+            <div class="card-body">## Description
+
+### Summary
+
+A JWK Header Injection vulnerability in `authlib`'s JWS implementation allows an unauthenticated
+attacker to forge arbitrary JWT tokens that pass signature verification. When `key=None` is passed
+to any JWS deserialization function, the library extracts and uses the cryptographic key embedded
+in the attacker-controlled ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-wvwj-cvrp-7pv5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27448</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">pyOpenSSL allows TLS connection bypass via unhandled callback exception in set_tlsext_servername_callback</div>
+            <div class="card-body">If a user provided callback to `set_tlsext_servername_callback` raised an unhandled exception, this would result in a connection being accepted. If a user was relying on this callback for any security-sensitive behavior, this could allow bypassing it.
+
+Unhandled exceptions now result in rejecting the connection.
+
+Credit to **Leury Castillo** for re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-vp96-hxj8-p424" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25534</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Spinnaker clouddriver and orca URL validation bypass via underscores in hostnames</div>
+            <div class="card-body">### Impact
+Spinnaker updated URL Validation logic on user input to provide sanitation on user inputted URLs for clouddriver.  However, they missed that Java URL objects do not correctly handle underscores on parsing.  This led to a bypass of the previous CVE (CVE-2025-61916) through the use of carefully crafted URLs.  Note, Spinnaker found this not...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-8r8j-gfhg-fw38" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-69196</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">FastMCP OAuth Proxy token reuse across MCP servers</div>
+            <div class="card-body">While testing the OAuth Proxy implementation, it was noticed that the server does not properly respect the `resource` parameter submitted by the client in the authorization and token request. Instead of issuing the token explicitly for this MCP server, the token is issued for the `base_url` passed to the `OAuthProxy` during initialization. 
+
+**Affe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-16</span>
+                <a href="https://github.com/advisories/GHSA-5h2m-4q8j-pqpj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-32720</span>
@@ -91,569 +611,6 @@ Removing the `inter-ns` NetworkPolicy patches the vulnerability. If updates are 
             <div class="card-footer">
                 <span>Published: 2026-03-13</span>
                 <a href="https://github.com/advisories/GHSA-7x23-j8gv-v54x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-5cxw-w2xg-2m8h</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">fickling's `platform` module subprocess invocation evades `check_safety()` with `LIKELY_SAFE`</div>
-            <div class="card-body"># Our assessment
-
-We added `platform` to the blocklist of unsafe modules (https://github.com/trailofbits/fickling/commit/351ed4d4242b447c0ffd550bb66b40695f3f9975). 
-
-It was not possible to inject extra arguments to `file` without first monkey-patching `platform._follow_symlinks` with the pickle, as it always returns an absolute path. We independent...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-5cxw-w2xg-2m8h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-r48f-3986-4f9c</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">fickling modules linecache, difflib and gc are missing from the unsafe modules blocklist</div>
-            <div class="card-body"># Our analysis
-
-As stated in the [project's security policy](https://github.com/trailofbits/fickling/security/policy), we also don't consider `UnusedVariables` bypasses to be security issues. We added several unsafe modules mentioned by the reporter in advisory comments to the blocklist (https://github.com/trailofbits/fickling/commit/7f39d97258217e...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-r48f-3986-4f9c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-4092</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">@google/clasp vulnerable to unsafe path traversal cloning or pulling a malicious script</div>
-            <div class="card-body">### Impact
-Allows an attacker to perform a "Path Traversal" attack to modify files outside the projects directory, potentially allowing for running attacker code on the developer's machine.
-
-### Patches
-Fixed in version 3.2.0
-
-### Workarounds
-* Only clone or pull scripts from trusted sources
-* Review the output of the `pull` and `clone` commands to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-hqjg-pww4-pcgq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-rvv3-g6hj-g44x</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">AutoMapper Vulnerable to Denial of Service (DoS) via Uncontrolled Recursion</div>
-            <div class="card-body">### Summary
-
-AutoMapper is vulnerable to a Denial of Service (DoS) attack. When mapping deeply nested object graphs, the library uses recursive method calls without enforcing a default maximum depth limit. This allows an attacker to provide a specially crafted object graph that exhausts the thread's stack memory, triggering a `StackOverflowExceptio...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-rvv3-g6hj-g44x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32704</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">SiYuan's renderSprig has a missing admin check that allows any user to read full workspace DB</div>
-            <div class="card-body">### Summary
-`POST /api/template/renderSprig` lacks `model.CheckAdminRole`, allowing any authenticated user to execute arbitrary SQL queries against the SiYuan workspace database and exfiltrate all note content, metadata, and custom attributes.
-
-### Details
-**File:** `kernel/api/router.go`
-
-Every sensitive endpoint in the codebase uses `model.CheckA...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-4j3x-hhg2-fm2x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32640</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">SimpleEval: Objects (including modules) can leak dangerous modules through to direct access inside the sandbox</div>
-            <div class="card-body">### Impact
-If the objects passed in as `names` to SimpleEval have modules or other disallowed / dangerous objects available as attrs.
-Additionally, dangerous functions or modules could be accessed by passing them as callbacks to other safe functions to call.
-
-Examples (found by @ByamB4):
-
-Any module where non-underscore attribute chains reach os or...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-44vg-5wv2-h2hg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32635</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Angular vulnerable to XSS in i18n attribute bindings</div>
-            <div class="card-body">A Cross-Site Scripting (XSS) vulnerability has been identified in the Angular runtime and compiler. It occurs when the application uses a security-sensitive attribute (for example href on an anchor tag) together with Angular's ability to internationalize attributes. Enabling internationalization for the sensitive attribute by adding `i18n-<attribut...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-g93w-mfhg-p222" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32630</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">file-type: ZIP Decompression Bomb DoS via [Content_Types].xml entry</div>
-            <div class="card-body">## Summary
-
-A crafted ZIP file can trigger excessive memory growth during type detection in `file-type` when using `fileTypeFromBuffer()`, `fileTypeFromBlob()`, or `fileTypeFromFile()`.
-
-In affected versions, the ZIP inflate output limit is enforced for stream-based detection, but not for known-size inputs. As a result, a small compressed ZIP can c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-j47w-4g3g-c36v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-5m9r-p9g7-679c</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Zalo webhook rate limiting could be bypassed before secret validation</div>
-            <div class="card-body">### Summary
-
-The Zalo webhook handler applied request rate limiting only after webhook authentication succeeded. Requests with an invalid secret returned `401` but did not count against the rate limiter, allowing repeated secret guesses without triggering `429`.
-
-### Impact
-
-This made brute-force guessing materially easier for weak but policy-compl...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-5m9r-p9g7-679c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-g353-mgv3-8pcj</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Feishu webhook mode accepted forged events when only `verificationToken` was configured</div>
-            <div class="card-body">### Summary
-
-Feishu webhook mode allowed deployments that configured only `verificationToken` without `encryptKey`. In that state, forged inbound events could be accepted because the weaker configuration did not provide the required cryptographic verification boundary.
-
-### Impact
-
-An unauthenticated network attacker who could reach the webhook end...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-g353-mgv3-8pcj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-2rqg-gjgv-84jm</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Gateway `agent` calls could override the workspace boundary</div>
-            <div class="card-body">### Summary
-
-The public gateway `agent` RPC allowed an authenticated operator with `operator.write` to supply attacker-controlled `spawnedBy` and `workspaceDir` values. That let the caller re-root the agent run outside its configured workspace boundary.
-
-### Impact
-
-A non-owner operator could escape the intended workspace boundary and run normal fi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-2rqg-gjgv-84jm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-rqpp-rjj8-7wv8</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: WebSocket shared-auth connections could self-declare elevated scopes</div>
-            <div class="card-body">### Summary
-
-A logic flaw in the OpenClaw gateway WebSocket connect path allowed certain device-less shared-token or password-authenticated backend connections to keep client-declared scopes without server-side binding. A shared-authenticated client could present elevated scopes such as `operator.admin` even though those scopes were not tied to a d...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-rqpp-rjj8-7wv8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-wcxr-59v9-rxr8</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.4
-                </span>
-            </div>
-            <div class="card-title">`OpenClaw: session_status` let sandboxed subagents access parent or sibling session state</div>
-            <div class="card-body">### Summary
-
-The built-in `session_status` tool did not enforce the intended session-visibility boundary. A sandboxed subagent could supply another session's `sessionKey` and inspect or modify state outside its own sandbox scope.
-
-### Impact
-
-This allowed a sandboxed child session to read parent or sibling session data and, in affected releases, up...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-wcxr-59v9-rxr8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-99qw-6mr3-36qr</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Workspace plugin auto-discovery allowed code execution from cloned repositories</div>
-            <div class="card-body">### Summary
-
-OpenClaw automatically discovered and loaded plugins from `.openclaw/extensions/` inside the current workspace without an explicit trust or install step. A malicious repository could include a crafted workspace plugin that executed as soon as a user ran OpenClaw from that cloned directory.
-
-### Impact
-
-Opening or running OpenClaw in an...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-99qw-6mr3-36qr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-r7vr-gr74-94p8</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Command-authorized non-owners could reach owner-only `/config` and `/debug` surfaces</div>
-            <div class="card-body">### Summary
-
-OpenClaw documented `/config` and `/debug` as owner-only commands, but the command handlers checked only whether the sender was command-authorized. A lower-trust sender who was intentionally allowed to run commands could still reach privileged configuration and debugging surfaces.
-
-### Impact
-
-This allowed a non-owner sender to read or...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-r7vr-gr74-94p8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f8r2-vg7x-gh8m</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Exec approval allowlist patterns overmatched on POSIX paths</div>
-            <div class="card-body">### Summary
-
-`matchesExecAllowlistPattern` normalized patterns and targets with lowercasing and compiled glob matching too broadly on POSIX. In addition, the `?` wildcard could match `/`, which allowed matches to cross path segments.
-
-### Impact
-
-These matching rules could overmatch allowlist entries and permit commands or executable paths that an ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-f8r2-vg7x-gh8m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-m69h-jm2f-2pv8</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Feishu reaction events could bypass group authorization and mention gating</div>
-            <div class="card-body">### Summary
-
-A Feishu reaction-originated synthetic event could misclassify a group conversation as `p2p` when the inbound reaction payload omitted `chat_type`. Authorization and mention-gating logic keyed off that incorrect chat type and evaluated the event as a direct message instead of a group message.
-
-### Impact
-
-This could bypass `groupAllowF...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-m69h-jm2f-2pv8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-vmhq-cqm9-6p7q</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: `browser.request` let `operator.write` persist admin-only browser profile changes</div>
-            <div class="card-body">### Summary
-
-An authorization mismatch in the gateway let an authenticated caller with only `operator.write` use `browser.request` to reach browser profile management routes that persist configuration to disk. In practice, this exposed an admin-only configuration write primitive through `/profiles/create`.
-
-### Impact
-
-A write-scoped operator could...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-vmhq-cqm9-6p7q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7h7g-x2px-94hj</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Pairing setup codes exposed long-lived shared gateway credentials instead of short-lived bootstrap tokens</div>
-            <div class="card-body">### Summary
-
-OpenClaw pairing setup codes generated by `/pair` and `openclaw qr` embedded the configured shared gateway token or password directly in the setup payload. Anyone who obtained that code from chat history, logs, screenshots, or copied QR payloads could recover the long-lived shared credential.
-
-### Impact
-
-An attacker with access to a l...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-7h7g-x2px-94hj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f5mf-3r52-r83w</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw's Zalouser allowlist authorization matched mutable group names by default</div>
-            <div class="card-body">### Summary
-
-OpenClaw's Zalouser allowlist mode accepted mutable group names and normalized slugs as authorization matches instead of requiring stable group IDs. In deployments that used name-based `channels.zalouser.groups` entries together with permissive sender allowlists, a different group could be accepted by reusing the same display name as a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-f5mf-3r52-r83w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32621</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Apollo Federation vulnerable to prototype pollution via incomplete key sanitization</div>
-            <div class="card-body">### Impact
-
-A vulnerability exists in query plan execution within the gateway that may allow pollution of `Object.prototype` in certain scenarios. A malicious client may be able to pollute `Object.prototype` in gateway directly by crafting operations with field aliases and/or variable names that target prototype-inheritable properties. Alternativel...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-pfjj-6f4p-rvmh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32612</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Statamic vulnerable to privilege escalation via stored cross-site scripting</div>
-            <div class="card-body">### Impact
-
-Stored XSS in the control panel color mode preference allows authenticated users with control panel access to inject malicious JavaScript that executes when a higher-privileged user impersonates their account.
-
-### Patches
-
-This has been fixed in 6.6.2....</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-hcch-w73c-jp4m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8fh9-c4jq-94h4</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">idunno.Bluesky, idunno.AtProto and idunno.AtProto.OAuthCallback Denial of Service Vulnerability</div>
-            <div class="card-body"># idunno.Bluesky, idunno.AtProto and idunno.AtProto.OAuthCallback Denial of Service Vulnerability
-
-## Impact
-
-The `Microsoft.Bcl.Memory` package, a transitive dependency of `idunno.AtProto` and `idunno.AtProto.OAuthCallback` had a Denial of Service security vulnerability, [CVE-2026-26127](https://github.com/dotnet/announcements/issues/384)
-
-## Patc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-8fh9-c4jq-94h4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-q926-c743-49qj</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Centrifugo's InsecureSkipTokenSignatureVerify flag silently disables JWT verification with no warning</div>
-            <div class="card-body">### Summary
-Centrifugo supports a configuration flag `insecure_skip_token_signature_verify` that completely disables JWT signature verification. When enabled, Centrifugo accepts any JWT token regardless of signature validity — including tokens signed with wrong keys, random signatures, or no signature at all. Critically, no warning is logged at sta...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-q926-c743-49qj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32600</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">simplesamlphp/xml-security: Missing AES-GCM Authentication Tag Validation on Encrypted Nodes Allows for Unauthorized Decryption</div>
-            <div class="card-body">### Summary
-
-XML nodes encrypted with either aes-128-gcm, aes-192-gcm, or aes-256-gcm lack validation of the authentication tag length.
-An attacker can use this to brute-force an authentication tag, recover the [GHASH key](https://en.wikipedia.org/wiki/Galois/Counter_Mode#:~:text=%29%20is%20the-,hash%20key,-%2C%20a%20string%20of), and decrypt the e...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-r353-4845-pr5p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-1526</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Undici has Unbounded Memory Consumption in WebSocket permessage-deflate Decompression</div>
-            <div class="card-body">## Description
-
-The undici WebSocket client is vulnerable to a denial-of-service attack via unbounded memory consumption during permessage-deflate decompression. When a WebSocket connection negotiates the permessage-deflate extension, the client decompresses incoming compressed frames without enforcing any limit on the decompressed data size. A mal...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-vrm6-8vpv-qv8q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-2229</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Undici has Unhandled Exception in WebSocket Client Due to Invalid server_max_window_bits Validation</div>
-            <div class="card-body">### Impact
-
-The undici WebSocket client is vulnerable to a denial-of-service attack due to improper validation of the `server_max_window_bits` parameter in the permessage-deflate extension. When a WebSocket client connects to a server, it automatically advertises support for permessage-deflate compression. A malicious server can respond with an out...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-v9p9-hfj2-hcw8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-1527</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.6
-                </span>
-            </div>
-            <div class="card-title">Undici has CRLF Injection in undici via `upgrade` option</div>
-            <div class="card-body">### Impact
-
-When an application passes user-controlled input to the `upgrade` option of `client.request()`, an attacker can inject CRLF sequences (`\r\n`) to:
-
-1. Inject arbitrary HTTP headers
-2. Terminate the HTTP request prematurely and smuggle raw data to non-HTTP services (Redis, Memcached, Elasticsearch)
-
-The vulnerability exists because undic...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-4992-7rv2-5pvq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-2581</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Undici has Unbounded Memory Consumption in its DeduplicationHandler via Response Buffering that leads to DoS</div>
-            <div class="card-body">## Impact
-This is an uncontrolled resource consumption vulnerability (CWE-400) that can lead to Denial of Service (DoS).
-
-In vulnerable Undici versions, when `interceptors.deduplicate()` is enabled, response data for deduplicated requests could be accumulated in memory for downstream handlers. An attacker-controlled or untrusted upstream endpoint c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-13</span>
-                <a href="https://github.com/advisories/GHSA-phc3-fgpg-7m6h" target="_blank">Full Report →</a>
             </div>
         </div>
         
