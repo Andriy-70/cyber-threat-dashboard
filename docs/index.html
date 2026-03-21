@@ -68,541 +68,541 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-20 18:30 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-21 00:56 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33331</span>
+                <span class="cve-id">GHSA-8fw8-q79c-fp9m</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
+                    HIGH 8.6
                 </span>
             </div>
-            <div class="card-title">oRPC has Stored XSS in OpenAPI Reference Plugin via unescaped JSON.stringify</div>
-            <div class="card-body">A Stored Cross-Site Scripting (XSS) vulnerability exists in the OpenAPI documentation generation of orpc. If an attacker can control any field within the OpenAPI specification (such as info.description), they can break out of the JSON context and execute arbitrary JavaScript when a user views the generated API documentation.
-In the packages/openapi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-7f6v-3gx7-27q8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33316</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Vikunja’s Improper Access Control Enables Bypass of Administrator-Imposed Account Disablement </div>
+            <div class="card-title">AVideo has an Unauthenticated Local File Inclusion in API locale (RCE possible with writable PHP)</div>
             <div class="card-body">### Summary
-
-A flaw in Vikunja’s password reset logic allows disabled users to regain access to their accounts. The `ResetPassword()` function sets the user’s status to `StatusActive` after a successful password reset without verifying whether the account was previously disabled. By requesting a reset token through `/api/v1/user/password/token` and...</div>
+An unauthenticated API endpoint (`APIName=locale`) concatenates user input into an `include` path with no canonicalization or whitelist. Path traversal is accepted, so arbitrary PHP files under the web root can be included. In our test this yielded confirmed file disclosure and code execution of existing PHP content (e.g., `view/about.p...</div>
             <div class="card-footer">
                 <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-vq4q-79hh-q767" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-8fw8-q79c-fp9m" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33315</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Vikunja has a 2FA Bypass via Caldav Basic Auth</div>
-            <div class="card-body">### Summary
-The Caldav endpoint allows login using Basic Authentication, which in turn allows users to bypass the TOTP on 2FA-enabled accounts. The user can then access standard project information that would normally be protected behind 2FA (if enabled), such as project name, description, etc.
-
-### Details
-The two files below show that when a user...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-47cr-f226-r4pq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33313</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Vikunja has an IDOR in Task Comments Allows Reading Arbitrary Comments</div>
-            <div class="card-body">An authenticated user can read any task comment by ID, regardless of whether they have access to the task the comment belongs to, by substituting the task ID in the API URL with a task they do have access to.
-
-## Details
-
-The `GET /api/v1/tasks/{taskID}/comments/{commentID}` endpoint performs an authorization check against the task ID provided in t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-mr3j-p26x-72x4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33312</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Vikunja read-only users can delete project background images via broken object-level authorization</div>
-            <div class="card-body">## Summary
-
-The `DELETE /api/v1/projects/:project/background` endpoint checks `CanRead` permission instead of `CanUpdate`, allowing any user with read-only access to a project to permanently delete its background image.
-
-## Details
-
-The `RemoveProjectBackground` handler (`pkg/modules/background/handler/background.go`) reuses `checkProjectBackground...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-564f-wx8x-878h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33056</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">tar-rs `unpack_in` can chmod arbitrary directories by following symlinks</div>
-            <div class="card-body">## Summary
-
-When unpacking a tar archive, the `tar` crate's `unpack_dir` function uses `fs::metadata()` to check whether a path that already exists is a directory. Because `fs::metadata()` follows symbolic links, a crafted tarball containing a symlink entry followed by a directory entry with the same name causes the crate to treat the symlink targe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-j4xf-2g29-59ph" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33055</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">tar-rs incorrectly ignores PAX size headers if header size is nonzero</div>
-            <div class="card-body">### Summary
-
-As part of [CVE-2025-62518](https://www.cve.org/CVERecord?id=CVE-2025-62518) the astral-tokio-tar project was changed to correctly honor PAX size headers in the case where it was different from the base header.
-
-However, it was missed at the time that this project (the original Rust `tar` crate) had a conditional logic that skipped the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-gchp-q4r4-x4ff" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33286</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">Graphiti Affected by Arbitrary Method Execution via Unvalidated Relationship Names</div>
-            <div class="card-body">### Summary
-
-An arbitrary method execution vulnerability has been found which affects Graphiti's JSONAPI write functionality. An attacker can craft a malicious JSONAPI payload with arbitrary relationship names to invoke any public method on the underlying model instance, class or its associations.
-
-### Impact
-
-Any application exposing Graphiti writ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-3m5v-4xp5-gjg2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32711</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">pydicom has a path traversal in FileSet/DICOMDIR ReferencedFileID allows file access outside the File-set root</div>
-            <div class="card-body">### Summary
-A crafted `DICOMDIR` can set `ReferencedFileID` to a path outside the File-set root. `pydicom` resolves the path only to confirm that it exists, but does not verify that the resolved path remains under the File-set root. Subsequent public `FileSet` operations such as `copy()`, `write()`, and `remove()+write(use_existing=True)` use that ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-v856-2rf8-9f28" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32701</span>
+                <span class="cve-id">GHSA-mwjc-5j4x-r686</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">Qwik City has array method pollution in FormData processing allows type confusion and DoS</div>
-            <div class="card-body">**Summary**
+            <div class="card-title">AVideo has an unauthenticated decrypt oracle leaking any ciphertext</div>
+            <div class="card-body">### Summary
+The API plugin exposes a `decryptString` action without any authentication. Anyone can submit ciphertext and receive plaintext. Ciphertext is issued publicly (e.g., `view/url2Embed.json.php`), so any user can recover protected tokens/metadata. Severity: High.
 
-Qwik City improperly inferred arrays from dotted form field names during `FormData` parsing. By submitting mixed array-index and object-property keys for the same path, an attacker could cause user-controlled properties to be written onto values that application code expected to be arrays.
-
-**Description**
-
-When processing `application...</div>
+### Details
+- Entry: `plugin/API/get.json.php` is unauthenticated.
+- Handler:...</div>
             <div class="card-footer">
                 <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-whhv-gg5v-864r" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-mwjc-5j4x-r686" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-32595</span>
+                <span class="cve-id">GHSA-pwjx-qhcg-rvj4</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                    MEDIUM 4.4
                 </span>
             </div>
-            <div class="card-title">Traefik Affected by BasicAuth Middleware Timing Attack Allows Username Enumeration</div>
-            <div class="card-body">## Summary
-
-There is a potential vulnerability in Traefik's BasicAuth middleware that allows username enumeration via a timing attack.
-
-When a submitted username exists, the middleware performs a bcrypt password comparison taking ~166ms. When the username does not exist, the response returns immediately in ~0.6ms. This ~298x timing difference is ob...</div>
+            <div class="card-title">webpki has a certificate revocation enforcement bug</div>
+            <div class="card-body">There is a certificate revocation enforcement bug in `rustls-webpki` CRL processing. when both the certificate CRL distribution point and the CRL issuing distribution point contain multiple URI names, `IssuingDistributionPoint::authoritative_for()` reuses one-shot DER iterators across nested comparisons. If the only matching URI pair appears later ...</div>
             <div class="card-footer">
                 <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-g3hg-j4jv-cwfr" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-pwjx-qhcg-rvj4" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-32305</span>
+                <span class="cve-id">CVE-2026-33509</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">pyLoad SETTINGS Permission Users Can Achieve Remote Code Execution via Unrestricted Reconnect Script Configuration</div>
+            <div class="card-body">## Summary
+
+The `set_config_value()` API endpoint allows users with the non-admin `SETTINGS` permission to modify any configuration option without restriction. The `reconnect.script` config option controls a file path that is passed directly to `subprocess.run()` in the thread manager's reconnect logic. A SETTINGS user can set this to any executabl...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-r7mc-x6x7-cqxx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33508</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">Traefik has a Potential mTLS Bypass via Fragmented TLS ClientHello Causing Pre-SNI Sniff Fallback to Default Non-mTLS TLS Config</div>
-            <div class="card-body">## Summary
+            <div class="card-title">Parse Server LiveQuery subscription query depth bypass</div>
+            <div class="card-body">### Impact
 
-There is a potential vulnerability in Traefik's TLS SNI pre-sniffing logic related to fragmented ClientHello packets.
+Parse Server's LiveQuery component does not enforce the `requestComplexity.queryDepth` configuration setting when processing WebSocket subscription requests. An attacker can send a subscription with deeply nested logical operators, causing excessive recursion and CPU consumption that degrades or disrupts service availability.
 
-When a TLS ClientHello is fragmented across multiple records, Traefik's SNI extraction may fail with an EOF and return an empty SNI. The TCP router then falls back to the default TLS configuration, which does not requir...</div>
+Deploymen...</div>
             <div class="card-footer">
                 <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-wvvq-wgcr-9q48" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-6qh5-m6g3-xhq6" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-x49q-fhhm-r9jf</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">Duplicate Advisory: OpenClaw: WebSocket shared-auth connections could self-declare elevated scopes</div>
-            <div class="card-body">### Duplicate Advisory
-This advisory has been withdrawn because it is a duplicate of GHSA-rqpp-rjj8-7wv8. This link is maintained to preserve external references.
-
-### Original Description
-OpenClaw versions prior to 2026.3.12 contain an authorization bypass vulnerability in the WebSocket connect path that allows shared-token or password-authenticat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-x49q-fhhm-r9jf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-29794</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Vikunja has a Rate-Limit Bypass for Unauthenticated Users via Spoofed Headers</div>
-            <div class="card-body">### Summary
-Unauthenticated users are able to bypass the application's built-in rate-limits by spoofing the `X-Forwarded-For` or `X-Real-IP` headers due to the rate-limit relying on the value of `(echo.Context).RealIP`. 
-
-### Details
-In the first file below, the rate-limit for unauthenticated users can be observed being populated with the `ip` valu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-m547-hp4w-j6jx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-4342</span>
+                <span class="cve-id">CVE-2026-33507</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 8.8
                 </span>
             </div>
-            <div class="card-title">ingress-nginx comment-based nginx configuration injection</div>
-            <div class="card-body">A security issue was discovered in ingress-nginx where a combination of Ingress annotations can be used to inject configuration into nginx. This can lead to arbitrary code execution in the context of the ingress-nginx controller, and disclosure of Secrets accessible to the controller. (Note that in the default installation, the controller can acces...</div>
+            <div class="card-title">AVideo Affected by CSRF on Plugin Import Endpoint Enables Unauthenticated Remote Code Execution via Malicious Plugin Upload</div>
+            <div class="card-body">## Summary
+
+The `objects/pluginImport.json.php` endpoint allows admin users to upload and install plugin ZIP files containing executable PHP code, but lacks any CSRF protection. Combined with the application explicitly setting `session.cookie_samesite = 'None'` for HTTPS connections, an unauthenticated attacker can craft a page that, when visited b...</div>
             <div class="card-footer">
                 <span>Published: 2026-03-20</span>
-                <a href="https://github.com/advisories/GHSA-f53h-mxv9-cp98" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-hv36-p4w4-6vmj" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33409</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
+                <span class="cve-id">GHSA-f67f-hcr6-94mf</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
                 </span>
             </div>
-            <div class="card-title">Parse Server has an auth provider validation bypass on login via partial authData</div>
-            <div class="card-body">### Impact
+            <div class="card-title">Zen-AI-Pentest has Shell Injection via untrusted issue title in ZenClaw Discord Integration workflow</div>
+            <div class="card-body">## Summary
 
-An authentication bypass vulnerability allows an attacker to log in as any user who has linked a third-party authentication provider, without knowing the user's credentials. The attacker only needs to know the user's provider ID to gain full access to their account, including a valid session token.
-
-This affects Parse Server deployments...</div>
+The `ZenClaw Discord Integration` GitHub Actions workflow is vulnerable to shell command injection. The issue title field, controllable by any GitHub user, is interpolated directly into a `run` shell block via a GitHub Actions template expression. An attacker can craft an issue title containing a subshell expression that executes arbitr...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-pfj7-wv7c-22pr" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-f67f-hcr6-94mf" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-5rpf-x9jg-8j5p</span>
+                <span class="cve-id">CVE-2025-55988</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">DreamFactory has a directory traversal</div>
+            <div class="card-body">An issue in the component /Controllers/RestController.php of DreamFactory Core v1.0.3 allows attackers to execute a directory traversal via an unsanitized URI path....</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-gv7f-w92j-383q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33502</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">AVideo has Unauthenticated SSRF via plugin/Live/test.php</div>
+            <div class="card-body">### Summary
+An unauthenticated server-side request forgery vulnerability in `plugin/Live/test.php` allows any remote user to make the AVideo server send HTTP requests to arbitrary URLs. This can be used to probe localhost/internal services and, when reachable, access internal HTTP resources or cloud metadata endpoints.
+
+### Details
+The endpoint acc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-3fpm-8rjr-v5mc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33501</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.3
                 </span>
             </div>
-            <div class="card-title">Scriban Affected by Memory Exhaustion (OOM) via Unbounded String Generation (Denial of Service)</div>
-            <div class="card-body">`TemplateContext.LimitToString` defaults to `0` (unlimited). While Scriban implements a default `LoopLimit` of 1000, an attacker can still cause massive memory allocation via exponential string growth. Doubling a string for just 30 iterations generates over 1GB of text, instantly exhausting heap memory and crashing the host process. Because no outp...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-5rpf-x9jg-8j5p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-grr9-747v-xvcp</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Scriban has an Infinite Recursion during Object Rendering Leads to Stack Overflow and Process Crash (Denial of Service)</div>
-            <div class="card-body">When Scriban renders an object that contains a circular reference, it traverses the object's members infinitely. Because the `ObjectRecursionLimit` property defaults to unlimited, this behavior exhausts the thread's stack space, triggering an uncatchable `StackOverflowException` that immediately terminates the hosting process.
+            <div class="card-title">AVideo has Unauthenticated Information Disclosure of User Group Permission Mappings via Permissions Plugin</div>
+            <div class="card-body">## Summary
 
-When rendering objec...</div>
+The endpoint `plugin/Permissions/View/Users_groups_permissions/list.json.php` lacks any authentication or authorization check, allowing unauthenticated users to retrieve the complete permission matrix mapping user groups to plugins. All sibling endpoints in the same directory (`add.json.php`, `delete.json.php`, `index.php`) properly req...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-grr9-747v-xvcp" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-96qp-8cmq-jvq8" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-wgh7-7m3c-fx25</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Scriban has Uncontrolled Recursion in Parser Leads to Stack Overflow and Process Crash (Denial of Service)</div>
-            <div class="card-body">Scriban is vulnerable to an uncontrolled process crash resulting in a Denial of Service. Because the recursive-descent parser does not enforce a default limit on expression depth, an attacker who controls template input can craft a heavily nested template that triggers a `StackOverflowException`. In .NET, a `StackOverflowException` cannot be caught...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-wgh7-7m3c-fx25" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33397</span>
+                <span class="cve-id">CVE-2026-33500</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                    MEDIUM 5.4
                 </span>
             </div>
-            <div class="card-title">Protocol-Relative URL Injection via Single Backslash Bypass in Angular SSR</div>
-            <div class="card-body">An Open Redirect vulnerability exists in `@angular/ssr` due to an incomplete fix for CVE-2026-27738. While the original fix successfully blocked multiple leading slashes (e.g., `///`), the internal validation logic fails to account for a single backslash (`\`) bypass.
+            <div class="card-title">AVideo - Incomplete Fix for CVE-2026-27568: Stored XSS via Markdown `javascript:` URI Bypasses ParsedownSafeWithLinks Sanitization</div>
+            <div class="card-body">## Summary
 
-When an Angular SSR application is deployed behind a proxy that passes the `X-Fo...</div>
+The fix for CVE-2026-27568 (GHSA-rcqw-6466-3mv7) introduced a custom `ParsedownSafeWithLinks` class that sanitizes raw HTML `<a>` and `<img>` tags in comments, but explicitly disables Parsedown's `safeMode`. This creates a bypass: markdown link syntax `[text](javascript:alert(1))` is processed by Parsedown's `inlineLink()` method, which...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-vfx2-hv2g-xj5f" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-72h5-39r7-r26j" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-4267</span>
+                <span class="cve-id">CVE-2026-33499</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 6.1
                 </span>
             </div>
-            <div class="card-title">The Query Monitor plugin for WordPress has Reflected Cross-Site Scripting via Request URI</div>
-            <div class="card-body">### Impact
-
-The Query Monitor plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the `$_SERVER['REQUEST_URI']` parameter in all versions up to, and including, 3.20.3 due to insufficient output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can succes...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-2xr4-chcf-vmvf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33354</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.6
-                </span>
-            </div>
-            <div class="card-title">AVideo has an authenticated arbitrary local file read via `chunkFile` path injection in `aVideoEncoder.json.php`</div>
+            <div class="card-title">AVideo has Reflected XSS via unlockPassword Parameter in forbiddenPage.php and warningPage.php</div>
             <div class="card-body">## Summary
-`POST /objects/aVideoEncoder.json.php` accepts a requester-controlled `chunkFile` parameter intended for staged upload chunks. Instead of restricting that path to trusted server-generated chunk locations, the endpoint accepts arbitrary local filesystem paths that pass `isValidURLOrPath()`. That helper allows files under broad server dire...</div>
+
+The `view/forbiddenPage.php` and `view/warningPage.php` templates reflect the `$_REQUEST['unlockPassword']` parameter directly into an HTML `<input>` tag's attributes without any output encoding or sanitization. An attacker can craft a URL that breaks out of the `value` attribute and injects arbitrary HTML attributes including JavaScrip...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-4jw9-5hrc-m4j6" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-7292-w8qp-mhq2" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33353</span>
+                <span class="cve-id">CVE-2026-33498</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">In Soft Serve, an authenticated repo import can clone server-local private repositories</div>
-            <div class="card-body">### Summary
-An authorization flaw in `repo import` allows any authenticated SSH user to clone a server-local Git repository, including another user's private repo, into a new repository they control. This breaks the private-repository confidentiality boundary and should be treated as High severity.
+            <div class="card-title">Parse Server has a query condition depth bypass via pre-validation transform pipeline</div>
+            <div class="card-body">### Impact
 
-### Details
-Repo import checks authorization only...</div>
+An attacker can send an unauthenticated HTTP request with a deeply nested query containing logical operators to permanently hang the Parse Server process. The server becomes completely unresponsive and must be manually restarted. This is a bypass of the fix for CVE-2026-32944.
+
+### Patches
+
+The query condition nesting depth is now valid...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-xgxp-f695-6vrp" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-9fjp-q3c4-6w3j" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33352</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
+                <span class="cve-id">CVE-2026-33497</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">AVideo has an Unauthenticated SQL Injection via `doNotShowCats` Parameter (Backslash Escape Bypass)</div>
+            <div class="card-title">langflow: /profile_pictures/{folder_name}/{file_name} endpoint file reading</div>
             <div class="card-body">### Summary
+In the download_profile_picture function of the /profile_pictures/{folder_name}/{file_name} endpoint, the folder_name and file_name parameters are not strictly filtered, which allows the secret_key to be read across directories.
 
-An unauthenticated SQL injection vulnerability exists in `objects/category.php` in the `getAllCategories()` method. The `doNotShowCats` request parameter is sanitized only by stripping single-quote characters (`str_replace("'", '', ...)`), but this is trivially bypassed using a backslash escape technique to shift SQL string boundaries....</div>
+### Details
+src/backend/base/langflow/api/v1/files.py
+
+![image](https://github.com/user-attachments/assets/1...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-mcj5-6qr4-95fj" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-ph9w-r52h-28p7" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33344</span>
+                <span class="cve-id">CVE-2026-33505</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">Ory Keto has a SQL injection via forged pagination tokens</div>
+            <div class="card-body">## Description
+
+The **GetRelationships API** in Ory Keto is vulnerable to SQL injection due to flaws in its pagination implementation.
+
+Pagination tokens are encrypted using the secret configured in `secrets.pagination`. An attacker who knows this secret can craft their own tokens, including malicious tokens that lead to SQL injection. If this conf...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-c38g-mx2c-9wf2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33504</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">Ory Hydra has a SQL injection via forged pagination tokens</div>
+            <div class="card-body">## Description
+
+Following Admin APIs in Ory Hydra are vulnerable to SQL injection due to flaws in its pagination implementation:
+
+- listOAuth2Clients
+- listOAuth2ConsentSessions
+- listTrustedOAuth2JwtGrantIssuers
+
+Pagination tokens are encrypted using the secret configured in `secrets.pagination`. If this value is not set, Hydra falls back to using...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-r9w3-57w2-gch2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33503</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">Ory Kratos has a SQL injection via forged pagination tokens</div>
+            <div class="card-body">## Description
+
+The **ListCourierMessages** Admin API in Ory Kratos is vulnerable to SQL injection due to flaws in its pagination implementation.
+
+Pagination tokens are encrypted using the secret configured in `secrets.pagination`. An attacker who knows this secret can craft their own tokens, including malicious tokens that lead to SQL injection. I...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-hgx2-28f8-6g2r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33494</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
+                </span>
+            </div>
+            <div class="card-title">Ory Oathkeeper has a path traversal authorization bypass</div>
+            <div class="card-body">## Description
+
+Ory Oathkeeper is vulnerable to an authorization bypass via HTTP path traversal. An attacker can craft a URL containing path traversal sequences (e.g. `/public/../admin/secrets`) that resolves to a protected path after normalization, but is matched against a permissive rule because the raw, un-normalized path is used during rule eva...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-p224-6x5r-fjpm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33496</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 8.1
                 </span>
             </div>
-            <div class="card-title">Dagu has an incomplete fix for CVE-2026-27598: path traversal via %2F-encoded slashes in locateDAG</div>
-            <div class="card-body">The fix for CVE-2026-27598 (commit e2ed589, PR #1691) added `ValidateDAGName` to `CreateNewDAG` and rewrote `generateFilePath` to use `filepath.Base`. This patched the CREATE path. The remaining API endpoints - GET, DELETE, RENAME, EXECUTE - all pass the `{fileName}` URL path parameter to `locateDAG` without calling `ValidateDAGName`. `%2F`-encoded...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-ph8x-4jfv-v9v8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33351</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">AVideo has Unauthenticated SSRF via `webSiteRootURL` Parameter in saveDVR.json.php, Chaining to Verification Bypass</div>
-            <div class="card-body">### Summary
+            <div class="card-title">Ory Oathkeeper has an authentication bypass by cache key confusion</div>
+            <div class="card-body">## Description
 
-A Server-Side Request Forgery (SSRF) vulnerability exists in `plugin/Live/standAloneFiles/saveDVR.json.php`. When the AVideo Live plugin is deployed in standalone mode (the intended configuration for this file), the `$_REQUEST['webSiteRootURL']` parameter is used directly to construct a URL that is fetched server-side via `file_get_con...</div>
+Ory Oathkeeper is vulnerable to authentication bypass due to cache key confusion. The `oauth2_introspection` authenticator cache does not distinguish tokens that were validated with different introspection URLs. An attacker can therefore legitimately use a token to prime the cache, and subsequently use the same token for rules that ...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-5f7v-4f6g-74rj" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-4mq7-pvjg-xp2r" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33349</span>
+                <span class="cve-id">CVE-2026-33495</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
+                    MEDIUM 6.5
                 </span>
             </div>
-            <div class="card-title">Entity Expansion Limits Bypassed When Set to Zero Due to JavaScript Falsy Evaluation in fast-xml-parser</div>
-            <div class="card-body">## Summary
+            <div class="card-title">Ory Oathkeeper has an authentication bypass by usage of untrusted header</div>
+            <div class="card-body">## Description
 
-The `DocTypeReader` in fast-xml-parser uses JavaScript truthy checks to evaluate `maxEntityCount` and `maxEntitySize` configuration limits. When a developer explicitly sets either limit to `0` — intending to disallow all entities or restrict entity size to zero bytes — the falsy nature of `0` in JavaScript causes the guard conditions to...</div>
+Ory Oathkeeper is often deployed behind other components like CDNs, WAFs, or reverse proxies. Depending on the setup, another component might forward the request to the Oathkeeper proxy with a different protocol (http vs. https) than the original request. In order to properly match the request against the configured rules, Oathkeepe...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-jp2q-39xq-3w4g" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-vhr5-ggp3-qq85" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33347</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">league/commonmark has an embed extension allowed_domains bypass</div>
-            <div class="card-body">### Impact
-
-The `DomainFilteringAdapter` in the Embed extension is vulnerable to an allowlist bypass due to a missing hostname boundary assertion in the domain-matching regex. An attacker-controlled domain like `youtube.com.evil` passes the allowlist check when `youtube.com` is an allowed domain.
-
-This enables two attack vectors:
-
-- **SSRF**: The `...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-hh8v-hgvp-g3f5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33332</span>
+                <span class="cve-id">GHSA-4hxc-9384-m385</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.3
                 </span>
             </div>
-            <div class="card-title">NiceGUI's unvalidated chunk size parameter in media routes can cause memory exhaustion</div>
+            <div class="card-title">h3: SSE Event Injection via Unsanitized Carriage Return (`\r`) in EventStream Data and Comment Fields (Bypass of CVE Fix)</div>
             <div class="card-body">## Summary
 
-NiceGUI's `app.add_media_file()` and `app.add_media_files()` media routes accept a user-controlled query parameter that influences how files are read during streaming. The parameter is passed to the range-response implementation without validation, allowing an attacker to bypass chunked streaming and force the server to load entire file...</div>
+The `EventStream` class in h3 fails to sanitize carriage return (`\r`) characters in `data` and `comment` fields. Per the SSE specification, `\r` is a valid line terminator, so browsers interpret injected `\r` as line breaks. This allows an attacker to inject arbitrary SSE events, spoof event types, and split a single `push()` call into...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-w5g8-5849-vj76" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-4hxc-9384-m385" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-33326</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
+                <span class="cve-id">CVE-2026-33490</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
                 </span>
             </div>
-            <div class="card-title">@keystone-6/core: `isFilterable` bypass via `cursor` parameter in findMany (CVE-2025-46720 incomplete fix)</div>
-            <div class="card-body"># Summary  
-`{field}.isFilterable` access control can be bypassed in `findMany` queries by passing a `cursor`.  This can be used to confirm the existence of records by protected field values.
+            <div class="card-title">h3: Missing Path Segment Boundary Check in `mount()` Causes Middleware Execution on Unrelated Prefix-Matching Routes</div>
+            <div class="card-body">## Summary
 
-The fix for [CVE-2025-46720](https://github.com/keystonejs/keystone/security/advisories/GHSA-hg9m-67mm-7pg3) (field-level `isFilterable` bypass for update an...</div>
+The `mount()` method in h3 uses a simple `startsWith()` check to determine whether incoming requests fall under a mounted sub-application's path prefix. Because this check does not verify a path segment boundary (i.e., that the next character after the base is `/` or end-of-string), middleware registered on a mount like `/admin` will al...</div>
             <div class="card-footer">
-                <span>Published: 2026-03-19</span>
-                <a href="https://github.com/advisories/GHSA-cgcg-q9jh-5pr2" target="_blank">Full Report →</a>
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-2j6q-whv2-gh6w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-72gr-qfp7-vwhw</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">h3: Double Decoding in `serveStatic` Bypasses `resolveDotSegments` Path Traversal Protection via `%252e%252e`</div>
+            <div class="card-body">## Summary
+
+The `serveStatic` utility in h3 applies a redundant `decodeURI()` call to the request pathname after `H3Event` has already performed percent-decoding with `%25` preservation. This double decoding converts `%252e%252e` into `%2e%2e`, which bypasses `resolveDotSegments()` (since it checks for literal `.` characters, not percent-encoded eq...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-72gr-qfp7-vwhw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33493</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">AVideo has a Path Traversal in import.json.php Allows Private Video Theft and Arbitrary File Read/Deletion via fileURI Parameter</div>
+            <div class="card-body">## Summary
+
+The `objects/import.json.php` endpoint accepts a user-controlled `fileURI` POST parameter with only a regex check that the value ends in `.mp4`. Unlike `objects/listFiles.json.php`, which was hardened with a `realpath()` + directory prefix check to restrict paths to the `videos/` directory, `import.json.php` performs no directory restri...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-83xq-8jxj-4rxm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33492</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">AVideo has Session Fixation via GET PHPSESSID Parameter With Disabled Login Session Regeneration</div>
+            <div class="card-body">## Summary
+
+AVideo's `_session_start()` function accepts arbitrary session IDs via the `PHPSESSID` GET parameter and sets them as the active PHP session. A session regeneration bypass exists for specific blacklisted endpoints when the request originates from the same domain. Combined with the explicitly disabled session regeneration in `User::login...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-x3pr-vrhq-vq43" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33488</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">AVideo has a PGP 2FA Bypass via Cryptographically Broken 512-bit RSA Key Generation in LoginControl Plugin</div>
+            <div class="card-body">## Summary
+
+The `createKeys()` function in the LoginControl plugin's PGP 2FA system generates 512-bit RSA keys, which have been publicly factorable since 1999. An attacker who obtains a target user's public key can factor the 512-bit RSA modulus on commodity hardware in hours, derive the complete private key, and decrypt any PGP 2FA challenge issue...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-6m5f-j7w2-w953" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33468</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Kysely has a MySQL SQL Injection via Insufficient Backslash Escaping in `sql.lit(string)` usage or similar methods that append string literal values into the compiled SQL strings</div>
+            <div class="card-body">## Summary
+
+Kysely's `DefaultQueryCompiler.sanitizeStringLiteral()` only escapes single quotes by doubling them (`'` → `''`) but does not escape backslashes. When used with the MySQL dialect (where `NO_BACKSLASH_ESCAPES` is OFF by default), an attacker can use a backslash to escape the trailing quote of a string literal, breaking out of the string ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-8cpq-38p9-67gx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33442</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Kysely has a MySQL SQL Injection via Backslash Escape Bypass in non-type-safe usage of JSON path keys.</div>
+            <div class="card-body">## Summary
+
+The `sanitizeStringLiteral` method in Kysely's query compiler escapes single quotes (`'` → `''`) but does not escape backslashes. On MySQL with the default `BACKSLASH_ESCAPES` SQL mode, an attacker can inject a backslash before a single quote to neutralize the escaping, breaking out of the JSON path string literal and injecting arbitrar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-fr9j-6mvq-frcv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33413</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">etcd: Authorization bypasses in multiple APIs</div>
+            <div class="card-body">### Impact
+_What kind of vulnerability is it? Who is impacted?_
+
+Multiple vulnerabilities allow unauthorized users to bypass authentication or authorization checks and call certain etcd functions in clusters that expose the gRPC API to untrusted or partially trusted clients.
+
+In unpatched etcd clusters with etcd auth enabled, unauthorized users are...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-q8m4-xhhv-38mg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33419</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">MinIO LDAP login brute-force via user enumeration and missing rate limit</div>
+            <div class="card-body">### Impact
+_What kind of vulnerability is it? Who is impacted?_
+
+MinIO AIStor's STS (Security Token Service) `AssumeRoleWithLDAPIdentity` endpoint is vulnerable to LDAP credential brute-forcing due to two combined weaknesses: (1) distinguishable error responses that enable username enumeration, and (2) absence of rate limiting on authentication att...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-20</span>
+                <a href="https://github.com/advisories/GHSA-jv87-32hw-hh99" target="_blank">Full Report →</a>
             </div>
         </div>
         
