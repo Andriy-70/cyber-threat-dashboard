@@ -68,13 +68,13 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-23 12:36 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-23 18:36 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-8fw8-q79c-fp9m</span>
+                <span class="cve-id">CVE-2026-33513</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 8.6
                 </span>
@@ -115,8 +115,10 @@ The API plugin exposes a `decryptString` action without any authentication. Anyo
                     MEDIUM 4.4
                 </span>
             </div>
-            <div class="card-title">webpki has a certificate revocation enforcement bug</div>
-            <div class="card-body">There is a certificate revocation enforcement bug in `rustls-webpki` CRL processing. when both the certificate CRL distribution point and the CRL issuing distribution point contain multiple URI names, `IssuingDistributionPoint::authoritative_for()` reuses one-shot DER iterators across nested comparisons. If the only matching URI pair appears later ...</div>
+            <div class="card-title">webpki: CRLs not considered authoritative by Distribution Point due to faulty matching logic</div>
+            <div class="card-body">If a certificate had more than one `distributionPoint`, then only the first `distributionPoint` would be considered against each CRL's `IssuingDistributionPoint` `distributionPoint`, and then the certificate's subsequent `distributionPoint`s would be ignored.
+
+The impact was that correct provided CRLs would not be consulted to check revocation. Wit...</div>
             <div class="card-footer">
                 <span>Published: 2026-03-20</span>
                 <a href="https://github.com/advisories/GHSA-pwjx-qhcg-rvj4" target="_blank">Full Report →</a>
