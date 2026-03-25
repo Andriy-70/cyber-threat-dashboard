@@ -68,10 +68,352 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-25 12:37 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-03-25 18:39 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33651</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">AVideo has a Blind SQL Injection in Live Schedule Reminder via Unsanitized live_schedule_id in Scheduler_commands::getAllActiveOrToRepeat()</div>
+            <div class="card-body">## Summary
+
+The `remindMe.json.php` endpoint passes `$_REQUEST['live_schedule_id']` through multiple functions without sanitization until it reaches `Scheduler_commands::getAllActiveOrToRepeat()`, which directly concatenates it into a SQL `LIKE` clause. Although intermediate functions (`new Live_schedule()`, `getUsers_idOrCompany()`) apply `intval(...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-pvw4-p2jm-chjm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33650</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.6
+                </span>
+            </div>
+            <div class="card-title">AVideo: Video Moderator Privilege Escalation via Ownership Transfer Enables Arbitrary Video Deletion</div>
+            <div class="card-body">## Summary
+
+A user with the "Videos Moderator" permission can escalate privileges to perform full video management operations — including ownership transfer and deletion of any video — despite the permission being documented as only allowing video publicity changes (Active, Inactive, Unlisted). The root cause is that `Permissions::canModerateVideos...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-8x77-f38v-4m5j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33649</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">AVideo's GET-Based CSRF in setPermission.json.php Enables Privilege Escalation via Arbitrary Permission Modification</div>
+            <div class="card-body">## Summary
+
+The `plugin/Permissions/setPermission.json.php` endpoint accepts GET parameters for a state-changing operation that modifies user group permissions. The endpoint has no CSRF token validation, and the application explicitly sets `session.cookie_samesite=None` on session cookies. This allows an unauthenticated attacker to craft a page wit...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-g8x9-7mgh-7cvj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33648</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">AVideo Vulnerable to OS Command Injection via Unsanitized `users_id` and `liveTransmitionHistory_id` in Restreamer Log File Path</div>
+            <div class="card-body">## Summary
+
+The restreamer endpoint constructs a log file path by embedding user-controlled `users_id` and `liveTransmitionHistory_id` values from the JSON request body without any sanitization. This log file path is then concatenated directly into shell commands passed to `exec()`, allowing an authenticated user to achieve arbitrary command execut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-5m4q-5cvx-36mw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33647</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">AVideo Vulnerable to Remote Code Execution via MIME/Extension Mismatch in ImageGallery File Upload</div>
+            <div class="card-body">## Summary
+
+The `ImageGallery::saveFile()` method validates uploaded file content using `finfo` MIME type detection but derives the saved filename extension from the user-supplied original filename without an allowlist check. An attacker can upload a polyglot file (valid JPEG magic bytes followed by PHP code) with a `.php` extension. The MIME check...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-wxjw-phj6-g75w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33287</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">LiquidJS has Exponential Memory Amplification through its replace_first Filter $& Pattern</div>
+            <div class="card-body">### Summary
+The `replace_first` filter in LiquidJS uses JavaScript's `String.prototype.replace()` which interprets `$&` as a backreference to the matched substring. The filter only charges `memoryLimit` for the input string length, not the amplified output. An attacker can achieve exponential memory amplification (up to 625,000:1) while staying wit...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-6q5m-63h6-5x4v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33285</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">LiquidJS: memoryLimit Bypass through Negative Range Values Leads to Process Crash</div>
+            <div class="card-body">### Summary
+
+LiquidJS's `memoryLimit` security mechanism can be completely bypassed by using reverse range expressions (e.g., `(100000000..1)`), allowing an attacker to allocate unlimited memory. Combined with a string flattening operation (e.g., `replace` filter), this causes a **V8 Fatal error that crashes the Node.js process**, resulting in comp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-9r5m-9576-7f6x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8g29-8xwr-qmhr</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">@grackle-ai/server JSON.parse lacks try-catch logic in its gRPC Service AdapterConfig Handling</div>
+            <div class="card-body">### Impact
+
+`JSON.parse(env.adapterConfig)` is called without error handling in three locations within the gRPC service. While the data originates from the server's own SQLite database and should always be valid JSON, database corruption, migration errors, or unexpected state could cause an unhandled exception that crashes the gRPC handler.
+
+Additi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-8g29-8xwr-qmhr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5j35-xr4g-vwf4</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">@grackle-ai/server has a Missing Secure Flag on Session Cookie</div>
+            <div class="card-body">### Impact
+
+The session cookie is set with `HttpOnly; SameSite=Lax; Path=/` but does not include the `Secure` flag. This means the cookie will be sent over plain HTTP connections.
+
+Since the server binds to `127.0.0.1` by default and uses HTTP (not HTTPS), this is acceptable for localhost use. However, when `--allow-network` is used to bind to `0.0...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-5j35-xr4g-vwf4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3mjm-x6gw-2x42</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">@grackle-ai/server has Missing Content-Security-Policy and X-Frame-Options Headers</div>
+            <div class="card-body">### Impact
+
+The HTTP server does not set `Content-Security-Policy`, `X-Frame-Options`, or `X-Content-Type-Options` headers on any response. This reduces defense-in-depth against XSS, clickjacking, and MIME-sniffing attacks.
+
+While the current XSS attack surface is small (React-markdown is configured safely, no `dangerouslySetInnerHTML`, Vite does n...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-3mjm-x6gw-2x42" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xq7h-vwjp-5vrh</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">@grackle-ai/powerline Runs Without Authentication by Default</div>
+            <div class="card-body">### Impact
+
+When `--token` is not provided and `GRACKLE_POWERLINE_TOKEN` is not set, the PowerLine gRPC server runs with **zero authentication**. A warning is logged (`"NO AUTH (development only)"`) but nothing prevents deployment in this state. Any client that can reach the PowerLine port can spawn agent sessions, access credential tokens, and exe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-xq7h-vwjp-5vrh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w3hv-x4fp-6h6j</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">@grackle-ai/server has Missing WebSocket Origin Header Validation</div>
+            <div class="card-body">### Impact
+
+The WebSocket upgrade handler in the server validates authentication (API key token or session cookie) but does not check the `Origin` header. A malicious webpage on a different origin could initiate a WebSocket connection to `ws://localhost:3000/ws` if it can leverage the user's session cookie (which is `SameSite=Lax`, allowing top-lev...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-w3hv-x4fp-6h6j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-647h-p824-99w7</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">@grackle-ai/mcp has a workspace authorization bypass in its knowledge_search MCP tool</div>
+            <div class="card-body">### Impact
+
+The `knowledge_search` and `knowledge_get_node` MCP tools are included in `SCOPED_TOOLS` (visible to scoped agents) but their handlers do not receive `authContext` and do not enforce workspace scoping. A scoped agent in Workspace A can supply an arbitrary `workspaceId` parameter to search or retrieve knowledge graph nodes from Workspace...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-647h-p824-99w7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-7q9x-8g6p-3x75</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">@grackle-ai/server: Unescaped Error String in renderPairingPage() HTML Template</div>
+            <div class="card-body">### Impact
+
+The `renderPairingPage()` function embeds the `error` parameter directly into HTML without escaping:
+```typescript
+const errorHtml = error ? `<p style="color:#e74c3c">${error}</p>` : "";
+```
+
+All current call sites pass hardcoded strings, so this is **not exploitable today**. However, the function is architecturally fragile — if a futur...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-7q9x-8g6p-3x75" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27889</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">NATS: Pre-auth remote server crash via WebSocket frame length overflow in wsRead</div>
+            <div class="card-body">### Background
+
+NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
+
+When using WebSockets, a malicious client can trigger a server crash with crafted frames, before authentication.
+
+
+### Problem Description
+
+A missing sanity check on a WebSockets frame co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-pq2q-rcw4-3hr6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27602</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">Modoboa has OS Command Injection</div>
+            <div class="card-body">### Summary
+
+`exec_cmd()` in `modoboa/lib/sysutils.py` always runs subprocess calls with `shell=True`. Since domain names flow directly into shell command strings without any sanitization, a Reseller or SuperAdmin can include shell metacharacters in a domain name to run arbitrary OS commands on the server.
+
+### Details
+
+The root cause is in `modobo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-wwv8-cqpr-vx3m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-27496</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 6.5
+                </span>
+            </div>
+            <div class="card-title">n8n has In-Process Memory Disclosure in its Task Runner</div>
+            <div class="card-body">## Impact
+An authenticated user with permission to create or modify workflows could use the JavaScript Task Runner to allocate uninitialized memory buffers. Uninitialized buffers may contain residual data from the same Node.js process — including data from prior requests, tasks, secrets, or tokens — resulting in information disclosure of sensitive ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-xvh5-5qg4-x9qp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-25645</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.4
+                </span>
+            </div>
+            <div class="card-title">Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function</div>
+            <div class="card-body">### Impact
+The `requests.utils.extract_zipped_paths()` utility function uses a predictable filename when extracting files from zip archives into the system temporary directory. If the target file already exists, it is reused without validation. A local attacker with write access to the temp directory could pre-create a malicious file that would be ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-gc5v-m9x4-r6x2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5mg7-485q-xm76</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Two LiteLLM versions published containing credential harvesting malware</div>
+            <div class="card-body">After an API Token exposure from an exploited trivy dependency, two new releases of `litellm` were uploaded to PyPI containing automatically activated malware, harvesting sensitive credentials and files, and exfiltrating to a remote API.
+
+Anyone who has installed and run the project should assume any credentials available to litellm environment may...</div>
+            <div class="card-footer">
+                <span>Published: 2026-03-25</span>
+                <a href="https://github.com/advisories/GHSA-5mg7-485q-xm76" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-33638</span>
@@ -283,387 +625,6 @@ The nats-server offers a `Nats-R...</div>
             <div class="card-footer">
                 <span>Published: 2026-03-24</span>
                 <a href="https://github.com/advisories/GHSA-55h8-8g96-x4hj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33223</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.4
-                </span>
-            </div>
-            <div class="card-title">NATS Server: Incomplete Stripping of Nats-Request-Info Header Allows Identity Spoofing</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The nats-server offers a `Nats-Request-Info:` message header, providing information about a request.
-
-### Problem Description
-
-The NATS message header `Nats-Request-Info:` is supposed to ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-pwx7-fx9r-hr4h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33222</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.9
-                </span>
-            </div>
-            <div class="card-title">NATS JetStream has an authorization bypass through its Management API</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The persistent storage feature, JetStream, has a management API which has many features, amongst which are backup and restore.
-
-### Problem Description
-
-Users with JetStream admin API acc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-9983-vrx2-fg9c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33219</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">NATS  is vulnerable to pre-auth DoS through WebSockets client service</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The nats-server offers a WebSockets client service, used in deployments where browsers are the NATS clients.
-
-### Problem Description
-
-A malicious client which can connect to the WebSocke...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-8r68-gvr4-jh7j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33218</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">NATS has pre-auth server panic via leafnode handling</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The nats-server allows hub/spoke topologies using "leafnode" connections by other nats-servers.
-
-### Problem Description
-
-A client which can connect to the leafnode port can crash the nat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-vprv-35vv-q339" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33217</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">NATS allows MQTT clients to bypass ACL checks</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The nats-server provides an MQTT client interface.
-
-### Problem Description
-
-When using ACLs on message subjects, these ACLs were not applied in the `$MQTT.>` namespace, allowing MQTT cli...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-jxxm-27vp-c3m5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33216</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">NATS has MQTT plaintext password disclosure</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The nats-server provides an MQTT client interface.
-
-### Problem Description
-
-For MQTT deployments using usercodes/passwords: MQTT passwords are incorrectly classified as a non-authenticat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-v722-jcv5-w7mc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33215</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">NATS is vulnerable to MQTT hijacking via Client ID</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The nats-server provides an MQTT client interface.
-
-### Problem Description
-
-Sessions and Messages can by hijacked via MQTT Client ID malfeasance.
-
-### Affected Versions
-
-Any version befo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-fcjp-h8cc-6879" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-29785</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">NATS Server panic via malicious compression on leafnode port</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-When configured to accept leafnode connections (for a hub/spoke topology of multiple nats-servers), then the default configuration allows for negotiating compression; a malicious remote N...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-52jh-2xxh-pwh6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33247</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">NATS credentials are exposed in monitoring port via command-line argv</div>
-            <div class="card-body">### Background
-
-NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT, and edge computing.
-
-The nats-server provides an optional monitoring port, which provides access to sensitive data.  The nats-server can take certain configuration options on the command-line instead of requi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-x6g4-f6q3-fqvv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33628</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Invoice Ninja Denylist Bypass may Lead to Stored XSS via Invoice Line Items</div>
-            <div class="card-body">## Vulnerability Details
-
-Invoice line item descriptions in Invoice Ninja v5.13.0 bypass the XSS denylist filter, allowing stored XSS payloads to execute when invoices are rendered in the PDF preview or client portal.
-
-The line item description field was not passed through `purify::clean()` before rendering.
-
-## Steps to Reproduce
-
-1. Login as any ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-98wm-cxpw-847p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33249</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">NATS: Message tracing can be redirected to arbitrary subject</div>
-            <div class="card-body">### Impact
-A valid client which uses message tracing headers can indicate that the trace messages can be sent to an arbitrary valid subject, including those to which the client does not have publish permission.  The payload is a valid trace message and not attacker chosen.
-
-### Patches
-Fixed in nats-server 2.12.6 & 2.11.15
-
-### Workarounds
-None saf...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-8m2x-3m6q-6w8j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33627</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Parse Server exposes auth data via /users/me endpoint</div>
-            <div class="card-body">### Impact
-
-An authenticated user calling `GET /users/me` receives unsanitized auth data, including sensitive credentials such as MFA TOTP secrets and recovery codes. The endpoint internally uses master-level authentication for the session query, and the master context leaks through to the user data, bypassing auth adapter sanitization. An attacker...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-37mj-c2wf-cx96" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33624</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Parse Server: MFA recovery code single-use bypass via concurrent requests</div>
-            <div class="card-body">### Impact
-
-An attacker who obtains a user's password and a single MFA recovery code can reuse that recovery code an unlimited number of times by sending concurrent login requests. This defeats the single-use design of recovery codes. The attack requires the user's password, a valid recovery code, and the ability to send concurrent requests within ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-2299-ghjr-6vjp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33621</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">PinchTab: Unapplied Rate Limiting Middleware Allows Unbounded Brute-Force of API Token</div>
-            <div class="card-body">### Summary
-PinchTab `v0.7.7` through `v0.8.4` contain incomplete request-throttling protections for auth-checkable endpoints. In `v0.7.7` through `v0.8.3`, a fully implemented `RateLimitMiddleware` existed in `internal/handlers/middleware.go` but was not inserted into the production HTTP handler chain, so requests were not subject to the intended ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-j65m-hv65-r264" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33623</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.7
-                </span>
-            </div>
-            <div class="card-title">PinchTab: OS Command Injection via Profile Name in Windows Cleanup Routine Enables Arbitrary Command Execution</div>
-            <div class="card-body">### Summary
-PinchTab `v0.8.4` contains a Windows-only command injection issue in the orphaned Chrome cleanup path. When an instance is stopped, the Windows cleanup routine builds a PowerShell `-Command` string using a `needle` derived from the profile path. In `v0.8.4`, that string interpolation escapes backslashes but does not safely neutralize ot...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-p8mm-644p-phmh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33622</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">A PinchTab Security Policy Bypass in /wait Allows Arbitrary JavaScript Execution</div>
-            <div class="card-body">### Summary
-PinchTab `v0.8.3` through `v0.8.5` allow arbitrary JavaScript execution through `POST /wait` and `POST /tabs/{id}/wait` when the request uses `fn` mode, even if `security.allowEvaluate` is disabled.
-
-`POST /evaluate` correctly enforces the `security.allowEvaluate` guard, which is disabled by default. However, in the affected releases, `...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-w5pc-m664-r62v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33620</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">PinchTab: API Bearer Token Exposed in URL Query Parameter via Server Logs and Intermediary Systems</div>
-            <div class="card-body">### Summary
-PinchTab `v0.7.8` through `v0.8.3` accepted the API token from a `token` URL query parameter in addition to the `Authorization` header. When a valid API credential is sent in the URL, it can be exposed through request URIs recorded by intermediaries or client-side tooling, such as reverse proxy access logs, browser history, shell histor...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-mrqc-3276-74f8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33619</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.1
-                </span>
-            </div>
-            <div class="card-title">PinchTab has Unauthenticated Blind SSRF in Task Scheduler via Unvalidated callbackUrl</div>
-            <div class="card-body">### Summary
-PinchTab v0.8.3 contains a server-side request forgery issue in the optional scheduler's webhook delivery path. When a task is submitted to `POST /tasks` with a user-controlled `callbackUrl`, the v0.8.3 scheduler sends an outbound HTTP `POST` to that URL when the task reaches a terminal state. In that release, the webhook path validated...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-xqq2-4j46-vwp7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-29772</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Astro: Memory exhaustion DoS due to missing request body size limit in Server Islands</div>
-            <div class="card-body">### Summary
-
-Astro's Server Islands POST handler buffers and parses the full request body as JSON without enforcing a size limit. Because `JSON.parse()` allocates a V8 heap object for every element in the input, a crafted payload of many small JSON objects achieves ~15x memory amplification (wire bytes to heap bytes), allowing a single unauthentica...</div>
-            <div class="card-footer">
-                <span>Published: 2026-03-24</span>
-                <a href="https://github.com/advisories/GHSA-3rmj-9m5h-8fpv" target="_blank">Full Report →</a>
             </div>
         </div>
         
