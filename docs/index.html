@@ -68,562 +68,568 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-16 18:54 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-17 01:16 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-40353</span>
+                <span class="cve-id">GHSA-f3g8-9xv5-77gv</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">wger has Stored XSS via Unescaped License Attribution Fields</div>
-            <div class="card-body"># Stored XSS via Unescaped License Attribution Fields
-
-## Summary
-
-The `AbstractLicenseModel.attribution_link` property in `wger/utils/models.py` constructs HTML strings by directly interpolating user-controlled fields (`license_author`, `license_title`, `license_object_url`, `license_author_url`, `license_derivative_source_url`) without any escapi...</div>
+            <div class="card-title">Saltcorn: Open Redirect in `POST /auth/login` due to incomplete `is_relative_url` validation (backslash bypass)</div>
+            <div class="card-body">### Summary
+Saltcorn validates the post-login `dest` parameter with a string check that only blocks `:/` and `//`. Because all WHATWG-compliant browsers normalise backslashes (`\`) to forward slashes (`/`) for special schemes, a payload such as `/\evil.com/path` slips through `is_relative_url()`, is emitted unchanged in the HTTP `Location` header, ...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-6f54-qjvm-wwq3" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-f3g8-9xv5-77gv" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-40474</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.6
+                <span class="cve-id">GHSA-r7w7-9xr2-qq2r</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
                 </span>
             </div>
-            <div class="card-title">wger has Broken Access Control in Global Gym Configuration Update Endpoint</div>
+            <div class="card-title">langchain-openai: Image token counting SSRF protection can be bypassed via DNS rebinding</div>
             <div class="card-body">## Summary
 
-wger exposes a global configuration edit endpoint at `/config/gym-config/edit` implemented by `GymConfigUpdateView`. The view declares `permission_required = 'config.change_gymconfig'` but does not enforce it because it inherits `WgerFormMixin` (ownership-only checks) instead of the project’s permission-enforcing mixin (`WgerPermissionM...</div>
+`langchain-openai`'s `_url_to_size()` helper (used by `get_num_tokens_from_messages` for image token counting) validated URLs for SSRF protection and then fetched them in a separate network operation with independent DNS resolution. This left a TOCTOU / DNS rebinding window: an attacker-controlled hostname could resolve to a public IP d...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-xppv-4jrx-qf8m" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-r7w7-9xr2-qq2r" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-5vjq-5jmg-39xq</span>
+                <span class="cve-id">GHSA-fv5p-p927-qmxr</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
+                    MEDIUM 6.5
                 </span>
             </div>
-            <div class="card-title">Renovate affected by remote code execution was possible using the bazel-module or bazelisk managers, when using lockFileMaintenance</div>
-            <div class="card-body">When using [`lockFileMaintenance`](https://docs.renovatebot.com/configuration-options/#lockfilemaintenance) using the [bazel-module](https://docs.renovatebot.com/modules/manager/bazel-module/) or [bazelisk](https://docs.renovatebot.com/modules/manager/bazelisk/) managers between Renovate [43.65.0](https://github.com/renovatebot/renovate/releases/ta...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-5vjq-5jmg-39xq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hm2w-vr2p-hq7w</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">UEFI Firmware Parser has a heap out-of-bounds write in tiano decompressor ReadCLen</div>
-            <div class="card-body">`uefi-firmware` contains a heap out-of-bounds write vulnerability in the native tiano/EFI decompressor. in `uefi_firmware/compression/Tiano/Decompress.c`, `ReadCLen()` reads `Number = GetBits(Sd, CBIT)` with `CBIT = 9`, so `Number` can be as large as `511`, while the destination array `Sd->mCLen` has `NC = 510` elements. the loop writes while `Inde...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-hm2w-vr2p-hq7w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-2689-5p89-6j3j</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">UEFI Firmware Parser has a stack out-of-bounds write in tiano decompressor MakeTable</div>
-            <div class="card-body">`uefi-firmware` contains a stack out-of-bounds write vulnerability in the native tiano/EFI decompressor. in `uefi_firmware/compression/Tiano/Decompress.c`, `MakeTable()` does not validate that bit-length values read from the compressed bitstream are within the expected range (`0..16`). a crafted firmware blob can supply bit lengths greater than `16...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-2689-5p89-6j3j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40594</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">pyLoad has a Session Cookie Security Downgrade via Untrusted X-Forwarded-Proto Header Spoofing (Global State Race Condition)</div>
+            <div class="card-title">LangChain Text Splitters: HTMLHeaderTextSplitter.split_text_from_url SSRF Redirect Bypass</div>
             <div class="card-body">## Summary
 
-The `set_session_cookie_secure` `before_request` handler in `src/pyload/webui/app/__init__.py` reads the `X-Forwarded-Proto` header from any HTTP request without validating that the request originates from a trusted proxy, then mutates the **global** Flask configuration `SESSION_COOKIE_SECURE` on every request. Because pyLoad uses the m...</div>
+`HTMLHeaderTextSplitter.split_text_from_url()` validated the initial URL using `validate_safe_url()` but then performed the fetch with `requests.get()` with redirects enabled (the default). Because redirect targets were not revalidated, a URL pointing to an attacker-controlled server could redirect to internal, localhost, or cloud metad...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-mp82-fmj6-f22v" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-fv5p-p927-qmxr" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-rr7j-v2q5-chgv</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
+                <span class="cve-id">GHSA-3g92-f9ch-qjcm</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
                 </span>
             </div>
-            <div class="card-title">LangSmith SDK: Streaming token events bypass output redaction</div>
-            <div class="card-body">## Summary
+            <div class="card-title">Plonky3: The sponge construction used to get a hash function from a cryptographic permutation is not collision resistant for inputs of different lengths</div>
+            <div class="card-body">### Vulnerability
+Currently, when hashing, if the number of elements to hash is not a multiple of the rate, `hash_iter` pads by elements of
+the current state. This means that it is possible to create iterators of different lengths which lead to an identical hashed state.
 
-The LangSmith SDK's output redaction controls (hideOutputs in JS, hide_outputs in Python) do not apply to streaming token events. When an LLM run produces streaming output, each chunk is recorded as a new_token event containing the raw token value. These events bypass the redaction pipeline entirely — prepareRunCreateOrUpdateInputs (JS)...</div>
+Given a simple example using a `PaddingFreeSponge` with width 8 and rate 4.
+S...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-rr7j-v2q5-chgv" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-3g92-f9ch-qjcm" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-vp22-38m5-r39r</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">PySpector has a Plugin Code Execution Bypass via Incomplete Static Analysis in PluginSecurity.validate_plugin_code</div>
-            <div class="card-body">### Summary
-
-The plugin security validator in PySpector uses AST-based static analysis to prevent dangerous code from being loaded as plugins. The blocklist implemented in `PluginSecurity.validate_plugin_code` is incomplete and can be bypassed using several Python constructs that are not checked. An attacker who can supply a plugin file can achieve...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-vp22-38m5-r39r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32179</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">MsQuic has a Remote Elevation of Privilege Vulnerability</div>
-            <div class="card-body">### Summary
-Improper input validation in Microsoft QUIC allows an unauthorized attacker to elevate privileges over a network.
-
-### Details
- Improper Input Validation Integer Underflow (Wrap or Wraparound) when decoding ACK frame.
-
-#### Patches
-- Fix underflow in ACK frame parsing - 1e6e999b
-
-### Impact
-An attacker who successfully exploited this vu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-gvvw-8j96-8g5r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33808</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">@fastify/express has a middleware authentication bypass via URL normalization gaps (duplicate slashes and semicolons)</div>
-            <div class="card-body">### Summary
-
-`@fastify/express` v4.0.4 fails to normalize URLs before passing them to Express middleware when Fastify router normalization options are enabled. This allows complete bypass of path-scoped authentication middleware via two vectors:
-
-1. **Duplicate slashes** (`//admin/dashboard`) when `ignoreDuplicateSlashes: true` is configured
-2. **S...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-6hw5-45gm-fj88" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33807</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">@fastify/express's middleware path doubling causes authentication bypass in child plugin scopes</div>
-            <div class="card-body">### Summary
-
-`@fastify/express` v4.0.4 contains a path handling bug in the `onRegister` function that causes middleware paths to be doubled when inherited by child plugins. This results in complete bypass of Express middleware security controls for all routes defined within child plugin scopes that share a prefix with parent-scoped middleware. No s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-hrwm-hgmj-7p9c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33805</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Fastify's connection header abuse enables stripping of proxy-added headers</div>
-            <div class="card-body">### Summary
-
-`@fastify/reply-from` and `@fastify/http-proxy` process the client's `Connection` header after the proxy has added its own headers via `rewriteRequestHeaders`. This allows attackers to retroactively strip proxy-added headers (like access control or identification headers) from upstream requests by listing them in the `Connection` heade...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-gwhp-pf74-vj37" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-33r3-4whc-44c2</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title"> Path traversal in vite-plus/binding downloadPackageManager() writes outside VP_HOME</div>
-            <div class="card-body">### Summary
-
-`downloadPackageManager()` in `vite-plus/binding` accepts an untrusted `version` string and uses it directly in filesystem paths. A caller can supply `../` segments to escape the `VP_HOME/package_manager/<pm>/` cache root and cause Vite+ to delete, replace, and populate directories outside the intended cache location.
-
-### Details
-
-The...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-33r3-4whc-44c2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-458j-xx4x-4375</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">hono Improperly Handles JSX Attribute Names Allows HTML Injection in hono/jsx SSR</div>
-            <div class="card-body">## Summary
-
-Improper handling of JSX attribute names in hono/jsx allows malformed attribute keys to corrupt the generated HTML output.
-
-When untrusted input is used as attribute keys during server-side rendering, specially crafted keys can break out of attribute or tag boundaries and inject unintended HTML.
-
-## Details
-
-When rendering JSX elements ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-458j-xx4x-4375" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-w59f-67xm-rxx7</span>
+                <span class="cve-id">GHSA-jp74-mfrx-3qvh</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
                     CRITICAL 10.0
                 </span>
             </div>
-            <div class="card-title">Froxlor has Local File Inclusion via path traversal in API `def_language` parameter leads to Remote Code Execution</div>
+            <div class="card-title">Saltcorn: SQL Injection via Unparameterized Sync Endpoints (maxLoadedId)</div>
             <div class="card-body">## Summary
-
-The Froxlor API endpoint `Customers.update` (and `Admins.update`) does not validate the `def_language` parameter against the list of available language files. An authenticated customer can set `def_language` to a path traversal payload (e.g., `../../../../../var/customers/webs/customer1/evil`), which is stored in the database. On subseq...</div>
+Saltcorn's mobile-sync routes (`POST /sync/load_changes` and `POST /sync/deletes`) interpolate user-controlled values directly into SQL template literals without parameterization, type-casting, or sanitization. Any authenticated user (role_id ≥ 80, the default "user" role) who has read access to at least one table can inject arbitrary SQ...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-w59f-67xm-rxx7" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-jp74-mfrx-3qvh" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-gc9w-cc93-rjv8</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">Froxlor has a PHP Code Injection via Unescaped Single Quotes in userdata.inc.php Generation (MysqlServer API)</div>
-            <div class="card-body">## Summary
-
-`PhpHelper::parseArrayToString()` writes string values into single-quoted PHP string literals without escaping single quotes. When an admin with `change_serversettings` permission adds or updates a MySQL server via the API, the `privileged_user` parameter (which has no input validation) is written unescaped into `lib/userdata.inc.php`. ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-gc9w-cc93-rjv8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-47hf-23pw-3m8c</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.5
-                </span>
-            </div>
-            <div class="card-title">Froxlor has a BIND Zone File Injection via Unsanitized DNS Record Content in DomainZones::add()</div>
-            <div class="card-body">## Summary
-
-`DomainZones::add()` accepts arbitrary DNS record types without a whitelist and does not sanitize newline characters in the `content` field. When a DNS type not covered by the if/elseif validation chain is submitted (e.g., `NAPTR`, `PTR`, `HINFO`), content validation is entirely bypassed. Embedded newline characters in the content survi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-47hf-23pw-3m8c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-75h4-c557-j89r</span>
+                <span class="cve-id">GHSA-f5v8-v6q3-q4h6</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">Froxlor has Incomplete Symlink Validation in DataDump.add() Allows Arbitrary Directory Ownership Takeover via Cron</div>
+            <div class="card-title">Meridian: Multiple defense-in-depth gaps (collection/depth caps, telemetry, retry, fan-out)</div>
             <div class="card-body">## Summary
 
-`DataDump.add()` constructs the export destination path from user-supplied input without passing the `$fixed_homedir` parameter to `FileDir::makeCorrectDir()`, bypassing the symlink validation that was added to all other customer-facing path operations (likely as the fix for CVE-2023-6069). When the ExportCron runs as root, it executes ...</div>
+Meridian v2.1.0 (`Meridian.Mapping` and `Meridian.Mediator`) shipped with nine defense-in-depth gaps reachable through its public APIs. Two are HIGH severity — the advertised `DefaultMaxCollectionItems` and `DefaultMaxDepth` safety caps are silently bypassed on the `IMapper.Map(source, destination)` overload and anywhere `.UseDestinatio...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-75h4-c557-j89r" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-f5v8-v6q3-q4h6" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-vmjj-qr7v-pxm6</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.0
+                <span class="cve-id">GHSA-3xx2-mqjm-hg9x</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
                 </span>
             </div>
-            <div class="card-title">Froxlor has an Email Sender Alias Domain Ownership Bypass via Wrong Array Index Allows Cross-Customer Email Spoofing</div>
+            <div class="card-title">Paperclip: Cross-tenant agent API key IDOR in `/agents/:id/keys` routes allows full victim-company compromise</div>
             <div class="card-body">## Summary
 
-In `EmailSender::add()`, the domain ownership validation for full email sender aliases uses the wrong array index when splitting the email address, passing the local part instead of the domain to `validateLocalDomainOwnership()`. This causes the ownership check to always pass for non-existent "domains," allowing any authenticated custom...</div>
+The `GET`, `POST`, and `DELETE` handlers under `/agents/:id/keys` in the Paperclip control-plane API only call `assertBoard(req)`, which verifies that the caller has a board-type session but does not verify that the caller has access to the company owning the target agent. A board user whose membership is limited to Company A can theref...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-vmjj-qr7v-pxm6" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-3xx2-mqjm-hg9x" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-jvx4-xv3m-hrj4</span>
+                <span class="cve-id">GHSA-fpw4-p57j-hqmq</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.4
                 </span>
             </div>
-            <div class="card-title">Froxlor has a Reseller Domain Quota Bypass via Unvalidated adminid Parameter in Domains.add()</div>
+            <div class="card-title">Paperclip: Stored XSS via javascript: URLs in MarkdownBody — urlTransform override disables react-markdown sanitization</div>
             <div class="card-body">## Summary
 
-In `Domains.add()`, the `adminid` parameter is accepted from user input and used without validation when the calling reseller does not have the `customers_see_all` permission. This allows a reseller to attribute newly created domains to any other admin, bypassing their own domain quota (since the wrong admin's `domains_used` counter is ...</div>
+`MarkdownBody`, the shared component used to render every Markdown surface in the Paperclip UI (issue documents, issue comments, chat threads, approvals, agent details, export previews, etc.), passes `urlTransform={(url) => url}` to `react-markdown`. That override replaces `react-markdown`'s built-in `defaultUrlTransform` — the library'...</div>
             <div class="card-footer">
                 <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-jvx4-xv3m-hrj4" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-fpw4-p57j-hqmq" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-39q2-94rc-95cp</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">DOMPurify's ADD_TAGS function form bypasses FORBID_TAGS due to short-circuit evaluation</div>
-            <div class="card-body">## Summary
-In `src/purify.ts:1117-1123`, `ADD_TAGS` as a function (via `EXTRA_ELEMENT_HANDLING.tagCheck`) bypasses `FORBID_TAGS` due to short-circuit evaluation.
-
-The condition:
-```
-!(tagCheck(tagName)) && (!ALLOWED_TAGS[tagName] || FORBID_TAGS[tagName])
-```
-When `tagCheck(tagName)` returns `true`, the entire condition is `false` and the element is...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-16</span>
-                <a href="https://github.com/advisories/GHSA-39q2-94rc-95cp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40486</span>
+                <span class="cve-id">GHSA-p7mm-r948-4q3q</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 4.3
                 </span>
             </div>
-            <div class="card-title">Kimai's User Preferences API allows standard users to modify restricted attributes: hourly_rate, internal_rate</div>
-            <div class="card-body">### Summary
-A Mass Assignment / Broken Object Property Level Authorization (BOPA) vulnerability in the User Preferences API allows any authenticated user (even those with the lowest privileges) to arbitrarily modify restricted financial attributes on their profile, specifically their `hourly_rate` and `internal_rate`.
+            <div class="card-title">Paperclip: Approval decision attribution spoofing via client-controlled `decidedByUserId` in paperclip server</div>
+            <div class="card-body">## Summary
 
-### Details
-Kimai restrictive...</div>
+The approval-resolution endpoints (`POST /approvals/:id/approve`, `/reject`, `/request-revision`) accept a client-supplied `decidedByUserId` field in the request body and write it verbatim into the authoritative `approvals.decidedByUserId` column — without cross-checking it against the authenticated actor. Any board user who can access ...</div>
             <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-qh43-xrjm-4ggp" target="_blank">Full Report →</a>
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-p7mm-r948-4q3q" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-40479</span>
+                <span class="cve-id">GHSA-47wq-cj9q-wpmp</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
+                </span>
+            </div>
+            <div class="card-title">Paperclip: Cross-tenant agent API token minting via missing assertCompanyAccess on /api/agents/:id/keys</div>
+            <div class="card-body"><img width="7007" height="950" alt="01-setup" src="https://github.com/user-attachments/assets/1596b8d1-8de5-4c21-b1d2-2db41b568d7e" />
+
+> Isolated paperclip instance running in authenticated mode (default config)
+> on a clean Docker image matching commit b649bd4 (2026.411.0-canary.8, post
+> the 2026.410.0 patch). This advisory was verified on an un...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-47wq-cj9q-wpmp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vr7g-88fq-vhq3</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Paperclip: OS Command Injection via Execution Workspace cleanupCommand</div>
+            <div class="card-body">| Field | Value |
+|-------|-------|
+| **Affected Software** | Paperclip AI v2026.403.0 |
+| **Affected Component** | Execution Workspace lifecycle (`workspace-runtime.ts`) |
+| **Affected Endpoint** | `PATCH /api/execution-workspaces/:id` |
+| **Deployment Modes** | All — `local_trusted` (zero auth), `authenticated` (any company user) |
+| **Platforms*...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-vr7g-88fq-vhq3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-gqqj-85qm-8qhf</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">Paperclip: codex_local inherited ChatGPT/OpenAI-connected Gmail and was able to send real email</div>
+            <div class="card-body">### Summary
+
+A Paperclip-managed `codex_local` runtime was able to access and use a Gmail connector that I had connected in the ChatGPT/OpenAI apps UI, even though I had not explicitly connected Gmail inside Paperclip or separately inside Codex.
+
+In my environment this enabled mailbox access and a real outbound email to be sent from my Gmail accoun...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-gqqj-85qm-8qhf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xfqj-r5qw-8g4j</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.3
+                </span>
+            </div>
+            <div class="card-title">Paperclip: Unauthenticated Access to Multiple API Endpoints in Authenticated Mode</div>
+            <div class="card-body">## Summary
+
+Several API endpoints in `authenticated` mode have no authentication at all. They respond to completely unauthenticated requests with sensitive data or allow state-changing operations. No account, no session, no API key needed.
+
+Verified against the latest version.
+
+Discord: sagi03581
+
+## Steps to Reproduce
+
+### 1. Unauthenticated issue...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-xfqj-r5qw-8g4j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w8hx-hqjv-vjcq</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">Paperclip: Malicious skills able to exfiltrate and destroy all user data</div>
+            <div class="card-body">### Summary
+An arbitrary code execution vulnerability in the workspace runtime service allows any agent to execute shell commands on the server, exposing all environment variables including API keys, JWT secrets, and database credentials.
+
+### Details
+A malicious skill can instruct the agent to exploit the **workspace runtime service** feature, whi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-w8hx-hqjv-vjcq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-265w-rf2w-cjh4</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Paperclip: Privilege Escalation via Agent-Controlled workspaceStrategy.provisionCommand Leading to OS Command Execution</div>
+            <div class="card-body">### Summary
+Paperclip contains a privilege escalation vulnerability that allows an attacker with an Agent API key to execute arbitrary OS commands on the Paperclip server host.
+An attacker with an agent credential can escalate privileges from the agent runtime to the Paperclip server host.
+The vulnerability occurs because agents are allowed to upda...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-265w-rf2w-cjh4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3pw3-v88x-xj24</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Paperclip: Arbitrary File Read via Agent-Controlled adapterConfig.instructionsFilePath</div>
+            <div class="card-body">### Summary
+Paperclip contains an arbitrary file read vulnerability that allows an attacker with an Agent API key to read files from the Paperclip server host filesystem.
+The vulnerability occurs because agents are allowed to modify their own adapterConfig through the /agents/:id API endpoint.
+The configuration field adapterConfig.instructionsFileP...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-3pw3-v88x-xj24" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xr8f-h2gw-9xh6</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OAuth 2.1 Provider: Unprivileged users can register OAuth clients</div>
+            <div class="card-body">### Summary
+An authorization bypass in the OAuth provider allows any authenticated low-privilege user to create OAuth clients even when the deployment configures clientPrivileges to restrict client creation. The option contract explicitly includes a create action, but the create paths never invoke that callback, so applications that rely on clientP...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-xr8f-h2gw-9xh6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8783-3wgf-jggf</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Budibase: Authentication Bypass via Unanchored Regex in Public Endpoint Matcher — Unauthenticated Access to Protected Endpoints</div>
+            <div class="card-body">### Summary
+
+The `authenticated` middleware uses unanchored regular expressions to match public (no-auth) endpoint patterns against `ctx.request.url`. Since `ctx.request.url` in Koa includes the query string, an attacker can access any protected endpoint by appending a public endpoint path as a query parameter. For example, `POST /api/global/users/...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-8783-3wgf-jggf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40897</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Unsafe object property setter in mathjs</div>
+            <div class="card-body">### Impact
+This security vulnerability allowed executing arbitrary JavaScript via the expression parser of mathjs. You can be affected when you have an application where users can evaluate arbitrary expressions using the mathjs expression parser.
+
+### Patches
+The issue was introduced in mathjs `v13.1.1`, and patched in mathjs `v15.2.0`.
+
+### Workar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-29qv-4j9f-fjw5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jj8c-mmj3-mmgv</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.4
                 </span>
             </div>
-            <div class="card-title">Kimai has Stored XSS via Incomplete HTML Attribute Escaping in Team Member Widget</div>
+            <div class="card-title">Authlib: Cross-site request forging when using cache</div>
             <div class="card-body">### Summary
-The client-side `escapeForHtml()` function in `KimaiEscape.js`, introduced in commit `89bfa82c` (#2959) to fix a JavaScript XSS vulnerability, only escapes `<`, `>`, and `&` but does not escape `"` (double quote) or `'` (single quote). When user-controlled data (profile alias) is placed in an HTML attribute context (`title="__DISPLAY__"...</div>
+
+There is no CSRF protection on the cache feature on most integrations clients.
+
+### Details
+In `authlib.integrations.starlette_client.OAuth`, no CSRF protection is set up when using the cache parameter. When _not_ using the cache parameter, the use of SessionMiddleware ties the client to the auth state, preventing CSRF attacks. With th...</div>
             <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-g82g-m9vx-vhjg" target="_blank">Full Report →</a>
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-jj8c-mmj3-mmgv" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-40478</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
+                <span class="cve-id">GHSA-45q2-gjvg-7973</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf</div>
+            <div class="card-title">Angular: SSRF via protocol-relative and backslash URLs in Angular Platform-Server</div>
             <div class="card-body">### Impact
-A security bypass vulnerability exists in the expression execution mechanisms of Thymeleaf up to and including 3.1.3.RELEASE. Although the library provides mechanisms to prevent expression injection, it fails to properly neutralize specific syntax patterns that allow for the execution of unauthorized expressions. If an application develo...</div>
+
+A [Server-Side Request Forgery (SSRF)](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/SSRF) vulnerability exists in `@angular/platform-server` due to improper handling of URLs during Server-Side Rendering (SSR).
+
+When an attacker sends a request such as `GET /\evil.com/ HTTP/1.1` the server engine (Express, etc.) passes t...</div>
             <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-xjw8-8c5c-9r79" target="_blank">Full Report →</a>
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-45q2-gjvg-7973" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-40477</span>
+                <span class="cve-id">GHSA-xq3m-2v4x-88gg</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
+                    CRITICAL None
                 </span>
             </div>
-            <div class="card-title">Improper restriction of the scope of accessible objects in Thymeleaf expressions</div>
-            <div class="card-body">### Impact
-A security bypass vulnerability exists in the expression execution mechanisms of Thymeleaf up to and including 3.1.3.RELEASE. Although the library provides mechanisms to prevent expression injection, it fails to properly restrict the scope of accessible objects, allowing specific potentially sensitive objects to be reached from within a ...</div>
+            <div class="card-title">Arbitrary code execution in protobufjs</div>
+            <div class="card-body">### Summary
+protobufjs compiles protobuf definitions into JS functions. Attackers can manipulate these definitions to execute arbitrary JS code.
+
+### Details
+Attackers can inject arbitrary code in the "type" fields of protobuf definitions, which will then execute during object decoding using that definition.
+
+### PoC
+```js
+const protobuf = require(...</div>
             <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-r4v4-5mwr-2fwr" target="_blank">Full Report →</a>
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-xq3m-2v4x-88gg" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-40347</span>
+                <span class="cve-id">CVE-2026-6410</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.3
                 </span>
             </div>
-            <div class="card-title">python-multipart affected by Denial of Service via large multipart preamble or epilogue data</div>
-            <div class="card-body">### Summary
+            <div class="card-title">@fastify/static vulnerable to path traversal in directory listing</div>
+            <div class="card-body">### Impact
 
-A denial of service vulnerability exists when parsing crafted `multipart/form-data` requests with large preamble or epilogue sections.
+`@fastify/static` v9.1.0 and earlier serves directory listings outside the configured static root when the `list` option is enabled. A request such as `/public/../outside/` causes `dirList.path()` to resolve a directory outside the root via `path.join()` without a containment check.
 
-### Details
-
-Two inefficient multipart parsing paths could be abused with attacker-controlled input.
-
-Before the first multipart boundary, the parser handled leading CR and LF bytes inefficiently while...</div>
+A remote unauthenticated attacker can obtain director...</div>
             <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-mj87-hwqh-73pj" target="_blank">Full Report →</a>
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-pr96-94w5-mx2h" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-40346</span>
+                <span class="cve-id">CVE-2026-6414</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                    MEDIUM 5.9
                 </span>
             </div>
-            <div class="card-title">NocoBase has SSRF in Workflow HTTP Request and Custom Request Plugins</div>
+            <div class="card-title">@fastify/static vulnerable to route guard bypass via encoded path separators</div>
+            <div class="card-body">### Impact
+
+`@fastify/static` v9.1.0 and earlier decodes percent-encoded path separators (`%2F`) before filesystem resolution, but Fastify's router treats them as literal characters. This creates a routing mismatch: route guards on `/admin/*` do not match `/admin%2Fsecret.html`, but @fastify/static decodes it to `/admin/secret.html` and serves the ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-x428-ghpx-8j92" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-6270</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">@fastify/middie vulnerable to middleware authentication bypass in child plugin scopes</div>
+            <div class="card-body">### Impact
+
+`@fastify/middie` v9.3.1 and earlier incorrectly re-prefixes middleware paths when propagating them to child plugin scopes. When a child plugin is registered with a prefix that overlaps with a parent-scoped middleware path, the middleware path is modified during inheritance and silently fails to match incoming requests.
+
+This results in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-72c6-fx6q-fr5w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33804</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">@fastify/middie vulnerable to middleware bypass via deprecated ignoreDuplicateSlashes option</div>
+            <div class="card-body">### Impact
+
+`@fastify/middie` v9.3.1 and earlier does not read the deprecated (but still functional) top-level `ignoreDuplicateSlashes` option, only reading from `routerOptions`. This creates a normalization gap: Fastify's router normalizes duplicate slashes but middie does not, allowing middleware bypass via URLs with duplicate leading slashes (e....</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-v9ww-2j6r-98q6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-f6hc-c5jr-878p</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Flowise: resetPassword Authentication Bypass Vulnerability</div>
+            <div class="card-body">ZDI-CAN-28762: Flowise AccountService resetPassword Authentication Bypass Vulnerability
+
+-- ABSTRACT -------------------------------------
+
+Trend Micro's Zero Day Initiative has identified a vulnerability affecting the following products:
+Flowise - Flowise
+
+-- VULNERABILITY DETAILS ------------------------
+* Version tested:  3.0.12
+* Installer file...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-f6hc-c5jr-878p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-28g4-38q8-3cwc</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Flowise: Cypher Injection in GraphCypherQAChain</div>
             <div class="card-body">## Summary
 
-NocoBase's workflow HTTP request plugin and custom request action plugin make server-side HTTP requests to user-provided URLs without any SSRF protection. An authenticated user can access internal network services, cloud metadata endpoints, and localhost.
+The GraphCypherQAChain node forwards user-provided input directly into the Cypher query execution pipeline without proper sanitization. An attacker can inject arbitrary Cypher commands that are executed on the underlying Neo4j database, enabling data exfiltration, modification, or deletion.
 
-## Vulnerable Code
+## Vulnerability Details
 
-### 1. Workflow HTTP Request Plugin
-
-**`packages/plugins/@noc...</div>
+| Field | Value |
+|...</div>
             <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-mvvv-v22x-xqwp" target="_blank">Full Report →</a>
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-28g4-38q8-3cwc" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-xp4f-g2cm-rhg7</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">PocketMine-MP has LogDoS by many junk properties in client data JWT in LoginPacket</div>
-            <div class="card-body">### Impact
-
-Attackers can fill the body of the clientData JWT in LoginPacket with lots of junk properties, causing the server to flood warning messages, as well as wasting CPU time.
-
-This happens because the JsonMapper instance used to process the JWT body is configured to warn on unexpected properties instead of rejecting them outright. While this...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-xp4f-g2cm-rhg7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-jj6c-8h6c-hppx</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">pypdf has long runtimes for wrong size values in cross-reference and object streams</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to long runtimes. This requires cross-reference streams with wrong large `/Size` values or object streams with wrong large `/N` values.
-
-### Patches
-
-This has been fixed in [pypdf==6.10.1](https://github.com/py-pdf/pypdf/releases/tag/6.10.1).
-
-### Workarounds
-
-If you ca...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-jj6c-8h6c-hppx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40882</span>
+                <span class="cve-id">GHSA-x5w6-38gp-mrqh</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.6
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">OpenRemote has XXE in Velbus Asset Import</div>
-            <div class="card-body">### Summary
-The Velbus asset import path parses attacker-controlled XML without explicit XXE hardening. An authenticated user who can call the import endpoint may trigger XML external entity processing, which can lead to server-side file disclosure and SSRF. The target file must be less than 1023 characters.
-
-### Details
-Velbus import uses `Documen...</div>
+            <div class="card-title">Flowise: Password Reset Link Sent Over Unsecured HTTP</div>
+            <div class="card-body">**Summary:**
+The password reset functionality on [cloud.flowiseai.com](http://cloud.flowiseai.com/) sends a reset password link over the unsecured HTTP protocol instead of HTTPS. This behavior introduces the risk of a man-in-the-middle (MITM) attack, where an attacker on the same network as the user (e.g., public Wi-Fi) can intercept the reset link...</div>
             <div class="card-footer">
-                <span>Published: 2026-04-15</span>
-                <a href="https://github.com/advisories/GHSA-g24f-mgc3-jwwc" target="_blank">Full Report →</a>
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-x5w6-38gp-mrqh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-6f7g-v4pp-r667</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Flowise: Unauthenticated OAuth 2.0 Access Token Disclosure via Public Chatflow in Flowise</div>
+            <div class="card-body">### Summary
+Flowise contains an authentication bypass vulnerability that allows an unauthenticated attacker to obtain OAuth 2.0 access tokens associated with a public chatflow.
+
+By accessing a public chatflow configuration endpoint, an attacker can retrieve internal workflow data, including OAuth credential identifiers, which can then be used to re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-16</span>
+                <a href="https://github.com/advisories/GHSA-6f7g-v4pp-r667" target="_blank">Full Report →</a>
             </div>
         </div>
         
