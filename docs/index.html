@@ -68,10 +68,177 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-21 18:53 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-22 01:14 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41067</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">Astro: XSS in define:vars via incomplete </script> tag sanitization</div>
+            <div class="card-body">## Summary
+
+The `defineScriptVars` function in Astro's server-side rendering pipeline uses a case-sensitive regex `/<\/script>/g` to sanitize values injected into inline `<script>` tags via the `define:vars` directive. HTML parsers close `<script>` elements case-insensitively and also accept whitespace or `/` before the closing `>`, allowing an att...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-j687-52p2-xcff" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41066</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">lxml: Default configuration of iterparse() and ETCompatXMLParser() allows XXE to local files</div>
+            <div class="card-body">### Impact
+Using either of the two parsers in the default configuration (with `resolve_entities=True`) allows untrusted XML input to read local files.
+
+### Patches
+lxml 6.1.0 changes the default to `resolve_entities='internal'`, thus disallowing local file access by default.
+
+### Workarounds
+Setting the `resolve_entities` option explicitly to `reso...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-vfmq-68hx-4jfw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40938</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Tekton Pipeline: Git Resolver Unsanitized Revision Parameter Enables git Argument Injection Leading to RCE</div>
+            <div class="card-body">## Summary
+
+The git resolver's `revision` parameter is passed directly as a positional argument to `git fetch` without any validation that it does not begin with a `-` character. Because git parses flags from mixed positional arguments, an attacker can inject arbitrary `git fetch` flags such as `--upload-pack=<binary>`. Combined with the `validateR...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-94jr-7pqp-xhcq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40924</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Tekton Pipelines: HTTP Resolver Unbounded Response Body Read Enables Denial of Service via Memory Exhaustion</div>
+            <div class="card-body">## Summary
+
+The HTTP resolver's `FetchHttpResource` function calls `io.ReadAll(resp.Body)` with no response body size limit. Any tenant with permission to create TaskRuns or PipelineRuns that reference the HTTP resolver can point it at an attacker-controlled HTTP server that returns a very large response body within the 1-minute timeout window, cau...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-m2cx-gpqf-qf74" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40923</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Tekton Pipelines: VolumeMount path restriction bypass via missing filepath.Clean in /tekton/ check</div>
+            <div class="card-body">## Summary
+
+A validation bypass in the VolumeMount path restriction allows mounting volumes under restricted `/tekton/` internal paths by using `..` path traversal components. The restriction check uses `strings.HasPrefix` without `filepath.Clean`, so a path like `/tekton/home/../results` passes validation but resolves to `/tekton/results` at runti...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-rx35-6rhx-7858" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41264</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Flowise: CSV Agent Prompt Injection Remote Code Execution Vulnerability</div>
+            <div class="card-body">## Abstract
+
+Trend Micro's Zero Day Initiative has identified a vulnerability affecting FlowiseAI Flowise.
+
+## Vulnerability Details
+
+- **Version tested:** 3.0.13
+- **Installer file:** https://github.com/FlowiseAI/Flowise
+- **Platform tested:** Ubuntu 25.10
+
+## Analysis
+
+This vulnerability allows remote attackers to execute arbitrary code on affect...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-3hjv-c53m-58jj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41197</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Brillig: Heap corruption in foreign call results with nested tuple arrays</div>
+            <div class="card-body">## Description
+
+Noir programs can invoke external functions through foreign calls. When compiling to Brillig bytecode, the SSA instructions are processed block-by-block in `BrilligBlock::compile_block()`. When the compiler encounters an `Instruction::Call` with a `Value::ForeignFunction` target, it invokes `codegen_call()` in `brillig_call/code_gen...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-jj7c-x25r-r8r3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40343</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">free5GC UDR: Fail-open handling in PolicyDataSubsToNotifyPost allows unintended subscription creation</div>
+            <div class="card-body">### Summary
+A fail-open request handling flaw in the UDR service causes the `/nudr-dr/v2/policy-data/subs-to-notify` POST handler to continue processing requests even after request body retrieval or deserialization errors.
+
+This may allow unintended creation of Policy Data notification subscriptions with invalid, empty, or partially processed input...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-jwch-w7wh-gqjm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40488</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenMage LTS: Customer File Upload Extension Blocklist Bypass → Remote Code Execution</div>
+            <div class="card-body">The product custom option file upload in OpenMage LTS uses an incomplete blocklist (`forbidden_extensions = php,exe`) to prevent dangerous file uploads. This blocklist can be trivially bypassed by using alternative PHP-executable extensions such as `.phtml`, `.phar`, `.php3`, `.php4`, `.php5`, `.php7`, and `.pht`. Files are stored in the publicly a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-21</span>
+                <a href="https://github.com/advisories/GHSA-3j5q-7q7h-2hhv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-40161</span>
@@ -459,167 +626,6 @@ This allows a malicious website to read sensitive system information from a runn
             <div class="card-footer">
                 <span>Published: 2026-04-21</span>
                 <a href="https://github.com/advisories/GHSA-gfc2-9qmw-w7vh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-34403</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Nginx-UI: Cross-Site WebSocket Hijacking (CSWSH) via missing origin validation on all WebSocket endpoints</div>
-            <div class="card-body">## Summary
-
-All WebSocket endpoints in nginx-ui use a gorilla/websocket Upgrader with CheckOrigin unconditionally returning true, allowing Cross-Site WebSocket Hijacking (CSWSH). Combined with the fact that authentication tokens are stored in browser cookies (set via JavaScript without HttpOnly or explicit SameSite attributes), a malicious webpage ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-78mf-482w-62qj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33626</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">LMDeploy has Server-Side Request Forgery (SSRF) via Vision-Language Image Loading</div>
-            <div class="card-body">## Summary
-
-A Server-Side Request Forgery (SSRF) vulnerability exists in LMDeploy's vision-language module. The `load_image()` function in `lmdeploy/vl/utils.py` fetches arbitrary URLs without validating internal/private IP addresses, allowing attackers to access cloud metadata services, internal networks, and sensitive resources.
-
-## Affected Vers...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-6w67-hwm5-92mq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33031</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Nginx-UI: Disabled users retain full API access through previously issued bearer tokens</div>
-            <div class="card-body">### Summary
-
-A user who was disabled by an administrator can use previously issued API tokens for up to the token lifetime. In practice, disabling a compromised account does not actually terminate that user’s access, so an attacker who already stole a JWT can continue reading and modifying protected resources after the account is marked disabled.
-
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-x234-x5vq-cc2v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32613</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">Spinnaker: RCE via expression parsing due to unrestricted context handling</div>
-            <div class="card-body">### Impact
-Echo like some other services, uses SPeL (Spring Expression Language) to process information - specifically around expected artifacts.  Unlike orca, it was NOT restricting that context to a set of trusted classes, but allowing FULL JVM access.  This enables a user to use arbitrary java classes which allow deep access to the system.  This...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-69rw-45wj-g4v6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32604</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">Spinnaker: RCE when using gitrepo artifact types due to improper sanitization of user input on branch and paths</div>
-            <div class="card-body">### Impact
-A bad actor can execute arbitrary commands very simply on the clouddriver pods.  This can expose credentials, remove files, or inject resources easily. 
-
-### Workarounds
-Disable the gitrepo artifact types....</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-x3j7-7pgj-h87r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-28684</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.6
-                </span>
-            </div>
-            <div class="card-title">python-dotenv: Symlink following in set_key allows arbitrary file overwrite via cross-device rename fallback</div>
-            <div class="card-body">### Summary
-
-`set_key()` and `unset_key()` in python-dotenv follow symbolic links when rewriting `.env` files, allowing a local attacker to overwrite arbitrary files via a crafted symlink when a cross-device rename fallback is triggered.
-
-
-### Details
-
-The `rewrite()` context manager in `dotenv/main.py` is used by both `set_key()` and `unset_key()`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-mf9w-mj56-hr94" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25525</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.9
-                </span>
-            </div>
-            <div class="card-title">OpenMage LTS has a Path Traversal Filter Bypass in Dataflow Module</div>
-            <div class="card-body">The Dataflow module in OpenMage LTS uses a weak blacklist filter (`str_replace('../', '', $input)`) to prevent path traversal attacks. This filter can be bypassed using patterns like `..././` or `....//`, which after the replacement still result in `../`. An authenticated administrator can exploit this to read arbitrary files from the server filesy...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-6vqf-6fhm-7rc6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25524</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">OpenMage LTS: Phar Deserialization leads to Remote Code Execution</div>
-            <div class="card-body">PHP functions such as `getimagesize()`, `file_exists()`, and `is_readable()` can trigger deserialization when processing `phar://` stream wrapper paths. OpenMage LTS uses these functions with potentially controllable file paths during image validation and media handling. An attacker who can upload a malicious phar file (disguised as an image) and t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-21</span>
-                <a href="https://github.com/advisories/GHSA-fg79-cr9c-7369" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8m29-fpq5-89jj</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Zebra Vulnerable to Consensus Divergence in Transparent Sighash Hash-Type Handling</div>
-            <div class="card-body"># Consensus Divergence in Transparent Sighash Hash-Type Handling
-
-## Summary
-
-After a refactoring, Zebra failed to validate a consensus rule that restricted the possible values of sighash hash types for V5 transactions which were enabled in the NU5 network upgrade. Zebra nodes could thus accept and eventually mine a block that would be considered i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-18</span>
-                <a href="https://github.com/advisories/GHSA-8m29-fpq5-89jj" target="_blank">Full Report →</a>
             </div>
         </div>
         
