@@ -68,10 +68,197 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-28 19:14 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-29 01:44 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41310</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">OpenTelemetry's Zipkin remote endpoint cache could grow without bounds and increase memory pressure</div>
+            <div class="card-body">### Summary
+
+The Zipkin exporter remote endpoint cache accepted unbounded key growth derived from span attributes. In high-cardinality scenarios, this could increase process memory usage over time and degrade availability.
+
+### Details
+
+- Introduce a bounded, thread-safe LRU cache for remote endpoints.
+- Enforce fixed maximum size to prevent unboun...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-88hf-wf7h-7w4m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40296</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">PhpSpreadsheet has XSS via number format code with @ text placeholder bypasses htmlspecialchars in HTML writer</div>
+            <div class="card-body">It was discovered that there is a way to bypass HTML escaping in the HTML writer using custom number format codes.
+
+## The Problem
+
+In `Writer/Html.php` around line 1592, the code checks if the formatted cell data equals the original data to decide whether to apply `htmlspecialchars()`:
+
+```php
+if ($cellData === $origData) {
+    $cellData = htmlspe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-hrmw-qprp-wgmc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-35579</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">CoreDNS has TSIG authentication bypass on gRPC and QUIC transports</div>
+            <div class="card-body">### Summary
+
+The gRPC, QUIC, DoH, and DoH3 transports in CoreDNS incorrectly handle TSIG authentication.
+
+For gRPC and QUIC, CoreDNS checks whether the TSIG key name exists in the config, but does not actually verify the TSIG HMAC. If the key name matches, `tsigStatus` remains nil and the tsig plugin treats the request as "verified".
+
+For DoH and D...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-vp29-5652-4fw9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-35453</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">PhpSpreadsheet has XSS via NumberFormat @ Text Substitution in HTML Writer</div>
+            <div class="card-body">### Summary
+The HTML Writer in PhpSpreadsheet bypasses `htmlspecialchars()` output escaping when a cell uses a custom number format containing the `@` text placeholder with additional literal text (e.g., `@ "items"` or `"Total: "@`). This allows an attacker to inject arbitrary HTML and JavaScript into the generated HTML output by crafting a malicio...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-6wpp-88cp-7q68" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33190</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">CoreDNS has TSIG authentication bypass on DoT, DoH, DoH3, DoQ, and gRPC</div>
+            <div class="card-body">### Summary
+CoreDNS' tsig plugin can be bypassed on non-plain-DNS transports because it trusts the transport writer's TsigStatus() instead of performing verification itself. In the attached PoC, plain DNS/TCP correctly rejects an invalid TSIG (NOTAUTH), while the same invalid-TSIG request is accepted over DoT (tls://) and DoH (https://), allowing a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-qhmp-q7xh-99rh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-33489</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">CoreDNS' transfer stanza selection uses lexicographic compare (subzone ACL bypass)</div>
+            <div class="card-body">### Summary
+CoreDNS' transfer plugin can select the wrong ACL stanza when both a parent zone and a more-specific subzone are configured. A permissive parent-zone transfer rule can override a restrictive subzone rule (name-dependent), allowing an unauthorized client to perform AXFR/IXFR for the subzone and retrieve its zone contents.
+
+### Details
+In...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-h8mm-c463-wjq3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32936</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">CoreDNS DoH GET oversized dns= query parameter causes pre-validation CPU and memory amplification</div>
+            <div class="card-body">### Summary
+
+CoreDNS's DNS-over-HTTPS (DoH) GET path accepts oversized `dns=` query values and performs substantial request parsing, query unescaping, base64 decoding, and message unpacking work before returning `400 Bad Request`.
+
+A remote, unauthenticated attacker can repeatedly send oversized DoH GET requests to `/dns-query?dns=...` and force hi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-63cw-r7xf-jmwr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32934</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">CoreDNS' DoQ worker pool does not bound stream backlog</div>
+            <div class="card-body">### Summary
+CoreDNS' DNS-over-QUIC (DoQ) server can be driven into large goroutine and memory growth by a remote client that opens many QUIC streams and stalls after sending only 1 byte. Even with a small configured quic { worker_pool_size ... }, CoreDNS still spawns a goroutine per accepted stream (workers + waiters) and active workers can block i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-2wpx-qpw2-g5h5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32699</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">FacturaScripts has Insecure Parameter Handling: Unauthorized Modification of Immutable 'nick' Field</div>
+            <div class="card-body">### Summary
+The application fails to validate the ```nick``` parameter during a ```POST``` request to the ```EditUser``` controller. Although the UI prevents editing this field, a user can bypass this restriction using a proxy to rename any account (including the Administrator). This leads to Broken Access Control and potential Audit Log Corruption...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-pp79-hqv6-vmc3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-30246</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Fiber's cache middleware default key generator ignores query string, causing response mix-up across distinct query parameters</div>
+            <div class="card-body">### Summary
+Fiber cache middleware's default key generator uses only `c.Path()` and does not include the query string.
+As a result, requests like `/?id=1` and `/?id=2` can map to the same cache key and share the same cached response.
+
+This can cause response mix-up (cache poisoning-like behavior) for endpoints where response content depends on quer...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-28</span>
+                <a href="https://github.com/advisories/GHSA-35hp-hqmv-8qg8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-7jm2-g593-4qrc</span>
@@ -483,200 +670,6 @@ Heimdall performs rule matching on the raw (non-normalized) request path, while 
             <div class="card-footer">
                 <span>Published: 2026-04-25</span>
                 <a href="https://github.com/advisories/GHSA-3q34-rx83-r6mq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-72h4-mxfc-jx37</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Heimdall: Case-sensitive host matching may lead to policy bypass</div>
-            <div class="card-body">### Summary
-
-Heimdall performs host matching in a case-sensitive manner, while HTTP hostnames are case-insensitive. This discrepancy can result in heimdall failing to match a rule for a request host that differs only in letter casing, potentially causing the request to be classified differently than intended.
-
-**Note:** The issue can only lead to u...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-25</span>
-                <a href="https://github.com/advisories/GHSA-72h4-mxfc-jx37" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-43jv-5j4x-qv67</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Heimdall: Case-sensitive handling of URL-encoded slashes may lead to inconsistent path interpretation</div>
-            <div class="card-body">### Summary
-
-Heimdall handles URL-encoded slashes (`%2F`) in a case-sensitive manner, while percent-encoding is defined to be case-insensitive. As a result, the lowercase equivalent (`%2f`) is not recognized and therefore not processed as expected when `allow_encoded_slashes` is set to `off` (the default setting).
-
-This discrepancy can lead to diff...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-25</span>
-                <a href="https://github.com/advisories/GHSA-43jv-5j4x-qv67" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-v4p8-mg3p-g94g</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">LiteLLM: Authenticated command execution via MCP stdio test endpoints</div>
-            <div class="card-body">### Impact
-
-Two endpoints used to preview an MCP server before saving it — `POST /mcp-rest/test/connection` and `POST /mcp-rest/test/tools/list` — accepted a full server configuration in the request body, including the `command`, `args`, and `env` fields used by the stdio transport. When called with a stdio configuration, the endpoints attempted to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-25</span>
-                <a href="https://github.com/advisories/GHSA-v4p8-mg3p-g94g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41501</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">electurm has Command Injection via runLinux funtion</div>
-            <div class="card-body">### Impact
-_What kind of vulnerability is it? Who is impacted?_
-
-**Command Injection vulnerabilities in electerm:**
-
-A command injection vulnerability exists in `github.com/elcterm/electerm/npm/install.js:130`. The `runLinux()` function appends attacker-controlled remote version strings directly into an `exec("rm -rf ...")` command without validati...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-24</span>
-                <a href="https://github.com/advisories/GHSA-8x35-hph8-37hq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-gx2m-mcc2-r4p3</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.1
-                </span>
-            </div>
-            <div class="card-title">wlc: print_html outputs API data without HTML escaping</div>
-            <div class="card-body">### Impact
-The HTML output format in wlc embeds API response data into HTML without escaping, allowing cross-site scripting when the output is rendered in a browser.
-
-
-### Patches
-* https://github.com/WeblateOrg/wlc/pull/1327
-
-### Workarounds
-The only vulnerable code path is HTML output which is opt-in.
-
-### References
-Weblate thanks @fg0x0 for rep...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-24</span>
-                <a href="https://github.com/advisories/GHSA-gx2m-mcc2-r4p3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-h829-5cg7-6hff</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">gitverify has improper tag signature verification</div>
-            <div class="card-body">gitverify is still a prototype.
-
-### Impact
-The bug is related to `requireSignedTags` which is on by default: an unsigned annotated tag would pass the verification. The commit pointed to by the tag would still have to be signed by a maintainer or a contributor.
-
-### Patches
-Since the initial commit, fixed in c2c60da05d5c73621d0ce7ea02770bacd79ec8b1...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-24</span>
-                <a href="https://github.com/advisories/GHSA-h829-5cg7-6hff" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-39h7-pwv7-rc3x</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Excalidraw vulnerable to XSS via Mermaid sequence diagram labels (KaTeX rendering)</div>
-            <div class="card-body">### Impact
-
-`@excalidraw/excalidraw@0.18.0` depends on a Mermaid conversion package version that resolves to a Mermaid release affected by CVE-2025-54881 / GHSA-7rqq-prvp-x9jh. User-supplied Mermaid sequence diagram labels could trigger XSS through Mermaid’s KaTeX label rendering path.
-
-This is patched in `@excalidraw/excalidraw@0.18.1` by updating...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-24</span>
-                <a href="https://github.com/advisories/GHSA-39h7-pwv7-rc3x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41485</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">Kyverno Controller Denial of Service via forEach Mutation Panic</div>
-            <div class="card-body">### Summary
-
-An unchecked type assertion in the `forEach` mutation handler allows any user with permission to create a `Policy` or `ClusterPolicy` to crash the cluster-wide background controller into a persistent CrashLoopBackOff. The same bug also causes the admission controller to drop connections and block all matching resource operations. The c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-24</span>
-                <a href="https://github.com/advisories/GHSA-fpjq-c37h-cqcv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41325</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Kirby is vulnerable to authorization bypass during page, file and user creation via blueprint injection</div>
-            <div class="card-body">### TL;DR
-
-This vulnerability affects all Kirby sites where users of a particular role have no permission to create pages, files or users (`pages.create`, `files.create` or `users.create` permission is disabled). This can be due to configuration in the user blueprint(s), via `options` in the model blueprint(s) or via a combination of both settings....</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-24</span>
-                <a href="https://github.com/advisories/GHSA-6gqr-mx34-wh8r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41263</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Traefik: A timing side-channel vulnerability allows for valid username enumeration via BasicAuth middleware</div>
-            <div class="card-body">## Summary
-
-There is a timing side-channel vulnerability in Traefik's BasicAuth middleware that allows an attacker to enumerate valid usernames through response-time differences.
-
-The variable intended to hold a constant-time fallback secret always resolves to an empty string, causing the constant-time comparison to short-circuit in microseconds ra...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-24</span>
-                <a href="https://github.com/advisories/GHSA-6x2q-h3cr-8j2h" target="_blank">Full Report →</a>
             </div>
         </div>
         
