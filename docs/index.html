@@ -68,10 +68,240 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-30 13:14 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-04-30 19:02 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42191</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenTelemetry's disk retry default temp path enables local blob injection via OTLP Exporter</div>
+            <div class="card-body">### Summary
+
+The OTLP disk retry feature in `OpenTelemetry.Exporter.OpenTelemetryProtocol` silently fell back to `Path.GetTempPath()` when `OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY=disk` was set but `OTEL_DOTNET_EXPERIMENTAL_OTLP_DISK_RETRY_DIRECTORY_PATH` was not configured.
+
+The exporter stored and loaded `*.blob` files under fixed, signal-named subdi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-4625-4j76-fww9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-28xx-pppm-vqff</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">ydb-go-sdk's transactions are not committed using the `options.WithCommit()` option on last call `table.Transaction.Execute` in transaction</div>
+            <div class="card-body">### Impact
+Transactions were NOT committed despite the explicit `options.WithCommit` flag using table service client. Because of this, clients did not commit changes to the transaction, relying on the fact that the transaction commit was successful. This led (in rare cases) to a loss of data consistency.
+
+### Patches
+`ydb-go-sdk` contains this prob...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-28xx-pppm-vqff" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42349</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Clerk has an authorization bypass when combining organization, billing, or reverification checks</div>
+            <div class="card-body">### Summary
+
+`has()`, `auth.protect()`, and related authorization predicates in `@clerk/shared`, `@clerk/nextjs`, `@clerk/backend`, and other framework SDKs can return true for certain combined authorization checks when the result should be false, allowing a gated action to proceed for a user who does not satisfy the full set of requested condition...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-w24r-5266-9c3c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42449</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.5
+                </span>
+            </div>
+            <div class="card-title">n8n-mcp's IPv4-mapped IPv6 addresses bypass SSRF protection in validateUrlSync(), enabling full SSRF for SDK embedders</div>
+            <div class="card-body">### Impact
+
+In the SDK embedder path (`N8NDocumentationMCPServer` constructor, `getN8nApiClient()`, and `validateInstanceContext()`), the synchronous URL validator in `SSRFProtection.validateUrlSync()` had no IPv6 checks. IPv4-mapped IPv6 addresses such as `http://[::ffff:169.254.169.254]` bypassed the cloud-metadata, localhost, and private-IP rang...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-56c3-vfp2-5qqj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-83hf-93m4-rgwq</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Hickory DNS's Record Cache Accepts AUTHORITY-Section NS from Sibling Zone via Parent-Pool Zone-Context Elevation</div>
+            <div class="card-body"># Summary
+
+The Hickory DNS project's experimental `hickory-recursor` crate's record cache (`DnsLru`) stores records from DNS responses keyed by each record's own (name, type), not by the query that triggered the response. `cache_response()` in `crates/recursor/src/lib.rs` chains `ANSWER`, `AUTHORITY`, and `ADDITIONAL` sections into one record itera...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-83hf-93m4-rgwq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42032</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">CKAN has Unauthenticated Authorization Bypass in `datastore_search_sql`</div>
+            <div class="card-body">### Impact
+
+A vulnerability in `datastore_search_sql` allowed attackers to bypass authorization in order to gain access to private resources and PostgreSQL system information
+
+### Patches
+The issue has been patched in CKAN 2.10.10 and CKAN 2.11.5
+
+### Workarounds
+Disable the DataStore SQL search (`ckan.datastore.sqlsearch.enabled = false`). Note th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-cg4x-64p3-x59h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41654</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Weblate Vulnerable to Authenticated SSRF via Project Backup Import bypassing validate_repo_url</div>
+            <div class="card-body">### Impact
+An authenticated user with `project.add` permission (default on hosted Weblate SaaS and for any user holding an active billing/trial plan) can import a crafted project backup ZIP whose `components/<name>.json` contains an attacker-chosen `repo` URL pointing at a **private address** (e.g. `http://127.0.0.1:9999/`) or using a **non-allow-l...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-cwcx-382v-8m9g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41519</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">Weblate Doesn't Invalidate API Token on Password Change</div>
+            <div class="card-body">### Impact
+When a user changes their password, browser sessions are correctly invalidated via `cycle_session_keys()`, but DRF API tokens (`wlu_*` prefix) stored in `authtoken_token` are not revoked.
+
+### Patches
+* https://github.com/WeblateOrg/weblate/pull/19057
+
+### Resources
+Weblate thanks Sang Yu Jeon for reporting this via GitHub....</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-6j8j-4qp3-36p2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40281</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
+                </span>
+            </div>
+            <div class="card-title">Gotenberg has ExifTool stdin argument injection via metadata value newlines (bypass of key sanitization fix)</div>
+            <div class="card-body">## Vulnerability Details
+
+**CWE**: CWE-20 - Improper Input Validation
+
+The metadata value sanitization introduced in v8.30.1 (commit 405f106) only validates metadata KEYS via safeKeyPattern regex. Metadata VALUES are passed unsanitized to go-exiftool SetString(), which writes them as fmt.Fprintln(e.stdin, "-"+k+"="+str). A newline (\n) in a value s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-q7r4-hc83-hf2q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40171</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Jupyter Notebook Vulnerable to Authentication Token Theft via CommandLinker XSS</div>
+            <div class="card-body">### Impact
+
+A stored Cross-Site Scripting (XSS) vulnerability in Jupyter Notebook allows attackers to steal authentication tokens from users who open malicious notebook files and interact with elements that the attacker can make look indistinguishable from legitimate controls (single click interaction).
+
+The vulnerability enables complete account t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-rch3-82jr-f9w9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-39383</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
+                </span>
+            </div>
+            <div class="card-title">Gotenberg Vulnerable to Unauthenticated SSRF via Unfiltered Webhook URL</div>
+            <div class="card-body"># CVE Report — Unauthenticated SSRF via Unfiltered Webhook URL in Gotenberg
+
+## Severity
+
+| Field     | Value                                  |
+|-----------|----------------------------------------|
+| CVSS v3.1 | **8.6 High**                           |
+| Vector    | `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N` |
+| CWE       | CWE-918 — Server-Side Reque...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-5vh4-rgv7-p9g4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-40280</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">Gotenberg has case-insensitive URL scheme that bypasses webhook and downloadFrom deny-list SSRF protection</div>
+            <div class="card-body">## Vulnerability Details
+
+**CWE**: CWE-918 - Server-Side Request Forgery (SSRF)
+
+The default private-IP deny-lists for --webhook-deny-list and --api-download-from-deny-list use a case-sensitive regex (^https?://). Any uppercase URL scheme variant (HTTP://, HTTPS://, Http://) bypasses the pattern. Go's net/url.Parse() normalizes the scheme to lowerc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-04-30</span>
+                <a href="https://github.com/advisories/GHSA-5q7p-7jgv-ww56" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-42031</span>
@@ -397,216 +627,6 @@ The `contacts_data.php` endpoint uses a weaker permission check (`isAdministrato
             <div class="card-footer">
                 <span>Published: 2026-04-29</span>
                 <a href="https://github.com/advisories/GHSA-g8p8-94f2-28gr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41656</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.5
-                </span>
-            </div>
-            <div class="card-title">Admidio has Path Traversal via Unvalidated `name` Parameter in Document Add Mode that Enables Arbitrary Server File Read</div>
-            <div class="card-body">## Summary
-
-The `add` mode in `modules/documents-files.php` accepts a `name` parameter validated only as `'string'` type (HTML encoding), allowing path traversal characters (`../`) to pass through unfiltered. Combined with the absence of CSRF protection on this endpoint and `SameSite=Lax` session cookies, a low-privileged attacker can trick a docum...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-m9h6-8pqm-xrhf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41655</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Admidio has Path Traversal in ECard Preview that Allows Reading Arbitrary Server Files Including Database Credentials</div>
-            <div class="card-body">## Summary
-
-The `ecard_preview.php` endpoint does not validate that the `ecard_template` POST parameter is a safe filename before passing it to `ECard::getEcardTemplate()`. An authenticated user can supply a path traversal payload (e.g., `../config.php`) to read arbitrary files accessible to the web server process, including `adm_my_files/config.ph...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-m3vp-3jjm-gpmx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-gfg9-5357-hv4c</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Webchat audio embedding could read local files without local-root containment</div>
-            <div class="card-body">## Impact
-
-OpenClaw deployments before `2026.4.15` could embed host-local audio files into webchat responses without applying the local media root containment check used by other media-serving paths.
-
-If an attacker could influence an agent or tool-produced `ReplyPayload.mediaUrl`, the webchat audio embedding helper could resolve an absolute local ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-gfg9-5357-hv4c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-c28g-vh7m-fm7v</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Owner-enforced commands could accept wildcard channel senders as command owners</div>
-            <div class="card-body">## Impact
-
-OpenClaw deployments before `2026.4.21` could treat a non-owner sender as authorized for owner-enforced slash commands when all of the following were true:
-
-- a channel plugin declared `commands.enforceOwnerForCommands: true`;
-- the channel accepted wildcard inbound senders with `allowFrom: ["*"]`;
-- no explicit `commands.ownerAllowFrom`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-c28g-vh7m-fm7v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42232</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">n8n has XML Node Prototype Pollution that to RCE</div>
-            <div class="card-body">## Impact
-An authenticated user with permission to create or modify workflows could achieve global prototype pollution via the XML Node leading to RCE when combined with other nodes exploiting the prototype pollution.
-
-## Patches
-The issue has been fixed in n8n versions 1.123.32, 2.17.4, and 2.18.1. Users should upgrade to one of these versions or ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-hqr4-h3xv-9m3r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42231</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">n8n has Prototype Pollution in XML Webhook Body Parser that Leads to RCE</div>
-            <div class="card-body">## Impact
-A flaw in the `xml2js` library used to parse XML request bodies in n8n's webhook handler allowed prototype pollution via a crafted XML payload. An authenticated user with permission to create or modify workflows could exploit this to pollute the JavaScript object prototype and, by chaining the pollution with the Git node's SSH operations,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-q5f4-99jv-pgg5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42235</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">n8n Vulnerable to XSS via MCP OAuth client</div>
-            <div class="card-body">## Impact
-An unauthenticated attacker could register a malicious MCP OAuth client with a crafted `client_name`. If a victim user authorized the OAuth consent dialog and a second user subsequently revoked that access, a toast notification would render the injected script. Clicking the link would execute arbitrary JavaScript in the victim's authentic...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-537j-gqpc-p7fq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42226</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.5
-                </span>
-            </div>
-            <div class="card-title">n8n's Credential Authorization Bypass in dynamic-node-parameters Allows Foreign API Key Replay</div>
-            <div class="card-body">## Impact
-The `dynamic-node-parameters` endpoints did not verify whether the authenticated caller was authorized to use a supplied credential reference. An authenticated user with access to a shared workflow could supply a foreign credential ID in the request body, causing the backend to decrypt and use that credential in a helper execution path wh...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-r4v6-9fqc-w5jr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42234</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">n8n has a Python Task Runner Sandbox Escape Vulnerability</div>
-            <div class="card-body">## Impact
-An authenticated user with permission to create or modify workflows containing a Python Code Node could escape the sandbox and achieve arbitrary code execution on the task runner container.
-
-- This issue only affects instances where the Python Task Runner is enabled.
-
-## Patches
-The issue has been fixed in n8n versions 1.123.32, 2.17.4, a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-44v6-jhgm-p3m4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42227</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 7.7
-                </span>
-            </div>
-            <div class="card-title">n8n has Public API Variables IDOR that Allows Cross-Project Secret Disclosure</div>
-            <div class="card-body">## Impact
-An authenticated user with a valid API key scoped to `variable:list` could read variables from projects they are not a member of by supplying an arbitrary `projectId` query parameter to the public API variables endpoint. The handler queried the variables repository directly without enforcing project membership checks, bypassing the author...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-756q-gq9h-fp22" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42236</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">n8n Vulnerable to Unauthenticated Denial of Service via MCP Client Registration</div>
-            <div class="card-body">## Impact
-The MCP OAuth client registration endpoint accepted unauthenticated requests and stored client data without adequate resource controls. An unauthenticated remote attacker could exhaust server memory resources by sending large registration payloads, rendering the n8n instance unavailable. The MCP enable/disable toggle gates MCP access but ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-49m9-pgww-9vq6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42228</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">n8n Vulnerable to Hijacking of Unauthenticated Chat Execution </div>
-            <div class="card-body">## Impact
-The `/chat` WebSocket endpoint used by the Chat Trigger node's Hosted Chat feature did not verify that an incoming connection was authorized to interact with the target execution. An unauthenticated remote attacker who could identify a valid execution ID for a workflow in a waiting state could attach to that execution, receive the pending...</div>
-            <div class="card-footer">
-                <span>Published: 2026-04-29</span>
-                <a href="https://github.com/advisories/GHSA-f77h-j2v7-g6mw" target="_blank">Full Report →</a>
             </div>
         </div>
         
