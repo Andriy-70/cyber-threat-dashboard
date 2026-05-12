@@ -68,10 +68,328 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-12 13:30 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-12 19:25 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42074</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">OpenClaude Sandbox Bypass via Model-Controlled `dangerouslyDisableSandbox` Input</div>
+            <div class="card-body">### Summary
+The `dangerouslyDisableSandbox` parameter is exposed as part of the BashTool input schema, meaning the LLM (an untrusted principal per the project's own threat model) can set it to `true` in any `tool_use` response. Combined with the default `allowUnsandboxedCommands: true` setting, a prompt-injected model can escape the sandbox for any...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-m77w-p5jj-xmhg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42073</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenClaude MCP OAuth Callback: State Check Bypass via error Param Leads to DoS</div>
+            <div class="card-body"># OAuth State Validation Bypass via `error` Parameter Causes Local Server DoS in MCP Auth Callback
+---
+
+## Description
+
+The OpenClaude MCP authentication flow starts a temporary local HTTP server to handle OAuth callbacks. To prevent CSRF attacks, the server validates a `state` parameter against an internally stored value. However, due to a logic f...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-c73c-x77g-854r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32686</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Decimal: Unbounded exponent in `Decimal.new` enables unauthenticated DoS</div>
+            <div class="card-body">Summary
+`decimal` doesn't bound the exponent on parsed input, so something like `"1e10000000"` is parsed fine but then explodes the memory to more than 7GB if you run e.g. `Decimal.add(Decimal.parse("1e10000000"), 1)` because for positive `exp`, the function tail-recurses with `coef * 10` and `exp - 1` per iteration, growing the bignum coefficient ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-rhv4-8758-jx7v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45091</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">sealed-env: TOTP secret embedded in unseal token payload (enterprise mode)</div>
+            <div class="card-body">In sealed-env enterprise mode, versions 0.1.0-alpha.1 through 0.1.0-alpha.3 embedded the operator's literal TOTP secret in the JWS payload of every minted unseal token. JWS payload is base64-encoded JSON, NOT encrypted. Any party who could observe a minted token (CI build logs, container env dumps, kubectl describe pod, Sentry/Rollbar stack traces,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-x3r2-fj3r-g5mv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45090</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Dalfox has an Unauthenticated Remote DoS via Closed-Channel Write in `ParameterAnalysis` (server mode)</div>
+            <div class="card-body">## Summary
+
+`ParameterAnalysis` in `pkg/scanning/parameterAnalysis.go` runs two sequential worker stages that both write to the same `results` channel. The channel is correctly closed after the first stage completes (`close(results)` at line 438), but the second stage — which processes POST-body parameters (`dp`) — is then launched with the same al...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-2g4x-fq3j-cgq4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45089</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">Dalfox Server Mode has an Unauthenticated Arbitrary File Create/Append via `output` Option</div>
+            <div class="card-body">## Summary
+
+When dalfox is run in REST API server mode, the `output`, `output-all`, and `debug` fields in `model.Options` are JSON-tagged and deserialized directly from the attacker's request body, then propagated unchanged through `dalfox.Initialize` into the scan engine's logging path. The logger opens the attacker-supplied path with `os.O_APPEND...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-8hf9-3q64-q2qf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45088</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Dalfox Server Mode has an Unauthenticated Arbitrary File Read with Out-of-Band Exfiltration via `custom-payload-file`</div>
+            <div class="card-body">## Summary
+
+When dalfox is run in REST API server mode, the `custom-payload-file` field in `model.Options` is JSON-tagged and deserialized directly from the attacker's request body, then propagated unchanged through `dalfox.Initialize` into the scan engine. The engine passes the value to `voltFile.ReadLinesOrLiteral`, which reads lines from any fil...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-35wr-x7v6-9fv2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45087</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
+                </span>
+            </div>
+            <div class="card-title">Dalfox Server Mode Vulnerable to Unauthenticated Remote Code Execution via `found-action`</div>
+            <div class="card-body"># GHSA: Unauthenticated Remote Code Execution via `found-action` in Dalfox Server Mode
+
+## Summary
+
+When dalfox is started in REST API server mode (`dalfox server`), the server binds to `0.0.0.0:6664` by default and requires no API key unless the operator explicitly passes `--api-key`. Because `model.Options` — including `FoundAction` and `FoundAct...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-v25v-m36w-jp4h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44295</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">protobuf.js: Code injection in pbjs static output from crafted schema names</div>
+            <div class="card-body">## Summary
+
+`pbjs` static code generation could emit unsafe JavaScript identifiers derived from schema-controlled names. When generating static JavaScript from a crafted schema or JSON descriptor, certain namespace, enum, service, or derived full names could be written into the generated output without sufficient sanitization.
+
+## Impact
+
+An attack...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-6r35-46g8-jcw9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44294</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">protobuf.js: Denial of service from crafted field names in generated code</div>
+            <div class="card-body">## Summary
+
+protobufjs generated JavaScript property accessors from schema-controlled field and oneof names. Certain control characters in field names were not escaped before being embedded into generated function bodies. A crafted schema or JSON descriptor could therefore cause generated encode, decode, verify, or conversion functions to fail duri...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-2pr8-phx7-x9h3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44293</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">protobuf.js: Code injection through bytes field defaults in generated toObject code</div>
+            <div class="card-body">## Summary
+
+protobufjs generated JavaScript for `toObject` conversion could include an unsafe expression derived from a schema-controlled `bytes` field default value. A crafted descriptor with a non-string default value for a `bytes` field could cause attacker-controlled code to be emitted into the generated conversion function.
+
+## Impact
+
+An atta...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-66ff-xgx4-vchm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44292</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">protobuf.js: Prototype injection in generated message constructors</div>
+            <div class="card-body">## Summary
+
+protobufjs generated message constructors copied enumerable properties from a provided properties object without filtering the `__proto__` key. If an application constructed a message from an attacker-controlled plain object, an own enumerable `__proto__` property could alter the prototype of that individual message instance.
+
+## Impact...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-fx83-v9x8-x52w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44291</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">protobuf.js: Code generation gadget after prototype pollution</div>
+            <div class="card-body">## Summary
+
+protobufjs used plain objects with inherited prototypes for internal type lookup tables used by generated encode and decode functions. If `Object.prototype` had already been polluted, those lookup tables could resolve attacker-controlled inherited properties as valid protobuf type information.
+
+This could cause attacker-controlled strin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-75px-5xx7-5xc7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44290</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">protobuf.js: Process-wide denial of service through unsafe option paths</div>
+            <div class="card-body">## Summary
+
+protobufjs allowed certain schema option paths to traverse through inherited object properties while applying options. A crafted protobuf schema or JSON descriptor could cause option handling to write to properties on global JavaScript constructors, corrupting process-wide built-in functionality.
+
+## Impact
+
+An attacker who can provide ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-jvwf-75h9-cwgg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44289</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">protobuf.js: Denial of service through unbounded protobuf recursion</div>
+            <div class="card-body">## Summary
+
+protobufjs could recurse without a depth limit while decoding nested protobuf data. This affected both skipping unknown group fields and generated decoding of nested message fields.
+
+A crafted protobuf binary payload could cause the JavaScript call stack to be exhausted during decoding.
+
+## Impact
+
+An attacker who can provide protobuf b...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-685m-2w69-288q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44288</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">protobufjs has overlong UTF-8 decoding</div>
+            <div class="card-body">## Summary
+
+protobufjs includes a minimal UTF-8 decoder used in non-Node and fallback decoding paths. The affected decoder accepted overlong UTF-8 byte sequences and decoded them to their canonical characters instead of replacing them.
+
+The issue concerns overlong encodings and code points outside the Unicode range. protobufjs may still accept some...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-q6x5-8v7m-xcrf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42290</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">protobuf.js is Vulnerable to OS Command Injection in the CLI</div>
+            <div class="card-body">## Summary
+
+`pbts` invoked JSDoc by building a shell command string from input file paths and executing it through `child_process.exec`. File paths containing shell metacharacters could therefore be interpreted by the shell instead of being passed to JSDoc as plain arguments.
+
+## Impact
+
+An attacker who can control file names or paths passed to `pb...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-12</span>
+                <a href="https://github.com/advisories/GHSA-f84p-cvgm-xgjj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-45321</span>
@@ -336,344 +654,6 @@ stateDiagram-v2
             <div class="card-footer">
                 <span>Published: 2026-05-11</span>
                 <a href="https://github.com/advisories/GHSA-ghcm-xqfw-q4vr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41148</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Mermaid: Improper sanitization of `classDefs` in diagrams leads to CSS injection</div>
-            <div class="card-body">### Details
-
-The state diagram and any other diagram type that routes user-controlled style strings through createCssStyles parser for Mermaid v11.14.0 and earlier captures `classDef` values with an unrestricted regex:
-
-```jison
-// packages/mermaid/src/diagrams/state/parser/stateDiagram.jison:83
-<CLASSDEFID>[^\n]*   { this.popState(); return 'CLASS...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-xcj9-5m2h-648r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40607</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">MantisBT is Vulnerable to Stored XSS in Saved-Filter Owner Column</div>
-            <div class="card-body">Incorrect escaping of a saved filter's owner allows an attacker to inject arbitrary HTML on systems where $g_show_user_realname = ON.
-
-### Impact
-Cross-site scripting (XSS).
-
-Note that By default, only users with *Manager* access level or above can save their filters publicly
-
-### Patches
-- 44f490bcf20fd491c1b8f3fc9dd041d8c2a30010
-
-### Workarounds
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-f633-865q-2mhh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40598</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">MantisBT has Potential Referer-Based Reflected HTML Injection / XSS in Tag Update Page</div>
-            <div class="card-body">Improper escaping of the redirection page (retrieved from the request's *Referer* header) allows an attacker to inject HTML.
-
-While this is generally not directly actionable as modern browsers will URL-encode special characters, on some specific server configurations this could poison the cache, leading to cross-site scripting.
-
-### Impact
-Cross-si...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-6jh4-47v2-4g37" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40597</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">MantisBT has a Content Security Policy bypass via attachments</div>
-            <div class="card-body">Given any pre-existing XSS / HTML injection vulnerability, an attacker can bypass the Content Security Policy's _script-src_ directive by uploading a crafted attachment to any issue that, when accessed via the _file_download.php_ link, will be downloaded with a valid JavaScript MIME type resulting in script execution.
-
-The uploaded payload must be ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-9c3j-xm6v-j7j3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40596</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">MantisBT is Vulnerable to XSS leading to account takeover via updating a user's font family preference</div>
-            <div class="card-body">Any authenticated user can inject arbitrary HTML via updating their account's font family.
-
-### Impact
-Cross-site scripting.
-The injected payload will be reflected in every MantisBT page.
-
-Leveraging another vulnerability (CSP bypass, see [GHSA-9c3j-xm6v-j7j3](https://github.com/mantisbt/mantisbt/security/advisories/GHSA-9c3j-xm6v-j7j3)), the attac...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-j3v9-553h-x28j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-39960</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">MantisBT is Vulnerable to Stored XSS in Custom Field Textarea Values</div>
-            <div class="card-body">Improper escaping of a textarea custom field's contents in the Update Issue page (bug_update_page.php) allows an attacker to inject HTML and, if CSP settings permit, execute arbitrary JavaScript when the page is loaded.
-
-### Impact
-Session theft leading to admin account takeover, full project data access.
-
-- Precondition: A textarea-type custom fie...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-qj6w-v29q-4rgx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-39850</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">Yii 2: Local file inclusion via view parameter name collision</div>
-            <div class="card-body">The core view rendering method `View::renderPhpFile()` calls `extract($_params_, EXTR_OVERWRITE)` before the `require` statement that includes the view file. A caller-controlled parameter named `_file_` in the `$params` array overwrites the internal local variable that specifies which file is included — enabling a Local File Inclusion primitive.
-
-#...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-5vpg-rj7q-qpw2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-34970</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">MantisBT: Bugnote Revision Page Leaks Private Issue Metadata After Issue Access Is Revoked</div>
-            <div class="card-body">MantisBT allows a bugnote author to access the note's Revisions page after losing access to the parent private issue.
-
-### Impact
-Disclosure of the private Issue's Id and Summary. The bugnote full revision body remains secure.
-
-### Patches
-- 71df1f67e05b2050cd4bd87839e6cc13747cf03f
-
-### Workarounds
-None
-
-### Credits 
-Thanks to Vishal Shukla for dis...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-crmx-4p49-46m2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-34754</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">MantisBT has an Authorization Bypass that Allows Uploading Attachments to Private Issues via REST API</div>
-            <div class="card-body">### Impact
-MantisBT allows an authenticated user to upload attachments to private Issues they are not authorized to access.
-
-### Patches
-- b262b4d2835b81394d75356dead66e52a6275206
-
-### Workarounds
-None.
-
-### Credits
-Thanks to Vishal Shukla for discovering and responsibly reporting the issue....</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-h4x5-gvx6-3rwc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-34744</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">MantisBT has an authorization bypass that allows reading attachments after losing access to a private issue</div>
-            <div class="card-body">MantisBT permits a user to list and download their own attachments from an Issue created by another user, even after that Issue becomes private and direct access to it is denied.
-
-### Impact
-The loss of confidentiality caused by this vulnerability is minimal, considering that only the attachments that were previously uploaded by the user themselves...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-rmp5-5jj7-gmvf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-34579</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">MantisBT has an authorization bypass in private issue monitoring</div>
-            <div class="card-body">Using a crafted POST request to bug_monitor_add.php, a user with project-level access can add themselves as a monitor for a private issue they do not have access to. Despite displaying an Access Denied error, the application accepts the request and creates a monitor relationship for the private issue.
-
-
-### Impact
-Direct access to the private issue...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-ggw7-9675-6v4v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-34463</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">MantisBT is Vulnerable to Stored HTML Injection/XSS in Clone Issue Form</div>
-            <div class="card-body">When cloning an issue originating from a Project other than the current one, the clone form (bug_report_page.php) prepends the source Project name before the category selector without proper escaping, allowing an attacker able to to inject HTML if they can set the Project's name (which typically requires *manager* or *administrator* access level).
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-fvjf-68wh-rwp2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-34390</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">MantisBT Vulnerable to Privilege Escalation from Manager to Administrator</div>
-            <div class="card-body">Insufficient access control checks in _ProjectUsersAddCommand_ (used in *manage_proj_user_add.php* and REST API endpoint `PUT /project/{id}/users`) allows users having *manage_project_threshold* access level (*manager* by default) to grant project-level *administrator* access to any user (including themselves) in any Project they have *manager* rig...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-frf7-jhp9-jxm6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33052</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">MantisBT Has Authorization Bypass in Global Profile Creation</div>
-            <div class="card-body">MantisBT allows a low-privileged authenticated user having *add_profile_threshold* to create a global profile despite not having *manage_global_profile_threshold*, by tampering with the user_id parameter in a valid profile creation request.
-
-### Impact
-Authentication bypass
-
-### Patches
-- 3f952e68fa864e0e60abc3e84adecf3cfa84c75e
-
-### Workarounds
-No...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-68w5-w573-q2r8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-27478</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">Unity Catalog has a JWT Issuer Validation Bypass tht Allows Complete User Impersonation</div>
-            <div class="card-body">**Context:**
-A critical authentication bypass vulnerability exists in the Unity Catalog token exchange endpoint (/api/1.0/unity-control/auth/tokens). The endpoint extracts the issuer (iss) claim from incoming JWTs and uses it to dynamically fetch the JWKS endpoint for signature validation without validating that the issuer is a trusted identity pro...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-qqcj-rghw-829x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-25244</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">WebdriverIO BrowserStack Service has a Command Injection issue</div>
-            <div class="card-body">### Summary
-A command injection vulnerability exists in `@wdio/browserstack-service` that allows remote code execution (RCE) when processing git branch names in test orchestration. An attacker can exploit this by providing a malicious git repository with a branch name containing shell command injection payloads.
-
-### Details
-_Give all details on th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-5c46-x3qw-q7j7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-h29g-c9cx-c73q</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">torrentpier has PHP Serialize Injections</div>
-            <div class="card-body">### Summary
-Hi, there. We've found PHP Serialize Injections in your project “torrentpier". According to the OWASP, it can pose a significant risk: enable an attacker to modify serialized objects in order to inject malicious data into the application code, resulting in code execution or an arbitrary reading of the file on any vulnerable system. 
-   ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-11</span>
-                <a href="https://github.com/advisories/GHSA-h29g-c9cx-c73q" target="_blank">Full Report →</a>
             </div>
         </div>
         
