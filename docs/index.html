@@ -68,10 +68,263 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-18 09:33 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-18 14:48 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45577</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Neotoma: Unauthenticated Inspector/API access via reverse-proxy loopback auth bypass</div>
+            <div class="card-body">Neotoma versions starting at v0.6.0 can treat public reverse-proxied requests as local when the app receives them over a loopback socket and no Bearer token is present.
+
+In affected deployments, the REST auth middleware can resolve unauthenticated requests as the local development user, making the hosted Inspector and related API surface reachable ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-5cvp-p7p4-mcx9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45627</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">Arcane Backend: Unauthenticated reflected XSS via SVG color parameter enables admin account takeover</div>
+            <div class="card-body">## Summary
+
+The unauthenticated `GET /api/app-images/logo` endpoint reflects a user-supplied `color` query parameter into the body of an SVG document via `strings.ReplaceAll` with no escaping. The substitution lands inside a `<style>` element of the embedded `logo.svg`, allowing an attacker to close the style block and inject executable `<script>` ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-q2pj-8v84-9mh5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45626</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.3
+                </span>
+            </div>
+            <div class="card-title">Arcane Backend: OS Command Injection in Volume Browser ListDirectory via path query parameter</div>
+            <div class="card-body">## Summary
+
+`GET /environments/{id}/volumes/{volumeName}/browse` accepts a `path` query parameter that is passed to a shell command (`sh -c "find … | while …"`) inside an Arcane helper container. The path sanitiser blocks `../` traversal but does not strip Bourne-shell metacharacters such as `$()` or backticks, and `strconv.Quote` only escapes Go s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-9mvm-4gwg-v8mp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45625</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Arcane Backend: Missing admin authorization on git repository endpoints allows non-admin users to exfiltrate stored Git credentials and tamper with GitOps configs</div>
+            <div class="card-body">## Summary
+
+Arcane's huma-based REST API exposes nine endpoints under `/api/customize/git-repositories` and `/api/git-repositories/sync` for managing GitOps source repositories and their stored credentials. Eight of those endpoints (`list`, `create`, `get`, `update`, `delete`, `test`, `listBranches`, `browseFiles`) never call the `checkAdmin(ctx)` ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-7h26-hg47-p9hx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-97r8-rf7q-wmjw</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Sveltia CMS: Stored XSS in entry summary rendering via entity-decoded HTML</div>
+            <div class="card-body">### Impact
+
+A stored cross-site scripting (XSS) vulnerability affected entry summary rendering in Sveltia CMS.
+
+Entry summaries that allowed limited Markdown were parsed, sanitized, and then HTML entities were decoded. This order allowed specially crafted entity-encoded HTML, such as encoded tags or event handler attributes, to become active HTML a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-97r8-rf7q-wmjw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45135</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Caddy: Unsafe Unicode Handling in FastCGI splitPos Allows Execution of Non-PHP Files</div>
+            <div class="card-body">### Summary
+
+The FastCGI transport's `splitPos()` in [`modules/caddyhttp/reverseproxy/fastcgi/fastcgi.go`](https://github.com/caddyserver/caddy/blob/master/modules/caddyhttp/reverseproxy/fastcgi/fastcgi.go) misuses `golang.org/x/text/search` with `search.IgnoreCase` when the request path contains a non-ASCII byte. Two distinct flaws in that fallbac...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-m675-2p33-xv9g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-6402</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">webpack-dev-server vulnerable to cross-origin source code exposure on non-HTTPS origins</div>
+            <div class="card-body">### Impact
+
+When webpack-dev-server is running on a non-HTTPS origin (the default), cross-origin requests from malicious websites can load the dev server's JavaScript bundles via `<script>` tags. The fix introduced in v5.2.1 (CVE-2025-30359) relied on `Sec-Fetch-Mode` and `Sec-Fetch-Site` request headers to block these requests, but browsers only s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-79cf-xcqc-c78w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45620</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">AVideo CVE-2026-43881 incomplete fix - `objects/mention.json.php:17` is an unauthenticated user enumeration sibling that survives `d9cdc7024`</div>
+            <div class="card-body">CVE-2026-43881 fix `d9cdc7024` patched `users.json.php` only. The same anti-pattern survives at master HEAD in:
+
+```
+objects/mention.json.php:17     $ignoreAdmin = true;
+objects/mention.json.php:18     $users = User::getAllUsers($ignoreAdmin,
+                                    ['name', 'email', 'user', 'channelName'], 'a');
+```
+
+No `User::loginChe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-vpfx-pxqw-2w79" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45609</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">Spring AI MCP Security: Unvalidated URL Fetching (SSRF)</div>
+            <div class="card-body">### Summary
+
+The mcp-security framework fails to implement the mandatory SSRF mitigations outlined in the Model Context Protocol (MCP) [security specifications](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices#mitigation-3). Specifically, it processes untrusted URLs for OAuth-related discovery and metadata without ver...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-qjp4-4jvr-xqg3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46510</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">form-data-objectizer: Prototype pollution in form-data-objectizer via bracket-notation form keys</div>
+            <div class="card-body">## Summary
+
+`form-data-objectizer` walks bracket-notation form keys (e.g. `name[sub]`) into nested objects without filtering `__proto__`, `constructor`, or `prototype`. A single HTTP form field whose name starts with `__proto__[...]` causes the library to mutate `Object.prototype`, which is a prototype pollution primitive of the entire Node.js proc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-m2hg-wjq3-28wq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-qw48-84f6-28gv</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">Graphite Has a Pickle Deserialization Vulnerability</div>
+            <div class="card-body">### Impact
+**Type of vulnerability:** Insecure Deserialization via Python's `pickle` module.
+
+**Who is impacted:**  
+Users of *Graphite graph database engine* versions **before 0.2** who load database files from untrusted or third-party sources.  
+An attacker could craft a malicious database file that executes arbitrary code when loaded by the engi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-qw48-84f6-28gv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45582</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">n8n-MCP: Workflow telemetry sanitizer could retain partial values from URL-shaped node parameters</div>
+            <div class="card-body">## Summary
+
+In affected versions of n8n-mcp, the workflow telemetry sanitizer could retain partial fragments of URL-shaped node parameters before sending workflow data to the project's anonymous telemetry backend. Values placed in HTTP-Request-style node parameters — such as customer or tenant identifiers, short secrets embedded in query strings, a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-f3rg-xqjj-cj9w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45539</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">Microsoft APM: Symlinks under `.apm/prompts/` and `.apm/agents/` are dereferenced during `apm install`, copying host-local file contents into the project tree</div>
+            <div class="card-body">## Summary
+
+Two primitive integrators in `apm-cli` enumerate package files with bare `Path.glob()` / `Path.rglob()` calls and read each match with `Path.read_text()`, transparently following symbolic links.
+
+A symlink committed inside a remote APM dependency under `.apm/prompts/<x>.prompt.md` or `.apm/agents/<x>.agent.md` is preserved verbatim into...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-q5pp-gvjg-h7v4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-mx64-mj3q-7prj</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">iskorotkov/avro: Denial-of-Service Vulnerability in Decoder</div>
+            <div class="card-body"># Memory Exhaustion via Unbounded Map Allocations in Avro Decoder
+
+## Summary
+
+The Avro map decoder accepted attacker-controlled block-element counts from the wire format and grew the destination map without enforcing an upper bound. The slice decoder already had `Config.MaxSliceAllocSize` for the equivalent attack against arrays; the map decoder h...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-18</span>
+                <a href="https://github.com/advisories/GHSA-mx64-mj3q-7prj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-45619</span>
@@ -353,261 +606,6 @@ Users are affected if all of the following are true:
             <div class="card-footer">
                 <span>Published: 2026-05-15</span>
                 <a href="https://github.com/advisories/GHSA-p6v2-xcpg-h6xw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-wxw3-q3m9-c3jr</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Better Auth: OAuth callback accepts mismatched `state` when cookie-backed state storage is used without PKCE</div>
-            <div class="card-body">### Am I affected?
-
-Users are affected if all of the following are true:
-
-- The application uses `better-auth` at a version below `1.6.2` (or `@better-auth/sso` paired with such a version).
-- `betterAuth({ account: { storeStateStrategy } })` is set to `"cookie"`. The default `"database"` is not affected.
-- The application wires at least one OAuth p...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-wxw3-q3m9-c3jr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mxg3-432p-mr72</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">goshs: SSH host key verification disabled, allowing transparent MITM of every tunnelled HTTP request</div>
-            <div class="card-body">### Summary
-
-The `--tunnel` / `-t` flag opens an outbound SSH connection to `localhost.run:22` with `HostKeyCallback: ssh.InsecureIgnoreHostKey()`. The Go documentation for that function states verbatim: *"It should not be used for production code."* With the callback disabled the client accepts any host key the server presents, so an attacker who ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-mxg3-432p-mr72" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45106</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.6
-                </span>
-            </div>
-            <div class="card-title">Weblate: Stored HTML injection in editor search preview</div>
-            <div class="card-body">### Impact
-Weblate's live search preview renders unit `source` and `context` as HTML without escaping. Any contributor whose content reaches those fields stores HTML and CSS that runs inside the authenticated editor of every user who runs a matching search.
-
-### Patches
-* https://github.com/WeblateOrg/weblate/pull/19422
-
-### Workarounds
-Only the se...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-6wxc-8mgq-w26m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45062</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">FrankenPHP: Unsafe Unicode Handling in CGI Path Splitting Allows Execution of Non-PHP Files</div>
-            <div class="card-body">### Summary
-
-The `splitPos()` function in [`cgi.go`](https://github.com/php/frankenphp/blob/main/cgi.go) misuses `golang.org/x/text/search` with `search.IgnoreCase` when the request path contains a non-ASCII byte. Two distinct flaws in that fallback let an attacker mislead FrankenPHP into treating a non-`.php` file as a `.php` script. In any deploy...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-3g8v-8r37-cgjm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44716</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Pipecat: Path Traversal in Pipecat Runner `/files` Endpoint — Arbitrary File Read via `%2F`-Encoded Separator</div>
-            <div class="card-body">## Summary
-
-A path traversal vulnerability exists in Pipecat's development runner (`src/pipecat/runner/run.py`). When the runner is started with the `--folder` flag, it exposes a `GET /files/{filename:path}` download endpoint. The `filename` path parameter is concatenated directly onto `args.folder` with no containment check. Starlette normalises l...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-3363-2ph6-35wh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41147</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">NukeViet CMS: Stored Cross-Site Scripting (XSS) via insufficient server-side input sanitization in Request class</div>
-            <div class="card-body">### Impact
-
-NukeViet CMS <= 4.5.08 contains a Stored Cross-Site Scripting (XSS) vulnerability caused by insufficient server-side input sanitization in the Request class. The application relies primarily on client-side filtering to sanitize HTML tags and attributes in user-submitted content, which can be bypassed by intercepting and modifying HTTP r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-64rr-pp78-62ww" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40092</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">nimiq-keys: Unchecked Ed25519 signature length in TaggedPublicKey::verify causes remote node panic via DHT</div>
-            <div class="card-body">### Impact
-A malicious network peer can crash any Nimiq full node by publishing a crafted Kademlia DHT record containing a `TaggedSigned<ValidatorRecord, KeyPair>` with a signature field whose byte length is not exactly 64. When the victim node's DHT verifier calls `TaggedSigned::verify`, execution reaches `Ed25519Signature::from_bytes(sig).unwrap(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-27w2-87xv-37c6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-22810</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">@joplin/onenote-converter: Path traversal in OneNote importer allows overwriting arbitrary files</div>
-            <div class="card-body">### Summary
-A path traversal vulnerability in the OneNote importer allows overwriting arbitrary files on disk.
-
-### Details
-The OneNote converter does not sanitize the names of embedded files before writing them to disk. As a result, it's possible for an attacker to create a malicious `.one` file that includes file names containing `../../`, that a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-gcmj-c9gg-9vh6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-65954</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">SimpleSAMLphp casserver: Open Redirect in logout</div>
-            <div class="card-body">### Summary
-
-The logout endpoint accepts a `url` query parameter to redirect to.  casserver treats that url as trusted, and either (depending on configuration) redirects the browser there, or shows a "you've been logged out" page with a link to continue to that url.
-
-There are a number of other things broken with logout in 7 (cas v3 uses a differen...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-15</span>
-                <a href="https://github.com/advisories/GHSA-cvrm-5hp6-h523" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45411</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">vm2 Has a Sandbox Breakout Using Async Generator</div>
-            <div class="card-body">### Summary
-
-VM2 suffers from a sandbox breakout vulnerability. This allows attackers to write code which can escape from the VM2 sandbox and execute arbitrary commands on the host system.
-
-### Details
-
-It is possible to catch a host exception using the `yield*` expression inside an async generator. When the generator is closed using the `return` f...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-14</span>
-                <a href="https://github.com/advisories/GHSA-248r-7h7q-cr24" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45370</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">python-utcp: Full Process Environment Exposed to CLI Subprocess - Secrets Leakage via Command Injection</div>
-            <div class="card-body">## Summary
-
-`_prepare_environment()` in `cli_communication_protocol.py` passes a full copy of `os.environ` to every CLI subprocess. When combined with the Command Injection vulnerability (CWE-78) in `_substitute_utcp_args()` tracked as GHSA-33p6-5jxp-p3x4, an attacker can exfiltrate all process-level secrets in a single tool call.
-
-## Vulnerable Co...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-14</span>
-                <a href="https://github.com/advisories/GHSA-5v57-8rxj-3p2r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45369</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">utcp-cli Vulnerable to Command Injection via Unsanitized Argument Substitution in CLI Communication Protocol</div>
-            <div class="card-body">## Summary
-
-The `_substitute_utcp_args` method in `cli_communication_protocol.py` inserts user-controlled `tool_args` values directly into shell command strings without any sanitization or escaping. These commands are then executed via `/bin/bash -c` (Unix) or `powershell.exe -Command` (Windows), allowing an attacker to inject arbitrary shell comma...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-14</span>
-                <a href="https://github.com/advisories/GHSA-33p6-5jxp-p3x4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46509</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">Improperly Controlled Modification of Object Prototype Attributes ('Prototype Pollution') in @ranfdev/deepobj</div>
-            <div class="card-body">### Impact
-Prototype pollution is possible when property paths contain `__proto__`/`constructor`/`prototype`. The property path must not be exposed as user input....</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-14</span>
-                <a href="https://github.com/advisories/GHSA-x7q7-fchv-8h2j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45366</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">@utcp/http: SSRF via attacker-controlled OpenAPI servers[0].url in HTTP communication protocol</div>
-            <div class="card-body">## Summary
-
-The `@utcp/http` package is vulnerable to a blind Server-Side Request Forgery (SSRF) caused by a trust-boundary inconsistency between manual discovery and tool invocation. `registerManual()` validates the discovery URL against an HTTPS / loopback allowlist, but `callTool()` reuses the resolved `toolCallTemplate.url` directly without rev...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-14</span>
-                <a href="https://github.com/advisories/GHSA-r8j5-8747-88cm" target="_blank">Full Report →</a>
             </div>
         </div>
         
