@@ -68,10 +68,108 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-22 14:08 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-22 19:19 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46715</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Flask-Security-Too OAuth reauthentication freshness bypass via cross-   user OAuth identity acceptance</div>
+            <div class="card-body">### Summary
+
+  Flask-Security-Too 5.8.0's OAuth reauthentication flow can mark a
+  session as fresh after verifying an OAuth account that belongs to a
+  different user.
+
+  If an attacker can operate an already-authenticated but stale victim
+  session, they can complete OAuth verification using their own OAuth
+  identity. The victim session is then ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-22</span>
+                <a href="https://github.com/advisories/GHSA-97r5-pg8x-p63p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-7m8f-hgjq-8gc9</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">aiosend: Deserialization of request body before signature verification (Pre-auth DoS) in webhook handler</div>
+            <div class="card-body"># Vulnerability Description
+
+In `aiosend/webhook/base.py`, the `WebhookHandler.feed_update()` method performs full deserialization of the incoming JSON via Pydantic **before** verifying the HMAC signature. Anyone can send a request with an arbitrary body — the server will parse it, spend CPU and memory, and only then reject it.
+
+## Vulnerable Code
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-22</span>
+                <a href="https://github.com/advisories/GHSA-7m8f-hgjq-8gc9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-8723</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in comma-format arrays when encodeValuesOnly is set</div>
+            <div class="card-body">### Summary
+
+`qs.stringify` throws `TypeError` when called with `arrayFormat: 'comma'` and `encodeValuesOnly: true` on an array containing `null` or `undefined`. The throw is synchronous and not handled by any of qs's null-related options (`skipNulls`, `strictNullHandling`).
+
+### Details
+
+In the comma + `encodeValuesOnly` branch, `lib/stringify.js:...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-22</span>
+                <a href="https://github.com/advisories/GHSA-q8mj-m7cp-5q26" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-qqqm-5547-774x</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory</div>
+            <div class="card-body">## Summary
+
+`publicPatchHandler` in `backend/http/public.go` joins user-controlled `fromPath` and `toPath` body fields with the trusted `d.share.Path` BEFORE the downstream sanitizer runs. Because `filepath.Join` collapses `..` segments during the join, the sanitizer in `resourcePatchHandler` never sees the traversal and the move/copy/rename operat...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-22</span>
+                <a href="https://github.com/advisories/GHSA-qqqm-5547-774x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46670</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">YesWiki: Unauthenticated SQL Injection</div>
+            <div class="card-body">### Summary
+
+An unauthenticated SQL injection in the Bazar form-import path (`FormManager::create()`) allows any unauthenticated visitor of a default YesWiki install to inject arbitrary SQL into an `INSERT` statement and read the full database, including `yeswiki_users.password` hashes. Present in 4.6.1 / 4.6.2 / current `doryphore-dev`; analyzed a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-22</span>
+                <a href="https://github.com/advisories/GHSA-jwvv-qr7q-cv8j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-47166</span>
@@ -507,95 +605,6 @@ Example:...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-21</span>
                 <a href="https://github.com/advisories/GHSA-4j38-f5cw-54h7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46625</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">JavaScript Cookie: Per-instance prototype hijack in assign() enables cookie-attribute injection</div>
-            <div class="card-body">## Summary
-
-`js-cookie`'s internal `assign()` helper copies properties with `for...in` + plain assignment. When the source object is produced by `JSON.parse`, the JSON object's `"__proto__"` member is an *own enumerable* property, so the `for…in` enumerates it and the `target[key] = source[key]` write triggers the **`Object.prototype.__proto__` set...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-qjx8-664m-686j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46673</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Russh: Unchecked CryptoVec allocation and growth handling is reachable</div>
-            <div class="card-body">### Title
-Unchecked `CryptoVec` allocation and growth handling was reachable from local agent inputs in current `russh` releases and from remote SSH traffic in historical pre-`0.58.0` releases
-
-### Summary
-`CryptoVec` used unchecked capacity growth, unchecked length arithmetic, and unsafe allocation/locking paths. In current `russh` releases, local...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-g9f8-wqj9-fjw5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-59f3-7227-wmh4</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">@hulumi/policies: Stack-wide evidence bypassed Cloudflare and deployment-governance guardrails</div>
-            <div class="card-body">Impact: @hulumi/policies versions before 1.3.2 used stack-wide evidence shortcuts in several Cloudflare and deployment-governance validators. Unrelated compliant-looking evidence could suppress violations for different zones, hostnames, origins, or repositories in the same stack.
-
-Patched in 1.3.2: validators now correlate evidence to the specific ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-59f3-7227-wmh4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-q2f7-m237-v562</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">@hulumi/policies: GitHub OIDC trust policy bypass via AWS set-qualified condition operators</div>
-            <div class="card-body">Impact: @hulumi/policies versions before 1.3.2 only checked exact AWS IAM StringLike/StringEquals condition operator keys in G_OIDC_1. Set-qualified operators such as ForAnyValue:StringLike could hide wildcard GitHub Actions OIDC sub conditions from the mandatory guardrail.
-
-Patched in 1.3.2: the AWS trust-policy inspector now evaluates set-qualifi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-q2f7-m237-v562" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-4xrh-5m3m-328w</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">@hulumi/policies: CIS 1.16 admin policy bypass for inline and attached IAM policies</div>
-            <div class="card-body">Impact: @hulumi/policies versions before 1.3.2 did not fully inspect inline and attached IAM policy evidence for the administrator-policy guardrail, so some admin-equivalent policy paths could pass policy evaluation.
-
-Patched in 1.3.2: the validator inspects the affected policy shapes and includes regression tests.
-
-Remediation: upgrade @hulumi/pol...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-4xrh-5m3m-328w" target="_blank">Full Report →</a>
             </div>
         </div>
         
