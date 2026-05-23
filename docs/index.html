@@ -68,10 +68,144 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-22 19:19 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-23 01:48 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47124</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: Nezha WebSocket server stream discloses cross-tenant server telemetry to authenticated members</div>
+            <div class="card-body">### Summary
+
+Any authenticated non-admin member can connect to the server-status WebSocket and receive telemetry for all servers, including servers owned by other users. The normal server list API filters objects by `HasPermission`, but the WebSocket stream treats the presence of any authenticated user as authorization for the full unfiltered serve...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-hvv7-hfrh-7gxj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46716</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: RoleMember can run shell on every server (cross-tenant RCE) via POST /api/v1/cron</div>
+            <div class="card-body">## Summary
+
+`nezha`'s dashboard supports two user roles: `RoleAdmin` (Role==0) and `RoleMember` (Role==1). The cron routes `POST /api/v1/cron` and `PATCH /api/v1/cron/:id` are wired through `commonHandler` (any authenticated user) rather than `adminHandler`, and the per-server permission check on cron creation has a vacuous-true bypass.
+
+A `RoleMem...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-99gv-2m7h-3hh9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47125</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Arcane: Missing admin authorization on global variables endpoint</div>
+            <div class="card-body">## Summary
+
+The `PUT /api/environments/{id}/templates/variables` endpoint, which writes the system-wide `.env.global` file used for variable substitution in every project's compose file, is missing an admin authorization check. Any authenticated non-admin user can call this endpoint with their bearer token or API key and overwrite the global enviro...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-jpjh-jm2p-39hh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-ggxf-37hm-9wqf</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">instagrapi: Unsafe signup challenge path handling in instagrapi</div>
+            <div class="card-body">instagrapi versions before 2.6.9 accepted server-supplied signup challenge paths and used them to build request URLs before validating that the paths were relative Instagram API paths. A malicious or tampered challenge payload could cause challenge handling requests to be sent outside the intended Instagram host with the client\'s existing session ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-ggxf-37hm-9wqf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47157</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">aiograpi: Unsafe signup challenge path handling</div>
+            <div class="card-body">aiograpi versions before 0.9.10 accepted server-supplied signup challenge paths and used them to build request URLs before validating that the paths were relative Instagram API paths. A malicious or tampered challenge payload could cause challenge handling requests to be sent outside the intended Instagram host with the client\'s existing session h...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-jh37-x3fv-4x72" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47138</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Parse Server: Pre-authentication denial of service via client version header regex backtracking</div>
+            <div class="card-body">### Impact
+
+An unauthenticated attacker who knows a publicly-known Parse Application ID can submit a single HTTP request whose client SDK version field contains adversarial input that triggers polynomial backtracking in a request-header parser. The parsing runs before session authentication and before rate limiting on every `/parse/*` request, so t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-38m6-82c8-4xfm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47120</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: RoleMember can fire other users' cron tasks via AlertRule.FailTriggerTasks (no ownership check)</div>
+            <div class="card-body">## Summary
+
+`createAlertRule` and `createService` (and their `update*` siblings) accept `FailTriggerTasks []uint64` and `RecoverTriggerTasks []uint64` — IDs of cron tasks to fire when the alert/service trips. The validation function only validates the alert's `Rules.Ignore` server map; it never checks that the cron task IDs in `FailTriggerTasks` / ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-rxf6-wjh4-jfj6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46717</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.5
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: RoleMember-reachable SSRF with full response-body reflection via POST /api/v1/notification</div>
+            <div class="card-body">## Summary
+
+nezha's dashboard supports two user roles: `RoleAdmin` (Role==0) and `RoleMember` (Role==1). The notification routes `POST /api/v1/notification` and `PATCH /api/v1/notification/:id` are wired through `commonHandler` rather than `adminHandler` — so a `RoleMember` user can call them. These handlers synchronously `Send()` an HTTP request t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-23</span>
+                <a href="https://github.com/advisories/GHSA-w4g9-mxgg-j532" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-46715</span>
@@ -459,152 +593,6 @@ The `obj.(expr)` dynamic-attribute syntax (added in 3.15.0 as the replacement fo
             <div class="card-footer">
                 <span>Published: 2026-05-21</span>
                 <a href="https://github.com/advisories/GHSA-45vw-wh46-2vx8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46639</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Twig: Sandbox property and method bypass via object-destructuring assignment</div>
-            <div class="card-body">### Description
-
-The object-destructuring assignment syntax introduced in Twig 3.24.0 generates a call to `CoreExtension::getAttribute()` with the `$sandboxed` argument hardcoded to `false`, regardless of whether a `SandboxExtension` is active. This permanently disables the sandbox's property and method policy checks for every destructuring express...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-mm6w-gr99-p3jj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46638</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Twig: `{% sandbox %}{% include %}` skips checkSecurity() on cached templates (incomplete fix for CVE-2024-45411)</div>
-            <div class="card-body">### Description
-
-The fix for CVE-2024-45411 / GHSA-6j75-5wfj-gh66 added an explicit `$loaded->unwrap()->checkSecurity()` call in `CoreExtension::include()` so that a template already cached in `Environment::$loadedTemplates` is re-checked when included with `sandboxed = true`.
-
-The deprecated but still functional `{% sandbox %}{% include ... %}{% e...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-7fxw-r6jv-74c8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46637</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Twig: HTML-output filters in twig/* extras incorrectly declared `is_safe => ['all']`</div>
-            <div class="card-body">### Description
-
-Several filters in the `twig/*` extras packages are registered with `is_safe => ['all']`, which tells Twig's autoescaper to treat their output as safe in every context (`html`, `js`, `css`, `url`, ...). The output of these filters is plain text or HTML markup, neither of which is safe in every escaping context.
-
-Affected filters:
-
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-jv8m-2544-3pg3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46635</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Twig: Sandbox property allowlist bypass via the `column` filter (array_column on objects)</div>
-            <div class="card-body">### Description
-
-The `column` filter passes its input straight to PHP's native `array_column()`. When the array elements are objects, `array_column()` reads `$obj->$name` (and `$obj->$index`) directly, including invoking `__get`/`__isset`. Because this property read happens entirely in PHP native code and never reaches `CoreExtension::getAttribute(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-vcc8-phrv-43wj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46634</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Twig: `template_from_string()` escapes a SourcePolicy-driven sandbox via synthesized template name</div>
-            <div class="card-body">### Description
-
-When the sandbox is enabled selectively via `SourcePolicyInterface` (and not globally), a sandboxed template that is allowed to call `template_from_string` and `include` can render an arbitrary inner template with no security policy enforcement.
-
-`Environment::createTemplate()` compiles the inner string under a synthesized name (`_...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-24x9-r6q4-q93w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46633</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Twig: PHP code injection via `{% use %}` template name</div>
-            <div class="card-body">### Description
-
-`Compiler::string()` escapes `"`, `$`, `\`, NUL and TAB when generating PHP double-quoted string literals, but does not escape single quotes. In `ModuleNode::compileConstructor()`, the template name from a `{% use %}` tag is compiled via `subcompile()` -> `string()` and placed inside a surrounding PHP single-quoted string literal. ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-7p85-w9px-jpjp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46629</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">twig/intl-extra: Unbounded formatter memoisation in keyed on template-controlled arguments</div>
-            <div class="card-body">### Description
-
-`IntlExtension` memoises every `\IntlDateFormatter` and `\NumberFormatter` it creates in instance-level arrays keyed on a hash that includes `locale`, `pattern`, `attrs` and other values that are ordinary named arguments of the `format_datetime` / `format_date` / `format_time` / `format_number` / `format_currency` filters. There is...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-35wc-cvqg-78fp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46628</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Twig: The `spaceless` filter implicitly marks its output as safe</div>
-            <div class="card-body">### Description
-
-The `spaceless` filter is registered with `is_safe => ['html']`, which means Twig's autoescaper does not escape its output in an HTML context. As a result, applying `spaceless` to attacker-controlled input that contains markup emits the markup unescaped even when the developer never wrote `|raw` and autoescape is enabled.
-
-Example:...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-21</span>
-                <a href="https://github.com/advisories/GHSA-4j38-f5cw-54h7" target="_blank">Full Report →</a>
             </div>
         </div>
         
