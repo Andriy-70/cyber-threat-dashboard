@@ -68,10 +68,489 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-27 19:55 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-28 01:45 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45725</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">compliance-trestle Remote Fetching Mechanism has an Arbitrary File Write via Cache Path Traversal</div>
+            <div class="card-body">## Summary
+
+The compliance-trestle library's remote fetching cache mechanism (HTTPSFetcher and SFTPFetcher) constructs the local cache file path from the URL path component without sanitizing path traversal sequences (`../`). When a remote OSCAL profile references a URL with traversal in its path, the HTTP response body is written to a location **o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-g3vg-vx23-3858" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47717</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">FUXA's Unauthenticated Project Data Disclosure Exposes Server-Side Scripts and Device Configurations</div>
+            <div class="card-body">### Summary
+
+The GET /api/project endpoint exposes sensitive project configuration data to guest-context requests even when secureEnabled is enabled.
+
+### Details
+
+File: `server/api/projects/index.js`
+
+```javascript
+prjApp.get("/api/project", secureFnc, function(req, res) {
+    const permission = checkGroupsFnc(req);
+    runtime.project.getProject(...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-q3w6-q3hc-c5x6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47243</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Kata guest escape: runtime-rs guest-root to host-root escape via virtiofs</div>
+            <div class="card-body">### Summary
+
+In the runtime-rs standalone virtio-fs path, verified here with QEMU (and verified with Cloud Hypervisor too), Kata Containers runs host `virtiofsd` as root with:
+
+```
+--sandbox none --seccomp none
+```
+
+If an attacker has root-equivalent execution inside the Kata guest VM, they can send raw FUSE requests directly to the host `virtiofsd...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-2gv2-cffp-j227" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46621</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Yamcs Vulnerable to Authenticated Remote Code Execution (RCE) via Jython Algorithm Code Injection</div>
+            <div class="card-body">### Summary
+A Server-Side Code Injection vulnerability exists in the Yamcs script evaluation engine for Python algorithms. The application dynamically compiles and evaluates user-controlled algorithm text using Jython (via the JSR-223 ScriptEngine API) without enforcing a secure sandbox. An authenticated user with the `ChangeMissionDatabase` privil...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-2g95-6x5q-xjwj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46562</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Yamcs Vulnerable to Remote Code Execution via Mission Database algorithm override</div>
+            <div class="card-body"># Remote Code Execution via Mission Database algorithm override
+
+## Summary
+
+The Nashorn `ScriptEngine` used to evaluate user-supplied algorithm text in `MdbOverrideApi.updateAlgorithm` is constructed without a `ClassFilter`, allowing a user with the `ChangeMissionDatabase` privilege to execute arbitrary Java code on the Yamcs server. In Yamcs's de...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-vmwp-vh32-rj75" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45704</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pimcore has a CustomReports Share Bypass</div>
+            <div class="card-body">### Summary
+
+`CustomReports` uses inconsistent authorization between the report listing endpoint and the report detail endpoint.
+
+- The listing flow filters reports based on report-sharing rules
+- The detail flow only checks generic `reports` or `reports_config` permissions
+
+As a result, a low-privileged backend user who was not granted access to a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-jwcc-gv4m-93x6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45703</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.4
+                </span>
+            </div>
+            <div class="card-title">Pimcore has a WordExport Authorization Bypass for Unauthorized Document Export</div>
+            <div class="card-body">### Summary
+
+The `WordExport` export flow only checks whether the current backend user has the feature permission `word_export`. It does not verify access rights on the target element itself.  
+As a result, a low-privileged backend user can export document content even when the user does not have `view` permission on that document.
+
+In the local Do...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-332x-r494-54fq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45309</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">AsyncSSH `AuthorizedKeysFile %u` path traversal allows attacker-selected authorized keys to authenticate a traversal username</div>
+            <div class="card-body">## Summary
+AsyncSSH 2.22.0 expands the OpenSSH-compatible `AuthorizedKeysFile` `%u` token with the raw SSH username during pre-authentication server config reload. A server configured with a documented per-user key pattern such as `AuthorizedKeysFile authorized_keys/%u` can be made to read an authorized-keys file outside the intended directory when...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-g794-3fmp-753h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45305</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Symfony's YAML Parser has a ReDoS via Catastrophic Backtracking in Parser::cleanup() Regex</div>
+            <div class="card-body">### Description
+
+`Symfony\Component\Yaml\Parser::cleanup()` strips the optional `%YAML` directive header, leading comments, and document start/end markers before parsing. The original regexes contained overlapping quantifiers, most notably `'#^%YAML[: ][\d.]+.*\n#u'`, whose `[\d.]+` and `.*` overlap on the dot, that exhibit catastrophic backtrackin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-9frc-8383-795m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45304</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Symfony's YAML Parser Vulnerable to Exponential Memory Allocation via Recursive Collection-Alias Expansion ("Billion Laughs")</div>
+            <div class="card-body">### Description
+
+`Symfony\Component\Yaml\Parser` resolves YAML aliases (`*anchor`) during parsing. Aliases that reference *collections* (arrays, `stdClass`, `TaggedValue`-wrapped collections) can themselves point to other collections containing aliases, creating exponential expansion at resolution time. A small input can blow up into a multi-gigaby...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-4qpc-3hr4-r2p4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45133</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Symfony hardened the parser when handling untrusted input</div>
+            <div class="card-body">### Description
+
+`Symfony\Component\Yaml\Parser` is the entry point for parsing YAML strings into PHP values via `Yaml::parse()`. When the parser is exposed to attacker-controlled input, deeply nested mappings or sequences cause both the block-level (`Parser::parseBlock()`) and inline (`Inline::parseSequence()` / `Inline::parseMapping()`) parsers t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-c2p3-7m5p-cv8x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45332</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Automad has Broken Access Control: Unauthenticated exposure of administrator bcrypt password hashes and TOTP secrets via public API endpoint</div>
+            <div class="card-body">### Summary
+
+ A Broken Access Control vulnerability allows an unauthenticated attacker to retrieve the bcrypt password hash of every administrator account with a single POST request. The `/_api/user-collection/create-first-user` setup endpoint remains publicly accessible once initial configuration is complete and returns full serialized user data i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-xm76-r88j-vm3g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45077</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Symfony has Unauthenticated PHP Object Deserialization in MonologBridge server:log Listener</div>
+            <div class="card-body">### Description
+
+`Symfony\Bridge\Monolog\Command\ServerLogCommand` (the `server:log` console command) is a development-time helper that opens a TCP listener and displays log records pushed to it by the application's logging pipeline. Two unsafe defaults combine into a remotely reachable PHP object-deserialization sink:
+
+1. The listener binds to `0....</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-m7v2-7gxm-vc2v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45075</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Synfony's HEAD Request Bypasses methods: ['GET'] Filter in #[IsGranted] / #[IsSignatureValid] / #[IsCsrfTokenValid]</div>
+            <div class="card-body">### Description
+
+Symfony's `#[IsGranted('...')]`, `#[IsSignatureValid]`, and `#[IsCsrfTokenValid(...)]` attributes allow you to define a `methods: [...]` argument to only enforce these checks for the listed HTTP methods and skip them otherwise. E.g. an attribute defining `methods: ['GET']` would be ignored for a `HEAD` request.
+
+On the other hand, ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-6439-2f28-8p8q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45074</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Symfony's Cas2Handler Derives CAS service URL from Client Host Header → Cross-Service Ticket Replay</div>
+            <div class="card-body">`Cas2Handler` builds this `service` parameter from `Request::getSchemeAndHttpHost()`, which reflects the attacker-controlled HTTP `Host` header whenever Symfony's `framework.trusted_hosts` setting is not configured (the default). An attacker who controls any *other* application registered with the same CAS server can replay a victim's ticket agains...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-j8gj-9rm5-4xhx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45073</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Symfony Vulnerable to SQL Injection in PdoAdapter::doClear() via Unsanitized $prefix</div>
+            <div class="card-body">### Description
+
+`Symfony\Component\Cache\Adapter\PdoAdapter` is the PDO-backed cache adapter. Its `clear($prefix)` method (inherited from `AbstractAdapterTrait`) is documented to delete cache items whose key starts with `$prefix`.
+
+In the non-versioning code path, the caller-supplied `$prefix` is concatenated into `$namespace = $this->namespace.$p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-6qh9-h6wf-jgqc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45072</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Symfony Vulnerable to stored XSS in WebProfiler CodeExtension::fileExcerpt() — Unescaped Non-PHP File Rendering</div>
+            <div class="card-body">### Description
+
+Symfony's profiler, a development only debug UI, renders source-code excerpts on several pages using Twig's custom `file_excerpt` filter. This filter renders PHP files via `highlight_string()` (which escapes HTML), but renders **non-PHP files** by splitting on `\n` and interpolating each line directly into `<code>{$line}</code>` wi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-hmr5-2xcr-v8pp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45071</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Symfony has XXE (Local File Disclosure) in DomCrawler::addXmlContent() via validateOnParse = true</div>
+            <div class="card-body">### Description
+
+`symfony/dom-crawler` provides the `Crawler` class for navigating HTML/XML documents with CSS/XPath selectors; `symfony/browser-kit`'s `HttpBrowser` uses it to parse fetched pages.
+
+`Crawler::addXmlContent()` sets `DOMDocument::$validateOnParse = true` before calling `loadXML()`. Setting `validateOnParse` re-enables libxml's DTD su...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-x6g4-fwcc-jj8w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45070</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Symfony has Email Header Injection via Non-Token Characters in Mime Parameter Names</div>
+            <div class="card-body">### Description
+
+`Symfony\Component\Mime\Header\ParameterizedHeader` (and the related parameter handling reachable from `Symfony\Component\Mime\Header\Headers`) is responsible for serializing structured headers such as `Content-Type` and `Content-Disposition`, which carry `key=value` parameters (e.g. `Content-Disposition: attachment; filename="x"`)...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-vqc8-7275-q272" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45069</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Symfony's OidcTokenHandler Accepts JWTs Missing aud/iss/exp Claims</div>
+            <div class="card-body">### Description
+
+`OidcTokenHandler` is Symfony's built-in access-token handler for OpenID Connect: it validates a bearer JWT and returns the authenticated user identity. It delegates claim validation to the `web-token/jwt-checker` library's `ClaimCheckerManager`.
+
+`OidcTokenHandler::verifyClaims()` registers audience (`aud`), issuer (`iss`), and ex...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-29fc-p6c4-24cg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45068</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Symfony has an Argument Injection in SendmailTransport via Dash-Prefixed Recipient Address</div>
+            <div class="card-body">### Description
+
+Symfony Mailer selects a transport via the `MAILER_DSN` environment variable / configuration (e.g. `smtp://...`, `sendmail://...`, `native://default`). `SendmailTransport` invokes the local `sendmail` binary and supports two modes: `-bs` (speak SMTP over stdin: the default) and `-t` (read the message on stdin, pass recipients as co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-xx3c-qf5g-hc39" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45067</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Symfony has Email Header / SMTP Command Injection via CRLF in Symfony\Component\Mime\Address</div>
+            <div class="card-body">### Description
+
+`Symfony\Component\Mime\Address` is the value-object every Symfony Mailer address (to/cc/bcc/from/reply-to) flows through; its constructor is documented as validating the address and throwing on invalid input, so developers treat it as a security boundary.
+
+The constructor accepts email addresses whose local-part (the part before `...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-qpmx-3rfj-7rhv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45066</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Symfony has an HtmlSanitizer allowLinkHosts() / allowMediaHosts() Bypass via URL-Parser Differentials and <area> Misclassification</div>
+            <div class="card-body">### Description
+
+`symfony/html-sanitizer` lets applications sanitise untrusted HTML. The configuration methods `allowLinkHosts([...])` and `allowLinkSchemes([...])` are intended to restrict `<a href>` targets to an allowlist of hosts/schemes; `allowMediaHosts()` / `allowMediaSchemes()` do the same for `<img src>` etc.
+
+Three distinct bypasses allow...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-qc95-4862-92fh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45064</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Symfony's HtmlSanitizer URL Attributes Pass Through BiDi Override Characters → Visual href Spoofing</div>
+            <div class="card-body">### Description
+
+`Symfony\Component\HtmlSanitizer\TextSanitizer\UrlSanitizer::parse()` (used by `UrlSanitizer::sanitize()` and therefore by every `HtmlSanitizer` config that allows links or media) accepts URLs that contain Unicode explicit-direction BiDi formatting characters: U+202A–U+202E (LRE / RLE / PDF / LRO / RLO) and U+2066–U+2069 (LRI / RLI...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-h5vq-qfcg-4m6p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44982</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">CrowdSec AppSec silently drops request body for chunked / HTTP-2 requests</div>
+            <div class="card-body">## Summary
+
+The CrowdSec AppSec component fails to read the HTTP request body for any request whose `Content-Length` is not positive — most notably HTTP/1.1 requests using `Transfer-Encoding: chunked` and HTTP/2 requests sent without a `content-length` header. Coraza is then evaluated against an empty body, so every WAF rule targeting `REQUEST_BODY...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-rw47-hm26-6wr7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44981</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">CrowdSec LAPI: Denial of Service via Unbounded Gzip Decompression</div>
+            <div class="card-body">The LAPI router uses `gin-contrib/gzip` with `DefaultDecompressHandle` globally (`pkg/apiserver/controllers/controller.go`).
+This middleware decompresses incoming request bodies without enforcing a maximum decompressed size. 
+
+The endpoints `/v1/watchers` or `/v1/watchers/login` require no authentication.
+An attacker can send small gzip-compressed ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-27</span>
+                <a href="https://github.com/advisories/GHSA-273h-gvwr-c3qj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-44726</span>
@@ -161,491 +640,6 @@ The built-in `strip_html` filter in liquidjs uses a regex containing four lazy-q
             <div class="card-footer">
                 <span>Published: 2026-05-27</span>
                 <a href="https://github.com/advisories/GHSA-r7g9-xpmj-5fcq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45368</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Kirby CMS vulnerable to cross-site scripting (XSS) from links in KirbyTags and image blocks in the site frontend</div>
-            <div class="card-body">### TL;DR
-
-This vulnerability affects all Kirby sites that allow the use of the `(link: …)` KirbyTag, the `link:` parameter of the `(image: …)` KirbyTag, the built-in `image` block with a link or the HTML importer for blocks, when content is authored by users who may not be fully trusted. The attack requires an authenticated Panel user with update ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-qvjf-922g-pj44" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45357</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">LiquidJS has a memory and render limit bypass via unbounded width padding in `date` filter (strftime)</div>
-            <div class="card-body">## Summary
-
-The `date` filter's strftime implementation parses width specifiers like `%9999999d` and forwards the captured width unchecked into `pad()`/`padStart()` in `src/util/underscore.ts`. The pad loop performs unbounded string concatenation without consulting the Context's `memoryLimit` or `renderLimit`, so a single small template (`{{ x | da...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-hh27-hf48-9f5q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45334</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Kirby CMS's content locks disclose IDs and emails of inaccessible users from `users.access/list` permissions</div>
-            <div class="card-body">### TL;DR
-
-This vulnerability affects all Kirby sites that restrict the visibility of users for certain roles via the `users.access` or `users.list` permissions. A site is affected if users of a particular role are not allowed to see other users in the Panel, for example because the role's blueprint sets `users.access: false` or `users.list: false`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-39vq-49qm-r2mc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45260</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Pimcore: Missing Authorization in WebDAV MOVE via unchecked asset move handling</div>
-            <div class="card-body">### Summary
-Pimcore's WebDAV asset endpoint exposes a `MOVE` operation through `/asset/webdav{path}` without adding an authentication plugin in the WebDAV controller. The `Tree::move()` implementation then performs asset mutation and deletion before checking a current Pimcore user or any asset permissions.
-
-An unauthenticated remote attacker who kn...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-wc7j-g8wx-m2qx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45162</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.0
-                </span>
-            </div>
-            <div class="card-title">Pimcore has Unsafe PHP Deserialization in Multiple Locations Without allowed_classes Restriction</div>
-            <div class="card-body"># GM-374
-
-## Summary
-Multiple locations in Pimcore v11 call PHP's `unserialize()` on data from database columns and filesystem files without the `allowed_classes` restriction, enabling object injection if an attacker can control the serialized data source.
-
-## Affected Component
-- **Package:** `pimcore/pimcore` and `pimcore/admin-ui-classic-bundle`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-36fc-7wjg-mfvj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45065</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Symfony has a UrlGenerator Route-Requirement Bypass via Unanchored Regex Alternation → Off-Site //host URL Injection</div>
-            <div class="card-body">### Description
-
-Symfony routes can declare a requirements regex per path parameter, e.g. a route `/{_locale}/blog` with `requirements: { _locale: 'en|fr|de' }`. The Twig `path()` / `url()` helpers (backed by `UrlGenerator`) validate supplied parameter values against that regex before building the URL.
-
-UrlGenerator constructs the validation patter...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-72xp-p242-47p9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45063</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Symfony Vulnerable to Identity Spoofing via Unanchored DN Regex in X509Authenticator</div>
-            <div class="card-body">### Description
-
-`X509Authenticator` implements client-certificate (mTLS) authentication: the web server validates the client's certificate against a trusted CA, then passes the certificate's Subject DN (Distinguished Name: a string like `CN=Alice,O=Example,emailAddress=alice@example.com`) to Symfony via `$_SERVER['SSL_CLIENT_S_DN']`. Symfony extra...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-ph86-p8f6-f9r2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44979</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">@hapi/wreck leaks sensitive `Proxy-Authorization` header across cross-hostname redirects</div>
-            <div class="card-body">### Impact
-When `@hapi/wreck` follows a 3xx redirect to a different hostname, only the `Authorization` and `Cookie` headers are stripped. The standard credential header `Proxy-Authorization` is forwarded intact to the redirect target, potentially exposing forward-proxy credentials to a host outside the original trust boundary.
-
-Redirect following i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-vhjm-w67q-g75c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44974</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">@hapi/content header parser has a parameter smuggling issue that allows upload-filter bypass via duplicate parameters</div>
-            <div class="card-body">### Impact
-The two parsers resolved duplicates inconsistently and silently:
-- `Content.disposition()` retained the last occurrence of each parameter.
-- `Content.type()` retained the first occurrence of charset and boundary.
-
-Either behavior creates a parameter-smuggling primitive when another component in the request-processing chain (a WAF, revers...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-36hh-x5p5-jgc8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44741</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">Pimcore Admin Classic Bundle Vulnerable to SQL Injection in Translation Grid Date Filter via Unsanitized Property Parameter</div>
-            <div class="card-body"># GM-369
-
-## Summary
-SQL injection in Pimcore's translation grid date filter — the user-supplied `property` field from the filter JSON is interpolated directly into a `UNIX_TIMESTAMP(DATE(FROM_UNIXTIME(...)))` SQL expression without parameterization or allowlist validation.
-
-## Affected Component
-- **Package:** `pimcore/admin-ui-classic-bundle`
-- *...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-h4ph-crvj-9h92" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44739</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">Pimcore Vulnerable to SQL Injection in Custom Reports Column Configuration</div>
-            <div class="card-body">### Summary
-The columnConfigAction endpoint in the CustomReportsBundle is vulnerable to SQL injection. An attacker with the reports_config permission can supply a malicious SQL configuration that is concatenated into a query and executed. Although the application attempts to filter certain DDL/DML keywords (like UPDATE, DELETE, DROP), it fails to p...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-3234-gxc3-pq6f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44705</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape</div>
-            <div class="card-body">### Summary
-
-The tmp npm package contains a path traversal vulnerability that allows escaping the intended temporary directory when untrusted data flows into the `prefix`, `postfix`, or `dir` options. By embedding traversal sequences (e.g., `../`) or path separators in these parameters, attackers can cause files to be created outside the configured...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-ph9p-34f9-6g65" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44646</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">LiquidJS's `{% render %}` tag silently bypasses per-render `ownPropertyOnly:true` via `Context.spawn()`</div>
-            <div class="card-body">## Summary
-
-`Context.spawn()` in liquidjs creates a child `Context` for the `{% render %}` tag but does not propagate the parent context's resolved `ownPropertyOnly` value. The new context re-derives `ownPropertyOnly` from `opts.ownPropertyOnly` (the instance-level option), silently discarding any `RenderOptions.ownPropertyOnly` override that was s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-9x9p-qf8f-mvjg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44645</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">LiquidJS has a renderLimit DoS guard bypass via empty `{% for %}` body</div>
-            <div class="card-body">## Summary
-
-The `renderLimit` option — documented in `docs/source/tutorials/dos.md` as the mechanism that "mitigates this by limiting the time consumed by each render() call" — can be fully bypassed by a `{% for %}` (or `{% tablerow %}`) tag whose body is empty. The per-iteration time check is reached only when the body contains at least one templa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-8xx9-69p8-7jp3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44644</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">LiquidJS's strip_html filter bypass via newline characters in HTML tags enables XSS</div>
-            <div class="card-body">## Summary
-
-The `strip_html` filter in liquidjs is intended to remove HTML tags from a string before rendering, and is widely used as an XSS sanitizer. The implementation uses a regex whose catch-all branch (`<.*?>`) does not match line terminators, so any HTML tag containing a `\n` or `\r` character passes through unmodified. An attacker who can p...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-2qv6-9wx5-cwv4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44632</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">Yamcs Vulnerable to Server-Side Code Injection (RCE) via Janino Expression Engine in `JavaExprAlgorithmExecutionFactory`</div>
-            <div class="card-body">### Summary
-A Server-Side Code Injection vulnerability exists in the Yamcs algorithm evaluation engine (`org.yamcs.algorithms.JavaExprAlgorithmExecutionFactory`). The application dynamically compiles and evaluates user-controlled algorithm text without enforcing a secure sandbox. An authenticated user with the `ChangeMissionDatabase` privilege can ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-524g-x36v-9wm6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44596</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Yamcs has No Rate Limiting on Authentication Endpoint</div>
-            <div class="card-body">### Summary
-
-The authentication endpoint `POST /auth/token` in `yamcs-core` lacks any form of rate limiting, account lockout, or failed attempt throttling. As a result, an unauthenticated remote attacker can perform unlimited password guessing attempts against any user account.
-
-This missing rate limiting vulnerability (CWE-307) significantly incre...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-w5r6-mcgq-7pq4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44595</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Yamcs vulnerable to unauthorized user enumeration via IAM API endpoints</div>
-            <div class="card-body">### Summary
-
-The IAM API endpoints (`listUsers`, `getUser`, `listGroups`, and `getGroup`) in `yamcs-core` do not enforce the required `SystemPrivilege.ControlAccess` check. As a result, **any authenticated user** (even those with low or no privileges) can enumerate all user accounts in the system, including their usernames, superuser status, and gr...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-p2rj-mrmc-9w29" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44587</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">CarrierWave has a denylisted_content_type bypass via Unescaped Regex Metacharacters</div>
-            <div class="card-body">### Summary
-CarrierWave's content_type_denylist check fails to escape regex metacharacters in string entries, causing the denylist to silently not match the content types it is intended to block.
-
-**Note**: CarrierWave is aware `#content_type_denylist is deprecated for the security reason`, but it still used by developers, and the problem here isn'...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-7g26-2qgj-chfg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44210</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Kata Containers have VM Escape via virtiofsd Argument Injection through Default-Enabled Pod Annotations</div>
-            <div class="card-body">## Summary
-
-Kata Containers ships with a default configuration that allows pod creators to inject arbitrary command-line arguments into the virtiofsd process through the `io.katacontainers.config.hypervisor.virtio_fs_extra_args` pod annotation. By injecting `-o source=/` along with `--no-announce-submounts` and `--sandbox=none`, an attacker can ove...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-26</span>
-                <a href="https://github.com/advisories/GHSA-rr59-xxvx-96qr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44177</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Kirby CMS has pre-authentication path traversal and PHP file inclusion during user lookup</div>
-            <div class="card-body">### TL;DR
-
-This vulnerability affects all Kirby sites on Kirby 5.3.0-5.4.0 and is independent from setup conditions and authentication.
-
-**This vulnerability is of high severity for all Kirby sites**.
-
-----
-
-### Introduction
-
-Path traversal is a type of attack that allows to access arbitrary filesystem paths. By using special elements such as `..` ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-26</span>
-                <a href="https://github.com/advisories/GHSA-9hx7-c53c-v6x8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44176</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Kirby CMS's `pages.access` permission is not checked during rendering of page drafts</div>
-            <div class="card-body">### TL;DR
-
-This vulnerability affects all Kirby sites where users of a particular role have no permission to access pages (`pages.access` permission is disabled). This can be due to configuration in the user blueprint(s), via `options` in the model blueprint(s) or via a combination of both settings.
-
-Kirby sites are *not* affected if they intend al...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-26</span>
-                <a href="https://github.com/advisories/GHSA-2xw4-v2wx-hqq9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44175</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Kirby CMS vulnerable to cross-site scripting (XSS) from list field content in the site frontend</div>
-            <div class="card-body">### TL;DR
-
-This vulnerability affects all Kirby sites that use the list field or list block, when content is authored by users who may not be fully trusted. The attack requires an authenticated Panel user with update permission to any list field or list block.
-
-**This vulnerability is of high severity for affected sites.**
-
-Kirby sites are *not* af...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-26</span>
-                <a href="https://github.com/advisories/GHSA-5fhx-9q32-q257" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44174</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Kirby CMS has an Arbitrary Method Call via REST API Search and Collection Query Endpoints</div>
-            <div class="card-body">### TL;DR
-
-This vulnerability affects all Kirby sites that might have potential attackers in the group of authenticated Panel users.
-
-**This vulnerability is of high severity for affected sites and has a high real-world impact.**
-
-----
-
-### Introduction
-
-Arbitrary method call is a type of arbitrary code execution. It is a vulnerability that allows ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-26</span>
-                <a href="https://github.com/advisories/GHSA-86rh-h242-j8xp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-43947</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">FUXA Vulnerable to Unauthenticated Remote Code Execution via Script Test Mode Authorization Bypass</div>
-            <div class="card-body">### Summary
-
-An unauthenticated Remote Code Execution vulnerability exists in FUXA when `secureEnabled` is set to `true`. The `POST /api/runscript` endpoint checks authorization against the stored script's permission by ID, but when `test: true` is set in the request, it compiles and executes attacker-supplied code instead of the stored script's co...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-26</span>
-                <a href="https://github.com/advisories/GHSA-rg3m-cfq7-g6h6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-43946</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">FUXA has an unauthenticated arbitrary tag value disclosure via /api/getTagValue</div>
-            <div class="card-body">### Summary
- An authorization bypass in the /api/getTagValue endpoint allows unauthenticated access to tag values when the referenced script does not exist.
-
-  ### Details
-  The issue is caused by the combination of these code paths:
-
-  - `server/api/apikeys/verify-api-or-token.js:45` sends requests without `x-api-key` to `authJwt.verifyToken(req, ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-26</span>
-                <a href="https://github.com/advisories/GHSA-fwcm-rqvw-j3p7" target="_blank">Full Report →</a>
             </div>
         </div>
         
