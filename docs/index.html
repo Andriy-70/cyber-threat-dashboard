@@ -68,10 +68,146 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-28 20:00 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-29 01:54 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-qp9x-wp8f-qgjj</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.0
+                </span>
+            </div>
+            <div class="card-title">tuf has platform-dependent delegation path matching</div>
+            <div class="card-body">`DelegatedRole._is_target_in_pathpattern` uses `fnmatch.fnmatch` to decide whether a given target path is authorized by a delegation's glob pattern.
+
+Python's `fnmatch.fnmatch` calls `os.path.normcase()` on both arguments before matching. On POSIX hosts `normcase` is the identity function; on Windows hosts `os.path` resolves to `ntpath`, whose `nor...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-28</span>
+                <a href="https://github.com/advisories/GHSA-qp9x-wp8f-qgjj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47179</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">Arcane Has an Authenticated Arbitrary Host File Read via Docker Compose Include Directives</div>
+            <div class="card-body">## Summary
+
+`ProjectService.GetProjectFileContent` returns the contents of any Docker Compose include directive declared in a project's compose file before any path-traversal validation runs. Because `ProjectService.CreateProject` writes attacker-supplied compose content to disk without validating include paths, an authenticated user can create a p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-28</span>
+                <a href="https://github.com/advisories/GHSA-c3px-h233-h6fq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42563</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Dulwich Vulnerable to Command Injection via Merge Driver Path</div>
+            <div class="card-body">## Summary
+
+Dulwich's `ProcessMergeDriver` substitutes the file path (from the git tree, controllable by an attacker via a malicious branch) into the merge driver command via the `%P` placeholder and executes it with `subprocess.run(..., shell=True)`. An attacker who can cause a victim to merge an untrusted branch can achieve arbitrary command exec...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-28</span>
+                <a href="https://github.com/advisories/GHSA-9277-mp7x-85jf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42305</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Dulwich has an arbitrary file write via NTFS-hostile tree entries on Windows</div>
+            <div class="card-body">## Impact
+
+Arbitrary file write leading to remote code execution when cloning or checking out a malicious Git repository on Windows.
+
+Dulwich's path-element validator accepted tree entries whose filenames contained bytes that Windows interprets as structural path syntax:
+
+  - \ — the Windows path separator. A single tree entry named .git\hooks\pre-...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-28</span>
+                <a href="https://github.com/advisories/GHSA-897w-fcg9-f6xj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-5394</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pimcore Platform - SQL Injection in DataObject composite index handling during class definition import/save</div>
+            <div class="card-body">## Description
+An authenticated administrative user who can import or save DataObject class definitions can inject attacker-controlled composite index metadata and trigger unintended SQL execution in the backend.
+
+The vulnerable flow accepts `compositeIndices` from imported JSON, stores the values without strict validation, and later concatenates t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-28</span>
+                <a href="https://github.com/advisories/GHSA-r2f4-ff2p-xc64" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47718</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">FUXA provides guest and invalid-token access to protected read APIs in secure mode</div>
+            <div class="card-body">### Summary
+
+  When `secureEnabled=true`, FUXA `1.3.0-2773` still allows guest and invalid-token requests to read project, alarms, and scheduler APIs.
+
+  ### Details
+
+  In secure mode, requests with no token or an explicitly invalid token were still able to access protected read endpoints.
+
+  Confirmed behavior:
+
+  - guest `GET /api/project` return...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-28</span>
+                <a href="https://github.com/advisories/GHSA-r9g5-7q8j-958c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47144</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">Shamefile has an arbitrary file read via shamefile.yaml in shame next</div>
+            <div class="card-body">### Impact
+
+A path traversal vulnerability in `shame next` allows an attacker-controlled `shamefile.yaml` to disclose contents of files outside the repository, one line at a time, to the terminal of a user who runs the command. See patch commit for technical details.
+
+### Patches
+
+Fixed in 0.1.7. Upgrade to either 0.1.7 or later versions to incorpo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-28</span>
+                <a href="https://github.com/advisories/GHSA-x6p3-76f2-xxvh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-47128</span>
@@ -516,134 +652,6 @@ A Server-Side Code Injection vulnerability exists in the Yamcs script evaluation
             <div class="card-footer">
                 <span>Published: 2026-05-27</span>
                 <a href="https://github.com/advisories/GHSA-2g95-6x5q-xjwj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46562</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Yamcs Vulnerable to Remote Code Execution via Mission Database algorithm override</div>
-            <div class="card-body"># Remote Code Execution via Mission Database algorithm override
-
-## Summary
-
-The Nashorn `ScriptEngine` used to evaluate user-supplied algorithm text in `MdbOverrideApi.updateAlgorithm` is constructed without a `ClassFilter`, allowing a user with the `ChangeMissionDatabase` privilege to execute arbitrary Java code on the Yamcs server. In Yamcs's de...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-vmwp-vh32-rj75" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45704</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pimcore has a CustomReports Share Bypass</div>
-            <div class="card-body">### Summary
-
-`CustomReports` uses inconsistent authorization between the report listing endpoint and the report detail endpoint.
-
-- The listing flow filters reports based on report-sharing rules
-- The detail flow only checks generic `reports` or `reports_config` permissions
-
-As a result, a low-privileged backend user who was not granted access to a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-jwcc-gv4m-93x6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45703</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.4
-                </span>
-            </div>
-            <div class="card-title">Pimcore has a WordExport Authorization Bypass for Unauthorized Document Export</div>
-            <div class="card-body">### Summary
-
-The `WordExport` export flow only checks whether the current backend user has the feature permission `word_export`. It does not verify access rights on the target element itself.  
-As a result, a low-privileged backend user can export document content even when the user does not have `view` permission on that document.
-
-In the local Do...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-332x-r494-54fq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45309</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">AsyncSSH `AuthorizedKeysFile %u` path traversal allows attacker-selected authorized keys to authenticate a traversal username</div>
-            <div class="card-body">## Summary
-AsyncSSH 2.22.0 expands the OpenSSH-compatible `AuthorizedKeysFile` `%u` token with the raw SSH username during pre-authentication server config reload. A server configured with a documented per-user key pattern such as `AuthorizedKeysFile authorized_keys/%u` can be made to read an authorized-keys file outside the intended directory when...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-g794-3fmp-753h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45305</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Symfony's YAML Parser has a ReDoS via Catastrophic Backtracking in Parser::cleanup() Regex</div>
-            <div class="card-body">### Description
-
-`Symfony\Component\Yaml\Parser::cleanup()` strips the optional `%YAML` directive header, leading comments, and document start/end markers before parsing. The original regexes contained overlapping quantifiers, most notably `'#^%YAML[: ][\d.]+.*\n#u'`, whose `[\d.]+` and `.*` overlap on the dot, that exhibit catastrophic backtrackin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-9frc-8383-795m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45304</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Symfony's YAML Parser Vulnerable to Exponential Memory Allocation via Recursive Collection-Alias Expansion ("Billion Laughs")</div>
-            <div class="card-body">### Description
-
-`Symfony\Component\Yaml\Parser` resolves YAML aliases (`*anchor`) during parsing. Aliases that reference *collections* (arrays, `stdClass`, `TaggedValue`-wrapped collections) can themselves point to other collections containing aliases, creating exponential expansion at resolution time. A small input can blow up into a multi-gigaby...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-4qpc-3hr4-r2p4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45133</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Symfony hardened the parser when handling untrusted input</div>
-            <div class="card-body">### Description
-
-`Symfony\Component\Yaml\Parser` is the entry point for parsing YAML strings into PHP values via `Yaml::parse()`. When the parser is exposed to attacker-controlled input, deeply nested mappings or sequences cause both the block-level (`Parser::parseBlock()`) and inline (`Inline::parseSequence()` / `Inline::parseMapping()`) parsers t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-27</span>
-                <a href="https://github.com/advisories/GHSA-c2p3-7m5p-cv8x" target="_blank">Full Report →</a>
             </div>
         </div>
         
