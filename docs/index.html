@@ -68,560 +68,572 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-29 20:02 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-05-30 01:49 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47260</span>
+                <span class="cve-id">CVE-2026-47416</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.6
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: Any workspace member can promote themselves or others to owner via PATCH /workspaces/{id}/members/{user_id}</div>
+            <div class="card-body">## Summary
+
+**Type:** Vertical privilege escalation. The `PATCH /workspaces/{workspace_id}/members/{user_id}` endpoint is gated by `require_workspace_member(workspace_id)`, which defaults to `min_role="member"` and is never overridden by the route. The handler then calls `MemberService.update_role(workspace_id, user_id, body.role)` which sets the t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-c2m8-4gcg-v22g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47409</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
+                    HIGH 8.1
                 </span>
             </div>
-            <div class="card-title">Koel Vulnerable to SSRF via Podcast Episode Enclosure URLs</div>
+            <div class="card-title">praisonai-platform: Missing authorization on member removal enables full workspace takeover by any user regardless of role</div>
             <div class="card-body">## Summary
 
-Koel validates the podcast feed URL via the `SafeUrl` rule (DNS resolution + public IP check), but the individual episode `<enclosure url="...">` values extracted from the RSS XML are stored directly into the database without any SSRF validation. When a user plays an episode, the server downloads the full HTTP response from the unvalida...</div>
+**Type:** Authorization bypass enabling owner lockout. The `DELETE /workspaces/{workspace_id}/members/{user_id}` endpoint is gated only by `require_workspace_member(workspace_id)` (default `min_role="member"`). Any member can remove any other member, including the workspace owner, using a single DELETE. There is no caller-role check, no...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-7j2f-6h2r-6cqc" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-w388-2392-px73" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-qjvr-435c-5fjh</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
+                <span class="cve-id">CVE-2026-47414</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.6
                 </span>
             </div>
-            <div class="card-title">Nerdbank.MessagePack has a memory amplification DoS in collection deserialization</div>
-            <div class="card-body">Nerdbank.MessagePack deserializers for many collection-shaped types trusted the element count declared in MessagePack array and map headers when allocating destination storage. A crafted payload could therefore force large arrays, pooled buffers, dictionaries, or collection instances to be allocated before the deserializer had consumed the correspo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-qjvr-435c-5fjh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47122</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.2
-                </span>
-            </div>
-            <div class="card-title">Sparkle's AppInstaller post-stage-1 XPC listener accepts unvalidated connections, allowing spoofed appcast item data injection</div>
+            <div class="card-title">praisonai-platform: Label endpoints' unchecked label_id/issue_id enable cross-workspace label IDOR (edit, delete, link)</div>
             <div class="card-body">## Summary
 
-AppInstaller post-stage-1 XPC listener accepts unvalidated connections, allowing spoofed appcast item data injection.
-
-## Details
-
-`Autoupdate/AppInstaller.m`'s `shouldAcceptNewConnection:` only enforces `SUCodeSigningVerifier validateConnection:` before stage 1 completes. After `_performedStage1Installation = YES`, new connections to t...</div>
+**Type:** Insecure Direct Object Reference. Five label endpoints — `PATCH /workspaces/{workspace_id}/labels/{label_id}`, `DELETE .../labels/{label_id}`, `POST .../issues/{issue_id}/labels/{label_id}`, `DELETE .../issues/{issue_id}/labels/{label_id}`, `GET .../issues/{issue_id}/labels` — gate access on `require_workspace_member(workspace...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-g3hp-f6mg-559v" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-5jx9-w35f-vp65" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47121</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
+                <span class="cve-id">CVE-2026-47406</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
                 </span>
             </div>
-            <div class="card-title">Sparkle: Binary delta apply intermediate-symlink traversal in malicious .delta</div>
+            <div class="card-title">praisonai-platform: IDOR in dependency endpoints allows cross-workspace issue linking, reading, and deletion due to missing ownership checks</div>
             <div class="card-body">## Summary
 
-Binary delta apply intermediate-symlink traversal in malicious .delta
-
-`Autoupdate/SUBinaryDeltaApply.m` enforces `relativePath.pathComponents containsObject:@".."` and rejects writes whose immediate parent directory IS itself a symbolic link, but does not detect symlinks deeper in the relative path. `Autoupdate/SPUSparkleDeltaArchive.m...</div>
+**Type:** Insecure Direct Object Reference. The dependency endpoints (`POST/GET /workspaces/{workspace_id}/issues/{issue_id}/dependencies` and `DELETE .../dependencies/{dep_id}`) gate access on `require_workspace_member(workspace_id)` only, then dispatch to `DependencyService` calls that take URL/body-supplied issue and dependency IDs w...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-hg88-v3cw-3qrh" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-4x6r-9v57-3gqw" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-w5pp-99ch-qj29</span>
+                <span class="cve-id">CVE-2026-47410</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: JWT signing key defaults to hardcoded "dev-secret-change-me", allowing token forgery for any user when PLATFORM_ENV is unset</div>
+            <div class="card-body">## Summary
+
+**Type:** Insecure default cryptographic key. The JWT signing secret defaults to the hardcoded literal `"dev-secret-change-me"` when `PLATFORM_JWT_SECRET` is unset. A safety check exists but only fires when `PLATFORM_ENV != "dev"`; the default value of `PLATFORM_ENV` is `"dev"`, so the check is silently bypassed in any deployment that d...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-3qg8-5g3r-79v5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47405</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">PraisonAI Platform: Missing role checks let any workspace member become owner and control workspace membership</div>
+            <div class="card-body">### Summary
+
+PraisonAI Platform has a broken workspace authorization check that allows any authenticated low-privilege workspace member to escalate their own role to `owner`.
+
+The issue is caused by privileged workspace-management routes using the shared dependency `require_workspace_member(...)` without requiring `admin` or `owner`. The dependency...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-h37g-4h4p-9x97" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47399</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">PraisonAI Platform workspace-scoped routes allow cross-workspace object access by global object ID</div>
+            <div class="card-body">### Summary
+
+PraisonAI Platform's workspace-scoped REST routes contain a systemic object-level authorization flaw that allows an authenticated user from one workspace to access, modify, and delete objects belonging to another workspace by supplying the victim object's global UUID.
+
+The affected pattern appears in workspace-scoped routes such as age...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-6h6v-6m7w-7vxx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47407</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">PraisonAI Platform has a cross-workspace IDOR + member-role privilege escalation</div>
+            <div class="card-body">## Summary
+
+The Platform server exposes resources under `/api/v1/workspaces/{workspace_id}/...` and protects them with a `require_workspace_member(workspace_id)` FastAPI dependency. The dependency only checks that the caller is a member of the workspace_id in the URL prefix. The route handlers then look up the inner resource (`agent_id`, `issue_id`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-h8q5-cp56-rr65" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47408</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 6.5
                 </span>
             </div>
-            <div class="card-title">go-git: Malformed Git object data may cause panics or resource exhaustion</div>
-            <div class="card-body">### Impact
-Several denial-of-service issues were identified in `go-git` when parsing maliciously crafted Git repository data.
+            <div class="card-title">praisonai-platform: list_issue_activity returns activity log for any issue regardless of workspace ownership</div>
+            <div class="card-body">## Summary
 
-An attacker may craft a malicious `.pack`, `.idx` or loose objects that causes an application using an affected version of `go-git` to panic or consume excessive resources.
-
-This can lead to denial of service in application...</div>
+**Type:** Insecure Direct Object Reference. The `GET /workspaces/{workspace_id}/issues/{issue_id}/activity` endpoint is gated by `require_workspace_member(workspace_id)` and dispatches to `ActivityService.list_for_issue(issue_id)`, which executes `SELECT * FROM activity WHERE issue_id = :issue_id` with no workspace constraint. A user wh...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-w5pp-99ch-qj29" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-27p4-pjqv-whgj" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-46705</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">russh server userauth state is not reset when authentication principal changes</div>
-            <div class="card-body">### Summary
-The `russh` server authentication path keeps internal userauth state across `SSH_MSG_USERAUTH_REQUEST` messages without separating that state when the request principal changes.
-
-RFC 4252 allows the `user name` and `service name` fields to change between authentication requests. The issue is not that such changes are invalid. The issue ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-hpv4-5h6f-wqr3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46702</span>
+                <span class="cve-id">CVE-2026-48169</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
+                    HIGH 8.8
                 </span>
             </div>
-            <div class="card-title">russh: Post-decompression SSH packet size was not bounded, allowing remote oversized compressed packets</div>
+            <div class="card-title">PraisonAI has Cross-Workspace IDOR and Privilege Escalation via Platform API</div>
             <div class="card-body">### Summary
 
-When SSH compression is enabled, `russh` accepted compressed packets whose on-wire size passed the normal transport packet-length checks but whose decompressed size was much larger. This allowed a remote peer to send oversized post-decompression packets that should have been rejected.
-
-In current releases, this is a remote denial-of-se...</div>
+The PraisonAI Platform API has two authorization failures that together break workspace isolation. The service layer for issues and projects performs global primary-key lookups without checking workspace ownership, so any authenticated user can read, modify, and delete resources in any workspace just by swapping UUIDs in their API requ...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-wwx6-x28x-8259" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-gv23-xrm3-8c62" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-8838</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">amazon-redshift-python-driver vulnerable to Remote Code Execution via eval() Injection</div>
-            <div class="card-body">### Summary
-amazon-redshift-python-driver is the official Python connector for Amazon Redshift. In versions 2.1.13 and earlier, the driver insufficiently validates data received from the server during query result processing. A rogue server or man-in-the-middle could leverage this to execute arbitrary code on the client.
-
-### Impact
-When a client c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-29h4-r29x-hchv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-4gg8-gxpx-9rph</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">uv is vulnerable to arbitrary file write through entry point names</div>
-            <div class="card-body">### Impact
-
-In versions of uv prior to 0.11.15, when installing a distribution containing an entry point specification (under `console_scripts` or `gui_scripts`), uv would place the generated entry point according to the given name even if doing so resulted in a path outside of the environment's scripts directory.
-
-A malicious wheel could use this ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-4gg8-gxpx-9rph" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47255</span>
+                <span class="cve-id">CVE-2026-47397</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">AgenticMail API/storage and outbound relay hardening fixes</div>
-            <div class="card-body">The current upstream main branch at commit 7e0206d was reviewed, and the fix-first patch set was rebased on 2026-05-18. The patches cover: validated and bound inactive-agent hour filtering; storage SQL identifier validation; metadata-backed ownership checks for raw storage SQL; blocking direct storage metadata access through raw SQL; fail-closed ou...</div>
+            <div class="card-title">PraisonAI has an Arbitrary File Write in Python API</div>
+            <div class="card-body"># Bug Report: Arbitrary File Write in Python API
+
+## Summary
+
+Hidden metadata in a webpage causes PraisonAI agents to write attacker-controlled content to arbitrary paths. `write_file` skips path validation when `workspace=None` (always `None` in production).
+
+## Affected
+
+PraisonAI <= 4.6.37 (pip install praisonai)
+
+## Root Cause
+
+`code/tools/writ...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-wjjv-3mj2-39hf" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-hvhp-v2gc-268q" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47248</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Parse Server's GraphQL "Did you mean ...?" validation suggestions disclose schema to unauthenticated callers</div>
-            <div class="card-body">### Impact
-
-Parse Server's GraphQL endpoint discloses schema metadata to unauthenticated callers through `Did you mean ...?` suggestions embedded in GraphQL validation-error messages. An unauthenticated caller who knows only the public application id can iteratively send malformed queries to reconstruct class names, field names, argument names, mut...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-8cph-rgr4-g5vj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-3pv8-6f4r-ffg2</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">tar has a PAX header desynchronization issue</div>
-            <div class="card-body">### Summary
-
-When a tar stream contains multiple "header" entries prior to a file entry, tar-rs applies the PAX header (`x`) to the _next_ entry in the stream, regardless of type. For example, a stream of `x -> L -> file` (PAX, GNU longname, file) would result in `x`'s extensions being applied to `L` rather than to `file`.
-
-[Per POSIX pax](https://...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-3pv8-6f4r-ffg2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-3cv2-h65g-fgmm</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">astral-tokio-tar has a PAX Header Desynchronization issue</div>
-            <div class="card-body">### Impact
-
-Versions of astral-tokio-tar prior to 0.6.2 contain a PAX header interpretation bug that allows manipulated entries to be made selectively visible or invisible during extraction with astral-tokio-tar versus other tar implementations. An attacker could use this differential to smuggle unexpected files onto a victim's filesystem.
-
-### Det...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-3cv2-h65g-fgmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-38739</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">ezsystems/ezpublish-legacy has a SQL injection in dfscleanup</div>
-            <div class="card-body">NB: All tags and branches in this repository are past their end of life, so the vulnerability will not be fixed. The advisory is posted on the request of the researcher, for the information of anyone who might still use this software.
-
-### Impact
-There is a security vulnerability in eZ Publish Legacy, affecting the dfscleanup.php script and the `_g...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-xg9x-h37w-h3r3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46690</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.8
-                </span>
-            </div>
-            <div class="card-title">unbounded-spsc: Sender::send pointer-as-value transmute causes OOB read and fake-Arc drop under TX/RX race</div>
-            <div class="card-body">## Summary
-
-`Sender::send` in `src/lib.rs` contains an `unsafe` block in the `DISCONNECTED` arm that transmutes a **raw pointer** (`*mut Producer<T>`) into the bytes of a **value-level** `Consumer<T>`. The author's intent, visible in the surrounding comment at lines 386-390, was a value transmute. The shipped code is one level of indirection off.
-
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-6m57-8r3p-pqx6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-rf84-wr5g-m3rp</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.5
-                </span>
-            </div>
-            <div class="card-title">CAPM3 vulnerable to Cross-Namespace resource access</div>
-            <div class="card-body">## Summary
-
-CAPM3 is Metal3's Cluster API (CAPI) provider for baremetal provisioning in Kubernetes. Multiple cross-namespace access control vulnerabilities in Cluster API Provider Metal3 allow users with permissions to create or modify CAPM3 resources in one namespace to reference, read, or claim resources belonging to other namespaces.
-
-## Patched...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-rf84-wr5g-m3rp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47190</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.4
-                </span>
-            </div>
-            <div class="card-title">IPAM controller service account granted unnecessary full access to Secrets</div>
-            <div class="card-body">### Impact
-
-IPAM is the IP address Manager for Cluster API Provider Metal3. The IPAM controller's ClusterRole granted full CRUD permissions (create, delete, get, list, patch, update, watch) on core/v1 Secrets. The controller never accesses Secrets during normal operation. If the controller pod were compromised (e.g. via supply chain attack or conta...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-49pm-43hf-6xfq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hfc8-w5f4-3x6m</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Ironic Standalone Operator's controller modifies user-owned resources without consent</div>
-            <div class="card-body">## Impact
-
-The Ironic Standalone Operator (IRSO) is the operator to maintain an Ironic deployment for Metal3. IRSO controller automatically adds its environment label to user-provided Secrets and ConfigMaps without the resource owner's consent. A high-privilege controller modifying user-owned resources constitutes an unauthorized integrity violatio...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-hfc8-w5f4-3x6m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7cwm-fpfh-rrch</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Ironic Standalone Operator's prometheus metrics exporter bound to all interfaces</div>
-            <div class="card-body">## Impact
-
-The Ironic Standalone Operator (IRSO) is the operator to maintain an Ironic deployment for Metal3. The Prometheus metrics exporter binds to 0.0.0.0 (all network interfaces) by default with no authentication. The default config is disabled. If enabled, this exposes operational metrics to any host on adjacent networks. Deployments running ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-7cwm-fpfh-rrch" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47141</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NodeVM observability builtins leak host process and HTTP request data</div>
-            <div class="card-body">## Summary
-
-`NodeVM` exposes some process-wide observability builtins when they are allowed through `require.builtin`.
-
-The following builtins are not blocked by the dangerous builtin denylist:
-
-```text
-diagnostics_channel
-async_hooks
-perf_hooks
-```
-
-These modules are process-wide, not sandbox-local. Sandboxed code can use them to observe host appl...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-9g8x-92q2-p28f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47139</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">NodeVM network builtin exclusions bypass via internal _http_client and _http_server</div>
-            <div class="card-body">## Summary
-
-`NodeVM` supports excluding public network builtins from the wildcard builtin option. With this configuration direct access to `http`, `https`, `http2`, `net`, `dgram`, `tls`, `dns`, and `dns/promises` is blocked.
-
-However, Node.js also exposes underscored internal HTTP builtins such as `_http_client` and `_http_server`. These are not b...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-r9pm-gxmw-wv6p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47140</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">NodeVM builtin denylist bypass via process and inspector/promises allows host code execution</div>
-            <div class="card-body">## Summary
-
-`NodeVM` blocks several dangerous Node.js builtins such as `module`, `worker_threads`, `cluster`, `vm`, `repl`, and `inspector`.
-
-However, the denylist misses `process` and `inspector/promises`. Both can be used from sandboxed code to reach host-side execution primitives.
-
-This allows sandboxed code to bypass the intended builtin restri...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-rp36-8xq3-r6c4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-8813</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">ExifReader is vulnerable to denial of service via crafted ICC `mluc` tag</div>
-            <div class="card-body">### Impact
-
-When parsing an image with an embedded ICC profile that contains a crafted `multiLocalizedUnicodeType` (`mluc`) tag, ExifReader can be made to allocate memory proportional to attacker-controlled fields in the tag rather than to
-the actual size of the input. Processing such an image causes excessive memory consumption and can terminate t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-h64w-w9pr-82m4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-8814</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">ExifReader is vulnerable to denial of service via unbounded decompression of image metadata</div>
-            <div class="card-body">### Impact
-
-Versions of ExifReader from 4.20.0 through 4.38.1 do not bound the size of decompressed metadata blocks. When a caller invokes the asynchronous API (e.g. `ExifReader.load(file)` or `ExifReader.load(buffer, {async: true})`) on an attacker-supplied image, a small compressed chunk in the file can expand to hundreds of megabytes of memory, ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-rr89-w3h9-m66j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47210</span>
+                <span class="cve-id">CVE-2026-47391</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
                     CRITICAL 9.8
                 </span>
             </div>
-            <div class="card-title">vm2 sandbox escape via JSPI-backed Promise `.finally()` species bypass</div>
-            <div class="card-body">### Summary
-A sandbox escape vulnerability in `vm2` allows arbitrary code execution in the host process when untrusted code is executed with async support on runtimes exposing WebAssembly JSPI (`WebAssembly.promising` / `WebAssembly.Suspending`). In the tested configuration, a JSPI-backed Promise can reach `Promise.prototype.finally()` in a way tha...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-6j2x-vhqr-qr7q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47137</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">vm2 has a CVE-2023-37903 patch bypass: nesting:true without explicit require still allows full RCE</div>
+            <div class="card-title">PraisonAI's unauthenticated A2A official example can reach real LLM-driven `eval()` tool execution</div>
             <div class="card-body">## Summary
 
-The fix for GHSA-8hg8-63c5-gwmx (CVE-2023-37903) introduced a check in `nodevm.js` line 263 that blocks the combination `nesting: true` + `require: false`. However, the check uses strict equality (`options.require === false`), which is trivially bypassed by omitting the `require` option entirely.
+The first-party PraisonAI A2A server example combines three behaviors into a remotely exploitable Critical chain:
 
-When `require` is not specified, `optio...</div>
+1. The example exposes an A2A server without configuring `auth_token`.
+2. The same example binds the server to `0.0.0.0`.
+3. The example registers a `calculate(expression)` tool implemented with Python `eval(expression)`.
+
+...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-m4wx-m65x-ghrr" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-vg22-4gmj-prxw" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47209</span>
+                <span class="cve-id">CVE-2026-47394</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">vm2's Bridge Proxy set trap ignores receiver parameter, enabling host object property injection via prototype chain</div>
+            <div class="card-title">PraisonAI vulnerable to unauthenticated arbitrary file read via MCP workflow.show, workflow.validate, deploy.validate</div>
             <div class="card-body">## Summary
 
-The `BaseHandler.set` trap in `bridge.js` (line 1231) ignores the `receiver` parameter and unconditionally writes to the host target object. Per the Proxy `set` trap specification, when `receiver !== proxy` (e.g., when a child object inherits from the proxy via `Object.create`), the property assignment should create an own property on t...</div>
+The fix for GHSA-9mqq-jqxf-grvw / CVE-2026-44336 is incomplete. The original advisory description named four vulnerable handlers in `mcp_server/adapters/cli_tools.py`:
+
+> "registers four file-handling tools by default, `praisonai.rules.create`, `praisonai.rules.show`, `praisonai.rules.delete`, **and `praisonai.workflow.show`**. Each acc...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-c4cf-2hgv-2qv6" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-9cr9-25q5-8prj" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47135</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">vm2 has a sandbox escape via unblocked cross-realm Symbol.for keys + missing bridge write-trap symbol checks</div>
-            <div class="card-body">## Summary
-
-vm2 3.11.2 `Symbol.for` override in `setup-sandbox.js` only intercepts 2 of 9 dangerous Node.js cross-realm symbols. Combined with the bridge's `set`/`defineProperty`/`deleteProperty` traps having **no** `isDangerousCrossRealmSymbol` key check, sandbox code can obtain real cross-realm symbols, write them to host objects, and control hos...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-m5q2-4fm3-vfqp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47208</span>
+                <span class="cve-id">CVE-2026-47392</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
+                    CRITICAL 9.9
                 </span>
             </div>
-            <div class="card-title">vm2 is Vulnerable to Sandbox Breakout Through Promise Species</div>
+            <div class="card-title">PraisonAI vulnerable to sandbox escape via `print.__self__` builtins module leak in `execute_code` (subprocess mode)</div>
+            <div class="card-body">## Summary
+
+`execute_code()` in `praisonaiagents/tools/python_tools.py` (v1.6.37, subprocess sandbox mode) can be fully bypassed using `print.__self__` to retrieve the real Python `builtins` module, from which `__import__` can be extracted via `vars()` and runtime string construction. This achieves arbitrary OS command execution on the host, comple...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-4mr5-g6f9-cfrh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47395</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">PraisonAI CLI automatically resolves @url mentions in prompt text and can read loopback URLs into model context</div>
             <div class="card-body">### Summary
 
-VM2 suffers from a sandbox breakout vulnerability. This allows attackers to write code which can escape from the VM2 sandbox and execute arbitrary commands on the host system.
+PraisonAI's direct-prompt CLI automatically expands `@url:` mentions in raw prompt text before agent execution begins.
 
-### Details
-
-The `localPromise` constructor was changed to call `this.then(undefined, eater)` to ensure a rejected promise is always used. However, this is miss...</div>
+If a prompt contains `@url:<http-or-https-url>`, the CLI calls `MentionsParser.process(...)`. The `@url:` handler then performs a direct `urllib.request.urlopen()` request to the attacker-controlled URL and returns th...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-76w7-j9cq-rx2j" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-5cxw-77wg-jrf3" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-q3fm-4wcw-g57x</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
+                <span class="cve-id">CVE-2026-47393</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
                 </span>
             </div>
-            <div class="card-title">vm2 setup-sandbox.js violates Defense Invariant #11 in stack-trace formatter</div>
-            <div class="card-body">## Summary
+            <div class="card-title">PraisonAI `deploy --type api` emits a Flask server with authentication disabled by default</div>
+            <div class="card-body">### Summary
 
-`defaultSandboxPrepareStackTrace` in `lib/setup-sandbox.js` (lines 605, 607) appends to a fresh sandbox-realm `lines = []` via `lines[lines.length] = value`. This is the exact invariant-violating pattern that GHSA-9qj6-qjgg-37qq (commit ca195f0, 2026-05-01) just patched in `neutralizeArraySpeciesBatch` and codified as Defense Invariant ...</div>
+CVE-2026-44338 (GHSA-6rmh-7xcm-cpxj) documents that PraisonAI ships a code-generator (`praisonai.deploy.api.generate_api_server_code`) that emits a Flask API server with authentication disabled by default. Users who follow the documented quickstart (`praisonai deploy --type api`) get a server that:
+
+- binds to `0.0.0.0` per the recomme...</div>
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-q3fm-4wcw-g57x" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-8444-4fhq-fxpq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47396</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">PraisonAI call server exposes unauthenticated agent listing, invocation, and deletion when CALL_SERVER_TOKEN is unset</div>
+            <div class="card-body">### Summary
+
+PraisonAI's call server exposes a network-facing agent control API without authentication when `CALL_SERVER_TOKEN` is not configured.
+
+The affected component is the `praisonai.api.agent_invoke` router as mounted by `praisonai.api.call`. The authentication helper `verify_token()` fails open when `CALL_SERVER_TOKEN` is unset. Since every...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-86qc-r5v2-v6x6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47390</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">PraisonAI spider_tools SSRF protection bypass via alternate loopback host encodings</div>
+            <div class="card-body">### Summary
+
+PraisonAI's `spider_tools` URL validation can be bypassed using alternate loopback host encodings.
+
+The affected component is:
+
+```text
+praisonaiagents/tools/spider_tools.py
+````
+
+The tool contains a URL validation function intended to block local or unsafe targets before fetching attacker-controlled URLs. However, the validation only ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-5c6w-wwfq-7qqm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47398</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">PraisonAI: Arbitrary code execution via unguarded `spec.loader.exec_module` in `agents_generator.py` - sibling of CVE-2026-44334</div>
+            <div class="card-body"><html><head></head><body><h2>Arbitrary code execution via ungated <code>spec.loader.exec_module</code> in <code>agents_generator.py</code> (v4.6.32 chokepoint refactor bypass)</h2>
+<h3>Summary</h3>
+<p>The v4.6.32 chokepoint refactor (which patched CVE-2026-44334 / GHSA-xcmw-grxf-wjhj) added the <code>PRAISONAI_ALLOW_LOCAL_TOOLS</code> env-var gate ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-78r8-wwqv-r299" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47266</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">formie's unauthenticated front-end submission editing can overwrite existing submissions</div>
+            <div class="card-body">### Impact
+Unauthenticated users could modify existing submissions by posting a known or guessed submission ID to `formie/submissions/save-submission`.
+
+### Patches
+[2.2.21](https://github.com/verbb/formie/releases/tag/2.2.21), [3.1.26](https://github.com/verbb/formie/releases/tag/3.1.26)
+
+### Workarounds
+Block unauthenticated access to `actions/fo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-pgxq-p76c-x9cg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-9vp8-3hmv-8fgh</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">stigmem-node's federation peer registration lacked explicit out-of-band approval</div>
+            <div class="card-body">### Impact
+Federation peer registration accepted peer key material during registration without a separate administrator approval step based on an out-of-band fingerprint check. Impacted deployments are nodes that accept federation peer registration across a network where initial registration could be intercepted or misdirected.
+
+### Patches
+Patched...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-9vp8-3hmv-8fgh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w7pm-9g55-mxfm</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">stigmem-node's unsigned plugin override could be enabled without a second explicit acknowledgment</div>
+            <div class="card-body">### Impact
+A single configuration flag could disable plugin signature enforcement. If an operator unintentionally carried that setting into an environment where plugin paths are writable by less-trusted users, unsigned plugin code could be loaded.
+
+### Patches
+Patched in 0.9.0a2. Disabling plugin signature enforcement now requires a second explicit...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-w7pm-9g55-mxfm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jmfc-hfjq-pxcp</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">stigmem-node's federation insecure transport settings may allow non-loopback cleartext federation</div>
+            <div class="card-body">### Impact
+Stigmem nodes with federation enabled could be configured to run without mTLS outside loopback-only local development. In affected deployments, federation traffic may traverse the network without the intended transport protection. Impacted users are operators who enabled federation and explicitly disabled mTLS while binding the node to a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-jmfc-hfjq-pxcp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-9pc9-4crj-mhpj</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">stigmem-node's Postgres schema identifier handling required defensive quoting</div>
+            <div class="card-body">### Impact
+Postgres backend schema identifiers were interpolated into SQL strings. In the reviewed code path the schema value is operator-controlled, but the pattern was unsafe if future call sites allowed tenant or request-controlled schema names. Impacted users are operators using the Postgres backend in affected versions.
+
+### Patches
+Patched in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-9pc9-4crj-mhpj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xh5j-xjfq-qvvx</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">stigmem-node's federation peer token timestamp validation may reject valid peer tokens</div>
+            <div class="card-body">### Impact
+A mismatch in federation peer-token timestamp handling could cause valid peer tokens to be treated as expired. Impacted deployments are Stigmem nodes using federation peer authentication paths from affected versions. The primary impact is availability and reliability of authenticated federation flows.
+
+### Patches
+Patched in 0.9.0a2. Fed...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-xh5j-xjfq-qvvx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-fp6w-8wpg-74g5</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">stigmem-node: Auth-disabled deployments may grant broad anonymous access outside loopback</div>
+            <div class="card-body">### Impact
+Stigmem nodes configured with authentication disabled could grant the anonymous identity broad read/write/federation capabilities if exposed outside a loopback-only local development environment. Impacted users are operators who intentionally disabled authentication while binding the node to a non-loopback URL.
+
+### Patches
+Patched in 0....</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-fp6w-8wpg-74g5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47268</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.4
+                </span>
+            </div>
+            <div class="card-title">Nezha's authenticated DDNS webhook configuration allows blind SSRF from the dashboard host</div>
+            <div class="card-body">#### Summary
+
+An authenticated Nezha dashboard user can create or update a DDNS profile with provider `webhook` and configure an arbitrary `webhook_url`, HTTP method, request body, and headers. When DDNS is triggered for a server that uses that profile, the dashboard process sends the configured request with `utils.HttpClient` without the SSRF prot...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-6x26-5727-rrm9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47233</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Admidio: Any logged-in user can delete inventory fields via `mode=field_delete` — incomplete fix of #2024</div>
+            <div class="card-body">## Summary
+
+Commit `d37ca6b27b9674238e58491cf7ba292e66898f15` ("Delete item not check admin rights #2024", 2026-04-12) added a missing `isAdministratorInventory()` gate to `case 'item_delete':` in `modules/inventory.php`. The same fix was not applied to the sibling `case 'field_delete':` handler, which destroys an entire inventory field definition,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-xw54-c3mx-9pm3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47234</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.4
+                </span>
+            </div>
+            <div class="card-title">Admidio writes session IDs and auto-login cookie values to application logs</div>
+            <div class="card-body">## Summary
+
+When debug logging is enabled, `Session::setCookie()` logs full cookie values and `Session::start()` logs the current session ID. In a real Admidio deployment this includes both the active session cookie and the persistent auto-login cookie. Anyone with access to the log sink can recover live bearer-style credentials from the logs.
+
+## ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-mch8-wf3h-6x88" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47232</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Admidio PKCS#12 private key export action lacks CSRF protection</div>
+            <div class="card-body">## Summary
+
+The sensitive `mode=export` action in `modules/sso/keys.php` exports a PKCS#12 bundle containing the configured private key and certificate, but the CSRF validation line is commented out. A forged cross-site POST from an administrator session can therefore trigger private key export without a valid form token.
+
+## Vulnerable Code Links
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-05-29</span>
+                <a href="https://github.com/advisories/GHSA-4rgq-38mh-9xqg" target="_blank">Full Report →</a>
             </div>
         </div>
         
