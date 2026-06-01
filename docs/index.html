@@ -68,10 +68,247 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-01 11:02 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-01 17:09 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47191</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">kas checks out SHA-like git branches as valid commits</div>
+            <div class="card-body">### Impact
+When relying solely on a git commit ID (SHA-1 or SHA-256) to qualify if a checkout of a repository is equivalent to the state validated while adding its commit ID to a kas configuration, users may be tricked to check out a branch of the same name from this repository. This implies that the referenced repository has been taken over by an ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-qjwp-hrq6-r26r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47412</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: Any workspace member can delete the entire workspace via DELETE /workspaces/{id}</div>
+            <div class="card-body">## Summary
+
+**Type:** Authorization bypass enabling destructive action. The `DELETE /workspaces/{workspace_id}` endpoint is gated only by `require_workspace_member(workspace_id)` (default `min_role="member"`). Any member of the workspace can issue a single DELETE to wipe the entire workspace, including every project, issue, comment, agent, label, a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-g8rr-7rj2-f627" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47415</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.3
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: Issue endpoints accept any issue_id without workspace ownership check, cross-workspace read/update/delete IDOR</div>
+            <div class="card-body">## Summary
+
+**Type:** Insecure Direct Object Reference. The issue CRUD endpoints (`GET / PATCH / DELETE /workspaces/{workspace_id}/issues/{issue_id}`) gate access on `require_workspace_member(workspace_id)` only, then resolve `issue_id` through `IssueService.get(issue_id)` which is a primary-key lookup with no workspace constraint. A user who is a ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-xwq8-frcg-77q8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47413</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.6
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: Any workspace member can add arbitrary user as owner via POST /workspaces/{id}/members</div>
+            <div class="card-body">## Summary
+
+**Type:** Privilege escalation / cross-tenant member injection. The `POST /workspaces/{workspace_id}/members` endpoint is gated only by `require_workspace_member(workspace_id)` (default `min_role="member"`) and forwards the request body's `user_id` and `role` straight into `MemberService.add(workspace_id, user_id, role)`, which has no c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-8g2p-pqm3-fcfh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47411</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: Any workspace member can rewrite workspace name, description, and settings via PATCH /workspaces/{id}</div>
+            <div class="card-body">## Summary
+
+**Type:** Authorization bypass enabling workspace metadata + settings tampering. The `PATCH /workspaces/{workspace_id}` endpoint is gated only by `require_workspace_member(workspace_id)` (default `min_role="member"`). Any member can rewrite the workspace's `name`, `description`, and the `settings` JSON blob. The settings field is a free...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-rcmc-q9rj-4wmq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47417</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: Comment endpoints accept any issue_id without workspace ownership check, cross-workspace comment read and post IDOR</div>
+            <div class="card-body">## Summary
+
+**Type:** Insecure Direct Object Reference. The comment endpoints (`POST /workspaces/{workspace_id}/issues/{issue_id}/comments` and `GET .../comments`) gate access on `require_workspace_member(workspace_id)` only, then call `CommentService.create(issue_id=issue_id, ...)` and `CommentService.list_for_issue(issue_id)` without verifying th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-cp4f-5m9r-5jc2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47418</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">praisonai-platform: Project endpoints accept any project_id without workspace ownership check, cross-workspace read/update/delete IDOR</div>
+            <div class="card-body">## Summary
+
+**Type:** Insecure Direct Object Reference. The project CRUD endpoints (`GET / PATCH / DELETE /workspaces/{workspace_id}/projects/{project_id}` and `GET .../{project_id}/stats`) gate access on `require_workspace_member(workspace_id)` only, then resolve `project_id` through `ProjectService.get(project_id)` / `update(project_id, ...)` / `...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-943m-6wx2-rc2j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47425</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">rattler has an entry-point path traversal in noarch:python install (arbitrary file write)</div>
+            <div class="card-body">## Summary
+
+`EntryPoint::FromStr` in `rattler_conda_types` performs only `.trim()` on the `command` field before the linker joins it onto the install prefix and writes an executable Python script. A malicious `noarch:python` package can ship an `info/link.json` with an entry-point name containing `..`, `/`, `\`, or an absolute path; the resulting f...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-q53q-5r4j-5729" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47428</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.6
+                </span>
+            </div>
+            <div class="card-title">Vitest browser mode serves unsanitized otelCarrier query parameter as inline script</div>
+            <div class="card-body">## Summary
+
+Vitest browser mode served `/__vitest_test__/` with the `otelCarrier` query parameter inserted directly into an inline module script. Because this value was treated as JavaScript source rather than data, an attacker could craft a browser-runner URL that executes arbitrary JavaScript in the Vitest server origin.
+
+https://github.com/vites...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-2h32-95rg-cppp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47429</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">When Vitest UI server is listening, arbitrary file can be read and executed</div>
+            <div class="card-body">### Summary
+Arbitrary file can be read on Windows when Vitest UI server is listening, especially when exposed to the network.
+
+### Impact
+Only users that match either of the following conditions are affected:
+
+- explicitly exposes the Vitest UI server to the network (using `--api.host` or [`api.host` config option](https://vitest.dev/config/api.htm...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-5xrq-8626-4rwp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47423</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">DOMPurify XSS via selectedcontent re-clone</div>
+            <div class="card-body">### Summary
+DOMPurify 3.4.4 allows `selectedcontent` by default, allowing a chain in which browsers "re-clone" an XSS payload after sanitization, effectively bypassing DOMPurify. 
+
+### Details
+The chain is as follows:
+1. The browser parses the input and creates a `<selectedcontent>` clone from the selected `<option>`
+2. DOMPurify walks and sanitize...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-87xg-pxx2-7hvx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48119</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">Nezha's authenticated agents can forge service-monitor results for other users' services</div>
+            <div class="card-body">#### Summary
+
+Nezha accepts service-monitor `TaskResult` messages from an authenticated agent based only on whether the reported service ID exists. The dashboard authenticates the agent and derives the reporter server ID from the gRPC stream, but the service-monitor result worker does not verify that the reporter server was selected for that servic...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-4g6j-g789-rghm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-63gr-g7jc-v8rg</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">@agenticmail/mcp Missing Authentication for Critical Function</div>
+            <div class="card-body"># AgenticMail MCP HTTP authorization bypass
+
+## Summary
+
+`@agenticmail/mcp` exposes a Streamable HTTP transport when started with
+`--http` or `MCP_HTTP=1`. In that mode, the `/mcp` endpoint accepts requests
+without any HTTP authentication layer. A remote client can initialize a
+session and call tools directly.
+
+The problem is that the MCP server al...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-01</span>
+                <a href="https://github.com/advisories/GHSA-63gr-g7jc-v8rg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-47416</span>
@@ -386,254 +623,6 @@ The affected component is the `praisonai.api.agent_invoke` router as mounted by 
             <div class="card-footer">
                 <span>Published: 2026-05-29</span>
                 <a href="https://github.com/advisories/GHSA-86qc-r5v2-v6x6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47390</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.5
-                </span>
-            </div>
-            <div class="card-title">PraisonAI spider_tools SSRF protection bypass via alternate loopback host encodings</div>
-            <div class="card-body">### Summary
-
-PraisonAI's `spider_tools` URL validation can be bypassed using alternate loopback host encodings.
-
-The affected component is:
-
-```text
-praisonaiagents/tools/spider_tools.py
-````
-
-The tool contains a URL validation function intended to block local or unsafe targets before fetching attacker-controlled URLs. However, the validation only ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-5c6w-wwfq-7qqm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47398</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: Arbitrary code execution via unguarded `spec.loader.exec_module` in `agents_generator.py` - sibling of CVE-2026-44334</div>
-            <div class="card-body"><html><head></head><body><h2>Arbitrary code execution via ungated <code>spec.loader.exec_module</code> in <code>agents_generator.py</code> (v4.6.32 chokepoint refactor bypass)</h2>
-<h3>Summary</h3>
-<p>The v4.6.32 chokepoint refactor (which patched CVE-2026-44334 / GHSA-xcmw-grxf-wjhj) added the <code>PRAISONAI_ALLOW_LOCAL_TOOLS</code> env-var gate ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-78r8-wwqv-r299" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47266</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">formie's unauthenticated front-end submission editing can overwrite existing submissions</div>
-            <div class="card-body">### Impact
-Unauthenticated users could modify existing submissions by posting a known or guessed submission ID to `formie/submissions/save-submission`.
-
-### Patches
-[2.2.21](https://github.com/verbb/formie/releases/tag/2.2.21), [3.1.26](https://github.com/verbb/formie/releases/tag/3.1.26)
-
-### Workarounds
-Block unauthenticated access to `actions/fo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-pgxq-p76c-x9cg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-9vp8-3hmv-8fgh</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">stigmem-node's federation peer registration lacked explicit out-of-band approval</div>
-            <div class="card-body">### Impact
-Federation peer registration accepted peer key material during registration without a separate administrator approval step based on an out-of-band fingerprint check. Impacted deployments are nodes that accept federation peer registration across a network where initial registration could be intercepted or misdirected.
-
-### Patches
-Patched...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-9vp8-3hmv-8fgh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-w7pm-9g55-mxfm</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">stigmem-node's unsigned plugin override could be enabled without a second explicit acknowledgment</div>
-            <div class="card-body">### Impact
-A single configuration flag could disable plugin signature enforcement. If an operator unintentionally carried that setting into an environment where plugin paths are writable by less-trusted users, unsigned plugin code could be loaded.
-
-### Patches
-Patched in 0.9.0a2. Disabling plugin signature enforcement now requires a second explicit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-w7pm-9g55-mxfm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-jmfc-hfjq-pxcp</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">stigmem-node's federation insecure transport settings may allow non-loopback cleartext federation</div>
-            <div class="card-body">### Impact
-Stigmem nodes with federation enabled could be configured to run without mTLS outside loopback-only local development. In affected deployments, federation traffic may traverse the network without the intended transport protection. Impacted users are operators who enabled federation and explicitly disabled mTLS while binding the node to a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-jmfc-hfjq-pxcp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-9pc9-4crj-mhpj</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">stigmem-node's Postgres schema identifier handling required defensive quoting</div>
-            <div class="card-body">### Impact
-Postgres backend schema identifiers were interpolated into SQL strings. In the reviewed code path the schema value is operator-controlled, but the pattern was unsafe if future call sites allowed tenant or request-controlled schema names. Impacted users are operators using the Postgres backend in affected versions.
-
-### Patches
-Patched in...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-9pc9-4crj-mhpj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-xh5j-xjfq-qvvx</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">stigmem-node's federation peer token timestamp validation may reject valid peer tokens</div>
-            <div class="card-body">### Impact
-A mismatch in federation peer-token timestamp handling could cause valid peer tokens to be treated as expired. Impacted deployments are Stigmem nodes using federation peer authentication paths from affected versions. The primary impact is availability and reliability of authenticated federation flows.
-
-### Patches
-Patched in 0.9.0a2. Fed...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-xh5j-xjfq-qvvx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-fp6w-8wpg-74g5</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">stigmem-node: Auth-disabled deployments may grant broad anonymous access outside loopback</div>
-            <div class="card-body">### Impact
-Stigmem nodes configured with authentication disabled could grant the anonymous identity broad read/write/federation capabilities if exposed outside a loopback-only local development environment. Impacted users are operators who intentionally disabled authentication while binding the node to a non-loopback URL.
-
-### Patches
-Patched in 0....</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-fp6w-8wpg-74g5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47268</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.4
-                </span>
-            </div>
-            <div class="card-title">Nezha's authenticated DDNS webhook configuration allows blind SSRF from the dashboard host</div>
-            <div class="card-body">#### Summary
-
-An authenticated Nezha dashboard user can create or update a DDNS profile with provider `webhook` and configure an arbitrary `webhook_url`, HTTP method, request body, and headers. When DDNS is triggered for a server that uses that profile, the dashboard process sends the configured request with `utils.HttpClient` without the SSRF prot...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-6x26-5727-rrm9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47233</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Admidio: Any logged-in user can delete inventory fields via `mode=field_delete` — incomplete fix of #2024</div>
-            <div class="card-body">## Summary
-
-Commit `d37ca6b27b9674238e58491cf7ba292e66898f15` ("Delete item not check admin rights #2024", 2026-04-12) added a missing `isAdministratorInventory()` gate to `case 'item_delete':` in `modules/inventory.php`. The same fix was not applied to the sibling `case 'field_delete':` handler, which destroys an entire inventory field definition,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-xw54-c3mx-9pm3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47234</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.4
-                </span>
-            </div>
-            <div class="card-title">Admidio writes session IDs and auto-login cookie values to application logs</div>
-            <div class="card-body">## Summary
-
-When debug logging is enabled, `Session::setCookie()` logs full cookie values and `Session::start()` logs the current session ID. In a real Admidio deployment this includes both the active session cookie and the persistent auto-login cookie. Anyone with access to the log sink can recover live bearer-style credentials from the logs.
-
-## ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-mch8-wf3h-6x88" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47232</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Admidio PKCS#12 private key export action lacks CSRF protection</div>
-            <div class="card-body">## Summary
-
-The sensitive `mode=export` action in `modules/sso/keys.php` exports a PKCS#12 bundle containing the configured private key and certificate, but the CSRF validation line is commented out. A forged cross-site POST from an administrator session can therefore trigger private key export without a valid form token.
-
-## Vulnerable Code Links
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-05-29</span>
-                <a href="https://github.com/advisories/GHSA-4rgq-38mh-9xqg" target="_blank">Full Report →</a>
             </div>
         </div>
         
