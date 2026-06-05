@@ -68,562 +68,601 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-05 14:16 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-05 19:26 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47708</span>
+                <span class="cve-id">CVE-2026-47731</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">NASA AMMOS Instrument Toolkit: Path traversal resulting in arbitrary file append (can be triggered over the network by unauthenticated attacker)</div>
+            <div class="card-body">## 1. Summary
+
+The Binary Stream Capture (BSC) component exposes an unauthenticated HTTP API for dynamically creating packet capture “handlers.” Because the code blindly trusts path‑related form fields, a remote client can:
+
+- **Bypass the configured log root** and direct BSC to log to **arbitrary filesystem paths** (path traversal / directory esca...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-p462-prxw-mjx4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-x9f6-9rvm-mmrg</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Improper Access Control in vantage6 node</div>
+            <div class="card-body">### Impact
+Malicious algorithms can potentially access other algorithms input and output files.
+
+### Patches
+Todo
+
+### Workarounds
+Verify and restrict the algorithm containers that are allowed to run on your node. See [here](https://docs.vantage6.ai/usage/running-the-node/security) on how to do this.
+
+### References
+https://docs.vantage6.ai/usage/r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-x9f6-9rvm-mmrg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-fgmc-2hqj-86v4</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Vantage6: Set admin user and password from environment or configuration</div>
+            <div class="card-body">### Impact
+Vantage6 currently provides an initial user with username `root` and password `root`. This is not ideal for the following reasons:
+- Attackers know that almost all vantage6 servers have a user with username `root` that probably has admin rights
+- The initial password is very weak and it is possible that administrators forget to reset it....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-fgmc-2hqj-86v4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-g72g-r7m4-9x4g</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: OAuth Tokens Persist Through Security Events</div>
+            <div class="card-body">### Summary
+OAuth access and refresh tokens were not revoked when the user changed, reset, or
+recovered their password, leaving an attacker-issued OAuth grant valid after the user
+believed they had locked the attacker out.
+
+### Details
+`revokeAllOAuthTokensByUser` in the users service was an empty stub being called from
+`passwordChange`, `passwordF...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-g72g-r7m4-9x4g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-rm5c-5x2p-48wr</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Klever-Go KVM: Unauthenticated remote node crash (nil-pointer DoS) in klever-go P2P transaction interceptor (txVersionChecker nil RawData) - potential chain halt</div>
+            <div class="card-body">## Summary
+Every transaction gossiped on the klever-go P2P network is decoded and validated
+synchronously inside the libp2p pubsub topic-validator callback. The validator
+`txVersionChecker.CheckTxVersion` dereferences `tx.RawData.Version` with no nil
+check. A protobuf `Transaction` whose embedded `RawData` sub-message is omitted
+decodes to `RawData...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-rm5c-5x2p-48wr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w4c6-7r69-w7j9</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">klever-go: REST API slow-header connection exhaustion via Gin Engine.Run</div>
+            <div class="card-body">### Summary
+
+The Klever seednode REST API starts a Gin engine with `Engine.Run(restAPIInterface)`. In Gin v1.9.1, `Engine.Run` calls Go's default `http.ListenAndServe`, which constructs an HTTP server without application-level `ReadHeaderTimeout`, `ReadTimeout`, or `MaxHeaderBytes` limits.
+
+An unauthenticated client that can reach a REST listener b...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-w4c6-7r69-w7j9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-hf2g-6j7h-98wg</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">klever-go: Unbounded goroutine spawn on direct-message ingress enables peer-driven DoS</div>
+            <div class="card-body">### Summary
+
+`networkMessenger.directMessageHandler` in `network/p2p/libp2p/netMessenger.go` spawns a fresh goroutine for every incoming direct message before the antiflood layer makes an admission decision. There is no semaphore, throttler, or bound on concurrent in-flight spawns.
+
+A single connected libp2p peer can open a `DirectSendID` stream an...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-hf2g-6j7h-98wg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-49343</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Klever-Go KVM: Throttler slot leak in trie account-data sync causes epoch bootstrap / state sync DoS</div>
+            <div class="card-body">## Summary
+
+  The account-data trie syncers leak bounded throttler slots on error paths in `syncDataTrie()`. Each failed trie sync permanently consumes one slot from
+  the `NumGoRoutinesThrottler`, and the slot is never returned unless the sync succeeds or the root hash was already present.
+
+  I confirmed this on the current default branch `develop...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-fw38-pc54-jvx9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48017</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">DbGate: Remote Code Execution via functionName injection in loadReader endpoint</div>
+            <div class="card-body">### Summary
+
+The `POST /runners/load-reader` endpoint in DbGate accepts a `functionName` parameter that is directly interpolated into a JavaScript code template without any sanitization or validation. An authenticated user (with basic access, no special permissions required) can inject arbitrary JavaScript code that executes on the server with full...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-hv83-ggc4-v385" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47684</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">Sync-in Server: SSRF protection bypass via IPv4-mapped IPv6 addresses in regExpPrivateIP</div>
+            <div class="card-body">Summary:
+The private IP blocklist regex used in the URL download feature does not match IPv4-mapped IPv6 addresses (e.g. ::ffff:127.0.0.1), allowing SSRF protection to be bypassed on dual-stack systems.
+
+Affected components
+
+backend/src/applications/files/services/files-manager.service.ts – downloadFromUrl() checks regExpPrivateIP against request.s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-q4x5-8cj6-52wg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47680</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Source controller: Improper path handling allows traversal</div>
+            <div class="card-body">### Impact
+
+An actor with the ability to influence the contents of a bucket referenced by a `Bucket` resource can cause source-controller to write fetched object data to paths outside the per-reconciliation working directory.
+
+The corruption surface is bounded by source-controller's own and downstream Flux controllers' digest verification: source-c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-jjrm-hr5f-673x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47670</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
                     CRITICAL None
                 </span>
             </div>
-            <div class="card-title">MCP-for-Stata: Command injection via log_file_name parameter in Stata command wrapper</div>
+            <div class="card-title">Authenticated Remote Code Execution via loadReader functionName code injection in DbGate</div>
             <div class="card-body">### Summary
-The `log_file_name` parameter in the `stata_do` API and CLI is directly interpolated into a Stata command string without sanitization. The security guard (`GuardValidator`) only scans the do-file content but does not validate this parameter. An attacker can inject arbitrary Stata commands (including `shell`, `python`, `erase`, etc.) by ...</div>
+
+DbGate is vulnerable to authenticated Remote Code Execution (RCE). Any user with valid DbGate credentials can execute arbitrary OS commands as root by exploiting an unsanitized `functionName` parameter in the `/runners/load-reader` endpoint. The `require = null` mitigation is trivially bypassed via dynamic `import()`.
+
+
+<br/>
+
+### Deta...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-4p62-hqp5-g644" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-wm5r-5qp3-5vxf" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47703</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                <span class="cve-id">CVE-2026-47419</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.3
                 </span>
             </div>
-            <div class="card-title">AdGuard Home: DoQ-to-UDP State Reduction and Source-Port Oracle</div>
+            <div class="card-title">praisonai-platform: Agent endpoints accept any agent_id without workspace ownership check, cross-workspace read/update/delete IDOR</div>
             <div class="card-body">## Summary
 
-This report covers the client-triggered DoQ forwarding path in:
-
-- `dnsproxy` `v0.81.2` (`adguard/dnsproxy:v0.81.2`)
-- `AdGuard Home` `v0.107.74` (`adguard/adguardhome:latest`, image version label `v0.107.74`)
-
-The issue was reproduced on `2026-04-25` with the products configured through
-their documented DoQ listener and plain UDP upstr...</div>
+**Type:** Insecure Direct Object Reference. The agent CRUD endpoints (`GET / PATCH / DELETE /workspaces/{workspace_id}/agents/{agent_id}`) gate access on `require_workspace_member(workspace_id)` only, then resolve `agent_id` through `AgentService.get(agent_id)` which is a primary-key lookup with no workspace constraint. A user who is a ...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-xgx4-4h9w-53pv" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-7p8g-6c6g-h9w7" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-jpvj-wpmj-h7rv</span>
+                <span class="cve-id">CVE-2026-47669</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.6
+                    CRITICAL None
                 </span>
             </div>
-            <div class="card-title">Supply chain compromise via malicious @cap-js/openapi</div>
-            <div class="card-body">### Impact
+            <div class="card-title">DbGate: Zip Slip in archive/unzip allows arbitrary file write leading to RCE</div>
+            <div class="card-body">The `unzipDirectory()` function in `packages/api/src/shell/unzipDirectory.js` (line 27) does not validate that extracted file paths stay within the output directory. A malicious ZIP with `../` entries writes files anywhere on the filesystem.
 
-On May 19, 2026, a compromised version of @cap-js/openapi@1.4.1 was published.
-The malicious packages harvested credentials and attempted self-propagation.
-If a compromised version was installed, all credentials accessible on that machine (npm tokens, cloud provider credentials, SSH keys, GitHub PATs) should be considered compromised.
-
-...</div>
+In the default Docker deployment, DbGate runs as root and the `none` auth provider issues JWT tokens withou...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-jpvj-wpmj-h7rv" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-h535-j5hr-mv56" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-48013</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.1
-                </span>
-            </div>
-            <div class="card-title">Shopware: SSRF in Media External-Link Endpoint Bypasses IP Validation</div>
-            <div class="card-body">## Summary
-
-The `/api/_action/media/external-link` endpoint allows authenticated admin users to make server-side HTTP HEAD requests to arbitrary internal IP addresses. While the parallel `uploadFromURL` flow validates target IPs against private/reserved ranges via `FileUrlValidator`, the `linkURL` flow only performs a URL format check (regex for `h...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-gq96-5pfx-f4vc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48015</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.9
-                </span>
-            </div>
-            <div class="card-title">Shopware: Stored XSS via SVG file upload — no SVG sanitization</div>
-            <div class="card-body">SVG files are in the `allowed_extensions` whitelist and can be uploaded by any admin user via the media manager. There is zero SVG content sanitization anywhere in the upload pipeline. A malicious SVG with JavaScript (`onload`, `<script>`, `<foreignObject>`) executes in the context of the Shopware domain when accessed.
-
-## The Problem
-
-In `src/Core...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-xvhc-gm7j-mhmc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48016</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Shopware: Unauthorized Payment Trigger for Foreign Orders via /store-api/handle-payment</div>
-            <div class="card-body">## Summary
-
-The Shopware Store API endpoint `/store-api/handle-payment` contains an object-level authorization flaw that allows a low-privileged external user with a normal customer or guest context to trigger the payment flow for another user’s order by supplying a foreign `orderId`. The affected functionality is the Store API payment initiation a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-9v5m-39wh-5chq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48014</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Shopware: Admin API ACL Bypass in Order State Transition Endpoints</div>
-            <div class="card-body">## Summary
-This is a vertical authorization bypass in the Admin API affecting order state transition features (`/api/_action/order/{orderId}/state/{transition}` and similar transaction/delivery transition routes). The root cause is that the transition action routes do not declare required server-side ACL privileges, allowing low-privileged users to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-f8q6-3g5w-jjr6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48012</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Shopware SSO referer trust leading to an arbitrary redirect target</div>
-            <div class="card-body">## Description
-
-This report describes an open redirect in Shopware's public SSO entry point at `GET /api/oauth/sso/auth`. When the endpoint is reached without the expected SSO session state, the application falls back to the request's `Referer` header and uses that value as the redirect destination. In the validated behavior, the server does not re...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-4x3x-869w-xx3m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48011</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Shopware: Timing-attack on admin panel allowing enumeration of administrator usernames</div>
-            <div class="card-body">### Summary
-There is a Proof of Concept which is able to enumerate the usernames of administrator users. This was possible by performing a timing attack.
-
-### Details
-The faulty code exists in [`src/Core/Framework/Api/OAuth/UserRepository.php`](https://github.com/shopware/shopware/blob/trunk/src/Core/Framework/Api/OAuth/UserRepository.php):
-```
-pub...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-7w52-7jvm-m9vw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48010</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Shopware: Privilege escalation: non-admin user with user:create ACL can create admin accounts</div>
-            <div class="card-body">`UserController::upsertUser()` writes user data in `SYSTEM_SCOPE` and does not filter the `admin` field. A non-admin API user with `user:create` or `user:update` ACL permission can set `admin: true` on new or existing users, escalating to full admin access.
-
-## The Problem
-
-In `src/Core/Framework/Api/Controller/UserController.php`, line 210-234:
-
-`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-v39m-97p8-gqg7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48009</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Shopware: Admin Account Takeover via User Recovery Hash Exposure</div>
-            <div class="card-body">## Summary
-
-A low-privilege admin user with `user_recovery:read` ACL can take over any admin account. The attacker triggers password recovery for the victim (unauthenticated endpoint), reads the recovery hash from the Admin API search endpoint, then uses the hash to reset the victim's password (another unauthenticated endpoint). The recovery hash —...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-8v9p-g828-v98f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48008</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Shopware: Privilege Escalation via Sync API Integration Admin Flag Bypass</div>
-            <div class="card-body">## Summary
-
-A non-admin API user with `integration:create` ACL privilege can escalate to full administrator by creating an integration with `admin: true` through the Sync API (`POST /api/_action/sync`). The regular integration endpoint (`POST /api/integration`) correctly blocks this, but the Sync API bypasses the controller-level check by writing d...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-gv8p-48fr-4fxg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8whc-2wmv-ww35</span>
+                <span class="cve-id">CVE-2026-47668</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.6
+                    CRITICAL 10.0
                 </span>
             </div>
-            <div class="card-title">WWBN AVideo: Unauthenticated Stored DOM Cross-Site Scripting via Per-Client Metadata Broadcast in YPTSocket Plugin</div>
-            <div class="card-body"># Unauthenticated Stored DOM XSS via `page_title` Broadcast in AVideo YPTSocket Plugin
-
-## Summary
-
-A stored DOM Cross-Site Scripting vulnerability (CWE-79) in the AVideo YPTSocket plugin lets any unauthenticated remote attacker execute arbitrary JavaScript in the authenticated origin of every administrator currently viewing a page that renders the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-8whc-2wmv-ww35" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50183</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">WWBN AVideo: Stored XSS via Hostile YouTube Video Title in AVideo YouTubeAPI Gallery Section</div>
-            <div class="card-body"># Stored XSS via Hostile YouTube Video Title in AVideo YouTubeAPI Gallery Section
-
-## Summary
-
-A stored Cross-Site Scripting vulnerability (CWE-79; chained CWE-829, Inclusion of Functionality from Untrusted Control Sphere) in the AVideo YouTubeAPI plugin renders the `snippet.title` field returned by the YouTube Data API into the homepage gallery ma...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-66q5-cj5g-wrfx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50182</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">WWBN AVideo: Unauthenticated Reflected XSS via $_GET['search'] in AVideo YouTubeAPI Gallery Pagination</div>
-            <div class="card-body"># Unauthenticated Reflected XSS via `$_GET['search']` in AVideo YouTubeAPI Gallery Pagination
-
-## Summary
-
-A reflected Cross-Site Scripting vulnerability (CWE-79) in the AVideo YouTubeAPI plugin allows any unauthenticated attacker to execute arbitrary JavaScript in a victim's browser session when the victim follows a crafted URL. The `$_GET['search...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-hgjh-6wj8-gcgf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49279</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">WWBN AVideo: Stored XSS via autoEvalCodeOnHTML Bypass in MessageSQLite WebSocket Handler (CVE-2026-43874 Bypass)</div>
-            <div class="card-body"># AVideo: Stored XSS via `autoEvalCodeOnHTML` in MessageSQLite WebSocket Handler
-
-## Summary
-
-AVideo has a stored XSS vulnerability in the WebSocket messaging system. The `MessageSQLite.php` handler only strips `autoEvalCodeOnHTML` from `$json['msg']`, but `msgToResourceId()` reads from `$msg['json']` with higher priority. An attacker can place the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-2fhx-q92v-5fhv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47696</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 4.3
-                </span>
-            </div>
-            <div class="card-title">WWBN AVideo: Authenticated wallet credit bypass in AuthorizeNet processPayment endpoint</div>
+            <div class="card-title">DbGate: Unauthenticated Remote Code Execution via JSON Script Runner</div>
             <div class="card-body">### Summary
-
-  `plugin/AuthorizeNet/processPayment.json.php` credits the logged-in user's wallet based only on the attacker-controlled `amount` POST parameter.
-
-  The endpoint contains a TODO for real Authorize.Net charging, hardcodes `$paymentSuccess = true`, and then calls `YPTWallet::addBalance()` without validating
-  any Authorize.Net transacti...</div>
+DbGate's JSON script runner (`POST /runners/start`) allows remote code execution via code injection in the `functionName` parameter of JSON script `assign` commands. The `functionName` value is interpolated directly into dynamically generated JavaScript source code via string concatenation. The generated code is then executed in a forke...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-9392-pj54-qqf8" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-8v3q-9vmx-36vc" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-47694</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">WWBN AVideo: Stored XSS via unescaped Gallery category description</div>
-            <div class="card-body">### Summary
-
-  AVideo stores category descriptions from user input and later renders `category_description` as raw HTML in the Gallery view. A user who can create or edit
-categories can store JavaScript in a category description, which executes when another user views the affected Gallery/category page.
-
-  This is a stored XSS in the category `desc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-c8h8-vq34-9fw2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-xf4v-w5x5-pv79</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Spree: CSV Formula Injection in Customer Export</div>
-            <div class="card-body">### Summary
-
-CSV formula injection (also known as formula injection or CSV injection) affects customer export. User-controlled values customer names, email addresses, and shipping addresses. When an administrator opens a crafted
-Export in Microsoft Excel or LibreOffice Calc, formulas embedded in user data execute in the
-context of the administrator...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-xf4v-w5x5-pv79" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-8462</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenMeter: SQL injection through meter creation</div>
-            <div class="card-body">### Summary
-
-An authenticated tenant can inject arbitrary SQL through the `valueProperty` or `groupBy` fields of `POST /api/v1/meters`. The injection passes the application's JSONPath validation check and executes against the shared ClickHouse database, which contains event data for all tenants with no row-level security. Any authenticated tenant c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-wc3v-3457-c8cm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47676</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Hono: app.mount() strips mount prefix using undecoded path, causing incorrect routing for percent-encoded paths</div>
-            <div class="card-body">### Summary
-
-`app.mount()` strips the mount prefix from the incoming request path using the raw URL pathname, while route matching is performed against the percent-decoded path. This inconsistency causes the prefix to be stripped at the wrong position when the path contains percent-encoded multi-byte characters, resulting in the mounted sub-applica...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-2gcr-mfcq-wcc3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47674</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Hono: IP Restriction bypasses static deny rules for non-canonical IPv6 </div>
-            <div class="card-body">### Summary
-
-The `ip-restriction` middleware (`hono/ip-restriction`) compares incoming IP addresses against configured deny and allow rules using string equality after partial normalization. Non-canonical IPv6 representations of an address already listed in a static rule — such as compressed forms, explicit-zero forms, or hex-notation IPv4-mapped a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-xrhx-7g5j-rcj5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47675</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Hono: Cookie helper does not sanitize sameSite and priority, allowing Set-Cookie injection</div>
-            <div class="card-body">### Summary
-
-The `serialize()` function in `hono/cookie` validates `domain` and `path` options against characters that corrupt `Set-Cookie` header syntax (`;`, `\r`, `\n`), but does not apply the same validation to `sameSite` and `priority`. An application that passes user-controlled input into either option may produce a `Set-Cookie` response head...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-3hrh-pfw6-9m5x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47673</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">Hono: JWT middleware accepts any Authorization scheme, not only Bearer</div>
-            <div class="card-body">### Summary
-
-The `jwt` and `jwk` middlewares do not verify that the `Authorization` header value uses the`Bearer` scheme. Any two-part header value — regardless of the scheme name in the first position — proceeds to JWT verification. A request presenting a valid JWT under a non-`Bearer` scheme identifier (such as `Basic` or `Token`) is authenticate...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-f577-qrjj-4474" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47672</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">epa4all-client: Unauthenticated REST API for Patient Record Writes</div>
-            <div class="card-body">### Impact
-Any network-reachable caller can write arbitrary documents to any patient's electronic
-health record accessible by the institution's SMC-B card. In a misconfigured deployment
-(e.g., following the production Docker example in the README), this is exploitable from
-the local network without credentials.
-
-### Patches
-- [#43](https://github.c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-c82x-f4xr-qv33" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47671</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Nhost CLI local configserver allows cross-origin unauthenticated read/write access to local development configuration and secrets</div>
-            <div class="card-body">### Summary
-
-The hidden `nhost configserver` used by `nhost dev` exposes the Mimir GraphQL API with dummy authorization directives and permissive CORS. When a developer is running the local development environment, any process that can reach the developer's localhost service, including a web page loaded from an arbitrary origin, can query the confi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-64cj-qvx5-m4f3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-74m6-4hjp-7226</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Klever-Go P2P MultiDataInterceptor leaks global throttler slots on malformed compressed batches (DoS)</div>
-            <div class="card-body">## Publisher note
-
-**Fixed in `v1.7.17`.** Operators running `< v1.7.17` should upgrade. The decompression-error path in `MultiDataInterceptor.ProcessReceivedMessage` now releases the global throttler slot before returning (guarded `defer` after `StartProcessing()`, disabled when the asynchronous goroutine takes ownership).
-
-Patch commits on `devel...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-74m6-4hjp-7226" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47215</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">Singluarity: Incorrect path matching for 'limit container paths' directive</div>
-            <div class="card-body">### Impact
-
-The `limit container paths` directive in `singularity.conf` is intended to allow a system administrator limit the paths from which containers can be run, under setuid mode. Due to incorrect matching of a path string, sibling directories with similar names may incorrectly be allowed.
-
-For example, the configuration:
-
-```
-limit container ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-wqcr-7rf3-f64m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47192</span>
+                <span class="cve-id">CVE-2026-47388</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
                     LOW None
                 </span>
             </div>
-            <div class="card-title">kas's late signature validation may allow unnoticed repository manipulations</div>
-            <div class="card-body">### Impact
-So far, kas checks out and processes repositories regarding configuration includes prior to validating signatures of those repositories. This may allow to replace on original repository with one under the control of an attacker under very specific conditions.
+            <div class="card-title">NocoDB: Missing Ownership Check in MCP Attachment Read</div>
+            <div class="card-body">### Summary
+A low-privilege MCP token holder with knowledge of an attachment path could read any
+file in shared storage, including attachments belonging to other bases and workspaces,
+because the MCP `readAttachment` tool did not verify the file's ownership.
 
-First of all, the attacker must have gained control of a repository that a kas...</div>
+### Details
+The MCP `readAttachment` tool accepts caller-supplied `path`/`url` values and ...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-4vqc-wpwg-vh7j" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-xxpj-q764-9r6q" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-34077</span>
+                <span class="cve-id">CVE-2026-47387</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">React Router vulnerable to Denial of Service via reflected user input in single-fetch</div>
-            <div class="card-body">A DoS vulnerability exists in the React Router v7 [Framework Mode](https://reactrouter.com/start/modes#framework), as well as Remix v2.9.0+ with [Single Fetch](https://v2.remix.run/docs/guides/single-fetch) enabled. In some scenarios the underlying serialization algorithm can become a bottleneck when encoding specific types of data into server resp...</div>
+            <div class="card-title">NocoDB: Stored Cross-Site Scripting via Form View Redirect URL</div>
+            <div class="card-body">### Summary
+
+The shared form-view submit handler in NocoDB writes the form's `redirect_url` to `window.location.href` after a same-host check that does not validate the URL scheme. A user with `editor` role (or above) on any base can plant a `javascript:` URL in the form's `redirect_url`; when an authenticated viewer opens the share-link and submit...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-04</span>
-                <a href="https://github.com/advisories/GHSA-rxv8-25v2-qmq8" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-hj85-ph9q-78jg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47386</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: OAuth Authorization Code Race Condition</div>
+            <div class="card-body">### Summary
+Two concurrent token-exchange requests using the same OAuth authorization code could
+each mint a distinct valid `(access_token, refresh_token)` pair, breaking the
+single-use guarantee that PKCE relies on.
+
+### Details
+The token-exchange flow read `is_used` and called `markAsUsed` as an unconditional
+update at the end of the path. A new ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-8m7c-hf24-5g47" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47385</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Path Traversal via SQLite Source Filename</div>
+            <div class="card-body">### Summary
+An authenticated user with base-create permission can attach a SQLite source pointing at
+an arbitrary file on the NocoDB host, including NocoDB's own internal databases.
+
+### Details
+The SQLite client and the base/integration create services accepted a caller-supplied
+filename and passed it to `fs.exists` and `fs.open('w')` without rest...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-wvqj-9wv4-7ff5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47384</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: SQL Injection via Column Title in Bulk GroupBy</div>
+            <div class="card-body">### Summary
+An authenticated user with column-create permission can inject SQL into the bulk groupBy
+endpoint by setting a column's title to a SQL fragment.
+
+### Details
+The bulk groupBy path in `group-by.ts` builds three database-specific `knex.raw()`
+aggregations that interpolate the request's `column_name` directly into the SQL string.
+Column lo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-p8wx-5f39-w3x4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47383</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Stored Cross-Site Scripting via Row Comments</div>
+            <div class="card-body">### Summary
+An authenticated commenter could store HTML in row comments that executed as script
+when other users hovered over the comment in the expanded form view.
+
+### Details
+The comment write paths persisted the raw comment body with no server-side sanitisation;
+the expanded-form sidebar then rendered the stored body and fed its `data-tooltip`
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-jf3g-4gwg-4h66" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47382</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Server-Side Request Forgery via Database Connection Host</div>
+            <div class="card-body">### Summary
+The connection-test endpoint opened a raw TCP socket to the user-supplied database
+host without resolving and range-checking the destination, so private and link-local
+addresses (including IPv4-mapped IPv6 forms and `localhost`) reached the driver.
+
+### Details
+A new `validateDbConnectionHost` helper resolves hostnames through DNS, pars...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-w43h-r5m5-p832" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47381</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Cross-Workspace Integration Use in Connection Test</div>
+            <div class="card-body">### Summary
+A user in one workspace could exercise another workspace's integration through the
+`testConnection` endpoint by supplying its ID, because the integration was fetched in
+a bypass scope and the caller's permission check matched any base in any workspace.
+
+### Details
+The connection-test endpoint fetched the integration in `RootScopes.BYPA...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-96fh-m4r8-6v9v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47380</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: User Enumeration via Sign-In Timing</div>
+            <div class="card-body">### Summary
+Sign-in response timing differed between known and unknown email addresses because
+the unknown-user branch returned without performing a password hash comparison.
+
+### Details
+The unknown-user branch in `auth.service.ts` now performs a `bcrypt.compare` against
+a fixed dummy hash so the response time of failed sign-ins is approximately
+i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-jr54-jwhj-55gp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47379</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Plaintext Password Comparison in Shared Views</div>
+            <div class="card-body">### Summary
+The shared-view password check fell back to strict-equality (`===`) comparison for
+legacy plaintext passwords, leaking the password's length and per-character prefix
+through response timing.
+
+### Details
+The bcrypt branch (hashes starting with `$2a$`/`$2b$`) was unaffected. The legacy
+fallback in `View.ts` now uses `crypto.timingSafeEqu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-qhxg-623c-cfjm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47378</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Hidden Column Exposure in Public Shared View Endpoints</div>
+            <div class="card-body">### Summary
+Public shared-view endpoints exposed values from columns that the view owner had
+hidden, via three independent paths: groupBy returned raw values for any column
+named in the request, filter and sort arrays operated on hidden columns enabling
+boolean-blind extraction, and the related-data list accepted arbitrary link-column
+IDs from othe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-4w6r-5c2j-qf5f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47377</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Open Redirect via Hash Fragment in hashRedirect Plugin</div>
+            <div class="card-body">### Summary
+
+The client-side `hashRedirect` plugin called `window.location.replace()` on a path extracted from the URL hash fragment after only checking `hashPath.startsWith('/')`. Protocol-relative URLs (`//attacker.com/…`) also satisfy that check, so a crafted link such as `https://nocodb.example/#//attacker.com/phishing` silently redirected visi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-rvp5-9p55-f5rp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47376</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Reflected Cross-Site Scripting via Password Reset Token</div>
+            <div class="card-body">### Summary
+
+The password-reset page rendered the URL token directly into a JavaScript string literal in a server-rendered EJS template. EJS `<%= %>` HTML-entity-encodes a fixed set of characters but does not escape single quotes or backslashes, so a crafted token could break out of the JS string context and execute attacker-controlled script in th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-6xcx-7qmg-vjfq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47375</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.0
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Postgres SQL Injection in Formula `ARRAYSORT`</div>
+            <div class="card-body">### Summary
+
+An authenticated user with `columnAdd` permission on a Postgres-backed base can inject arbitrary SQL into the formula engine via the optional `direction` argument of `ARRAYSORT(...)`. The value is unrestricted by formula validation and embedded into a `knex.raw` `ORDER BY` clause, executing during column creation and on every subsequen...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-cxv7-gmmp-228p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47279</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NocoDB: Hidden LTAR Column Exposure in Public Shared-View Relation Endpoints</div>
+            <div class="card-body">### Summary
+The public shared-view relation endpoints accepted a caller-supplied column
+ID without verifying that the column was visible in the shared view, so
+anyone holding a share UUID could read links from any LTAR column on the
+view's table — including columns the view owner had hidden.
+
+### Details
+`publicMmList`, `publicHmList`, and `relData...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-9wgh-m22w-9xj8" target="_blank">Full Report →</a>
             </div>
         </div>
         
