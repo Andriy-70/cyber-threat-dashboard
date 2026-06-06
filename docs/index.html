@@ -68,10 +68,318 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-05 19:26 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-06 01:52 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47732</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Twig: Sandbox: multiple `__toString()` policy bypasses via unguarded string coercion points</div>
+            <div class="card-body">### Description
+
+`SandboxNodeVisitor` enforces `SecurityPolicy::checkMethodAllowed()` for implicit `__toString()` calls by wrapping selected AST nodes in `CheckToStringNode`. The set of wrapped nodes is incomplete, and several Twig language constructs still trigger PHP string coercion on a `Stringable` operand without first consulting the policy. A...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-pr2w-4gpj-cpq4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47730</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Twig: XSS in profiler HtmlDumper via unescaped template and profile names</div>
+            <div class="card-body">### Description
+
+`Twig\Profiler\Dumper\HtmlDumper` writes `Profile::getTemplate()` and `Profile::getName()` straight into its HTML output without escaping:
+
+```php
+protected function formatTemplate(Profile $profile, $prefix): string
+{
+    return \sprintf('%s└ <span style="background-color: %s">%s</span>', $prefix, self::$colors['template'], $profil...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-2g2g-8p8h-fgwm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5x67-j5xg-c5gj</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Bugsink: DOS using large numbers of event tags</div>
+            <div class="card-body">### Summary
+
+In affected versions, Bugsink stores every tag supplied with an incoming event. An event with an unusually large number
+of custom (i.e. supplied by an attacker) tags can therefore make ingestion spend more time than intended writing tag rows.
+
+Bugsink uses a single-writer database architecture. That keeps the implementation simple, but...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-5x67-j5xg-c5gj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47728</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Bugsink: Project scoping missing in sourcemap and debug-file lookup</div>
+            <div class="card-body">### Summary
+
+Bugsink before 2.2.0 resolved sourcemaps and debug files by debug ID without scoping that lookup to the project that owned the uploaded metadata. An authenticated user with access to one project could cause event processing in that project to use sourcemap/debug-file metadata uploaded for another project in the same Bugsink instance, i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-5389-f7vh-wxj8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47716</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
+                </span>
+            </div>
+            <div class="card-title">Bugsink: Issue bulk actions can affect another project’s issue if its UUID is known</div>
+            <div class="card-body">### Description
+Bugsink’s issue list supports bulk actions such as resolving or muting selected issues. In affected versions, the issue list view authorizes access through the project in the URL, but applies the requested bulk action to the submitted issue IDs without also requiring those issues to belong to that project.
+
+This is a project-boundar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-g5vc-q7qc-v939" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47715</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
+                </span>
+            </div>
+            <div class="card-title">Bugsink: Issue event views can show an event from another project if its UUID is known</div>
+            <div class="card-body">### Description
+
+Bugsink issue event pages accept a direct event identifier from the URL and, in affected versions, look up that event without also requiring it to belong to the issue in the URL.
+
+This is a project-boundary authorization issue: a logged-in user with access to one project can view another project’s event data through an issue they a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-vx2f-6m6h-9frf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-24425</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Twig: Possible sandbox bypass when using a source policy</div>
+            <div class="card-body"># Description
+
+When using the sandbox with a `SourcePolicyInterface`, Twig does not always apply the sandbox restriction that forbids non-`Closure` callbacks for callback-accepting filters.
+
+The issue affects the `sort`, `filter`, `map`, and `reduce` filters.
+
+In the affected versions, the runtime check that rejects non-`Closure` callbacks in sandb...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-2q52-x2ff-qgfr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47744</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Shopper: Authorization bypass and RBAC privilege escalation in team settings</div>
+            <div class="card-body">## Impact
+
+Two distinct authorization defects in the team settings allowed any authenticated panel user to take over the RBAC system:
+
+- `Settings/Team/Index` had no `mount()` authorization. Any authenticated user could load the page and use its public actions to create new roles and delete other users, including administrators.
+- `Settings/Team/Ro...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-c3qp-2ggw-xjg7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47743</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">Shopper: Multiple data integrity and disclosure issues in admin Livewire components</div>
+            <div class="card-body">## Impact
+
+Three related defects on admin Livewire components allowed data tampering, sensitive data disclosure, and stored XSS:
+
+- **IDOR via unlocked properties.** Several Livewire components in the admin panel exposed Eloquent model identifiers as public properties without the `#[Locked]` attribute. An authenticated user could rewrite the wire p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-hr9v-r8r2-hg7j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47745</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Shopper: Missing per-action authorization on PaymentMethods, Currencies and Carriers admin tables</div>
+            <div class="card-body">## Impact
+
+The admin tables for `PaymentMethods`, `Currencies` and `Carriers` exposed inline toggles and per-record actions (enable, disable, edit, delete) that were rendered for any authenticated panel user without checking the corresponding per-action permission. A low-privilege user could:
+
+- Disable every payment method on the store, blocking c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-fxqw-97cc-7g5c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47742</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Shopper: Missing authorization on Product admin Livewire sub-form components</div>
+            <div class="card-body">## Impact
+
+Sub-form Livewire components used in the product editor (`Edit`, `Inventory`, `Seo`, `Shipping`, `Files`) had no authorization on their `store()` method. Any authenticated panel user, regardless of role, could mutate any product's pricing, stock, SEO metadata, shipping dimensions, and attached media without holding `edit_products`.
+
+The ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-h4mp-g9c6-xwph" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47761</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection</div>
+            <div class="card-body">### Impact
+Stored XSS vulnerability in the media plugin. Attackers can inject malicious scripts via crafted `data-mce-*` attributes, which are executed when content is rendered. Impacts users of TinyMCE with the media plugin enabled.
+
+### Patches
+This vulnerability has been patched in TinyMCE 8.5.1, TinyMCE 7.9.3 and TinyMCE 5.11.1 LTS by ensuring ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-vg35-5wq7-3x7w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47762</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments</div>
+            <div class="card-body">### Impact
+Stored XSS vulnerability via forged mce:protected comments. Allows attackers to bypass sanitization and inject scripts that execute when content is restored. Impacts users who utilize the protect option.
+
+### Patches
+Patched by validating decoded mce:protected content against configured protect regex rules before restoring. Users should ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-v98h-vmpc-fpqv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47759</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes</div>
+            <div class="card-body">### Impact
+Stored XSS vulnerability via unsanitized data-mce-* attributes (data-mce-href, data-mce-src, data-mce-style). Allows attackers to inject malicious values that override safe attributes during serialization, bypassing validation.
+
+### Patches
+Patched by stripping unsafe data-mce-* attributes during parsing. Users should upgrade to the late...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-q742-qvgc-gc2f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47760</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">TinyMCE Cross-Site Scripting (XSS) vulnerability using sanitization bypass through nested SVGs</div>
+            <div class="card-body">### Impact
+TinyMCE 6.8.x contains an XSS vulnerability caused by improper SVG namespace scope handling in the sanitizer. A crafted payload using nested <svg> elements can bypass attribute sanitization and execute arbitrary JavaScript.
+
+### Patches
+This issue affects TinyMCE 6.8.x-7.0.x. The vulnerability is fixed in TinyMCE 7.1.0 and later.
+
+### Wo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-mh5m-5hw4-5c69" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-wx3m-whqv-xv47</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">skillctl: Path traversal and symlink-follow in skillctl allow arbitrary file disclosure and deletion</div>
+            <div class="card-body">## Impact
+
+`skillctl` 0.1.0 and 0.1.1 contained four path-safety vulnerabilities that, in combination, allowed an attacker to:
+
+1. **Exfiltrate arbitrary files on the operator's machine** by publishing a malicious skills library containing a symlink inside a skill folder (e.g. `niania → /home/user/.aws/credentials`). The symlink fell through `entry...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-05</span>
+                <a href="https://github.com/advisories/GHSA-wx3m-whqv-xv47" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-47731</span>
@@ -343,326 +651,6 @@ In the default Docker deployment, DbGate runs as root and the `none` auth provid
             <div class="card-footer">
                 <span>Published: 2026-06-05</span>
                 <a href="https://github.com/advisories/GHSA-h535-j5hr-mv56" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47668</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">DbGate: Unauthenticated Remote Code Execution via JSON Script Runner</div>
-            <div class="card-body">### Summary
-DbGate's JSON script runner (`POST /runners/start`) allows remote code execution via code injection in the `functionName` parameter of JSON script `assign` commands. The `functionName` value is interpolated directly into dynamically generated JavaScript source code via string concatenation. The generated code is then executed in a forke...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-8v3q-9vmx-36vc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47388</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Missing Ownership Check in MCP Attachment Read</div>
-            <div class="card-body">### Summary
-A low-privilege MCP token holder with knowledge of an attachment path could read any
-file in shared storage, including attachments belonging to other bases and workspaces,
-because the MCP `readAttachment` tool did not verify the file's ownership.
-
-### Details
-The MCP `readAttachment` tool accepts caller-supplied `path`/`url` values and ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-xxpj-q764-9r6q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47387</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Stored Cross-Site Scripting via Form View Redirect URL</div>
-            <div class="card-body">### Summary
-
-The shared form-view submit handler in NocoDB writes the form's `redirect_url` to `window.location.href` after a same-host check that does not validate the URL scheme. A user with `editor` role (or above) on any base can plant a `javascript:` URL in the form's `redirect_url`; when an authenticated viewer opens the share-link and submit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-hj85-ph9q-78jg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47386</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: OAuth Authorization Code Race Condition</div>
-            <div class="card-body">### Summary
-Two concurrent token-exchange requests using the same OAuth authorization code could
-each mint a distinct valid `(access_token, refresh_token)` pair, breaking the
-single-use guarantee that PKCE relies on.
-
-### Details
-The token-exchange flow read `is_used` and called `markAsUsed` as an unconditional
-update at the end of the path. A new ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-8m7c-hf24-5g47" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47385</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Path Traversal via SQLite Source Filename</div>
-            <div class="card-body">### Summary
-An authenticated user with base-create permission can attach a SQLite source pointing at
-an arbitrary file on the NocoDB host, including NocoDB's own internal databases.
-
-### Details
-The SQLite client and the base/integration create services accepted a caller-supplied
-filename and passed it to `fs.exists` and `fs.open('w')` without rest...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-wvqj-9wv4-7ff5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47384</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: SQL Injection via Column Title in Bulk GroupBy</div>
-            <div class="card-body">### Summary
-An authenticated user with column-create permission can inject SQL into the bulk groupBy
-endpoint by setting a column's title to a SQL fragment.
-
-### Details
-The bulk groupBy path in `group-by.ts` builds three database-specific `knex.raw()`
-aggregations that interpolate the request's `column_name` directly into the SQL string.
-Column lo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-p8wx-5f39-w3x4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47383</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Stored Cross-Site Scripting via Row Comments</div>
-            <div class="card-body">### Summary
-An authenticated commenter could store HTML in row comments that executed as script
-when other users hovered over the comment in the expanded form view.
-
-### Details
-The comment write paths persisted the raw comment body with no server-side sanitisation;
-the expanded-form sidebar then rendered the stored body and fed its `data-tooltip`
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-jf3g-4gwg-4h66" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47382</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Server-Side Request Forgery via Database Connection Host</div>
-            <div class="card-body">### Summary
-The connection-test endpoint opened a raw TCP socket to the user-supplied database
-host without resolving and range-checking the destination, so private and link-local
-addresses (including IPv4-mapped IPv6 forms and `localhost`) reached the driver.
-
-### Details
-A new `validateDbConnectionHost` helper resolves hostnames through DNS, pars...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-w43h-r5m5-p832" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47381</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Cross-Workspace Integration Use in Connection Test</div>
-            <div class="card-body">### Summary
-A user in one workspace could exercise another workspace's integration through the
-`testConnection` endpoint by supplying its ID, because the integration was fetched in
-a bypass scope and the caller's permission check matched any base in any workspace.
-
-### Details
-The connection-test endpoint fetched the integration in `RootScopes.BYPA...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-96fh-m4r8-6v9v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47380</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: User Enumeration via Sign-In Timing</div>
-            <div class="card-body">### Summary
-Sign-in response timing differed between known and unknown email addresses because
-the unknown-user branch returned without performing a password hash comparison.
-
-### Details
-The unknown-user branch in `auth.service.ts` now performs a `bcrypt.compare` against
-a fixed dummy hash so the response time of failed sign-ins is approximately
-i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-jr54-jwhj-55gp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47379</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Plaintext Password Comparison in Shared Views</div>
-            <div class="card-body">### Summary
-The shared-view password check fell back to strict-equality (`===`) comparison for
-legacy plaintext passwords, leaking the password's length and per-character prefix
-through response timing.
-
-### Details
-The bcrypt branch (hashes starting with `$2a$`/`$2b$`) was unaffected. The legacy
-fallback in `View.ts` now uses `crypto.timingSafeEqu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-qhxg-623c-cfjm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47378</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Hidden Column Exposure in Public Shared View Endpoints</div>
-            <div class="card-body">### Summary
-Public shared-view endpoints exposed values from columns that the view owner had
-hidden, via three independent paths: groupBy returned raw values for any column
-named in the request, filter and sort arrays operated on hidden columns enabling
-boolean-blind extraction, and the related-data list accepted arbitrary link-column
-IDs from othe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-4w6r-5c2j-qf5f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47377</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Open Redirect via Hash Fragment in hashRedirect Plugin</div>
-            <div class="card-body">### Summary
-
-The client-side `hashRedirect` plugin called `window.location.replace()` on a path extracted from the URL hash fragment after only checking `hashPath.startsWith('/')`. Protocol-relative URLs (`//attacker.com/…`) also satisfy that check, so a crafted link such as `https://nocodb.example/#//attacker.com/phishing` silently redirected visi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-rvp5-9p55-f5rp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47376</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Reflected Cross-Site Scripting via Password Reset Token</div>
-            <div class="card-body">### Summary
-
-The password-reset page rendered the URL token directly into a JavaScript string literal in a server-rendered EJS template. EJS `<%= %>` HTML-entity-encodes a fixed set of characters but does not escape single quotes or backslashes, so a crafted token could break out of the JS string context and execute attacker-controlled script in th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-6xcx-7qmg-vjfq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47375</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.0
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Postgres SQL Injection in Formula `ARRAYSORT`</div>
-            <div class="card-body">### Summary
-
-An authenticated user with `columnAdd` permission on a Postgres-backed base can inject arbitrary SQL into the formula engine via the optional `direction` argument of `ARRAYSORT(...)`. The value is unrestricted by formula validation and embedded into a `knex.raw` `ORDER BY` clause, executing during column creation and on every subsequen...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-cxv7-gmmp-228p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47279</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NocoDB: Hidden LTAR Column Exposure in Public Shared-View Relation Endpoints</div>
-            <div class="card-body">### Summary
-The public shared-view relation endpoints accepted a caller-supplied column
-ID without verifying that the column was visible in the shared view, so
-anyone holding a share UUID could read links from any LTAR column on the
-view's table — including columns the view owner had hidden.
-
-### Details
-`publicMmList`, `publicHmList`, and `relData...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-9wgh-m22w-9xj8" target="_blank">Full Report →</a>
             </div>
         </div>
         
