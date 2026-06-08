@@ -68,10 +68,143 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-08 15:20 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-08 19:56 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44893</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Netty: HAProxy SSL TLV parsing leaks retained slice on invalid TLV length</div>
+            <div class="card-body">When decoding a PP2_TYPE_SSL TLV, HAProxyMessage.readNextTLV() first calls `header.retainedSlice(header.readerIndex(), length)` and only then reads the 1-byte client field and 4-byte verify field. If the attacker sets the TLV length below 5, the subsequent readByte/readInt throws IndexOutOfBoundsException. HAProxyMessageDecoder only catches HAProxy...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-08</span>
+                <a href="https://github.com/advisories/GHSA-cc37-9q2j-3hfv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44892</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Netty has a Vulnerable Default Configuration Which Leads to Denial of Service via Unbounded HTTP/3 Header Size</div>
+            <div class="card-body">### Summary
+The default configuration of the `Http3ConnectionHandler` in the Netty HTTP/3 codec lacks an enforced maximum header size limit. When a peer does not explicitly specify `HTTP3_SETTINGS_MAX_FIELD_SECTION_SIZE`, the implementation defaults to an unbounded limit. This insecure default configuration allows a malicious client or server to se...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-08</span>
+                <a href="https://github.com/advisories/GHSA-c2rx-5r8w-8xr2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44890</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Netty has Unbounded Direct Memory Consumption in its RedisDecoder</div>
+            <div class="card-body">### Summary
+An attacker can cause DoS by sending crafted Redis payloads across multiple connections without `\r\n`. This exhausts the server's direct memory pool (OutOfDirectMemoryError), preventing legitimate connections from being processed.
+
+### Details
+io.netty.handler.codec.redis.RedisDecoder decodes the length of bulk strings and array header...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-08</span>
+                <a href="https://github.com/advisories/GHSA-6ghj-frrj-jjj3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44250</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Netty: Memory Exhaustion in RedisArrayAggregator due to Deeply Nested Arrays</div>
+            <div class="card-body">### Summary
+An attacker can cause DoS by sending a crafted Redis payload with deeply nested arrays. This forces the server to allocate a massive number of state objects and collections, leading to memory exhaustion and an OutOfMemoryError.
+
+### Details
+io.netty.handler.codec.redis.RedisArrayAggregator aggregates RedisMessage parts into ArrayRedisMe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-08</span>
+                <a href="https://github.com/advisories/GHSA-3244-j874-rhc2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44249</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Netty has an IPv6 Subnet Filter Bypass via Incorrect Comparator Masking</div>
+            <div class="card-body">### Summary
+An attacker can bypass IPv6 subnet rules due to an incorrect masking operation in IpSubnetFilterRule.compareTo(). Valid public IP addresses can bypass the restrictions.
+
+### Details
+`io.netty.handler.ipfilter.IpSubnetFilterRule#compareTo(java.net.InetSocketAddress)` method performs a bitwise AND between the incoming IP address and the c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-08</span>
+                <a href="https://github.com/advisories/GHSA-3qp7-7mw8-wx86" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-42890</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">actual Allows Electron to Run As Node</div>
+            <div class="card-body">## Summary
+
+A electron run as node vulnerability was identified in `actual` (macOS application, version `25.x (Electron 39.2.7)`).
+
+**Vulnerability Type:** Electron Run As Node
+
+## Description
+
+ELECTRON_RUN_AS_NODE fuse enabled (Electron 39.2.7) — app can be converted to Node.js REPL for arbitrary code execution
+
+## Impact
+
+An attacker who can plac...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-08</span>
+                <a href="https://github.com/advisories/GHSA-7rvm-xjpp-63r9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-41479</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Authlib OAuth 2.0 has Open Redirect in Authorization API that allows attacker-controlled redirect_uri through unsupported response_type</div>
+            <div class="card-body">### Summary
+Authlib's OAuth 2.0 authorization endpoint can be turned into an unauthenticated open redirect when a request uses an unsupported response_type and supplies an attacker-controlled redirect_uri.
+
+The vulnerable behavior happens before client lookup and before any redirect URI validation. As a result, an attacker does not need a valid cli...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-08</span>
+                <a href="https://github.com/advisories/GHSA-w8p2-r796-3vmq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-39922</span>
@@ -515,140 +648,6 @@ An unauthenticated client that can reach a REST listener b...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-05</span>
                 <a href="https://github.com/advisories/GHSA-w4c6-7r69-w7j9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hf2g-6j7h-98wg</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">klever-go: Unbounded goroutine spawn on direct-message ingress enables peer-driven DoS</div>
-            <div class="card-body">### Summary
-
-`networkMessenger.directMessageHandler` in `network/p2p/libp2p/netMessenger.go` spawns a fresh goroutine for every incoming direct message before the antiflood layer makes an admission decision. There is no semaphore, throttler, or bound on concurrent in-flight spawns.
-
-A single connected libp2p peer can open a `DirectSendID` stream an...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-hf2g-6j7h-98wg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49343</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Klever-Go KVM: Throttler slot leak in trie account-data sync causes epoch bootstrap / state sync DoS</div>
-            <div class="card-body">## Summary
-
-  The account-data trie syncers leak bounded throttler slots on error paths in `syncDataTrie()`. Each failed trie sync permanently consumes one slot from
-  the `NumGoRoutinesThrottler`, and the slot is never returned unless the sync succeeds or the root hash was already present.
-
-  I confirmed this on the current default branch `develop...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-fw38-pc54-jvx9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48017</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">DbGate: Remote Code Execution via functionName injection in loadReader endpoint</div>
-            <div class="card-body">### Summary
-
-The `POST /runners/load-reader` endpoint in DbGate accepts a `functionName` parameter that is directly interpolated into a JavaScript code template without any sanitization or validation. An authenticated user (with basic access, no special permissions required) can inject arbitrary JavaScript code that executes on the server with full...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-hv83-ggc4-v385" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47684</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">Sync-in Server: SSRF protection bypass via IPv4-mapped IPv6 addresses in regExpPrivateIP</div>
-            <div class="card-body">Summary:
-The private IP blocklist regex used in the URL download feature does not match IPv4-mapped IPv6 addresses (e.g. ::ffff:127.0.0.1), allowing SSRF protection to be bypassed on dual-stack systems.
-
-Affected components
-
-backend/src/applications/files/services/files-manager.service.ts – downloadFromUrl() checks regExpPrivateIP against request.s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-q4x5-8cj6-52wg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47680</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Source controller: Improper path handling allows traversal</div>
-            <div class="card-body">### Impact
-
-An actor with the ability to influence the contents of a bucket referenced by a `Bucket` resource can cause source-controller to write fetched object data to paths outside the per-reconciliation working directory.
-
-The corruption surface is bounded by source-controller's own and downstream Flux controllers' digest verification: source-c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-jjrm-hr5f-673x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47670</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Authenticated Remote Code Execution via loadReader functionName code injection in DbGate</div>
-            <div class="card-body">### Summary
-
-DbGate is vulnerable to authenticated Remote Code Execution (RCE). Any user with valid DbGate credentials can execute arbitrary OS commands as root by exploiting an unsanitized `functionName` parameter in the `/runners/load-reader` endpoint. The `require = null` mitigation is trivially bypassed via dynamic `import()`.
-
-
-<br/>
-
-### Deta...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-wm5r-5qp3-5vxf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47419</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.3
-                </span>
-            </div>
-            <div class="card-title">praisonai-platform: Agent endpoints accept any agent_id without workspace ownership check, cross-workspace read/update/delete IDOR</div>
-            <div class="card-body">## Summary
-
-**Type:** Insecure Direct Object Reference. The agent CRUD endpoints (`GET / PATCH / DELETE /workspaces/{workspace_id}/agents/{agent_id}`) gate access on `require_workspace_member(workspace_id)` only, then resolve `agent_id` through `AgentService.get(agent_id)` which is a primary-key lookup with no workspace constraint. A user who is a ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-05</span>
-                <a href="https://github.com/advisories/GHSA-7p8g-6c6g-h9w7" target="_blank">Full Report →</a>
             </div>
         </div>
         
