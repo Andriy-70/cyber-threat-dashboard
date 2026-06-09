@@ -68,10 +68,63 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-09 14:13 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-09 19:51 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47241</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Net::IMAP: Denial of Service via incomplete raw argument validation</div>
+            <div class="card-body">### Summary
+
+Several Net::IMAP commands accept a raw string argument which is only validated to prevent CRLF injection and then sent verbatim.  If this string is derived from user-controlled input, an attacker can force the next command to be absorbed as a continuation of the first command.  This will cause the first command to eventually fail, but...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-c4fp-cxrr-mj66" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47240</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Net::IMAP: Command Injection via non-synchronizing literal in "raw" argument</div>
+            <div class="card-body">Several Net::IMAP commands accept a "raw data" argument that is sent verbatim after validation to prevent command injection.  However, if a server does not support non-synchronizing literals, it may still be possible to inject arbitrary IMAP commands inside non-synchronizing literals.
+
+### Details
+
+Raw data arguments support embedded literal values...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-8p34-64r3-mwg8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-9277</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 8.1
+                </span>
+            </div>
+            <div class="card-title">shell-quote quote() does not escape newlines in object .op values</div>
+            <div class="card-body">### Summary
+
+`shell-quote`'s `quote()` function did not validate object-token inputs against the operator model used by `parse()`. The `.op` field was backslash-escaped character by character using `/(.)/g`, which in JavaScript does not match line terminators (`\n`, `\r`, U+2028, U+2029). A line terminator in `.op` therefore passed through unescape...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-w7jw-789q-3m8p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-47737</span>
@@ -551,71 +604,6 @@ io.netty.handler.codec.redis.RedisDecoder decodes the length of bulk strings and
             <div class="card-footer">
                 <span>Published: 2026-06-08</span>
                 <a href="https://github.com/advisories/GHSA-6ghj-frrj-jjj3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44250</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty: Memory Exhaustion in RedisArrayAggregator due to Deeply Nested Arrays</div>
-            <div class="card-body">### Summary
-An attacker can cause DoS by sending a crafted Redis payload with deeply nested arrays. This forces the server to allocate a massive number of state objects and collections, leading to memory exhaustion and an OutOfMemoryError.
-
-### Details
-io.netty.handler.codec.redis.RedisArrayAggregator aggregates RedisMessage parts into ArrayRedisMe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-3244-j874-rhc2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44249</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Netty has an IPv6 Subnet Filter Bypass via Incorrect Comparator Masking</div>
-            <div class="card-body">### Summary
-An attacker can bypass IPv6 subnet rules due to an incorrect masking operation in IpSubnetFilterRule.compareTo(). Valid public IP addresses can bypass the restrictions.
-
-### Details
-`io.netty.handler.ipfilter.IpSubnetFilterRule#compareTo(java.net.InetSocketAddress)` method performs a bitwise AND between the incoming IP address and the c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-3qp7-7mw8-wx86" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42890</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">actual Allows Electron to Run As Node</div>
-            <div class="card-body">## Summary
-
-A electron run as node vulnerability was identified in `actual` (macOS application, version `25.x (Electron 39.2.7)`).
-
-**Vulnerability Type:** Electron Run As Node
-
-## Description
-
-ELECTRON_RUN_AS_NODE fuse enabled (Electron 39.2.7) — app can be converted to Node.js REPL for arbitrary code execution
-
-## Impact
-
-An attacker who can plac...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-7rvm-xjpp-63r9" target="_blank">Full Report →</a>
             </div>
         </div>
         
