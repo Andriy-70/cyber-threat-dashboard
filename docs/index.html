@@ -68,10 +68,140 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-09 19:51 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-10 02:00 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48030</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Pheditor: OS Command Injection in terminal handler via unsanitized 'dir' parameter</div>
+            <div class="card-body">### Summary
+
+An OS Command Injection vulnerability in the terminal action handler allows any authenticated user to execute arbitrary OS commands by injecting shell metacharacters into the 'dir' POST parameter, completely bypassing the TERMINAL_COMMANDS whitelist and achieving full Remote Code Execution with web server privileges.
+
+### Details
+
+The ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-jvc5-6g7q-c843" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-7qjx-gp9h-65qj</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">Dex: Token-exchange endpoint is missing AllowedConnectors enforcement</div>
+            <div class="card-body">## Summary
+
+`server/handlers.go::handleTokenExchange` (lines 1804-1893) does not call `isConnectorAllowed(client.AllowedConnectors, connID)` before issuing tokens, while sibling handlers do. This is a per-client connector ACL gap on the token-exchange endpoint; the redirect-flow paths enforce the same field correctly.
+
+## Affected code path
+
+`handl...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-7qjx-gp9h-65qj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47068</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">PhoenixStorybook has cross-session PubSub topic injection via URL parameter</div>
+            <div class="card-body">### Summary
+The storybook iframe LiveView accepts a PubSub topic from the URL query string and broadcasts its own pid onto that topic with no check that the topic belongs to the current session. Any unauthenticated visitor who knows or guesses another user's playground topic can hijack the playground↔iframe handshake, causing the victim's playgroun...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-mrhx-6pw9-q5fh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-8469</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">PhoenixStorybook: Unbounded atom creation from LiveView event params (atom-table DoS)</div>
+            <div class="card-body">### Summary
+An attacker who can deliver `psb-assign`, `psb-toggle`, `psb-set-theme`, `upper-tab-navigation`, `lower-tab-navigation`, `playground-change`, or `playground-toggle` LiveView events to a mounted Phoenix Storybook playground can flood the BEAM atom table with attacker-controlled strings, permanently leaking atoms until the VM hits its ~1,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-833p-95jq-929q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-8467</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">PhoenixStorybook: Unauthenticated remote code execution via HEEx template injection in phoenix_storybook playground</div>
+            <div class="card-body">### Summary
+An unsafe HEEx template generation vulnerability allows any unauthenticated user to execute arbitrary code on the server. The phoenix_storybook playground accepts user-controlled attribute values over WebSocket and interpolates them unsanitized into a HEEx template that is subsequently compiled and evaluated with full Elixir `Kernel` ac...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-55hg-8qxv-qj4p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47767</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">SymfonyRuntime CVE-2024-50340 Patch Bypass: Web Requests Can Still Set APP_ENV/APP_DEBUG via parse_str/SAPI Argv Mismatch</div>
+            <div class="card-body">### Description
+
+CVE-2024-50340 (GHSA-x8vp-gf4q-mw5j) addressed an issue where, with `register_argc_argv=On`, a crafted query string let an unauthenticated GET change the kernel environment and debug flag by feeding `--env`/`--no-debug` through `$_SERVER['argv']`. The fix shipped in `symfony/runtime` 5.4.46 / 6.4.14 / 7.1.7 gated the argv read on `...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-fqc7-9xjw-jrh3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47242</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Net::IMAP: Command Injection via ID command argument</div>
+            <div class="card-body">### Summary
+
+Two `Net::IMAP` commands, `#id` and `#enable`, do not validate their arguments.  Arguments to either command could be used by an attacker to inject arbitrary IMAP commands.
+
+Please note that passing untrusted inputs to these commands is usually inappropriate and expected to be uncommon.
+
+### Details
+
+When `Net::IMAP#id` is called with ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-09</span>
+                <a href="https://github.com/advisories/GHSA-46q3-7gv7-qmgg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-47241</span>
@@ -492,118 +622,6 @@ Two factors contribute to this vulnerability in io.netty.resolver.dns:
             <div class="card-footer">
                 <span>Published: 2026-06-08</span>
                 <a href="https://github.com/advisories/GHSA-xmv7-r254-6q78" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45536</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.0
-                </span>
-            </div>
-            <div class="card-title">Netty: Unix-socket fd receive leaks descriptors when peer sends two at once</div>
-            <div class="card-body">netty_unix_socket_recvFd sets msg_control to `char control[CMSG_SPACE(sizeof(int))]` (line 940) — 24 bytes on 64-bit Linux. A peer-sent SCM_RIGHTS cmsg carrying two ints has cmsg_len = CMSG_LEN(8) = 24, which fits exactly with no MSG_CTRUNC, so the kernel installs both fds in the receiving process. The subsequent check `cmsg->cmsg_len == CMSG_LEN(s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-w573-9ffj-6ff9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45416</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty: SNI handler pre-allocates up to 16 MiB from nine attacker bytes</div>
-            <div class="card-body">SslClientHelloHandler.decode() reads the 24-bit TLS handshake length and, when the ClientHello does not fit in the first record, eagerly allocates `ctx.alloc().buffer(handshakeLength)` (line 161). The guard at line 140 is `handshakeLength > maxClientHelloLength && maxClientHelloLength != 0`, and the commonly-used SniHandler/AbstractSniHandler const...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-x4gw-5cx5-pgmh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45034</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">PHPSpreadsheet has a patch bypass for CVE-2026-34084 </div>
-            <div class="card-body">## Summary
-
-CVE-2026-34084 was patched by the helper `File::prohibitWrappers`. The helper calls `parse_url($filename, PHP_URL_SCHEME)` and then checks `is_string($scheme) && strlen($scheme) > 1` to reject stream wrappers such as `phar://`, `php://`, `data://` or `expect://`. The check is not equivalent to "does the path contain a wrapper". When the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-87m4-826x-3crx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44894</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty's Default QUIC token handler accepts any client-supplied token</div>
-            <div class="card-body">NoQuicTokenHandler is the tokenHandler used when the application does not set one. Its writeToken() returns false (server will not send Retry — acceptable), but validateToken() unconditionally `return 0`. In QuicheQuicServerCodec.handlePacket(), a non-negative return from validateToken() is interpreted as 'token is valid, ODCID starts at offset 0',...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-cmm3-54f8-px4j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44893</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty: HAProxy SSL TLV parsing leaks retained slice on invalid TLV length</div>
-            <div class="card-body">When decoding a PP2_TYPE_SSL TLV, HAProxyMessage.readNextTLV() first calls `header.retainedSlice(header.readerIndex(), length)` and only then reads the 1-byte client field and 4-byte verify field. If the attacker sets the TLV length below 5, the subsequent readByte/readInt throws IndexOutOfBoundsException. HAProxyMessageDecoder only catches HAProxy...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-cc37-9q2j-3hfv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44892</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty has a Vulnerable Default Configuration Which Leads to Denial of Service via Unbounded HTTP/3 Header Size</div>
-            <div class="card-body">### Summary
-The default configuration of the `Http3ConnectionHandler` in the Netty HTTP/3 codec lacks an enforced maximum header size limit. When a peer does not explicitly specify `HTTP3_SETTINGS_MAX_FIELD_SECTION_SIZE`, the implementation defaults to an unbounded limit. This insecure default configuration allows a malicious client or server to se...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-c2rx-5r8w-8xr2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44890</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty has Unbounded Direct Memory Consumption in its RedisDecoder</div>
-            <div class="card-body">### Summary
-An attacker can cause DoS by sending crafted Redis payloads across multiple connections without `\r\n`. This exhausts the server's direct memory pool (OutOfDirectMemoryError), preventing legitimate connections from being processed.
-
-### Details
-io.netty.handler.codec.redis.RedisDecoder decodes the length of bulk strings and array header...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-6ghj-frrj-jjj3" target="_blank">Full Report →</a>
             </div>
         </div>
         
