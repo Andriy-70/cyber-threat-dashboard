@@ -68,10 +68,210 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-10 14:44 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-10 20:03 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47751</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Claude Code Action: Malicious MCP Server Configuration in PRs Enables Remote Code Execution and Secret Exfiltration</div>
+            <div class="card-body">Due to the combination of checking out PR head branches (attacker-controlled), reading `.mcp.json` from the working directory via default setting sources, and unconditionally enabling all project MCP servers via `enableAllProjectMcpServers`, it was possible for an attacker who opened a PR containing a malicious `.mcp.json` file to achieve arbitrary...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-8q5r-mmjf-575q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48063</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Baileys has message upsert / hist sync spoofing and app state corruption when using maliciously crafted protocolMessage payload</div>
+            <div class="card-body">### Impact
+Any baileys session under the latest version (< 7.0.0-rc12, and < 6.7.22) can be sent a malicious payload via the placeholderResendMessage and trigger a fake `messages.upsert` event with a **fake message key and payload**. This allows anyone to spoof messages. The same exploit also allows an attacker to corrupt the app state sync system ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-qvv5-jq5g-4cgg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48061</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Litestar: AllowedHostsMiddleware bypasses host validation via client-controlled X-Forwarded-Host header</div>
+            <div class="card-body">### Summary
+
+`AllowedHostsMiddleware` trusts the `X-Forwarded-Host` header as a fallback when the `Host` header is absent. Since `X-Forwarded-Host` is a client-controllable header, an attacker can bypass the allowed hosts validation by omitting the `Host` header and supplying an `X-Forwarded-Host` header set to a whitelisted domain. This enables ho...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-3qmc-cj7q-62hv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48060</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Litestar has HTML Injection Through its CSRF Token</div>
+            <div class="card-body"># Overview
+
+Litestar instances which use a template engine in conjunction with CSRF protection are vulnerable to HTML Injection which can be escalated to Cross Site Scripting due to the contents of the CSRF cookie being excluded from automatic escaping by the template engine when configured inline with documentation recommendations.
+
+We used the la...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-542p-wvx7-72m4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48058</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">nebula-mesh: Session and OIDC state cookies lack the Secure attribute</div>
+            <div class="card-body">`internal/web/session.go` and `internal/web/oidc.go` set `HttpOnly` and `SameSite=Lax` on every cookie but never `Secure`. A single plaintext request to the origin (operator on a LAN, mistyped URL, HTTP→HTTPS not strictly enforced, reverse proxy misconfiguration) discloses the session.
+
+## Affected
+All released versions up to v0.3.1.
+
+## Impact
+An ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-rqfj-vv8r-xhqc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48025</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">nebula-mesh: Decrypted CA private key persists in heap after signing</div>
+            <div class="card-body">`internal/pki/resolver.go:36-64` constructs a `CAManager` with the plaintext `ed25519.PrivateKey` after unwrapping via the master key; `internal/pki/ca.go:13-16` stores it. Callers at `internal/api/enroll.go:116`, `internal/api/updates.go:297`, and `internal/api/mobile_bundle.go:40` use the manager for one `Sign()` and drop the reference on functio...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-8h84-fhqq-q58v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47701</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">OpenTelemetry Operator for Kubernetes's ServiceMonitor bearerTokenFile reads arbitrary local file and sends contents as bearer auth</div>
+            <div class="card-body">## Affected
+
+Repository: github.com/open-telemetry/opentelemetry-operator
+Component: cmd/otel-allocator (TargetAllocator)
+Companion: Prometheus Operator API types (CRDs)
+
+## Summary
+
+OpenTelemetry Operator's TargetAllocator watches `ServiceMonitor` resources via the Prometheus Operator CR watcher and converts each selected endpoint into a Prometheu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-cxh2-4639-vmc5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47253</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">Anyquery has Path Traversal through `clear_plugin_cache`, Allowing Arbitrary Directory Deletion</div>
+            <div class="card-body"># Path Traversal in `clear_plugin_cache` Allows Arbitrary Directory Deletion
+
+| Field            | Value |
+| ---------------- | ----- |
+| Repository       | julien040/anyquery |
+| Affected version | 0.4.4 |
+| Vulnerability    | CWE-22 — Improper Limitation of a Pathname to a Restricted Directory |
+| Severity         | High |
+
+
+## Summary
+
+The SQL s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-j9rx-rppg-6hh4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47155</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">vLLM's Artifact Pin Decay allows pinned deployments to load unpinned code, weights, and processors</div>
+            <div class="card-body">### Summary
+
+vLLM's revision pinning controls do not consistently apply to all artifacts loaded for a model. A deployment that supplies `--revision` or `--code-revision` can still load dynamic code, GGUF files, image processors, retrieval side weights, or same-repository subfolder weights/config from an unpinned/default revision.
+
+This is a supply-...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-3ww4-5jv9-j5gm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-53114</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Acknowledgement extension out of memory</div>
+            <div class="card-body">### Impact
+Bad clients that always send a fixed batch value while the server is using the acknowledgement extension can cause the unacknowledged message queue to grow indefinitely, eventually resulting in an OutOfMemoryError.
+
+Such bad clients would always send:
+
+```json
+{
+  "channel": "/meta/connect",
+  ...
+  "ext": { "ack": 1 }
+}
+```
+
+The server ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-cqgj-h8vf-4w59" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-49397</span>
@@ -444,189 +644,6 @@ Raw data arguments support embedded literal values...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-09</span>
                 <a href="https://github.com/advisories/GHSA-w7jw-789q-3m8p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47737</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Puma PROXY Protocol v1 Accepts Repeated Protocol Headers on Persistent Connections</div>
-            <div class="card-body">### Impact
-
-Puma is vulnerable to source IP spoofing when `set_remote_address proxy_protocol: :v1` is enabled and persistent connections are used.
-
-PROXY protocol v1 is a connection-level protocol. [Support was added to Puma in v5.5.0](https://github.com/puma/puma/issues/2651). A proxy sends one PROXY header at the beginning of a TCP connection, be...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-09</span>
-                <a href="https://github.com/advisories/GHSA-2vqw-3mp8-cgmx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47736</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Puma PROXY Protocol v1 Parser Allows Remote Memory Exhaustion </div>
-            <div class="card-body">### Impact
-
-[PROXY protocol support for Puma](https://github.com/puma/puma/issues/2651) was added in version 5.5.0.
-
-When PROXY protocol v1 support is enabled, Puma reads incoming bytes into an internal buffer. It waits for "\r\n" to determine whether a PROXY v1 line is present. If an attacker opens a TCP connection and continuously sends bytes wit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-qpgp-93vx-g8v8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47735</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Arc has an authenticated arbitrary local-file read via DuckDB I/O functions that bypasses RBAC table-level checks</div>
-            <div class="card-body">### Summary
-
-Arc's user-SQL validator (`internal/api/query.go:ValidateSQLRequest`) blocked only `read_parquet(` and `arc_partition_agg(` via regex denylist. The broader DuckDB I/O function family — `read_csv_auto`, `read_csv`, `read_json`, `read_json_auto`, `read_text`, `read_blob`, `glob`, `parquet_metadata`, `parquet_schema`, `read_xlsx`, etc. — ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-p2j4-c4g6-rpf5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47734</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.7
-                </span>
-            </div>
-            <div class="card-title">Dulwich has unbounded memory allocation in receive-pack from crafted thin packs</div>
-            <div class="card-body">## Impact
-
-An uncontrolled-resource-consumption (memory exhaustion) denial-of-service vulnerability (CWE-400 / CWE-789).
-
-A client with push access could push a tiny crafted thin pack (~174 bytes)  whose delta header declares a huge   dest_size. When dulwich ingested it via  add_thin_pack / apply_delta, it would  allocate hundreds of MB of memory b...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-xrvj-v92f-53gj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47726</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: GET /api/v1/audit-log discloses all entries to any operator</div>
-            <div class="card-body">`internal/api/audit.go:12` — `handleGetAuditLog` does no admin check. The route is bearer-auth gated only; any operator API key returns the full audit log via `store.ListAuditEntries` (up to limit=1000). This includes cross-tenant actor names, host/CA/operator IDs, action timestamps, and masked-IP entries from rate-limit refusals — enough surface f...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-qm33-p5p9-f8vg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47725</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh's web UI lacks CSRF tokens on /ui/* mutating endpoints</div>
-            <div class="card-body">Every `/ui/*` POST / PUT / PATCH / DELETE route processes the request as soon as the session cookie validates. `SameSite=Lax` on the session cookie prevents most cross-site form submits but does not protect:
-
-- top-level form-submit navigations from third-party pages (some browsers still send Lax cookies on top-level POSTs)
-- same-registrable-domai...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-273q-qgh5-wrj6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47724</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: API endpoints lack ownership checks, enabling cross-operator privilege escalation</div>
-            <div class="card-body">The `/api/v1/*` route surface trusts the bearer token alone for authorisation on most endpoints. The codebase itself admits this at `internal/api/hosts.go:384`: *"API trusts the bearer token for authorisation; per-CA ownership is enforced only in the Web layer."*
-
-The Web UI gates state-changing routes through `loadAccessibleCA` (`internal/web/cas....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-598g-h2vc-h5vg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47723</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: Web UI and API responses lack security headers (CSP, X-Frame-Options, HSTS, etc.)</div>
-            <div class="card-body">None of the response paths in `internal/web/` or `internal/api/` set the standard browser-security headers. `grep` for `Content-Security-Policy`, `X-Frame-Options`, `Strict-Transport-Security`, `X-Content-Type-Options`, `Referrer-Policy` returns zero matches across the codebase.
-
-## Impact
-The admin UI signs CA certificates, mints API keys (returne...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-w7w5-5gcp-38rw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47722</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: Host advanced overrides allow YAML injection into agent config.yml</div>
-            <div class="card-body">`internal/configgen/generator.go:86,108,119` interpolates the operator-supplied `ListenHost` and `TunDevice` fields raw into a `text/template` that produces the agent's `config.yml`. `internal/web/advanced.go:20-35` accepts both with only `strings.TrimSpace` — no character or shape validation.
-
-## Exploit
-An operator (or attacker with any operator ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-7hp6-g3pq-3pc3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47721</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
-                </span>
-            </div>
-            <div class="card-title">FUXA's scheduler API missing admin check enables operator-to-admin escalation via scheduled device actions</div>
-            <div class="card-body">## Summary
-
-An authorization issue in the Scheduler API allowed authenticated non-admin users to create or modify scheduled actions that should be restricted to administrators.
-
-## Details
-
-The Scheduler API did not correctly enforce administrator permissions when processing scheduler modifications.
-
-As a result, authenticated users with non-admini...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-08</span>
-                <a href="https://github.com/advisories/GHSA-8ghr-w65f-j3qr" target="_blank">Full Report →</a>
             </div>
         </div>
         
