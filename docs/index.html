@@ -68,10 +68,83 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-11 15:26 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-11 20:05 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48062</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">CodeIgniter4 has a validation bypass when uploading file extensions via `ext_in` rule</div>
+            <div class="card-body">### Impact
+The `ext_in` upload validation rule checked the MIME-derived guessed extension instead of the client-provided filename extension. As a result, an uploaded file named `shell.php` containing GIF-like content could pass validation such as:
+```
+uploaded[avatar]|is_image[avatar]|mime_in[avatar,image/gif]|ext_in[avatar,gif]
+```
+because the det...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-11</span>
+                <a href="https://github.com/advisories/GHSA-2gr4-ppc7-7mhx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48053</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.8
+                </span>
+            </div>
+            <div class="card-title">Kolibri has Unauthenticated Server-Side Request Forgery (SSRF) in RemoteFacilityUserViewset</div>
+            <div class="card-body">## Summary
+
+Several Kolibri API endpoints accept an unvalidated `baseurl` parameter and fetch attacker-controlled URLs from the Kolibri server, reflecting the response body back to the caller. The original report identified two endpoints on the `RemoteFacilityUser*` viewsets; remediation review found two further reflection points on the same patter...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-11</span>
+                <a href="https://github.com/advisories/GHSA-4mj9-pf4r-cqrc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48050</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Arc: Unauthenticated access to Go debug pprof endpoints leaks runtime state and enables CPU-burn DoS</div>
+            <div class="card-body">### Summary
+
+Arc registers Go's `net/http/pprof` handlers at `/debug/pprof/*` via `app.Use(pprof.New())` in `internal/api/server.go`, and `/debug/pprof` is added to `PublicPrefixes` in `cmd/arc/main.go`. The auth middleware short-circuits before the token check on prefix match, so the endpoints are reachable without any authentication.
+
+### Impact
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-11</span>
+                <a href="https://github.com/advisories/GHSA-j93g-rp6m-j32m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48049</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">@hapi/inert has a static-file confinement bypass via sibling-prefix path</div>
+            <div class="card-body">### Impact
+`@hapi/inert` serves static files from a directory configured with `path` (in the `directory` / `file` handlers) or `relativeTo` (for `h.file()`), with confinement enforced by the `confine` option (default `true`). Before the patch, the confinement check compared the resolved absolute path against the confine directory using a raw string...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-11</span>
+                <a href="https://github.com/advisories/GHSA-rcvq-m9j9-6f4g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-48045</span>
@@ -549,90 +622,6 @@ An ...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-10</span>
                 <a href="https://github.com/advisories/GHSA-rqfj-vv8r-xhqc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48025</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: Decrypted CA private key persists in heap after signing</div>
-            <div class="card-body">`internal/pki/resolver.go:36-64` constructs a `CAManager` with the plaintext `ed25519.PrivateKey` after unwrapping via the master key; `internal/pki/ca.go:13-16` stores it. Callers at `internal/api/enroll.go:116`, `internal/api/updates.go:297`, and `internal/api/mobile_bundle.go:40` use the manager for one `Sign()` and drop the reference on functio...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-10</span>
-                <a href="https://github.com/advisories/GHSA-8h84-fhqq-q58v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47701</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">OpenTelemetry Operator for Kubernetes's ServiceMonitor bearerTokenFile reads arbitrary local file and sends contents as bearer auth</div>
-            <div class="card-body">## Affected
-
-Repository: github.com/open-telemetry/opentelemetry-operator
-Component: cmd/otel-allocator (TargetAllocator)
-Companion: Prometheus Operator API types (CRDs)
-
-## Summary
-
-OpenTelemetry Operator's TargetAllocator watches `ServiceMonitor` resources via the Prometheus Operator CR watcher and converts each selected endpoint into a Prometheu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-10</span>
-                <a href="https://github.com/advisories/GHSA-cxh2-4639-vmc5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47253</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.3
-                </span>
-            </div>
-            <div class="card-title">Anyquery has Path Traversal through `clear_plugin_cache`, Allowing Arbitrary Directory Deletion</div>
-            <div class="card-body"># Path Traversal in `clear_plugin_cache` Allows Arbitrary Directory Deletion
-
-| Field            | Value |
-| ---------------- | ----- |
-| Repository       | julien040/anyquery |
-| Affected version | 0.4.4 |
-| Vulnerability    | CWE-22 — Improper Limitation of a Pathname to a Restricted Directory |
-| Severity         | High |
-
-
-## Summary
-
-The SQL s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-10</span>
-                <a href="https://github.com/advisories/GHSA-j9rx-rppg-6hh4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47155</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">vLLM's Artifact Pin Decay allows pinned deployments to load unpinned code, weights, and processors</div>
-            <div class="card-body">### Summary
-
-vLLM's revision pinning controls do not consistently apply to all artifacts loaded for a model. A deployment that supplies `--revision` or `--code-revision` can still load dynamic code, GGUF files, image processors, retrieval side weights, or same-repository subfolder weights/config from an unpinned/default revision.
-
-This is a supply-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-10</span>
-                <a href="https://github.com/advisories/GHSA-3ww4-5jv9-j5gm" target="_blank">Full Report →</a>
             </div>
         </div>
         
