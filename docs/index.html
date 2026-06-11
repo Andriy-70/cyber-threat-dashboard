@@ -68,10 +68,86 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-10 20:03 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-11 02:11 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47768</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">nebula-mesh: Newly-minted operator API key exposed in redirect URL (Referer, history, proxy logs)</div>
+            <div class="card-body">`internal/web/operators.go:251` — after `handleOperatorCreateAPIKey` mints a fresh 32-byte bearer token, the redirect points the operator's browser at:
+
+    /ui/operators/<id>?new_key=<raw-token>&key_name=<name>
+
+The raw API key ends up:
+- in the browser's URL history
+- in the `Referer` header on every cross-origin asset the detail page loads (any ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-9pg3-25fq-p6cc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47764</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">PDM  wheel installation leads to Path Traversal via overridden write_to_fs</div>
+            <div class="card-body">InstallDestination.write_to_fs() in src/pdm/installers/installers.py overrides the base class to add symlink/hardlink support but replaces the safe _path_with_destdir() (which validates via Path.resolve() + is_relative_to()) with a bare os.path.join() that performs no path validation. A malicious wheel with traversal entries can write arbitrary fil...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-78v8-vpjp-cjqh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47763</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">PDM: Project-Local State and Config Writes Follow Symlinks</div>
+            <div class="card-body">## Summary
+
+PDM writes several project-local state or configuration files without symlink protection. If a malicious repository places those files as symlinks, local PDM operations can overwrite the symlink targets.
+
+This creates an arbitrary file clobber primitive relative to the privileges of the invoking user.
+
+## Affected Behavior
+
+- Project-lo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-ghq2-5c67-fprm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47753</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Incus has a Nil-Pointer Dereference Panic via Instance Backup Import (volume omitted)</div>
+            <div class="card-body">## Summary
+
+`(*backend).CreateInstanceFromBackup` in [`internal/server/storage/backend.go`](https://github.com/lxc/incus/blob/1513600/internal/server/storage/backend.go) contains a nil-pointer dereference that an authenticated user with permission to create instances in any project can trigger remotely by uploading a crafted backup tarball. The Inc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-10</span>
+                <a href="https://github.com/advisories/GHSA-8g7m-96c8-8wwc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-47751</span>
@@ -568,82 +644,6 @@ CVE-2024-50340 (GHSA-x8vp-gf4q-mw5j) addressed an issue where, with `register_ar
             <div class="card-footer">
                 <span>Published: 2026-06-09</span>
                 <a href="https://github.com/advisories/GHSA-fqc7-9xjw-jrh3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47242</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Net::IMAP: Command Injection via ID command argument</div>
-            <div class="card-body">### Summary
-
-Two `Net::IMAP` commands, `#id` and `#enable`, do not validate their arguments.  Arguments to either command could be used by an attacker to inject arbitrary IMAP commands.
-
-Please note that passing untrusted inputs to these commands is usually inappropriate and expected to be uncommon.
-
-### Details
-
-When `Net::IMAP#id` is called with ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-09</span>
-                <a href="https://github.com/advisories/GHSA-46q3-7gv7-qmgg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47241</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Net::IMAP: Denial of Service via incomplete raw argument validation</div>
-            <div class="card-body">### Summary
-
-Several Net::IMAP commands accept a raw string argument which is only validated to prevent CRLF injection and then sent verbatim.  If this string is derived from user-controlled input, an attacker can force the next command to be absorbed as a continuation of the first command.  This will cause the first command to eventually fail, but...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-09</span>
-                <a href="https://github.com/advisories/GHSA-c4fp-cxrr-mj66" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47240</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Net::IMAP: Command Injection via non-synchronizing literal in "raw" argument</div>
-            <div class="card-body">Several Net::IMAP commands accept a "raw data" argument that is sent verbatim after validation to prevent command injection.  However, if a server does not support non-synchronizing literals, it may still be possible to inject arbitrary IMAP commands inside non-synchronizing literals.
-
-### Details
-
-Raw data arguments support embedded literal values...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-09</span>
-                <a href="https://github.com/advisories/GHSA-8p34-64r3-mwg8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-9277</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 8.1
-                </span>
-            </div>
-            <div class="card-title">shell-quote quote() does not escape newlines in object .op values</div>
-            <div class="card-body">### Summary
-
-`shell-quote`'s `quote()` function did not validate object-token inputs against the operator model used by `parse()`. The `.op` field was backslash-escaped character by character using `/(.)/g`, which in JavaScript does not match line terminators (`\n`, `\r`, U+2028, U+2029). A line terminator in `.op` therefore passed through unescape...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-09</span>
-                <a href="https://github.com/advisories/GHSA-w7jw-789q-3m8p" target="_blank">Full Report →</a>
             </div>
         </div>
         
