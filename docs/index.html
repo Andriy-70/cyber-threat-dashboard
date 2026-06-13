@@ -68,10 +68,382 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-12 19:47 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-13 02:00 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54090</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">File Browser has a Command Execution Allowlist Bypass via Shell Metacharacter Injection</div>
+            <div class="card-body">> [!NOTE]
+> **This feature has been disabled by default for all installations from v2.33.8 onwards, including for existent installations**. To exploit this vulnerability, the instance administrator must turn on a feature and ignore all the warnings about known vulnerabilities. We're publishing this new advisory to make it clear that all vulnerabili...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-8c9q-7855-wfxq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54091</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">File Browser has incorrect access control for public directory shares via rule path rebasing</div>
+            <div class="card-body">### Summary
+File Browser's public share handlers rebase the share owner's filesystem root to the shared directory and then evaluate descendant paths against the owner's global and per-user rules using the rebased relative path instead of the original path relative to the owner's scope.
+
+As a result, an attacker who knows a public directory share UR...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-j9jx-hp4c-ghhh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54093</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">File Browser: FilePath traversal in download-as-zip/tar via Windows-style backslash separators in stored filenames</div>
+            <div class="card-body">### Summary
+filebrowser builds the download-as-zip / download-as-tar archive entry names with `filepath.ToSlash`, which on a Linux host is a no-op for backslashes (`\` is only a path separator on Windows). A file whose name contains Windows-style traversal (`..\..\..\evil.txt`) is accepted by the resource handlers, stored on the Linux filesystem wi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-gxjx-7m74-hcq8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54094</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">File Browser: Symlink following lets scoped users read, overwrite, and share files outside their filebrowser scope</div>
+            <div class="card-body">## Summary
+
+File Browser enforces per-user scope with `afero.NewBasePathFs(afero.NewOsFs(), scope)`, set up in `users/users.go`. This blocks lexical `../` traversal, but it does not stop the HTTP file handlers from following symbolic links before they open, serve, write, share, or list a file. As a result, a scoped user — and in some cases an unaut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-239w-m3h6-ch8v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54092</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 6.5
+                </span>
+            </div>
+            <div class="card-title">File Browser has a DoS Vulnerability via Public Login API</div>
+            <div class="card-body">### Summary
+Unchecked passwords maximums allow for an arbitrarily large password to be passed into the login API. This spikes CPU and memory, and after testing, crashes, heavily lags any container created, and has even made my docker daemon start to send errors with status code 500 even after the container was destroyed.
+
+### Details
+When sending J...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-w5fm-68j4-fpc4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54096</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">File Browser: Improper Access Control Occurs via Pre-Created Public Share for a Non-existent Path</div>
+            <div class="card-body">### Summary
+This is similar vulnrability of **`CVE-2026-0035`**, which was fixed in Android `MediaProvider` with **high** severity. In the original Java issue, `MediaStore.createWriteRequest()` accepted attacker-controlled URIs and created a future grant even when the referenced media item did not exist yet. The Android fix added an existence check...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-3q2p-72cj-682c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vc8p-8pxg-rfwg</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">ConnectBot SSH Client Library: Excessive allocation and integer overflow in DER private-key parsing</div>
+            <div class="card-body">## Summary
+
+The DER parser used for application-supplied private keys did not safely validate encoded length values before converting them to `Int` values or allocating arrays.
+
+A malformed private-key file could encode a length that overflowed or wrapped around, or request an allocation much larger than the available input. This could cause parsin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-vc8p-8pxg-rfwg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-ch3q-cw5r-f4hg</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">ConnectBot SSH Client Library: Unbounded SSH field lengths can cause excessive memory allocation</div>
+            <div class="card-body">## Summary
+
+The SSH protocol parser trusted attacker-controlled length and count fields without first checking that the declared values fit within the containing packet.
+
+When a client connects to a malicious or compromised SSH server, the server can send a small, malformed packet containing an inner field whose declared length is much larger than ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-ch3q-cw5r-f4hg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54097</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">File Browser: Cross-user unauthorized share-link deletion via unbounded prefix match in DeleteWithPathPrefix</div>
+            <div class="card-body">### Summary
+A low-privileged authenticated user of filebrowser (with `create` + `delete` permissions in their own isolated scope) can silently destroy share-link records belonging to any other user — including the administrator — by performing a legitimate DELETE on a file in their own directory whose logical path happens to be a byte-prefix of ano...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-5ww9-jg6q-38r7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46371</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Fleet: Observer-level enrollment secret extraction via ORDER BY oracle on Apple MDM commands endpoint</div>
+            <div class="card-body">### Summary
+
+A vulnerability in Fleet's Apple MDM commands listing endpoint allowed authenticated users with the lowest-privilege Observer role to extract sensitive values from joined database tables — including host enrollment secrets and Apple Push Notification Service (APNS) tokens — through a cursor-based binary search oracle. The endpoint acce...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-x4qr-qw6h-wvxq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46370</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Fleet has observer-level enrollment secret extraction via ORDER BY oracle on labels host-listing endpoint</div>
+            <div class="card-body">### Summary
+
+A vulnerability in Fleet's labels host-listing endpoint allowed authenticated users with the lowest-privilege Observer role to extract host enrollment secrets (`node_key`, `orbit_node_key`) through a cursor-based binary search oracle. The endpoint accepted a user-supplied `order_key` parameter that was not validated against a column al...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-vxm7-9x8v-8gm4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44311</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Fabric.js improper escaping in fabric.Gradient colorStops leads to XSS in SVG serialization</div>
+            <div class="card-body">### Summary
+
+A potential Cross-Site Scripting (XSS) vulnerability exists in Fabric.js due to improper escaping of user-controlled input during SVG serialization via the `toSVG()` method.
+
+Specifically, the `color` field within the `colorStops` array of a `fabric.Gradient` object is not properly escaped when converted into SVG `<stop>` elements. If ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-w22m-hvvm-xmwx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-chgr-c6px-7xpp</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">PyO3 has a missing `Sync` bound on `PyCFunction::new_closure` closures</div>
+            <div class="card-body">`PyCFunction::new_closure` (and the temporary `new_closure_bound` complement in the 0.21–0.22 series) required the supplied closure to be `Send + 'static` but not `Sync`. The resulting `PyCFunction` is a Python callable that can be invoked from any Python thread, which means the closure may be called concurrently from multiple threads, and needs a ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-chgr-c6px-7xpp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-gv7w-rqvm-qjhr</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">esbuild: Missing binary integrity verification in Deno module enables remote code execution via NPM_CONFIG_REGISTRY</div>
+            <div class="card-body">### Summary
+
+The esbuild Deno module (`lib/deno/mod.ts`) downloads native binary executables from an npm registry and writes them to disk with executable permissions (`0o755`) **without performing any integrity verification** (e.g., SHA-256 hash check). The Node.js equivalent (`lib/npm/node-install.ts`) includes a robust `binaryIntegrityCheck()` fu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-gv7w-rqvm-qjhr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-g7r4-m6w7-qqqr</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.5
+                </span>
+            </div>
+            <div class="card-title">esbuild allows arbitrary file read when running the development server on Windows</div>
+            <div class="card-body">### Summary
+
+The development server contains a path traversal vulnerability on Windows when serving files from `servedir`.
+
+Due to the use of `path.Clean()` (which only normalizes forward-slash `/` separators) instead of a Windows-aware path normalization function, it is possible to craft requests using backslashes (`\`) that bypass the intended di...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-g7r4-m6w7-qqqr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53999</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">Radius Controller May Delete a Container Resource via an Injected Deployment Annotation (Multi-Tenant Installs)</div>
+            <div class="card-body"># Radius Controller May Delete a Container Resource via an Injected Deployment Annotation (Multi-Tenant Installs)
+
+## Summary
+
+A configuration-validation issue in the Radius Kubernetes controller can cause it to issue a `DELETE` for the container resource referenced by a tampered `radapp.io/status` annotation on a Deployment. It follows the "Confus...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-fp5j-4fj2-4jvq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-11607</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">TYPO3 CMS has Broken Access Control in its Form Framework</div>
+            <div class="card-body">### Problem
+Backend users with access to the Form Framework were able to use files not ending in `.form.yaml` as form definitions, which were processed without denying the incorrect file extension. Maliciously crafted form definition files can be used to execute arbitrary SQL statements, allowing attackers to escalate privileges by creating adminis...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-pjpj-v387-x4vq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47349</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">TYPO3 CMS has Broken Access Control in the Recycler Module</div>
+            <div class="card-body">### Problem
+Backend users with access to the Recycler module were able to restore soft-deleted records on pages or for tables they were not authorized to modify.
+
+### Solution
+Update to TYPO3 versions 10.4.57 ELTS, 11.5.51 ELTS, 12.4.46 ELTS, 13.4.31 LTS, 14.3.3 LTS that fix the problem described.
+
+### Credits
+TYPO3 CMS thanks Hyunseo Shin for repo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-f34x-rx2w-7pm3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47347</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">TYPO3 CMS has an Open Redirect Vulnerability via Core Utilities</div>
+            <div class="card-body">### Problem
+Applications that use `GeneralUtility::sanitizeLocalUrl` to allow only local URLs are vulnerable to open redirect attacks if the URL is used after it has passed the aforementioned sanitization checks. This enables attackers to redirect users to external content and carry out phishing attacks.
+
+### Solution
+Update to TYPO3 versions 10.4....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-3p42-w5ch-gg42" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47343</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">TYPO3 CMS: Destructive Actions on File Mount Folders</div>
+            <div class="card-body">### Problem
+Non-privileged backend users with file mount access were able to perform write operations (move, delete, rename) on folders representing the root of an active file mount due to missing authorization restrictions.
+
+### Solution
+Update to TYPO3 versions 10.4.57 ELTS, 11.5.51 ELTS, 12.4.46 ELTS, 13.4.31 LTS, 14.3.3 LTS that fix the problem...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-3v8v-4wg6-r7qh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47345</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">TYPO3 HTML Sanitizer allows Cross-site Scripting</div>
+            <div class="card-body">Namespace attributes are not encoded correctly during HTML serialization. This allows bypassing the cross-site scripting prevention mechanism of `typo3/html-sanitizer` before version 2.3.2.
+
+Credits to Doyensec in collaboration with Claude and Anthropic Research for reporting this vulnerability....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-12</span>
+                <a href="https://github.com/advisories/GHSA-p5j5-4j3q-8mq8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-36hh-v3qg-5jq4</span>
@@ -229,393 +601,6 @@ Update to TYPO3 versions 10.4.57 ELTS, 11.5.51 ELTS, 12.4.46 ELTS, 13.4.31 LTS, 
             <div class="card-footer">
                 <span>Published: 2026-06-12</span>
                 <a href="https://github.com/advisories/GHSA-q93m-25xv-94hh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47348</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">TYPO3 CMS has Cross-Site Scripting in Indexed Search</div>
-            <div class="card-body">### Problem
-Editors with access to create or modify page content were able to include HTML markup in page titles that were stored in the search index without sanitization. When displayed in frontend search results via the Indexed Search plugin, these titles were rendered without proper output encoding, resulting in a Cross-Site Scripting vulnerabil...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-cg75-qfg2-w9hj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47344</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">TYPO3 HTML Sanitizer allows Cross-site Scripting</div>
-            <div class="card-body">When `ALLOW_INSECURE_RAW_TEXT` is enabled, whitespace-variant closing tags (e.g., `</style\\t>`) are not recognized by the sanitizer but accepted by browsers as valid end tags, allowing subsequent content to escape sanitization. This allows bypassing the cross-site scripting prevention mechanism of `typo3/html-sanitizer` before version 2.3.2.
-
-Cred...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-jvf5-rxvv-3mcg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49854</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Tornado has out-of-bounds memory access via C extension</div>
-            <div class="card-body">### Summary
-
-Tornado's optional native extension `tornado.speedups` implements `websocket_mask` without validating that the `mask` argument is exactly four bytes long. The C function reads four bytes from `mask` unconditionally, even when Python passes a shorter byte string. This can read beyond the provided buffer, exposing up to 3 bytes of uninit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-cx3h-4qpv-8hc9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-6vgg-xhvh-38ff</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: POST /api/v1/hosts/{id}/mobile-bundle response lacks Cache-Control: no-store</div>
-            <div class="card-body">`internal/api/mobile_bundle.go:62-66` sets only `Content-Type: application/yaml`. The Web-UI sibling at `internal/web/handlers.go:1316-1321` sets `Cache-Control: no-store`, `Pragma: no-cache`, `Expires: 0`, `X-Content-Type-Options: nosniff` — and has a test asserting it. The API path was missed.
-
-## Affected
-All released versions up to v0.3.0.
-
-## ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-6vgg-xhvh-38ff" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48156</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 3.3
-                </span>
-            </div>
-            <div class="card-title">pypdf: Possible long runtimes for zero-only width values in cross-reference streamsuntimes for zero-only width values in cross-reference streams</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to long runtimes. This requires cross-reference streams with `/W [0 0 0]` values and large `/Size` values.
-
-### Patches
-
-This has been fixed in [pypdf==6.12.0](https://github.com/py-pdf/pypdf/releases/tag/6.12.0).
-
-### Workarounds
-
-If developers are unable to upgrade th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-248m-82v9-q6g6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48155</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">pypdf: Possible large memory usage for large offsets for layout mode text</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires extracting text in layout mode with large character offsets.
-
-### Patches
-
-This has been fixed in [pypdf==6.12.0](https://github.com/py-pdf/pypdf/releases/tag/6.12.0).
-
-### Workarounds
-
-If developers are unable to immediately upgrade...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-cj93-chg6-vgv8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48154</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">gorest InMemorySecret2FA race condition allows process crash via concurrent map access (CWE-362)</div>
-            <div class="card-body">## Vulnerability: CWE-362 — Concurrent Map Access Race Condition in InMemorySecret2FA
-
-**CWE:** CWE-362 (Concurrent Execution using Shared Resource with Improper Synchronization)
-
-### Affected Component
-- `github.com/pilinux/gorest` — Go REST API boilerplate
-- InMemorySecret2FA — in-memory 2FA secret store
-
-### Vulnerability Locations
-
-| File | Lin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-cpwg-x64r-rgwg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-j9gf-vw2f-9hrw</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Appsmith: Configuration-dependent origin validation bypass in password reset and email verification link generation</div>
-            <div class="card-body">### Summary
-A configuration-dependent origin validation bypass was identified in Appsmith’s password reset and email verification flows on current `release`.
-
-Both flows derive the email-link base URL from the request `Origin` header. The current validation only enforces a trusted base URL when `APPSMITH_BASE_URL` is configured. If that setting is ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-j9gf-vw2f-9hrw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48152</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Budibase: Basic app users can exfiltrate stored REST datasource auth by rewriting datasource base URL</div>
-            <div class="card-body">### Summary
-Budibase stores external REST datasource credentials server-side and documents that database credentials are applied server-side and are not exposed in the UI. The REST datasource implementation redacts stored Basic/Bearer/OAuth2 auth secrets before returning datasource data to clients. However, the single-datasource `GET` and `PUT` rou...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-3gp5-q4jw-3v94" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48151</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Budibase: Webhook schema endpoint authorization bypass allows unauthenticated mutation of webhook and automation schema</div>
-            <div class="card-body">The webhook schema-building endpoint is registered under `builderRoutes`, but the generic authorization middleware skips authorization for all paths matching `/api/webhooks/schema`. As a result, an unauthenticated caller can update the body schema for a known webhook and mutate the corresponding automation trigger output schema.
-
-### Details
-
-The r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-qhv3-wjg8-6fx6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48150</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.0
-                </span>
-            </div>
-            <div class="card-title">Budibase: Workspace-scoped builder escalates to global admin via /api/public/v1/roles/assign</div>
-            <div class="card-body">## Summary
-
-`/api/public/v1/roles/assign` is guarded by the `builderOrAdmin` middleware, which passes any user who is a builder for the app id in the `x-budibase-app-id` header. That check admits both global builders and workspace-scoped builders (`builder.apps` set but `builder.global` unset). The controller then spreads the request body into the ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-6xp4-cf37-ppjh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-9wcp-79g5-5c3c</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Appsmith Super User Creation Race Condition Allows Multiple Instance Administrators</div>
-            <div class="card-body">## Summary
-
-The `/api/v1/users/super` endpoint enforces a restriction that only one super user (Instance Administrator) can be created during initial setup. However, due to a Time-of-Check-Time-of-Use (TOCTOU) race condition in the `signupAndLoginSuper()` method, concurrent requests can bypass this restriction, allowing multiple unauthorized users ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-9wcp-79g5-5c3c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48148</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Budibase: Unvalidated VectorDB Host Parameter Enables SSRF</div>
-            <div class="card-body">### Summary
-
-The VectorDB configuration endpoint in Budibase accepts a host parameter that undergoes no validation against internal IP ranges, reserved hostnames, or URL schemes. Any authenticated user with builder-level access can supply an arbitrary host value such as `169.254.169.254` or localhost, causing the server to initiate outbound TCP con...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-cv96-5348-p5p8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48147</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Budibase: Unanchored Regex in `matchers.ts` Allows CSRF Bypass via Query String Injection in Budibase Worker </div>
-            <div class="card-body">### Summary
-
-The `buildMatcherRegex()` / `matches()` functions in `packages/backend-core/src/middleware/matchers.ts` share the same structural root cause as the recently patched CVE-2026-31816: route patterns are compiled into **unanchored regular expressions** and tested against `ctx.request.url`, which includes the full query string. The CSRF mid...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-wxq7-x3qp-vcr8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-58175</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">GeoServer has a Server-Side Request Forgery (SSRF) Vulnerability in its XML Entity Resolution</div>
-            <div class="card-body">### Summary
-A GeoServer that uses `ENTITY_RESOLUTION_ALLOWLIST` may allow attacker to perform unauthenticated Server-Side Request Forgery (SSRF).
-
-### Details
-This vulnerability requires that GeoServer is set up to use a proxy base URL and the `ENTITY_RESOLUTION_ALLOWLIST` (default since 2.25.0):
-
-### Impact
-This vulnerability allows an attacker to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-x4r9-gmw3-hxww" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-52465</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
-                </span>
-            </div>
-            <div class="card-title">GeoServer has an arbitrary file write vulnerability in its Master Password Dump Page</div>
-            <div class="card-body">### Summary
-A vulnerability exists that allows an authenticated administrator with access to GeoServer's security system to pass arbitrary file names to the Master Password Dump web page and create files containing the master password in plaintext. The provided file name must be an absolute path to the target file, the target file can not already e...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-7qmg-grcp-qf25" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48146</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">Budibase: SSRF via OAuth2 Config Validation — Missing fetchWithBlacklist Protection</div>
-            <div class="card-body">### Summary
-
-The OAuth2 token fetch function in `packages/server/src/sdk/workspace/oauth2/utils.ts` (line 59) uses raw `fetch(config.url)` with **no SSRF protection**. The safe wrapper `fetchWithBlacklist()` exists in the same codebase and is used in every other outbound HTTP call (automation steps, plugin downloads, object store), but was **not ap...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-g6qx-g4pr-92v7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48128</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Budibase: SSRF via User-Controlled queryId in Automation Execute Query Step</div>
-            <div class="card-body">### Summary
-
-The executeQuery automation step in Budibase accepts a queryId from automation step inputs and passes it directly to the query execution controller without additional validation. When combined with a REST datasource configured to target internal infrastructure, this creates a server-side request forgery path where automation execution ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-6964-pp88-6wp9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-28898</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">SwiftNIO HTTP/2: HTTP/2-to-HTTP/1 Request Smuggling via unvalidated :path pseudo-header in HTTP2ToHTTP1Codec</div>
-            <div class="card-body">swift-nio-http2's HTTP/2-to-HTTP/1.1 codec (`HTTP2FramePayloadToHTTP1ServerCodec` / `HTTP2ToHTTP1ServerCodec`) did not validate pseudo-header values for control characters before placing them into the translated HTTP/1.1 message. A remote attacker could send an HTTP/2 request containing CR (\r), LF (\n), or NUL (\0) bytes in pseudo-header values su...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-4px2-pw77-vc85" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-28975</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NIOExtras: NIOHTTPRequestDecompressor ratio limit bypass via inflated Content-Length</div>
-            <div class="card-body">### Impact
-
-When `NIOHTTPRequestDecompressor` is configured with `.ratio(N)`, the decompression limit is enforced using the `Content-Length` header value from the incoming request rather than the actual number of compressed bytes received. Since `Content-Length` is attacker-controlled, a malicious client can supply an inflated value that causes the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-6ph5-fww6-vfwv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-28980</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">SwiftNIO NIOHTTP1:  HTTPDecoder accepts unbounded HTTP/1 header blocks, enabling remote DoS</div>
-            <div class="card-body">### Summary
-
-The `HTTPDecoder` in `NIOHTTP1` enforces no limit on the total size of an HTTP/1 message's header block or on the number of header fields per message. A remote peer can submit an arbitrary number of small, valid headers in a single request and have them all accumulated into the resulting `HTTPHeaders` value before any application code ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-12</span>
-                <a href="https://github.com/advisories/GHSA-rj37-6j9x-74q6" target="_blank">Full Report →</a>
             </div>
         </div>
         
