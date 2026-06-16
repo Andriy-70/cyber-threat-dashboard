@@ -68,10 +68,155 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-15 20:41 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-16 02:30 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-rq7w-g337-39qq</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Nuxt: Dev server discloses project absolute path and persistent workspace UUID via `/.well-known/appspecific/com.chrome.devtools.json`</div>
+            <div class="card-body">### Summary
+
+When running `nuxt dev`, Nuxt registers an unauthenticated route at `/.well-known/appspecific/com.chrome.devtools.json` that returns the absolute filesystem path of the project root and a per-project UUID persisted to `node_modules/.cache/nuxt/chrome-workspace.json`. The route is enabled by default via `experimental.chromeDevtoolsProje...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-rq7w-g337-39qq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-11417</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">aws-cdk-lib: OS Command Injection in NodejsFunction Bundling</div>
+            <div class="card-body">### Summary
+AWS CDK (`aws-cdk-lib`) is an open-source framework for defining cloud infrastructure in code and provisioning it through AWS CloudFormation. OS command injection in the `NodejsFunction` local bundling pipeline in `aws-cdk-lib` before 2.245.0 (2.246.0 on Windows) might allow a threat actor who controls the value of one or more bundling ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-999r-qq7v-r334" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50560</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Netty susceptible to HTTP/2 Reset Attack with different on-the-wire signature</div>
+            <div class="card-body">### Summary
+
+Netty HTTP/2 max header size handling produces attack similar to HTTP/2 Rapid Reset.
+
+### Details
+
+There is a setting in the http2 specification called `SETTINGS_MAX_HEADER_LIST_SIZE`. According to[ the RFC](https://www.rfc-editor.org/rfc/rfc9113.html#name-defined-settings): “This advisory setting informs a peer of the maximum field se...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-563q-j3cm-6jxm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50020</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Netty: HttpObjectDecoder skips arbitrary initial control characters when only initial CRLF characters are permitted</div>
+            <div class="card-body">## Summary
+
+Before reading the first request-line, `HttpObjectDecoder` skips every byte for which
+`Character.isISOControl(b)` is `true` (0x00–0x1F and 0x7F) as well as all whitespace.
+RFC 9112 §2.2 only asks servers to ignore **empty CRLF lines** preceding the request-line —
+a carefully scoped robustness allowance intended to handle HTTP/1.0 POST w...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-hvcg-qmg6-jm4c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50011</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Netty: Unbounded pre-allocation in RedisArrayAggregator from RESP array length</div>
+            <div class="card-body">### Summary
+RedisArrayAggregator pre-allocates ArrayList with initial capacity equal to the RESP array element count declared in an array header. That count is taken from the wire before the corresponding child messages exist. A small malicious header can claim a huge initial capacity.
+
+### Details
+The aggregator starts a new aggregation level when...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-5w86-c3rq-vjj7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50010</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Netty: Wrapping plain trust manager silently disables hostname verification</div>
+            <div class="card-body">SimpleTrustManagerFactory.engineGetTrustManagers() and related paths wrap any user-supplied plain X509TrustManager in X509TrustManagerWrapper, which extends X509ExtendedTrustManager but implements the 3-arg checkServerTrusted(chain, authType, SSLEngine) by discarding the SSLEngine and calling the 2-arg delegate. Because the object now IS an X509Ext...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-c653-97m9-rcg9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50009</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">Netty: QUIC stateless reset token material exposed through header-visible connection IDs</div>
+            <div class="card-body">### Summary
+Netty QUIC exposes the stateless reset token on the network path when using the default HMAC-based connection-ID and stateless-reset-token generators. The reset token for the server's current source connection ID can be derived from bytes that appear as the connection ID in QUIC headers after a source-CID rotation. An on-path attacker o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-cq4q-cv5g-r8q5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48748</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Netty HTTP/3 QPACK Blocked Streams Memory Exhaustion</div>
+            <div class="card-body">### Summary
+A memory exhaustion vulnerability in the Netty HTTP/3 codec allows the creation of an infinite number of blocked streams, which can cause OOM error.
+
+### Details
+The vulnerability exists in `io.netty.handler.codec.http3.QpackDecoder#shouldWaitForDynamicTableUpdates`:
+
+If a client sends a header referencing a table entry that the server ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-15</span>
+                <a href="https://github.com/advisories/GHSA-4grm-h2qv-h6w6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-48988</span>
@@ -481,196 +626,6 @@ Patch: https://github.com/aio-libs/aiohttp/commit/1...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-15</span>
                 <a href="https://github.com/advisories/GHSA-xcgm-r5h9-7989" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54275</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: TLS Server Hostname Override Is Ignored When Reusing HTTPS Connections</div>
-            <div class="card-body">### Summary
-
-The `server_hostname` TLS SNI check can be bypassed when an existing connection is reused.
-
-### Impact
-
-If an application makes multiple requests to the same domain, but with different per-request `server_hostname` parameters, then the later calls may succeed by reusing the existing connection when they should have been rejected due to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-4m7w-qmgq-4wj5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54280</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: Payload Response Resources Are Not Closed After Mid-Body Disconnect</div>
-            <div class="card-body">### Summary
-
-Payload resources are not closed correctly when a client disconnects in the middle of a write.
-
-### Impact
-
-If a payload is using an open file or similar limited resource, then an attacker may be able to cause resource starvation temporarily until garbage collection or similar closes the file.
-
------
-
-Patch: https://github.com/aio-libs...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-9x8q-7h8h-wcw9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54273</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: HTTP/1 Pipelined Requests Queue Without Limit</div>
-            <div class="card-body">### Summary
-
-No limit was present on the number of pipelined requests that could be queued.
-
-### Impact
-
-An attacker may be able to use pipelined requests to use excessive amounts of memory, potentially leading to DoS.
-
------
-
-Patch: https://github.com/aio-libs/aiohttp/commit/dfdfa9d5aad5d21f91c79fb2ceeba0f8046cb6cf...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-4fvr-rgm6-gqmc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54278</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: Unread Compressed Request Bodies Bypass client_max_size During Cleanup</div>
-            <div class="card-body">### Summary
-
-During cleanup it is possible for a compressed request body to be decompressed into memory in one chunk.
-
-### Impact
-
-An attacker may be able to send a compressed payload in specific situations that could be decompressed into memory, potentially leading to DoS (a zip bomb edge case).
-
-### Workaround
-
-Disable compression if unable to up...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-g3cq-j2xw-wf74" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54277</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: C HTTP Parser Bypasses max_line_size for Fragmented Lines</div>
-            <div class="card-body">### Summary
-
-It is possible to bypass the max_line_size check in parts of an HTTP request in the C parser.
-
-### Impact
-
-If using the optimised C parser (the default in pre-built wheels), then an attacker may be able to send oversized lines through the HTTP parser and use an excessive amount of memory, potentially leading to DoS.
-
------
-
-Patch: http...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-63hw-fmq6-xxg2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54276</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: DigestAuthMiddleware Applies Credentials to Cross-Origin Redirect Challenges</div>
-            <div class="card-body">### Summary
-
-``DigestAuthMiddleware`` can send an authentication response after following a cross-origin redirect.
-
-### Impact
-
-If the client follows a redirect (the default option) to an attacker controlled domain, the attacker may be able to extract the auth digest.
-
-This likely requires an open redirect vulnerability or similar on the target dom...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-hpj7-wq8m-9hgp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54279</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: Host-Only Cookies Become Domain Cookies After CookieJar Persistence</div>
-            <div class="card-body">### Summary
-
-Host-only cookies that are saved with ``CookieJar.save()`` and then restored later with ``CookieJar.load()`` lose their host-only status.
-
-### Impact
-
-Host-only cookies that have been loaded from disk may get sent to subdomains that previously should have been disallowed.
-
------
-
-Patch: https://github.com/aio-libs/aiohttp/commit/a329a7...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-2fqr-mr3j-6wp8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50269</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">aiohttp: CRLF injection in multipart headers</div>
-            <div class="card-body">### Summary
-
-Attacker-controlled input included into multipart/payload headers can be used to modify a request to inject additional headers or similar.
-
-### Impact
-
-In the unlikely situation that an application is passing user-controlled strings into `MultipartWriter.append(headers=...)` or `Payload.headers`, then an attacker may be able to modify ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-15</span>
-                <a href="https://github.com/advisories/GHSA-m6qw-4cw2-hm4m" target="_blank">Full Report →</a>
             </div>
         </div>
         
