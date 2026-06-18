@@ -68,595 +68,558 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-18 14:38 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-18 20:04 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-55885</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
+                <span class="cve-id">GHSA-wm69-2pc3-rmmf</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
                 </span>
             </div>
-            <div class="card-title">Grav: Admin Backup Zip File Exposes Account Credentials and Configuration Secrets</div>
+            <div class="card-title">Crawl4AI: Unauthenticated SSRF on the Docker server streaming crawl path (/crawl/stream)</div>
             <div class="card-body">### Summary
-An authenticated administrator with backup permissions can download a ZIP archive containing the full Grav installation root, including `user/accounts/admin.yaml` with the admin's bcrypt password hash and email, plus `user/config/` with all site configuration. The download endpoint requires only the session-static `admin-nonce` in the U...</div>
+
+The Docker API server applied its SSRF destination check (`validate_url_destination`) on the non-streaming `/crawl` path but not on the streaming path. `handle_stream_crawl_request` passed seed URLs straight to the crawler with no destination validation. A remote, unauthenticated client could call `POST /crawl/stream` (or `POST /crawl`...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-2f86-9cp8-6hcf" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-wm69-2pc3-rmmf" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-j99q-93c9-h869</span>
+                <span class="cve-id">GHSA-r253-r9jw-qg44</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
+                </span>
+            </div>
+            <div class="card-title">Crawl4AI: Unauthenticated RCE via Chromium launch-argument injection in browser_config.extra_args</div>
+            <div class="card-body">### Summary
+
+The Docker API server accepted a request-supplied `browser_config.extra_args`, which flowed into Chromium's launch arguments. An attacker could inject Chromium switches that replace a child-process launch command (`--utility-cmd-prefix`, `--renderer-cmd-prefix`, `--gpu-launcher`, `--browser-subprocess-path`) together with `--no-zygote`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-r253-r9jw-qg44" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-2jq4-q6vv-4cp3</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.6
+                </span>
+            </div>
+            <div class="card-title">Crawl4AI: Arbitrary file write (path traversal) in crawler downloads can lead to RCE</div>
+            <div class="card-body">### Summary
+
+When the crawler saves a downloaded file, the destination filename was taken from attacker-influenced input and joined to the downloads directory with no confinement. A filename containing an absolute path (e.g. `/etc/cron.d/evil`) or `../` traversal escaped the downloads directory, giving an arbitrary file write with attacker-controll...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-2jq4-q6vv-4cp3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-qqf5-x7mj-v43p</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.4
+                </span>
+            </div>
+            <div class="card-title">budibase: Database Connector SQL Injections in PostgreSQL, MS SQL, and MySQL</div>
+            <div class="card-body">### Summary
+This advisory covers three distinct SQL Injection vulnerabilities within Budibase's database connectors (PostgreSQL, Microsoft SQL Server, and MySQL). Because user-controlled schema and table configurations are interpolated directly into raw SQL queries without proper escaping or parameterization during database introspection, an authen...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-qqf5-x7mj-v43p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-gfj5-979r-92pw</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">@acastellon/auth: Authentication bypass via spoofable headers in validateToken()</div>
+            <div class="card-body">@acastellon/auth v2.2.0 appears to allow an unauthenticated authentication bypass in validateToken() through spoofable auth-user and Host request headers.
+
+The validateToken middleware contains a service-to-service bypass for auth-user: service-brother when req.get('host').startsWith(getHostName()). Both values involved in the check can be influenc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-gfj5-979r-92pw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-11752</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">MCPVault: PathFilter restricted-directory deny-list bypass via case and trailing dot/space equivalence</div>
-            <div class="card-body">On case-insensitive filesystems (macOS, Windows), PathFilter compiled its deny-list patterns case-sensitively and matched the path verbatim, so names like `.Git/config`, `.GIT/config`, or `.oBsIdIaN/secrets.md` slipped past the `.git`/`.obsidian`/`node_modules` restriction while the OS opened the real file. On Windows, trailing dots/spaces (`.git./...</div>
+            <div class="card-title">Armeria: External Control of File Name or Path in xDS SDS DataSource</div>
+            <div class="card-body">## External Control of File Name or Path in xDS SDS DataSource
+
+### Summary
+
+`DataSourceStream` in the `:xds` module resolves control-plane-supplied `filename` and `environment_variable` fields from SDS Secret resources without any allow-list or base-directory confinement. A semi-trusted or compromised xDS control plane (or an attacker who can MITM...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-j99q-93c9-h869" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-hgw6-8c77-v4gq" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-jm82-fx9c-mx94</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">pypdf: Missing stream length values ignore defined limits</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to large memory usage, as `MAX_DECLARED_STREAM_LENGTH` is sometimes ignored. This requires parsing a content stream without a `/Length` value.
-
-### Patches
-This has been fixed in [pypdf==6.13.3](https://github.com/py-pdf/pypdf/releases/tag/6.13.3).
-
-### Workarounds
-If y...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-jm82-fx9c-mx94" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55686</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Podman: WORKDIR symlink traversal vulnerability</div>
-            <div class="card-body">### Summary
-
-Running a malicous container image where the WORKDIR path contains a symlink can create a directory or modify ownership on the host filesystem. Modified ownership is less likely to happen as that requires help from an untrusted/malicious process that mutates the host filesystem tree during dereferencing of the WORKDIR path, to trigger ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-q6r4-3wmg-fwcq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-9697</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">undici vulnerable to TLS certificate validation bypass via dropped requestTls in SOCKS5 ProxyAgent</div>
-            <div class="card-body">## Impact
-
-undici's `ProxyAgent` silently drops the `requestTls` option when configured with a SOCKS5 proxy URI (`socks5://` or `socks://`). The target HTTPS connection through the SOCKS5 tunnel falls back to Node's default trust store, ignoring user-configured `ca`, `cert`, `key`, `rejectUnauthorized`, and `servername` settings.
-
-Applications that...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-vmh5-mc38-953g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-9678</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">undici vulnerable to cross-user information disclosure via shared cache whitespace bypass</div>
-            <div class="card-body">## Impact
-
-Undici's cache interceptor incorrectly classifies some responses as cacheable when the upstream `Cache-Control` header uses whitespace-padded qualified `private` or `no-cache` field names such as `private=" authorization"` or `no-cache="\tauthorization"`. The parser preserves the surrounding whitespace, so later comparisons against the l...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-pr7r-676h-xcf6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-9675</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">undici WebSocket client vulnerable to denial of service via cumulative fragment bypass</div>
-            <div class="card-body">## Impact
-
-The undici WebSocket client enforces `maxPayloadSize` per-frame but does not enforce the cumulative size of fragmented uncompressed messages. A malicious WebSocket server can stream many small fragments that each pass per-frame validation but collectively exceed the configured limit, causing unbounded memory growth in the client process....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-38rv-x7px-6hhq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-p6gq-j5cr-w38f</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">Nodemailer: Message-level raw option bypasses disableFileAccess/disableUrlAccess, enabling arbitrary file read and full-response SSRF in the delivered message</div>
-            <div class="card-body"># Message-level `raw` option bypasses `disableFileAccess` / `disableUrlAccess`, enabling arbitrary file read and full-response SSRF in the sent message
-
-- **Target:** nodemailer/nodemailer, npm `nodemailer` **v9.0.0** (HEAD `4e58450eb490e5097a74b2b2cce35a8d9e21856e`)
-- **Verdict:** CONFIRMED (local PoC, no network)
-
-## Summary
-
-Nodemailer exposes `...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-p6gq-j5cr-w38f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47103</span>
+                <span class="cve-id">GHSA-hxpf-9xvq-wph8</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
+                    CRITICAL 9.6
                 </span>
             </div>
-            <div class="card-title">python-statemachine SCXML <data expr> Eval Injection</div>
-            <div class="card-body">### Summary
+            <div class="card-title">netlicensing-mcp: REST Path Traversal Bypasses Token Redaction</div>
+            <div class="card-body">## REST Path Traversal Bypasses Token Redaction in netlicensing-mcp
 
-python-statemachine 3.1.2 evaluates `<data expr="...">` attributes in SCXML documents using Python's `eval()`. Any application that passes attacker-controlled SCXML content to `SCXMLProcessor` is vulnerable to arbitrary code execution in the context of the hosting process.
+### Summary
 
-### Details
-
-`SCXMLProcessor.parse_scxml_file()` processes SCX...</div>
+The `netlicensing_get_product` MCP tool in `netlicensing-mcp` interpolates a caller-controlled `product_number` argument directly into a REST URL path without any validation. Passing `../token` as the product number causes `httpx` to normalize `/product/../token` into...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-v4jc-pm6r-3vj8" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-hxpf-9xvq-wph8" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-cmwh-pvxp-8882</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">DOMPurify: Permanent `ALLOWED_ATTR` pollution via `setConfig()` bypassing the hook clone-guard (incomplete fix of the 3.4.7 hook-pollution patch)</div>
-            <div class="card-body">## Summary
-
-DOMPurify 3.4.7 shipped a security fix ("permanent hook pollution") that makes a registered `uponSanitizeAttribute` hook's mutation of `data.allowedAttributes` **non-persistent** — so allowing an attribute for one element does not leak into later `sanitize()` calls. The fix clones `ALLOWED_ATTR` inside `_parseConfig`.
-
-That guard is **s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-cmwh-pvxp-8882" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-cwj8-7gp2-ggcw</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">praisonai-platform: default JWT signing secret 'dev-secret-change-me' enables token forgery</div>
-            <div class="card-body"># praisonai-platform: default JWT signing secret `dev-secret-change-me`
-
-**Researcher:** Kai Aizen — SnailSploit (@SnailSploit), Adversarial & Offensive Security Research
-**Target:** https://github.com/MervinPraison/PraisonAI
-
----
-
-**Package:** `praisonai-platform` on PyPI
-**Latest version (and version tested):** `0.1.4`, current as of 2026-06-01.
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-cwj8-7gp2-ggcw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-6jcq-6546-qrrw</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">PraisonAI SandlockSandbox falls back to unrestricted subprocess execution when Landlock is unavailable</div>
-            <div class="card-body">## Summary
-
-`praisonai.sandbox.SandlockSandbox` is documented and implemented as the kernel-enforced sandbox backend for untrusted code. Its `SandboxConfig.native()` path lets callers configure allowed filesystem paths and `network=False`.
-
-On systems where the optional `sandlock` module imports but reports that Landlock is unavailable, `SandlockSa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-6jcq-6546-qrrw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8ccj-p46r-jwqq</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: PRAISONAI_CALL_AUTH=disabled environment variable unconditionally disables authentication</div>
-            <div class="card-body">### Summary
-Setting `PRAISONAI_CALL_AUTH=disabled` completely disables all authentication on the `/api/v1/agents/{id}/invoke` endpoint. This bypass is advertised in the application's own error messages, making it likely to appear in production Docker and Compose configurations.
-
-### Details
-
-```python
-# src/praisonai/praisonai/api/agent_invoke.py:3...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-8ccj-p46r-jwqq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-4pcv-mg8v-vrgf</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: Server-Side Request Forgery (SSRF) in SearxNG / search_web tools via attacker-controlled searxng_url parameter</div>
-            <div class="card-body">### Summary
-A Server-Side Request Forgery (SSRF) vulnerability in the SearxNG / `search_web` search tools allows an attacker to make the server perform requests to arbitrary internal endpoints and read the responses back. The `searxng_url` argument is passed directly to `requests.get()` with no validation of scheme, host, or port. Because `searxng_...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-4pcv-mg8v-vrgf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f38v-77qj-h4jq</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">praisonai-platform 0.1.4 still boots on the hardcoded JWT secret dev-secret-change-me (default-open production guard)</div>
-            <div class="card-body">- Affected: praisonai-platform (PyPI) <= 0.1.4 — including 0.1.4, the version GHSA-3qg8-5g3r-79v5 declares as the patch; main HEAD 8acf77c531e624c46d3d61dcae37e9942e90972c is also affected. File src/praisonai-platform/praisonai_platform/services/auth_service.py
-
-- CWE: CWE-1188 (Insecure Default Initialization) + CWE-798 (Use of Hard-coded Credenti...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-f38v-77qj-h4jq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-29w3-p9w9-wc47</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: Arbitrary File Read/Write via `multiedit` Tool Without Path Validation</div>
-            <div class="card-body">## Summary
-
-The `multiedit` tool in `src/praisonai/praisonai/tools/multiedit.py` allows LLM-controlled arbitrary file read and write without any path validation, workspace boundary check, or protected path guard. This enables an attacker who can influence agent tool arguments (via crafted prompts, user input in chat bots, or malicious YAML workflow...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-29w3-p9w9-wc47" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-jxcw-qp4h-6jfq</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">PraisonAI A2U incomplete authentication fix leaves current serve command unauthenticated by default</div>
-            <div class="card-body">## Summary
-
-The published A2U advisory `GHSA-f292-66h9-fpmf` says unauthenticated A2U event streaming was fixed in `praisonai` `4.5.115`. Current head still exposes the same A2U subscription and event routes without authentication when the operator starts the documented CLI entrypoint:
-
-```text
-praisonai serve a2u --host 0.0.0.0 --port 8002
-```
-
-Th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-jxcw-qp4h-6jfq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7qw2-w5rc-37x2</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">PraisonAI recipe workflow policy can be bypassed by declaring and YAML-approving dangerous tools outside TEMPLATE.yaml</div>
-            <div class="card-body">## Summary
-
-PraisonAI recipe execution has a dangerous-tool policy that is supposed to block default-denied tools unless the caller explicitly passes `allow_dangerous_tools=True`. That policy only checks tools declared in `TEMPLATE.yaml` `requires.tools`.
-
-For steps-based recipes, the actual execution path loads `workflow.yaml` with `YAMLWorkflowPa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-7qw2-w5rc-37x2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-5jv7-2mjm-h6qj</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI utility shell safe-command wrapper allowlist bypass via shell chaining</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` ships `dist/tools/utility-tools.js`, which exports a `shell(command)` helper described in source as:
-
-```text
-Execute shell command (safe version - read-only commands)
-```
-
-The helper attempts to enforce a safe read-only command allowlist by checking only the first whitespace-delimited token:
-
-```ts...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-5jv7-2mjm-h6qj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-h2w2-v7j6-xqm4</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI AgentLoop onToolCall approval runs after tool execution</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` exports `createAgentLoop()`, whose `onToolCall` callback is documented and exampled as an approval hook. The implementation calls PraisonAI's `generateText()` wrapper with the caller's executable tools first, receives `toolResults`, and only then calls `onToolCall()`.
-
-Because AI SDK `generateText()...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-h2w2-v7j6-xqm4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-j4f3-55x4-r6q2</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI MCPServer exposes unauthenticated HTTP tools/call</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` exports a TypeScript `MCPServer` that can expose tools, resources, and prompts over an HTTP JSON-RPC transport with:
-
-```ts
-await server.start({ port: 3000 });
-```
-
-The HTTP transport has no authentication or authorization path. `MCPServerConfig` does not expose an auth/security setting, `startHttp(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-j4f3-55x4-r6q2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-9752-mhqh-h34f</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.4
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI AgentOS exposes unauthenticated agent listing and invocation</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` ships a TypeScript `AgentOS` HTTP server that defaults to `host: "0.0.0.0"` and registers sensitive agent routes without any authentication or authorization middleware.
-
-When a developer starts `AgentOS`, a network attacker who can reach the service can:
-
-- read configured agent names, roles, and th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-9752-mhqh-h34f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-p69m-4f92-2v84</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: Remote Code Execution via Sandbox Escape in `codeMode` Tool</div>
-            <div class="card-body">## Summary
-
-The `codeMode` tool in `src/praisonai-ts/src/tools/builtins/code-mode.ts` uses `new Function()` with a `with(sandbox)` pattern to execute LLM-generated code. The blocklist-based "sandbox" can be trivially bypassed via `Function('return this')()` to recover the global object, followed by `global.require()` with string concatenation to ev...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-p69m-4f92-2v84" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-vjv9-7m7j-h833</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI SandboxExecutor allowedCommands bypass via shell chaining</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` exports `SandboxExecutor`, `CommandValidator`, and `sandboxExec` as "safe command execution with restrictions." When `allowedCommands` is configured, `CommandValidator` checks only the first whitespace-delimited token of the command string. `SandboxExecutor` then passes the entire original string to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-vjv9-7m7j-h833" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-vmmj-pfw7-fjwp</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI codeMode sandbox escape via Function constructor</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` exports a TypeScript built-in tool named `codeMode`. The package describes this tool as executing code in a sandboxed environment, marks its capability as `sandbox: true`, and registers it through the public tools facade.
-
-The implementation does not create an isolation boundary. It applies a small ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-vmmj-pfw7-fjwp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-gqmf-56h7-rrpf</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.6
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI SandboxExecutor network-isolated mode does not block non-proxy-aware network clients</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` exports a TypeScript `SandboxExecutor` with a `network-isolated` mode. The CLI lists that mode as:
-
-```text
-network-isolated  No network access (proxy blocked)
-```
-
-The implementation does not create a network namespace, firewall rule, socket filter, or proxy-enforced execution boundary. It only inj...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-gqmf-56h7-rrpf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-4qq2-2j2x-x62c</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">npm PraisonAI MCPSecurity Basic/OAuth authentication policies accept invalid credentials without validation</div>
-            <div class="card-body">## Summary
-
-The published npm package `praisonai` exports an `MCPSecurity` helper described in source as:
-
-```text
-MCP Security - Authentication, authorization, and rate limiting
-Provides security policies for MCP servers.
-```
-
-Its `AuthMethod` type advertises five authentication methods:
-
-```ts
-export type AuthMethod = 'none' | 'api-key' | 'bearer...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-4qq2-2j2x-x62c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-c969-5x3p-vq3v</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: IMAP Command Injection via Unsanitized Email Search Parameters</div>
-            <div class="card-body">## Summary
-
-The email search tool in `src/praisonai-agents/praisonaiagents/tools/email_tools.py` constructs IMAP SEARCH commands by interpolating LLM-controlled parameters (from_addr, subject, query) directly into IMAP protocol strings using f-string formatting with double-quote delimiters. An attacker who can influence the arguments to the `search...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-c969-5x3p-vq3v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f44v-7qgw-9gh9</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">PraisonAI GitHub template cache path traversal allows outside-cache file write and directory deletion</div>
-            <div class="card-body">## Summary
-
-PraisonAI's template loader accepts GitHub template URIs with refs, for example
-`github:owner/repo/template@v1.0.0`. The resolver stores the user-controlled
-template path and ref verbatim, and the cache layer later joins those values into
-`~/.praison/cache/templates/github/<owner>/<repo>/<template>/<ref>` without
-normalizing each segmen...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-f44v-7qgw-9gh9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-4jgr-pg2m-m988</span>
+                <span class="cve-id">GHSA-fq4x-789w-jg5h</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">Heimdall: Forwarded Header Injection via Unsanitized Host Header in Proxy Mode</div>
-            <div class="card-body">### Summary
-
-When Heimdall operates in proxy mode, it constructs the `Forwarded` HTTP header after executing the matched rule pipeline by inserting the incoming request's `Host` header value directly into the header string without sanitizing commas or semicolons. This allows an attacker to inject additional parameters into the `Forwarded` header, p...</div>
+            <div class="card-title">AgenticMail: Unauthenticated inbound mail triggers bypassPermissions resume of the operator's Claude Code session (bridge-wake)</div>
+            <div class="card-body">## Summary
+Two inbound-mail handlers act on a privileged effect without verifying that the sender is the operator, while a sibling handler in the same repo does. The higher-impact one: any external email routed to the bridge inbox causes the dispatcher to resume the operator's Claude Code session with `permissionMode: 'bypassPermissions'`, embeddin...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-4jgr-pg2m-m988" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-fq4x-789w-jg5h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-hjwc-26pj-v3pm</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">AgenticMail: Cross-agent task authorization bypass in AgenticMail API</div>
+            <div class="card-body">## Summary
+
+A low-privileged authenticated AgenticMail agent can enumerate another agent's pending/claimed tasks by supplying the target agent name to `GET /api/agenticmail/tasks/pending?assignee=<name>`. The returned task objects include the task IDs and payloads. The same task IDs can then be used with the capability-style task mutation endpoints...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-hjwc-26pj-v3pm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54683</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">NL Portal Backend Libraries: Document contents remained downloadable by any logged-in user (incomplete fix of CVE-2026-49463)</div>
+            <div class="card-body">## Summary
+
+A previous advisory (CVE-2026-49463 / GHSA-qpm9-h556-mwxm) reported that any logged-in user could download any document by its identifier, and stated this was fixed in 3.0.1. For the document-content part that fix was **incomplete**: documents remained downloadable by any authenticated user in 3.0.1 and 3.0.2, and the issue was only ful...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-jr45-52cw-69h5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54319</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">Daytona: Path traversal in sandbox volume id mounts arbitrary host paths into the sandbox — cross-tenant data access and host escape</div>
+            <div class="card-body">## Summary
+A sandbox volume reference (`volumeId`, which may also be a volume name) was forwarded to the
+runner and used to build the host bind-mount source path without confinement. A reference
+containing path-traversal sequences could in principle resolve the mount source outside the
+intended per-volume base directory.
+
+## Impact
+Had the traversa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-fjv8-j4p5-cr9m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55170</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">OpenFGA Improper Policy Enforcement</div>
+            <div class="card-body">## Description
+
+In OpenFGA, when MySQL is being used as the datastore, two distinct check requests can return the same response.
+
+## Preconditions
+
+This applies if the following preconditions are met:
+
+1. You run OpenFGA with MySQL as the datastore
+2. Your authorization decisions rely on case-sensitive user strings.
+
+## Fix
+Upgrade to OpenFGA 1.18....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-cf98-j28v-49v6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55093</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">tract-nnef: integer overflow in NNEF `.dat` tensor parser yields an out-of-bounds read on model load</div>
+            <div class="card-body">- **Component:** `tract-nnef` (`nnef/src/tensors.rs::read_tensor`) + `tract-data` (`data/src/tensor.rs`)
+- **Affected versions:** `< 0.21.16`, `0.22.0`–`0.22.2`, `0.23.0`–`0.23.1` — the dense `DatLoader` path was unguarded across all three release lines; patched in 0.21.16 / 0.22.2 / 0.23.1
+- **Class:** CWE-190 (integer overflow) → CWE-125 (out-of-...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-x5mv-8wgw-29hg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54711</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">PGHoard: Password written to debug log</div>
+            <div class="card-body">### Impact
+When using .pgpass, database connection information including the username and password will be logged at the debug level.
+
+### Patches
+Upgrade to version 2.7.1 or greater.
+
+### Workarounds
+Filter out debug-level logs.
+
+### References
+This issue was discovered by BugCrowd user DRAKOKORIAN....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-mpx4-jmpr-vm8v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54695</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Pipecat: Telephony WebSocket `/ws` Unauthenticated Call-Control Abuse via Attacker-Supplied Call SID</div>
+            <div class="card-body">## Development Runner Telephony WebSocket `/ws` Unauthenticated Call-Control Abuse via Attacker-Supplied Call SID
+
+### Summary
+
+The pipecat development runner registers a `/ws` WebSocket endpoint for telephony testing that accepts connections without any authentication. An unauthenticated remote attacker who can reach an exposed runner endpoint can...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-j8cv-x86q-rj85" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55701</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">opentelemetry-collector-contrib: githubreceiver silently ignores configured required_headers authentication</div>
+            <div class="card-body">## githubreceiver Silently Ignores Configured required_headers Authentication
+
+### Summary
+
+The githubreceiver webhook handler does not enforce the `required_headers` configuration. Headers are validated at startup (config rejects empty keys/values) but never checked on incoming requests. This follows the same pattern as [GHSA-prf6-xjxh-p698](https...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-w5cv-pw74-4rxc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54005</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Kirby: `pages.access` permission is not checked in the `site/find` REST API route</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects all Kirby sites where users of a particular role have no permission to access pages (`pages.access` permission is disabled). This can be due to configuration in the user blueprint(s), `options` in the model blueprint(s), or a combination of both settings.
+
+It was possible to retrieve page information (including...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-r3w8-2c5r-h9j9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54004</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Kirby: Access to files of top-level drafts is not protected by permissions</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects Kirby 5 sites that have the `content.fileRedirects` option enabled (set to `true` or a custom closure) as well as all Kirby 4 sites that haven't explicitly disabled this option.
+
+It was possible to access clean file URLs of top-level drafts (e.g. `/about-us/team.jpg`) without providing authentication, without b...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-89cp-7p28-jffg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54003</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Kirby: External Initialization of the Panel on reverse proxy setups with the `Forwarded` header</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects Kirby sites that have no configured user accounts and are running on publicly accessible servers behind a reverse proxy that sets the `Forwarded: for=...`, `X-Client-IP`, or `X-Real-IP` request header.
+
+It was possible to install the Panel (= create the first admin user) in these setups even from remote IP addr...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-whxw-24jc-cwmv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54002</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Kirby: Cross-site scripting (XSS) from incomplete HTML/XML sanitization in `Dom::sanitize()`</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects Kirby sites and plugins that use the `writer` or `list` fields or that use `$dom->sanitize()`, `Sane::sanitize()`, `Sane\Html::sanitize()`, `Sane\Svg::sanitize()`, `Sane\Xml::sanitize()`,  `Sane::sanitizeFile()` or `$file->sanitizeContents()` with untrusted input.
+
+It was possible to inject malicious markup as ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-wr9h-4r83-f4v6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50188</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Kirby: Request header injection in `Http\Remote`</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects Kirby sites and plugins that use the `Kirby\Http\Remote` class (including `Remote::request()`, `Remote::get()`, `Remote::post()`, and similar helpers) to send outgoing HTTP requests and that pass untrusted, user-controlled data into the `headers` option of such a request.
+
+By including newline characters in the...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-4v4h-m2qq-ppgw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-49276</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Kirby: Self cross-site scripting (self-XSS) in the writer field</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects Kirby sites that use the writer field in any blueprint.
+
+It was possible to include a scripting link as the target of a link (or email link). This link target would then be clickable by the user who entered it.
+
+A successful attack commonly requires knowledge of the content structure by the attacker as well as ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-rhj6-r49h-5932" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-49274</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Kirby: `pages.access` permission is not checked in the pages picker for parent pages</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects all Kirby sites that use the `pages` field and where users of a particular role have no permission to access pages (`pages.access` permission is disabled). This can be due to configuration in the user blueprint(s), `options` in the model blueprint(s), or a combination of both settings.
+
+It was possible to confi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-23q2-54qv-rq5x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47256</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">opentelemetry-collector-contrib sentryexporter: Path traversal in Sentry exporter via attacker-controlled service.name reaches privileged Sentry API endpoints with operator bearer token</div>
+            <div class="card-body">Summary               
+         
+  The Sentry exporter constructs Sentry API URLs by interpolating the span's service.name resource attribute into the URL path without validation. Because
+  service.name is controlled by remote OTLP senders and the operator-configured bearer token is attached to every request, a crafted service name can reach
+  arbi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-4jvg-4jfx-fmhc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44727</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Jupyter Server: Stored XSS in `NbconvertFileHandler` / `NbconvertPostHandler` via missing `sandbox` CSP </div>
+            <div class="card-body">The nbconvert HTTP handlers in jupyter_server render user-authored notebook HTML under the Jupyter origin without a sandbox directive in their `Content-Security-Policy`. 
+
+Combined with `nbconvert.HTMLExporter`'s default non-sanitizing behavior, a notebook carrying an HTML payload in a display_data output triggers stored XSS with cookie access, ful...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-fcw5-x6j4-ccmp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-12567</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.2
+                </span>
+            </div>
+            <div class="card-title">BBOT: Symlink-Following Arbitrary Write via github_workflows Module</div>
+            <div class="card-body">The `github_workflows` module constructs local directory paths from user-controlled repository names without validating for symlinks. A local attacker sharing the scan directory can plant a symlink at the predictable output path, causing workflow data to be written to an attacker-chosen location....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-rvp7-w75q-9fv2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-12568</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">BBOT: Arbitrary File Write in postman_download Module</div>
+            <div class="card-body">The `postman_download` module uses the workspace `name` field from the Postman API to construct the local directory path without sanitization. If a malicious workspace has a name containing path traversal characters, pathlib resolves the path outside the intended output directory, allowing an attacker to write arbitrary files to the user's system....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-m54h-vhf9-3w3m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-12566</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
+                </span>
+            </div>
+            <div class="card-title">BBOT: Server-Side Request Forgery (SSRF) in docker_pull module via WWW-Authenticate realm parsing</div>
+            <div class="card-body">The `docker_pull` module uses the `realm` parameter from a Docker registry's `WWW-Authenticate` response header as the authentication endpoint without validation. An attacker in a man-in-the-middle position between bbot and a Docker registry could modify this header to redirect the authentication request to an arbitrary endpoint, potentially leakin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-3mp7-vp6j-2mxx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-12565</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">BBOT: Path traversal (Zip-Slip) in unarchive module - incomplete fix for CVE-2025-10284</div>
+            <div class="card-body">The `unarchive` internal module's archive extraction commands perform no code-level validation on extracted file paths, relying entirely on the behavior of external tools (e.g. GNU tar) which varies by platform. While CVE-2025-10284 addressed git-specific RCE vectors, the underlying archive extraction path traversal was never fixed. On systems with...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-3vgw-585j-4m45" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53861</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.6
+                </span>
+            </div>
+            <div class="card-title">OpenClaw: macOS Swift exec allowlist missed combined POSIX inline flags</div>
+            <div class="card-body">### Summary
+
+macOS Swift exec allowlist missed combined POSIX inline flags. In affected versions, a command request using combined POSIX inline-command flags could miss inline-command content expressed through combined flags.
+
+This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: authe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-18</span>
+                <a href="https://github.com/advisories/GHSA-c226-q6fx-6j6c" target="_blank">Full Report →</a>
             </div>
         </div>
         
