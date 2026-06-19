@@ -68,10 +68,270 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-19 10:06 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-19 14:35 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-11525</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to Set-Cookie SameSite attribute downgrade via permissive substring matching</div>
+            <div class="card-body">## Impact
+
+When undici parses a `Set-Cookie` header, it accepts any `SameSite` attribute value that contains `Strict`, `Lax`, or `None` as a substring, rather than the case-insensitive exact match specified by RFC 6265. Non-spec values are silently mapped to one of the three standard tokens:
+
+- `SameSite=NoneOfYourBusiness` is parsed as `None`, the...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-g8m3-5g58-fq7m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-12151</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">undici WebSocket client vulnerable to denial of service via fragment count bypass</div>
+            <div class="card-body">## Impact
+
+The undici WebSocket client enforces `maxPayloadSize` on the cumulative byte count of fragments in a message but does not enforce a limit on the number of fragments. A malicious WebSocket server can stream many small or empty continuation frames that each pass per-frame and cumulative-size validation, collectively causing unbounded memor...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-vxpw-j846-p89q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-9679</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to HTTP header injection via Set-Cookie percent-decoding</div>
+            <div class="card-body">## Impact
+
+undici's cookie parser in `parseSetCookie` percent-decodes cookie values via `qsUnescape`, turning encoded sequences like `%0D%0A`, `%00`, `%3B`, and `%3D` into their literal byte equivalents. RFC 6265 §5.4 does not specify any decoding and browsers do not decode either.
+
+Applications that parse a `Set-Cookie` header and then forward the...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-p88m-4jfj-68fv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-6734</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to cross-origin request routing via SOCKS5 proxy pool reuse</div>
+            <div class="card-body">## Impact
+
+When using `Socks5ProxyAgent`, undici reuses a single connection pool across different origins without verifying that the pool's origin matches the requested origin. All requests are dispatched through the pool connected to the first origin, regardless of the intended destination.
+
+This causes cross-origin request routing: credentials an...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-hm92-r4w5-c3mj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-6733</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to HTTP response queue poisoning via keep-alive socket reuse</div>
+            <div class="card-body">## Impact
+
+Undici's HTTP/1.1 client is vulnerable to response queue poisoning on reused keep-alive sockets. An attacker-controlled upstream server can inject an unsolicited HTTP/1.1 response onto an idle socket after a request completes. When the client dispatches the next request on that socket, it associates the injected response with the new req...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-35p6-xmwp-9g52" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55568</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">guzzlehttp/guzzle: Silent HTTPS-Proxy Downgrade to Cleartext</div>
+            <div class="card-body">### Impact
+
+The built-in cURL handlers (`GuzzleHttp\Handler\CurlHandler` and `GuzzleHttp\Handler\CurlMultiHandler`, used by default whenever the PHP cURL extension is available) accept an `https://` proxy — a proxy reached over a TLS-encrypted connection — through the `proxy` request option, client-level `proxy` defaults, or proxy environment varia...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-wpwq-4j6v-78m3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55414</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">NL Portal Backend Libraries: Unauthenticated form resolver forwards the privileged Objecten-API token to a caller-supplied URL (SSRF)</div>
+            <div class="card-body">## Summary
+
+The public GraphQL resolvers `getFormDefinitionByObjectenApiUrl(url)` and the deprecated `getFormDefinitionById(id)` fetch a caller-supplied URL using the **privileged Objecten-API token**. Because the `/graphql` endpoint is `permitAll()` and these resolvers do not declare a `CommonGroundAuthentication` parameter, an **unauthenticated**...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-xm3x-9cfw-jhx4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55375</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">canto-saas-api: OAuth credentials exposed in URL query string and exception messages</div>
+            <div class="card-body">## Summary
+
+  In affected versions, the OAuth2 token request sends `app_id`, `app_secret`,
+  `refresh_token` and `code` as URL query parameters of the POST request to
+  `https://oauth.<domain>/oauth/api/oauth2/token`. Request URLs are commonly
+  recorded in access logs, proxy logs and APM traces, so the application secret
+  and refresh token can be...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-37pm-83g7-r22v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55374</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">canto-saas-api: Authenticated API requests can be redirected via unencoded path variables</div>
+            <div class="card-body">## Summary
+
+  In affected versions, `Request::buildRequestUrl()` inserts path variables into
+  the request URL without URL encoding (`implode('/', $pathVariables)`). All
+  request classes implementing `getPathVariables()` are affected, e.g.
+  `GetContentDetailsRequest` (`scheme`, `contentId`).
+
+  If a consuming application passes untrusted input (s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-9qfv-wgh2-m6p8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55884</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Tilt: Missing authentication on the network-exposed Tilt HUD server</div>
+            <div class="card-body">## Summary
+The Tilt HUD HTTP server exposes state-changing and sensitive-read endpoints with no authentication. When the HUD is bound to a non-loopback address, a network attacker can trigger the developer's pre-defined Tiltfile resources, tamper with Tiltfile arguments, read full engine state including the session token, and reach the Tilt apiserv...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-c73q-8xxr-rgqm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55883</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Tilt: Cross-site WebSocket hijacking of the Tilt HUD stream</div>
+            <div class="card-body">## Summary
+The Tilt HUD WebSocket (`/ws/view`) is gated by a CSRF token, but the token is served by an unauthenticated endpoint and the upgrader accepts any client that omits an `Origin` header. When the HUD is network-exposed, an attacker can open the HUD stream and read the developer's session state.
+
+## Details
+The upgrader accepts a connection ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-6m68-r693-78qx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55882</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Tilt: Unauthenticated pprof debug endpoints on the Tilt HUD server</div>
+            <div class="card-body">## Summary
+The Tilt HUD server mounts Go's `net/http/pprof` handlers under `/debug` with no access control. When the HUD is network-exposed, an attacker can read process memory — including session and apiserver tokens — and hold the process under profiling.
+
+## Details
+A blank import of `net/http/pprof` registers its handlers on `http.DefaultServeM...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-p749-9w62-w533" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54051</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Network-AI: Improper Neutralization of Special Elements used in an OS Command </div>
+            <div class="card-body">## Summary
+
+The agent sandbox gates shell commands behind an allowlist (`SandboxPolicy.isCommandAllowed`), which THREAT_MODEL.md calls the main control against a compromised agent (Adversary 3.2). The allowlist glob-matches the whole command string, but `ShellExecutor` runs that string through `/bin/sh -c`. So any wildcard allow such as `git *`, `n...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-qw6v-5fcf-5666" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48814</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Network-AI: CVE-2026-46701 fix incomplete — empty default secret still authorizes all requests</div>
+            <div class="card-body">## Advisory / Disclosure
+
+# Network-AI — CVE-2026-46701 fix is incomplete: the "Empty Default Secret" unauth path survives
+
+**Target:** Jovancoding/Network-AI (npm `network-ai`), **latest v5.7.1**
+**Status:** the advisory ("Unauthenticated Cross-Origin MCP Tool Invocation via Empty
+Default Secret") named three flaws. The fix (5.4.5) closed the **CO...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-19</span>
+                <a href="https://github.com/advisories/GHSA-r78r-rwrf-rjwp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-55591</span>
@@ -362,268 +622,6 @@ This meant an operator could configure an allowlis...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-18</span>
                 <a href="https://github.com/advisories/GHSA-v2ww-5rh7-2h5v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53860</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 4.2
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: BlueBubbles sender policy could match mutable conversation identifiers</div>
-            <div class="card-body">### Summary
-
-BlueBubbles sender policy could match mutable conversation identifiers. In affected versions, a participant able to influence conversation-level identifiers could match an allowlist entry through conversation metadata rather than a stable sender identity.
-
-This advisory is scoped to the named feature and configuration. It does not chan...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-8j37-5w68-wj2g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53844</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: memory-wiki shared search could miss session visibility checks</div>
-            <div class="card-body">### Summary
-
-memory-wiki shared search could miss session visibility checks. In affected versions, a caller able to search shared memory could skip the session visibility guard on the affected search path.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: authenticated Gateway ope...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-72fw-cqh5-f324" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53856</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.5
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Config recovery could restore openclaw.json with broad file permissions</div>
-            <div class="card-body">### Summary
-
-Config recovery could restore openclaw.json with broad file permissions. In affected versions, a local recovery path after configuration repair could leave the restored config file more readable than intended.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: authenti...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-rwp6-7w3q-75fq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53857</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Zalo allowFrom could bind to mutable display names</div>
-            <div class="card-body">### Summary
-
-Zalo allowFrom could bind to mutable display names. In affected versions, a Zalo friend or contact with mutable display metadata could match a policy entry through mutable display metadata.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: authenticated Gateway operat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-8c59-hr4w-qg69" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53845</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 4.3
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Skill-command dispatch could skip before-tool-call hooks</div>
-            <div class="card-body">### Summary
-
-Skill-command dispatch could skip before-tool-call hooks. In affected versions, a skill command routed through the affected dispatch path could run without the same `runBeforeToolCallHook` coverage as other tool entry points.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-68xw-r643-9p5w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53847</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Active Memory write scope could mutate global config</div>
-            <div class="card-body">### Summary
-
-Active Memory write scope could mutate global config. In affected versions, a Gateway caller with `operator.write` access to the affected command could change global configuration without requiring `operator.admin`.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: au...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-x629-46cc-7xgw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53841</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Exported session HTML could keep unsafe markdown links</div>
-            <div class="card-body">### Summary
-
-Exported session HTML could keep unsafe markdown links. In affected versions, content rendered into an exported session could preserve unsafe `javascript:` or `data:` links in generated HTML.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: authenticated Gateway oper...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-w9hf-3pp7-pvxv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53851</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Slack reaction events could ignore reaction notification settings</div>
-            <div class="card-body">### Summary
-
-Slack reaction events could ignore reaction notification settings. In affected versions, a Slack reaction event delivered to the configured app could enter the agent pipeline even when reaction notifications were disabled.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator mo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-fcvx-5cxc-v5p8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53862</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 4.2
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Bootstrap token replay could widen pending pairing scopes</div>
-            <div class="card-body">### Summary
-
-Bootstrap token replay could widen pending pairing scopes. In affected versions, a caller with access to a pending bootstrap token could reuse the token before approval with a broader requested scope set.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: authenticated...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-9v8j-9c9g-w66c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53855</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Shell positional parameters could weaken strict inline-eval checks</div>
-            <div class="card-body">### Summary
-
-Shell positional parameters could weaken strict inline-eval checks. In affected versions, a command request that combines allowlisted tools with shell positional arguments could place inline-eval content in a shell carrier not covered by the strict check.
-
-This advisory is scoped to the named feature and configuration. It does not chan...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-5cj2-3jr2-5h77" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53859</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Hostname checks could treat trailing-dot hosts inconsistently</div>
-            <div class="card-body">### Summary
-
-Hostname checks could treat trailing-dot hosts inconsistently. In affected versions, a request path that accepts model- or workspace-derived URLs could present the same hostname with a trailing dot and avoid a blocklist comparison.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-op...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-gxg4-2rrr-jhc7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53848</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 4.3
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Exec allowlist could miss side effects from transparent command wrappers</div>
-            <div class="card-body">### Summary
-
-Exec allowlist could miss side effects from transparent command wrappers. In affected versions, a command request that reaches the exec allowlist path could be evaluated against the inner command while the wrapper invocation still executed.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-cwpp-5962-q4f6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-wm69-2pc3-rmmf</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">Crawl4AI: Unauthenticated SSRF on the Docker server streaming crawl path (/crawl/stream)</div>
-            <div class="card-body">### Summary
-
-The Docker API server applied its SSRF destination check (`validate_url_destination`) on the non-streaming `/crawl` path but not on the streaming path. `handle_stream_crawl_request` passed seed URLs straight to the crawler with no destination validation. A remote, unauthenticated client could call `POST /crawl/stream` (or `POST /crawl`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-wm69-2pc3-rmmf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-r253-r9jw-qg44</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">Crawl4AI: Unauthenticated RCE via Chromium launch-argument injection in browser_config.extra_args</div>
-            <div class="card-body">### Summary
-
-The Docker API server accepted a request-supplied `browser_config.extra_args`, which flowed into Chromium's launch arguments. An attacker could inject Chromium switches that replace a child-process launch command (`--utility-cmd-prefix`, `--renderer-cmd-prefix`, `--gpu-launcher`, `--browser-subprocess-path`) together with `--no-zygote`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-18</span>
-                <a href="https://github.com/advisories/GHSA-r253-r9jw-qg44" target="_blank">Full Report →</a>
             </div>
         </div>
         
