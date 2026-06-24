@@ -68,10 +68,99 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-24 13:58 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-24 19:22 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53541</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">OliveTin has Unvalidated `ot_`-prefixed Arguments that Bypass Input Filtering</div>
+            <div class="card-body">### Description
+
+The `filterToDefinedArgumentsOnly` function in the executor is intended to discard any arguments not explicitly defined in the action's configuration. However, a special case allows any argument whose name starts with `ot_` to bypass this filter. While two system arguments (`ot_executionTrackingId` and `ot_username`) are injected b...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-24</span>
+                <a href="https://github.com/advisories/GHSA-prj9-97mp-mwh2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48709</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">OliveTin: ValidateArgumentType API Endpoint's Missing Authentication Allows Action and Argument Enumeration</div>
+            <div class="card-body">## Summary
+
+The `ValidateArgumentType` RPC endpoint in `service/internal/api/api.go` does not perform any authentication or authorization checks. Unlike all other data-returning API endpoints, it does not call `auth.UserFromApiCall` or `checkDashboardAccess`. When `AuthRequireGuestsToLogin` is enabled (the security-conscious configuration), this en...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-24</span>
+                <a href="https://github.com/advisories/GHSA-f637-w7p2-m7fx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48708</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">OliveTin has a Concurrent Template Parsing Race Condition which Leads to Cross-Request Command Contamination</div>
+            <div class="card-body">## Summary
+
+OliveTin's template engine uses a **single shared `text/template.Template` instance** (`tpl` package-level variable in `service/internal/tpl/templates.go`) across all goroutines. Every action execution calls `tpl.Parse(source)` followed by `t.Execute()` on this shared instance with no synchronization. When two or more actions execute co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-24</span>
+                <a href="https://github.com/advisories/GHSA-7fq5-7wr8-rjwj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45052</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">OpenAM Pre-auth User Profile Tampering via Anonymous SOAP Authn in Liberty IDPP/Discovery Endpoints</div>
+            <div class="card-body">## Summary
+
+**Description**
+
+An Improper Authorization (CWE-285) issue in OpenAM's Liberty Web Services SOAP receiver allows an unauthenticated remote attacker to write persistent entries into the Liberty Discovery store on any user's LDAP entry, and into a shared root-realm Discovery branch. This impacts OpenAM Community Edition through version 16...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-24</span>
+                <a href="https://github.com/advisories/GHSA-p462-xxwx-pqf4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45051</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">OpenAM: Pre-auth RCE via Java Deserialization in WebAuthn Authenticator Storage</div>
+            <div class="card-body">## Summary
+
+**Description**
+
+A deserialization of untrusted data vulnerability (CWE-502) exists in OpenAM's WebAuthn authentication module. Under certain conditions, this may allow an attacker to achieve arbitrary code execution in the context of the application server. This affects OpenAM Community Edition through version 16.0.6 and was patched in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-24</span>
+                <a href="https://github.com/advisories/GHSA-6c99-87fr-6q7r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-54329</span>
@@ -521,91 +610,6 @@ In `BeanDeserializerBase.createContextual()`, per-property `@JsonIgnorePropertie
             <div class="card-footer">
                 <span>Published: 2026-06-23</span>
                 <a href="https://github.com/advisories/GHSA-5jmj-h7xm-6q6v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54514</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">jackson-databind: InetSocketAddress deserialization triggers eager DNS resolution (SSRF)</div>
-            <div class="card-body">## Summary
-`JDKFromStringDeserializer` constructed `InetSocketAddress` with `new InetSocketAddress(host, port)`, which performs eager DNS name resolution for hostname inputs at deserialization time. An application that binds untrusted JSON into a type containing an `InetSocketAddress` field issues an attacker-chosen DNS query during `readValue`, be...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-hgj6-7826-r7m5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54513</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">jackson-databind has an array subtype allowlist bypass in BasicPolymorphicTypeValidator (allowIfSubTypeIsArray)</div>
-            <div class="card-body">## Summary
-`BasicPolymorphicTypeValidator.Builder.allowIfSubTypeIsArray()` allowlists any array type based only on `clazz.isArray()`, without validating the array's component (element) type against the configured allowlist. A PTV built with `allowIfSubTypeIsArray()` plus an explicit concrete-type allowlist therefore still permits `EvilType[]` even ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-rmj7-2vxq-3g9f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54512</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">jackson-databind has a PolymorphicTypeValidator bypass via generic type parameters that allows arbitrary class instantiation</div>
-            <div class="card-body">`jackson-databind`'s `PolymorphicTypeValidator` (PTV) is the primary safety mechanism guarding polymorphic deserialization. When polymorphic typing is enabled and a type identifier contains generic parameters (i.e. the type ID string contains `<`), `DatabindContext._resolveAndValidateGeneric()` validates **only the raw container class name** (the s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-j3rv-43j4-c7qm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50193</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">jackson-databind: Deeply nested JsonNode throws StackOverflowError for toString()</div>
-            <div class="card-body">### Impact
-
-Potential Denial-of-Service when attacker sends deeply nested JSON if (and only if) service:
-
-1. Reads deeply nested (1000s of levels) JSON as `JsonNode` (ObjectMapper.readTree())
-2. Writes out same (or modifided) node using `JsonNode.toString()`
-
-which can consume significant amount of resources with concurrent relatively small request...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-3wrr-7qpf-2prh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54518</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">jackson-databind has a @JsonView bypass for unwrapped creator parameters</div>
-            <div class="card-body">## Summary
-`UnwrappedPropertyHandler.processUnwrappedCreatorProperties()` replays buffered JSON into creator parameters but never consults `prop.visibleInView(activeView)`. The normal property-based creator path gates creator properties on the active view, but this unwrapped-creator replay path bypasses that check, so a constructor parameter annota...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-rcqc-6cw3-h962" target="_blank">Full Report →</a>
             </div>
         </div>
         
