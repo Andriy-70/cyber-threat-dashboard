@@ -68,10 +68,444 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-25 13:56 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-25 19:41 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48511</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 7.5
+                </span>
+            </div>
+            <div class="card-title">MessagePack-CSharp: ExpandoObject formatter can perform quadratic insertion work on untrusted maps</div>
+            <div class="card-body">## Summary
+
+`ExpandoObjectFormatter.Deserialize` populates `System.Dynamic.ExpandoObject` by calling `IDictionary<string, object>.Add` for each map entry. `ExpandoObject` internally maintains member names in array-like structures, so inserting many distinct keys can require repeated linear scans and array copies.
+
+For large attacker-controlled maps...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-2x83-8g95-xh59" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48510</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 7.5
+                </span>
+            </div>
+            <div class="card-title">MessagePack-CSharp: LZ4 decompression allocates from unbounded declared output lengths</div>
+            <div class="card-body">## Summary
+
+When MessagePack-CSharp decompresses `Lz4Block` or `Lz4BlockArray` payloads, it reads declared uncompressed lengths from the wire and allocates output buffers based on those lengths before validating that the compressed data is valid or that the declared expansion is reasonable.
+
+A small payload can claim a very large uncompressed lengt...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-v72x-2h86-7f8m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48509</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">MessagePack-CSharp: ASP.NET Core MessagePackInputFormatter defaults to TrustedData for HTTP request bodies</div>
+            <div class="card-body">## Summary
+
+The parameterless `MessagePackInputFormatter()` constructor uses default serializer options, which resolve to `MessagePackSerializerOptions.Standard` with `MessagePackSecurity.TrustedData`. The formatter is designed for ASP.NET Core MVC request bodies, which commonly cross an HTTP trust boundary.
+
+This insecure default can expose applic...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-2f33-pr97-265q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48508</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Lemur has an authorization bypass in StrictRolePermission / AuthorityCreatorPermission</div>
+            <div class="card-body">## Summary
+
+`StrictRolePermission` and `AuthorityCreatorPermission` in `lemur/auth/permissions.py` call `flask_principal.Permission.__init__()` with zero `Need`s when their config flags are unset. Both flags defaulted to `False` in code prior to the fix, so this was the state of any Lemur install that hadn't explicitly opted in.
+
+Flask-Principal's ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-qcqw-jwxc-2hqg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48506</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">MessagePack-CSharp: MessagePackReader.Skip can recurse without enforcing maximum object graph depth</div>
+            <div class="card-body">## Summary
+
+`MessagePackReader.TrySkip()` recursively descends into nested arrays and maps without incrementing the reader depth or calling the configured depth checks. This bypasses `MessagePackSecurity.MaximumObjectGraphDepth`, the library's documented protection against deeply nested object graphs.
+
+Many generated and dynamic formatters call `re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-vh6j-jc39-fggf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48505</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">Filament: Multi-factor authentication (app) recovery codes can still be used multiple times via concurrent submission</div>
+            <div class="card-body">A flaw in the handling of recovery codes for **app-based multi-factor authentication** allows the same recovery code to be reused via concurrent submission. This issue does **not** affect email-based MFA. It also only applies when recovery codes are enabled.
+
+If an attacker gains access to both the user's password and their recovery codes, they get...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-mc5j-f6wx-h9qh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48504</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">opentelemetry_sdk has unbounded memory allocation in W3C Baggage propagation</div>
+            <div class="card-body">## Summary
+
+`BaggagePropagator::extract_with_context` in `opentelemetry_sdk` did not enforce the W3C Baggage size limits before parsing an inbound `baggage` header. A large attacker-controlled header could cause unnecessary CPU work and short-lived heap allocations while parsing entries that would later be discarded by the SDK's baggage storage lim...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-w9wp-h8wv-79jx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48502</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">MessagePack-CSharp: Denial of service vulnerabilities can swamp the CPU or crash the process with stack and heap overflows</div>
+            <div class="card-body">## Summary
+
+`MessagePackReader.ReadDateTime()` can allocate stack memory based on an attacker-controlled MessagePack extension length. In the slow path for timestamp extension parsing, the computed `tokenSize` includes the extension body length from the wire and is used in a `stackalloc` operation before the extension length is validated as one of ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-382j-8mxh-c7x2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-9291</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">amazon-braket-sdk vulnerable to Insecure Deserialization via pickle.loads()</div>
+            <div class="card-body">**Summary**
+Amazon Braket SDK is an open-source Python library for interacting with the Amazon Braket quantum computing service, including managing hybrid quantum jobs and retrieving job results. An issue exists where, under certain circumstances, a remote authenticated user with S3 write access to a Braket job output bucket can achieve arbitrary c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-g697-2xrc-gc46" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48776</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">LangGraph SDK has unsafe URL path construction</div>
+            <div class="card-body">## Summary
+
+`langgraph-sdk` constructs HTTP request paths for resource operations by interpolating caller-supplied identifier values into URL templates. Without sanitization of those values, identifiers that contain characters with special meaning in URL paths could cause the resulting request to address a different resource (and potentially a diff...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-w39p-vh2g-g8g5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48775</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">LangGraph Checkpoint: Unsafe JSON deserialization in checkpoint loading</div>
+            <div class="card-body">## Summary
+
+LangGraph's `JsonPlusSerializer` can reconstruct Python objects from JSON checkpoint payloads. Under conditions where someone could modify checkpoint bytes at rest in the backing store, the deserialization path could reconstruct objects beyond what the application expects, which could in turn result in code execution at checkpoint load ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-fjqc-hq36-qh5p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3fxj-6jh8-hvhx</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">chi Has an IP Spoofing Vulnerability in `middleware.RealIP`</div>
+            <div class="card-body">## Summary
+The `RealIP` middleware in `go-chi/chi` is vulnerable to IP spoofing because it blindly trusts the first (leftmost) element of the `X-Forwarded-For` HTTP header. This allows a remote attacker to bypass IP-based access control lists (ACLs) and rate-limiting mechanisms by providing a spoofed IP address in the header.
+
+## Details
+In `middle...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-3fxj-6jh8-hvhx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-rjr7-jggh-pgcp</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">chi's RealIP Middleware allows IP spoofing via unvalidated X-Forwarded-For header</div>
+            <div class="card-body">### Summary
+realip middleware in go-chi/chi trusts headers like x-forwarded-for without checking them, so attackers can fake their ip and bypass rate limits or access controls
+
+### Details
+
+the vuln is in middleware/realip.go , the realIP() function pulls IPs straight from client headers and replaces r.RemoteAddr without checking if the request cam...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-rjr7-jggh-pgcp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-9g5q-2w5x-hmxf</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">chi Middleware Vulnerable to Potential IP Spoofing via `X-Forwarded-For` Header in `Request.RemoteAddr` Resolution</div>
+            <div class="card-body">### Summary
+The vulnerability allows the `Request.RemoteAddr` to be spoofed when determining the request source IP via the `X-Forwarded-For` header. This could result in misidentification of the request source and potentially compromise access control and logging integrity.
+
+### Details
+Currently, the `RealIP()` implementation splits the `X-Forward...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-9g5q-2w5x-hmxf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-r4v7-6wcg-ghj5</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">FileBrowser: Missing Rate Limiting on Authentication Endpoint Enables Brute Force Attacks</div>
+            <div class="card-body">### Summary
+The `/api/auth/login` endpoint does not implement rate limiting, account lockout, or progressive backoff for repeated authentication failures. As a result, an attacker can perform unlimited login attempts against the endpoint. When combined with the username enumeration timing vulnerability, valid accounts can be identified and then bru...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-r4v7-6wcg-ghj5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-fq3w-p4fg-mw73</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">fixurjavainstall: Previous Fuji versions can accidentally wipe `/usr/share/man/man8`</div>
+            <div class="card-body">### Impact
+Affects: Anyone who generates the UNIX man pages in Fuji <= `0.8.0` build with the `dev` crate feature.
+Consequences: `/usr/share/man/man8` may be entirely removed & re-created without any of the previous entries.
+
+### Patches
+At the time of writing, no new version has been released on crates.io, due to an unrelated CI/CD publishing issu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-fq3w-p4fg-mw73" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-wrr4-782v-jhwh</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">neotoma has tenant isolation gap in relationship query endpoints</div>
+            <div class="card-body">## Summary
+
+The `/list_relationships` and `/retrieve_graph_neighborhood` endpoints call `getAuthenticatedUserId` (confirming a valid session exists) but do not pass the resolved user ID into the Supabase query as an `.eq("user_id", userId)` filter. As a result, queries return rows from all users rather than scoping to the authenticated caller's dat...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-wrr4-782v-jhwh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jf6w-2mvx-633j</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">justhtml: to_markdown() code-span blank-line breakout enables XSS</div>
+            <div class="card-body"># justhtml: to_markdown() code-span blank-line breakout enables XSS
+
+### Summary
+
+In `justhtml` 0.9.0 through 1.21.0, `to_markdown()` renders `<code>` text (and `<pre>` text inside a link) as an inline Markdown code span whose only protection is backtick-fence length. A blank line (`\n\n`) in that text terminates the inline span in any compliant Ma...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-jf6w-2mvx-633j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48713</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">i18next-fs-backend vulnerable to prototype pollution via crafted missing-key string</div>
+            <div class="card-body">### Impact
+
+`i18next-fs-backend` ≤ 2.6.5, when used to persist missing translation keys (e.g. via `i18next-http-middleware`'s `missingKeyHandler` exposed to untrusted input), is vulnerable to prototype pollution via crafted missing-key strings.
+
+`Backend.writeFile()` splits each queued missing-key string on the configured `keySeparator` (default `....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-2933-q333-qg83" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-48714</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">i18next-http-middleware: MissingKeyHandler does not reject keys whose segments contain prototype-polluting names</div>
+            <div class="card-body">### Impact
+
+`i18next-http-middleware` ≤ 3.9.6's `missingKeyHandler` blocked the literal request-body keys `__proto__`, `constructor`, and `prototype` (added in 3.9.3, see GHSA-5fgg-jcpf-8jjw), but did not reject dotted variants such as `"__proto__.polluted"`. Downstream backends that split the missing-key string on a configured `keySeparator` (nota...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-f49m-vf83-692w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46560</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">OpenAM: Unauthenticated Authentication Bypass via RADIUS Spoofing</div>
+            <div class="card-body">## Summary
+
+**Description**
+
+An Improper Verification of Cryptographic Signature (CWE-347) issue in OpenAM's RADIUS authentication module allows an unauthenticated network attacker to spoof an Access-Accept response and obtain an OpenAM session for any RADIUS username, without knowing the configured shared secret. This affects OpenAM Community Edit...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-386j-6m86-78f9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46498</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenAM Arbitrary OAuth Token Minting via Push Registration</div>
+            <div class="card-body">## Summary
+
+**Description**
+
+An Authorization Bypass Through User-Controlled Key (CWE-639) exists in OpenAM's stateful OAuth2 token-read path. Under certain conditions, this may allow an attacker to forge OAuth2 bearer tokens and OIDC ID tokens with arbitrary subject, client, realm, and scope. This affects OpenAM Community Edition through version 1...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-cj8f-2fhf-826r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-46406</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">@anthropic-ai/claude-code has an Insecure Temporary File in /copy Command that Enables Response Disclosure and Symlink-Based File Write</div>
+            <div class="card-body">The Claude Code `/copy` command wrote responses to a hardcoded, predictable path (`/tmp/claude/response.md`) without UID isolation, randomness, or symlink protection. The file was created world-readable (0644) in a world-traversable directory (0755), allowing any local user to read a privileged user's Claude response, which could contain secrets or...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-4vp2-6q8c-pvq2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45794</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenAM has Unsafe Java Deserialization via SNS</div>
+            <div class="card-body">## Summary
+
+**Description**
+
+A Deserialization of Untrusted Data (CWE-502) issue exists in OpenAM's Push Notification SNS callback resource. The REST route that handles SNS push messages is mounted with anonymous access and, when a supplied message identifier has expired from the in-memory dispatcher, falls back to a CTS-stored predicate blob whose...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-25</span>
+                <a href="https://github.com/advisories/GHSA-pp89-732f-3g8q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-53541</span>
@@ -176,440 +610,6 @@ The issue oc...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-23</span>
                 <a href="https://github.com/advisories/GHSA-pwpj-p52h-q484" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55542</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT's S3 signature image retrieval lacks authorization before temporary URL </div>
-            <div class="card-body">### Impact
- Snipe-IT S3 signature image retrieval lacks authorization before temporary URL.
-
-On S3-backed deployments, authenticated users who know a signature filename can obtain a 5-minute signed S3 URL because the S3 branch returns before the `authorize()` call used by the local-file branch.
-
-## Key evidence
-`routes/web.php:135-143`; `app/Http/C...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-6mmj-jhqj-6c6q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55519</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT has Improper Authorization in File Deletion (IDOR)</div>
-            <div class="card-body">### Impact
-A vulnerability was identified in Snipe-IT v8.4.0 (build 21280-g91a95dbc6) that allows any authenticated user with generic asset edit permissions to delete files attached to any asset in the system, regardless of ownership or company assignment. This constitutes an Insecure Direct Object Reference (IDOR) vulnerability caused by a class-l...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-x667-r589-43m7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55483</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT Vulnerable to Privilege Escalation via Missing admin Permission Check in User Creation</div>
-            <div class="card-body">### Impact
-The `store()` method in both the web and API `UsersController` only strips the superuser permission when a non-superuser creates a user. It does not strip the admin permission. This allows any authenticated user with the `users.create` permission to create a new user with full admin privileges.
-
-The `users.create permission`  may commonl...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-hf68-g98v-wp9g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55482</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT has Multi-Tenancy Bypass via Bulk Asset Update</div>
-            <div class="card-body">### Impact
-The `BulkAssetsController::update()` method accepts `company_id` directly from user input without calling `Company::getIdForCurrentUser()`, the standard company-scoping function used by every other controller in the codebase. A non-superadmin user can move assets across company boundaries, breaking multi-tenancy isolation.
-
-### Patches
-P...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-33g4-646g-qwmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50550</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.8
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT has a 2FA reset privilege bypass</div>
-            <div class="card-body">### Impact
-A user who can edit other users could reset a superadmin's 2FA.
-
-### Patches
-Patched in 8.5.0...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-6x4j-8954-5hxm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49976</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT Vulnerable to User Account Escalation via CSV Import</div>
-            <div class="card-body">### Impact
-The CSV user import in update mode bypasses user-edit authorization. A user with only the `import` permission can overwrite any non-admin user's email by uploading a CSV, then trigger a password reset to take over the account.
-
-`UserImporter.php` checks the `canEditAuthFields` gate and tries to strip auth fields from the model:
-
-```php
-/...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-p68w-rgmg-3c2v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-w2j7-f3c6-g8cw</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">Flask-Security has an Open Redirect issue</div>
-            <div class="card-body"># Open Redirect in Flask-Security
-
-## Summary
-
-`flask_security.utils.validate_redirect_url()` can allow an attacker-controlled redirect URL when subdomain redirects are enabled.
-
-The bypass uses a backslash inside the URL authority/host:
-
-```text
-http://evil.com\.whitelist.com
-http://evil.com%5C.whitelist.com
-```
-
-Python's `urlsplit()` parses the f...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-w2j7-f3c6-g8cw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49870</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT's TOTP is Brute-Forceable Due to Missing Rate Limiting on `POST /two-factor`</div>
-            <div class="card-body">### Impact
-`POST /two-factor` had no rate limiting, lockout, or attempt counter. An attacker with valid credentials can submit unlimited TOTP guesses. The TOTP implementation accepts the current code plus one step on either side (`config/google2fa.php window=1`), so at any instant 3 of 1,000,000 codes are accepted.
-
-After a correct guess the attack...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-mr8g-2mj4-pcq2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49205</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">phpMyFAQ: Missing userHasPermission() in 4 API write endpoints (CVE-2026-24421 Incomplete Fix)</div>
-            <div class="card-body">Missing Authorization in API CategoryController —  CVE-2026-24421 fixed BackupController by adding userHasPermission(PermissionType::BACKUP). The same fix was NOT applied to 4 other write endpoints in the public API.  All 4 only call hasValidToken() (shared API key) but never call userHasPermission(), allowing any API token holder to perform admin ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-8c6h-7g6x-m5x4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48507</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT: Bulk editing users allowed `ldap_import` and `activated_in` bulk editing users</div>
-            <div class="card-body">### Impact
-The vulnerability allows a non-admin user holding only the granular `users.edit` permission to lock every admin out of the instance  by editing the `activated` flag (which determines whether or not a user can login) and the `ldap_import` flag, which determines whether or not the user can request a password reset.
-
-### Patches
-Patched in ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-6f75-x745-xcpr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-wcmj-x466-56mm</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">OpenTofu: Provider cache installation follows root-module-controlled package directory symlink and writes outside the working tree</div>
-            <div class="card-body">## Summary
-
-If a symlink already exists under the `.terraform/providers` directory where a provider package needs to be installed, `tofu init` would follow that symlink and install the new package content into it.
-
-If an attacker can coerce an operator into running `tofu init` in a directory whose contents are attacker-controlled, they can include ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-wcmj-x466-56mm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48500</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Filament: Unauthenticated temporary file upload on auth pages</div>
-            <div class="card-body">Any schema can contain a file upload form field, so Filament applies Livewire's `WithFileUploads` trait to the Livewire component the schema is embedded in. However, some schemas, such as the panel login form, do not require file uploads, and exposing unauthenticated temporary file uploads on these components is not an acceptable risk. On these com...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-44wp-g8f4-f4v5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48496</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
-                </span>
-            </div>
-            <div class="card-title">opentelemetry-ebpf-profiler: Unprivileged process can trigger a denial of service on the ebpf-profiler agent</div>
-            <div class="card-body">### Summary
-
-An unprivileged process can easily trigger the `processPIDEvents` goroutine to be blocked indefinitely, preventing the goroutine from analyzing any new ELF file. The goroutine stays blocked in the `openat2` syscall forever and the profiler can no longer work properly, it is a denial of service.
-
-### Impact
-
-The impact is limited to den...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-f2r5-5m7w-p5cx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48493</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.5
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT Vulnerable to Privilege Escalation for self via API Permissions Assignment</div>
-            <div class="card-body">### Impact
-A user with only users.edit AND api permissions can send a PATCH to /api/v1/users/{their_own_id} and grant themselves any permission except admin and superuser — for example `assets.view`, `assets.create`, `reports.view`, import, etc.
-
-### Patches
-Patched in https://github.com/grokability/snipe-it/pull/19024...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-52fw-7fw2-fmv5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48492</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Snipe-IT's selectlist visibility is too permissive</div>
-            <div class="card-body">### Impact
-The GET /api/v1/{object}/selectlist API endpoint is missing an authorization check. Any user who can log into Snipe-IT - regardless of permissions - can retrieve a paginated list of all user accounts using only their web session cookie. No API token or elevated permissions are required. This exposes usernames, display names, employee num...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-f3c5-6cw8-fg57" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48488</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">phpMyFAQ has Weak Cryptography - SHA1 for Password Hashing</div>
-            <div class="card-body">### Summary
-
-Attachment passwords are hashed using SHA-1, a cryptographically broken algorithm. SHA-1 has been vulnerable to collision attacks since 2017 (SHAttered).
-
-### Details
-
-**Affected File** : `phpmyfaq/src/phpMyFAQ/Attachment/AbstractAttachment.php`
-
-<img width="810" height="427" alt="image" src="https://github.com/user-attachments/assets/...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-58fg-62fg-3fcj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48480</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">OHttpVersionChunkDraft: Missing Final-Chunk Enforcement Leads to Undetected Stream Truncation</div>
-            <div class="card-body">The codec-ohttp implementation of draft-ietf-ohai-chunked-ohttp does not verify that a cryptographically-signed final chunk was received before the outer HTTP body terminates. An on-path adversary (the OHTTP relay itself, or any MITM on the relay↔gateway or relay↔client transport) can forward a prefix of a legitimate chunked-OHTTP message—cut at a ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-r6fj-869h-4f6q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48167</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.4
-                </span>
-            </div>
-            <div class="card-title">Filament: Unvalidated ImageColumn and ImageEntry values can be used for XSS</div>
-            <div class="card-body">The `ImageColumn` and `ImageEntry` components render raw database values without escaping HTML. Where the data passed to these components isn't validated, an attacker could plant malicious HTML or JavaScript and achieve stored XSS that executes for users who view the table or schema....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-3fc8-8hp6-6jr4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48166</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Filament: Timing-based user enumeration on login page</div>
-            <div class="card-body">The login page has an observable timing discrepancy that allows unauthenticated attackers to enumerate registered email addresses. The impact is limited to disclosing whether an account exists for a given email....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-5w46-g9pq-wh6f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48157</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">Slim has Reflected XSS in the HtmlErrorRenderer</div>
-            <div class="card-body">### Impact
-
-If an application uses `HttpException::setTitle()` and/or `setDescription()` to include untrusted/request-derived data in the error title or description (e.g. `"No products found matching '{$query}'."`), an attacker could inject arbitrary HTML/JavaScript that executes in the victim's browser when they encounter an HTML error page genera...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-53h4-8rc4-f539" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48126</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">Algernon: Host header path traversal in --domain mode reads files and runs Lua from parent dir</div>
-            <div class="card-body">### Summary
-
-When algernon is started with `--domain` (or `--letsencrypt`, which silently turns on `--domain` at `engine/flags.go:372`), the request handler resolves the served directory by joining the configured `--dir` with the value of the client-supplied `Host` header. The join is performed by `filepath.Join` with no validation, so a `Host: ..`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-jc3j-x6pg-4hmv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54517</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">jackson-databind has @JsonView bypass for setterless creator properties</div>
-            <div class="card-body">## Summary
-In `BeanDeserializer._deserializeUsingPropertyBased`, the active-view (`@JsonView`) filter was applied only to creator properties; the regular property-buffering branch performed no `prop.visibleInView(activeView)` check. A change making `SetterlessProperty.isMerging()` return `true` routed setterless Collection/Map properties through th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-5hh8-q8hv-fr38" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54516</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">jackson-databind's renamed @JsonIgnore'd setters can deserialize via private fields</div>
-            <div class="card-body">## Summary
-`POJOPropertiesCollector._renameProperties()` allows a property with `@JsonProperty("renamed")` on the getter and `@JsonIgnore` on the setter to be renamed rather than dropped. With `MapperFeature.INFER_PROPERTY_MUTATORS` enabled (default), the private backing field is retained; during deserialization `BeanDeserializerFactory.addBeanProp...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-9fxm-vc8v-hj55" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54515</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">jackson-databind has case-insensitive deserialization bypasses per-property @JsonIgnoreProperties</div>
-            <div class="card-body">## Summary
-In `BeanDeserializerBase.createContextual()`, per-property `@JsonIgnoreProperties` exclusions are applied by `_handleByNameInclusion()`, producing a `contextual` deserializer whose `BeanPropertyMap` has the ignored properties removed. The subsequent per-property case-insensitivity block (triggered by `@JsonFormat(ACCEPT_CASE_INSENSITIVE_...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-23</span>
-                <a href="https://github.com/advisories/GHSA-5jmj-h7xm-6q6v" target="_blank">Full Report →</a>
             </div>
         </div>
         
