@@ -68,540 +68,565 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-26 19:24 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-06-27 01:53 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-48785</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
+                <span class="cve-id">GHSA-qrv3-253h-g69c</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
                 </span>
             </div>
-            <div class="card-title">Apptainer has incorrect path matching for 'limit container paths' directive </div>
-            <div class="card-body">### Impact
-
-The `limit container paths directive` in `apptainer.conf` is intended to allow a system administrator limit the paths from which containers can be run, under setuid mode. Due to incorrect matching of a path string, sibling directories with similar names may incorrectly be allowed.
-
-For example, the configuration:
-```
-limit container pat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-cr2j-534f-mf3g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48782</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">pydantic-ai: SSRF blocklist bypass via IPv4-compatible, SIIT/IVI, and local NAT64 IPv6 addresses (incomplete fix of CVE-2026-46678)</div>
+            <div class="card-title">pnpm: Path traversal in configDependencies env lockfile allows symlink creation outside node_modules/.pnpm-config</div>
             <div class="card-body">## Summary
 
-When an application using Pydantic AI opts a URL into `force_download='allow-local'` (which disables the default block on private/internal IPs) **and runs on a network that routes the affected IPv6 transition forms (NAT64- or ISATAP-configured networks)**, the cloud-metadata blocklist could be bypassed by encoding the metadata IP in an ...</div>
+`pnpm` accepts package names from the env lockfile `configDependencies` section and uses those names directly when creating config dependency symlinks under `node_modules/.pnpm-config`.
+
+A malicious repository can commit a crafted `pnpm-lock.yaml` whose env-lockfile document contains a traversal-shaped config dependency name such as `.....</div>
             <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-cg7w-rg45-pc59" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-27</span>
+                <a href="https://github.com/advisories/GHSA-qrv3-253h-g69c" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-48769</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
+                <span class="cve-id">GHSA-72r4-9c5j-mj57</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
                 </span>
             </div>
-            <div class="card-title">Incus has an arbitrary file write on its client due to trusted image hash</div>
-            <div class="card-body">### Summary
+            <div class="card-title">pnpm: `patch-remove` could delete project-selected files outside the patches directory</div>
+            <div class="card-body">## Summary
 
-An arbitrary file write exists in the Incus client when a malicious image server returns a crafted `Incus-Image-Hash` header. This can lead to arbitrary command execution as root on the server.
+The `patch-remove` deletion-scope issue tracked as GHSA-72r4-9c5j-mj57 / CAND-PNPM-030 has been addressed in pnpm.
 
-
-### Details
-
-- `cmd/incusd/images.go:611-684` handles `source.type=url` by HEADing the user-supplied URL, reading `Incus-Image-Hash` and `Inc...</div>
+A crafted patch entry could resolve outside the configured patches directory and cause `pnpm patch-remove` to delete an arbitrary reachable file. This patch validates the configured directory and every resolved target befo...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-f6m5-xw2g-xc4x" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-27</span>
+                <a href="https://github.com/advisories/GHSA-72r4-9c5j-mj57" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-48758</span>
+                <span class="cve-id">GHSA-fr4h-3cph-29xv</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">pnpm: Hoisted install imports lockfile alias outside node_modules</div>
+            <div class="card-body">## Summary
+
+The hoisted dependency alias issue tracked as GHSA-fr4h-3cph-29xv / CAND-PNPM-059 has been addressed in both pnpm and pacquet.
+
+A crafted lockfile alias could be joined directly under a hoisted `node_modules` directory. Traversal aliases could escape that directory, while reserved aliases such as `.bin` or `.pnpm` could overwrite pnpm-o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-27</span>
+                <a href="https://github.com/advisories/GHSA-fr4h-3cph-29xv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-ww5p-j6cj-6mqq</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">@sigstore/core has DSSE payloadType type-binding failure</div>
-            <div class="card-body">### Impact
-The `preAuthEncoding` function in `@sigstore/core` uses Node.js `'ascii'` encoding when converting the PAE (Pre-Authentication Encoding) string to bytes. This allows `payloadType` to be mutated after signing without invalidating the signature, breaking the type-binding guarantee that DSSE is designed to provide.
-
-In `packages/core/src/ds...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-jfc7-64v2-mr8c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48756</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Incus: CreateCustomVolumeFromBackup nil-pointer dereference on volume_snapshots[*].expires_at (sibling-field variant of GHSA-r7w7)</div>
-            <div class="card-body">## Summary
-
-`(*backend).CreateCustomVolumeFromBackup` in [`internal/server/storage/backend.go`](https://github.com/lxc/incus/blob/985a1dedf9f3e7ba729c93b654905ed510de25c2/internal/server/storage/backend.go) contains an unguarded `*time.Time` dereference on the `ExpiresAt` field of every volume-snapshot entry in an imported custom-volume backup. An ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-xhqx-mgh3-3h7q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48755</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Incus has an argument injection in backup compression algorithm leading to AFW and ACE</div>
+            <div class="card-title">Nezha Dashboard: DDNS and Notification credential exposure via unredacted list API</div>
             <div class="card-body">### Summary
 
-Improper validation of user-provided backup compression algorithm leads to argument injection in the constructed command line. This leads to an arbitrary file write on the host, possibly leading to arbitrary command execution.
-
-
-### Details
-
-Incus validates `compression_algorithm` by parsing it into fields and checking only the first t...</div>
+The `GET /api/v1/ddns` and `GET /api/v1/notification` endpoints return full resource objects including plaintext third-party API credentials — Cloudflare API tokens, TencentCloud SecretKeys, Slack/Discord/Telegram webhook URLs with embedded bot tokens, and Authorization header values — without any field-level redaction. Any authenticat...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-v6mj-8pf4-hhw4" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-ww5p-j6cj-6mqq" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-48754</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
+                <span class="cve-id">CVE-2026-55700</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
                 </span>
             </div>
-            <div class="card-title">Incus: Nil-pointer dereference in createDependentVolumesFromBackup on disk.{Volume,VolumeSnapshots,Pool}</div>
+            <div class="card-title">pnpm: `stage download` writes outside its destination directory via manifest name/version traversal</div>
             <div class="card-body">## Summary
 
-`(*backend).createDependentVolumesFromBackup` in [`internal/server/storage/backend.go`](https://github.com/lxc/incus/blob/d768f81c0a1d985f35ae56219519822b080bf5e3/internal/server/storage/backend.go) contains a cluster of unguarded pointer derefs on every dependent-volume entry's `VolumeSnapshots[i]`, `Volume`, and `Pool` sub-fields. An ...</div>
+The staged-tarball filename traversal reported as GHSA-v23m-ccfg-pq9h / CAND-PNPM-038 is fixed on `main` by [pnpm/pnpm#12303](https://github.com/pnpm/pnpm/pull/12303), merged as `65443f4bdf1f0db9c8c7dc58fee25252607e9234`.
+
+Before the fix, `pnpm stage download` derived a local filename from registry-controlled package name and version fi...</div>
             <div class="card-footer">
                 <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-4xg6-52mh-fpw8" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-v23m-ccfg-pq9h" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-48753</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Incus has an arbitrary file write via path traversal in S3 multipart upload</div>
-            <div class="card-body">## Summary
-
-The S3 protocol upload endpoint is vulnerable to path traversal and allows creation of arbitrary files on the host. This behavior could lead to arbitrary command execution.
-
-In `internal/server/storage/s3/local/multipart.go`, user-controlled upload ID is appended to the uploads directory unsanitized; https://github.com/lxc/incus/blob/40...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-ccjc-4qc3-jxqc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48752</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Incus has arbitrary file read+write on host via templates/ symlink in malicious image</div>
-            <div class="card-body">### Summary
-
-A specially crafted image or instance backup can be used to read or create/write arbitrary files on the host; possibly leading to arbitrary command execution.
-
-
-### Details
-
-For container images, `internal/server/storage/utils.go` calls `archive.Unpack(imageFile, destPath, ...)`. The tar extraction path in `shared/archive/archive.go` e...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-vxp5-584q-c479" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48751</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Incus has a restricted project bypass leading to arbitrary command execution</div>
-            <div class="card-body">### Summary
-
-Instance snapshots ignore the `restricted.containers.lowlevel=block` setting; allowing for arbitrary command execution on the Incus server by abusing lowlevel hooks such as `raw.lxc` and `raw.qemu`.
-
-
-### Details
-
-Instance snapshots ignore the `restricted.containers.lowlevel=block` setting; allowing for arbitrary command execution on t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-48q5-w887-33wv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48750</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Incus has an arbitrary file write on host via `exec-output` symlink in crafted image</div>
-            <div class="card-body">### Summary
-
-The `record-output` parameter of the `/instances/$name/exec` endpoint stores the output of the command in the `exec-output` directory of the instance. If `exec-output` is a symlink, file named `exec_UUID.stdout` and `exec_UUID.stderr` can be written to an arbitrary location where the `.stdout` file will contain arbitrary content. This ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-73hr-m85f-64v9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48749</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Incus has an arbitrary file read+write on host via rootfs/ symlink in malicious image</div>
-            <div class="card-body">### Summary
-
-A specially crafted image can be used to read or create/write arbitrary files on the host; possibly leading to arbitrary command execution.
-
-
-### Details
-
-Incus validates an image as soon as it sees a normal `metadata.yaml` and a `rootfs/` entry, but full extraction can later process a duplicate top-level `rootfs` symlink. Later, the s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-2q3f-q5pq-g8wv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53463</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has Null Pointer Dereference caused by the distort operation when passing incorrect arguments</div>
-            <div class="card-body">When passing incorrect arguments in the distort operation a null pointer deference will occur....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-p9rq-q46c-g4x6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46623</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">OpenAM Account Takeover via Unverified Password Change in OAuth2 Module</div>
-            <div class="card-body">## Summary
-
-**Description**
-
-An Unverified Password Change (CWE-620) and Use of Weak Credentials (CWE-1391) issue in OpenAM's OAuth2 authentication module silently rewrites a local user's password to the literal string of their username on OAuth2 re-login of an existing account. The default ldapService chain then accepts the username as the passwor...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-gf57-4mp6-m85x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46619</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">OpenAM Authentication Bypass via MSISDN LDAP Injection</div>
-            <div class="card-body">## Summary
-
-**Description**
-
-An LDAP Injection (CWE-90) vulnerability in the MSISDN authentication module allows an unauthenticated, remote attacker to obtain an arbitrary OpenAM session without a password in the default trusted gateway configuration. This impacts OpenAM Community Edition through version 16.0.6. This issue was patched in version 16...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-xq73-fvmr-jvmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44163</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">fluent-plugin-opentelemetry Has Denial of Service (DoS) via Large Payloads and Decompression Bombs in `in_opentelemetry`</div>
-            <div class="card-body">The `fluent-plugin-opentelemetry` plugin (specifically the `in_opentelemetry` HTTP input) lacked strict size limits on incoming requests.
-It was discovered that the plugin read the entire request body and decompressed payloads into memory without enforcing maximum size thresholds.
-
-If the OpenTelemetry ingestion endpoint is exposed to untrusted net...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-2jc5-xhx8-qj6h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44162</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 2.7
-                </span>
-            </div>
-            <div class="card-title">fluent-plugin-s3 Vulnerable to Denial of Service (DoS) via Decompression Bomb in `in_s3`</div>
-            <div class="card-body">The `fluent-plugin-s3` plugin (specifically the `in_s3` input plugin) supports reading and decompressing heavily compressed files (such as `gzip`, `lzma2`, and `lzop`) from Amazon S3. 
-It was discovered that the plugin read the entire decompressed payload into memory at once without enforcing a strict size limit.
-
-If an attacker has sufficient perm...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-xv9w-7v6q-hpjh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44161</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
-                </span>
-            </div>
-            <div class="card-title">Fluentd is Vulnerable to Server-Side Request Forgery (SSRF) via Placeholder Expansion in `out_http`</div>
-            <div class="card-body">The `out_http` output plugin allows the use of placeholders (such as `${tag}`) in the `endpoint` configuration parameter.
-It was discovered that if the placeholder value is derived from untrusted user input, an attacker can maliciously control the destination hostname of the outbound HTTP requests made by Fluentd.
-
-### Impact
-This vulnerability all...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-72f5-rr8c-r6gr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44160</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Fluentd is Vulnerable to Denial of Service (DoS) via Gzip Decompression Bomb in `in_http` and `in_forward`</div>
-            <div class="card-body">Fluentd's `in_http` and `in_forward` plugins support receiving gzip-compressed data.
-While Fluentd correctly enforces size limits on the incoming compressed payloads (e.g., via `body_size_limit` or `chunk_size_limit`), it was discovered that there is no limit enforced on the size of the decompressed data.
-
-If a Fluentd instance is exposed to untrus...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-j9cw-hwqf-85w7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44025</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Fluentd is Vulnerable to Exposure of Sensitive Information via Monitor Agent API</div>
-            <div class="card-body">Fluentd's Monitor Agent plugin (`in_monitor_agent`) exposes internal metrics and plugin information via a REST API.
-It was discovered that the API response (`/api/plugins.json` and related endpoints) unintentionally includes internal instance variables of loaded plugins.
-
-If any plugins store sensitive information—such as database passwords, API ke...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-pr7j-96cj-549h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44024</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Fluentd is Vulnerable to Remote Code Execution (RCE) via Arbitrary File Write in `${tag}` Placeholder</div>
-            <div class="card-body">Fluentd allows dynamically constructing file paths using the `${tag}` placeholder.
-It was discovered that validation for this placeholder was insufficient.
-
-If a Fluentd instance is configured to receive logs from untrusted sources and uses the `${tag}` placeholder in file configurations (such as the `path` parameter in the `out_file` plugin), an a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-44hj-4m45-frj3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53462</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">ImageMagick has a Use-After-Free when allocation in CheckPrimitiveExtent fails</div>
-            <div class="card-body">When an allocation fails in CheckPrimitiveExtent this can result in a heap-use-after-free and result in a crash....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-26</span>
-                <a href="https://github.com/advisories/GHSA-px7q-ggqj-hcf2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46595</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">golang.org/x/crypto/ssh: Invoking VerifiedPublicKeyCallback permissions skip enforcement</div>
-            <div class="card-body">Previously, CVE-2024-45337 fixed an authorization bypass for misused ssh server configurations; if any other type of callback is passed other than public key, then the source-address validation would be skipped....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-x527-x647-q7gg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-42508</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">golang.org/x/crypto/ssh/knownhosts vulnerable to auth bypass via unenforced @revoked status</div>
-            <div class="card-body">Previously, a revoked 'SignatureKey' belonging to a CA was not correctly checked for revocation. Now, both the 'key' and 'key.SignatureKey' are checked for @revoked....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-5cgq-3rg8-m6cv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-39834</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">golang.org/x/crypto/ssh vulnerable to infinite loop on large channel writes</div>
-            <div class="card-body">When writing data larger than 4GB in a single Write call on an SSH channel, an integer overflow in the internal payload size calculation caused the write loop to spin indefinitely, sending empty packets without making progress. The size comparison now uses int64 to prevent truncation....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-rm3j-f69w-wqmq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-39831</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title"> golang.org/x/crypto/ssh: FIDO/U2F security key physical presence check can be bypassed</div>
-            <div class="card-body">The Verify() method for FIDO/U2F security key types (sk-ecdsa-sha2-nistp256@openssh.com, sk-ssh-ed25519@openssh.com) did not check the User Presence flag. Signatures generated without physical touch were accepted, allowing unattended use of a hardware security key. To restore the previous behavior, return a "no-touch-required" extension in Permissi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-89gr-r52h-f8rx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-39829</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">golang.org/x/crypto/ssh: Invoking pathological RSA/DSA parameters may cause DoS</div>
-            <div class="card-body">The RSA and DSA public key parsers did not enforce size limits on key parameters. A crafted public key with an excessively large modulus or DSA parameter could cause several minutes of CPU consumption during signature verification. This could be triggered by unauthenticated clients during public key authentication. RSA moduli are now limited to 819...</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-w879-237q-wc7r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-39830</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">golang.org/x/crypto/ssh: Invoking client can cause server deadlock on unexpected responses</div>
-            <div class="card-body">A malicious SSH peer could send unsolicited global request responses to fill an internal buffer, blocking the connection's read loop. The blocked goroutine could not be released by calling Close(), resulting in a resource leak per connection. Unsolicited global responses are now discarded....</div>
-            <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-vgwf-h737-ff37" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-39827</span>
+                <span class="cve-id">CVE-2026-55699</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 6.5
                 </span>
             </div>
-            <div class="card-title">golang.org/x/crypto/ssh: Invoking memory leak when rejecting channels can lead to DoS</div>
-            <div class="card-body">An authenticated SSH client that repeatedly opened channels which were rejected by the server caused unbounded memory growth, eventually crashing the server process and affecting all connected users. Rejected channels are now properly removed from the connection's internal state and released for garbage collection....</div>
+            <div class="card-title">pnpm: Reserved bin name deletes PNPM_HOME during global remove</div>
+            <div class="card-body"><details>
+<summary>Maintainer Action Plan</summary>
+
+## Maintainer Action Plan
+
+This report is ready to review with the shared patch branch. Start with the PR and the expected fixed behavior, then use the detailed exploit narrative below only if you want to replay the original path.
+
+- Advisory: `CAND-PNPM-085` / `GHSA-4gxm-v5v7-fqc4`
+- Advisory UR...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-qpw4-5x99-6vjp" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-4gxm-v5v7-fqc4" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-39835</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
+                <span class="cve-id">CVE-2026-55698</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
                 </span>
             </div>
-            <div class="card-title">golang.org/x/crypto/ssh is vulnerable to invoking server panic during CheckHostKey/Authenticate flow</div>
-            <div class="card-body">SSH servers which use CertChecker as a public key callback without setting IsUserAuthority or IsHostAuthority could be caused to panic by a client presenting a certificate. CertChecker now returns an error instead of panicking when these callbacks are nil....</div>
+            <div class="card-title">pnpm: Project env lockfile can short-circuit package-manager resolution and execute lockfile-selected pnpm bytes</div>
+            <div class="card-body"><!-- maintainer-action:start -->
+## Maintainer Action Plan
+
+This report is ready to review with the shared patch branch. Start with the PR and the expected fixed behavior, then use the detailed exploit narrative below only if you want to replay the original path.
+
+- Advisory: `CAND-PNPM-063` / `GHSA-w466-c33r-3gjp`
+- Advisory URL: https://github.co...</div>
             <div class="card-footer">
-                <span>Published: 2026-06-25</span>
-                <a href="https://github.com/advisories/GHSA-78mq-xcr3-xm33" target="_blank">Full Report →</a>
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-w466-c33r-3gjp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-49338</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">Subsonic API: any authenticated user can delete or read any other user's playlist (IDOR)</div>
+            <div class="card-body">## Summary
+
+In gonic, the Subsonic API endpoints `/rest/deletePlaylist.view` and `/rest/getPlaylist.view` perform no per-resource authorization. Once authenticated as *any* user (admin or not), an attacker can:
+
+1. **Delete any playlist owned by any other user** (including admin) by passing its `id`.
+2. **Read the full contents** (name, comment, so...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-hmgp-w9jm-vp95" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-49339</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">gonic: Path Traversal in playlist `id` bypasses ownership check, enabling any user to read/delete other users' playlists</div>
+            <div class="card-body">## Summary
+
+The maintainer's recent fix in [`6dd71e6a3c966867ef8c900d359a7df75789f410`](https://github.com/sentriz/gonic/commit/6dd71e6) (`fix(subsonic): enforce playlist ownership on getPlaylist/deletePlaylist`) added an ownership check based on `playlist.UserID`. However, `playlist.UserID` is derived from the *first path segment* of the attacker-...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-2fp4-5v5c-4448" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-49340</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">gonic has arbitrary file write in createPlaylist: any authenticated user can write playlist M3U content to attacker-controlled path on the host</div>
+            <div class="card-body">## Summary
+
+A logic error in `ServeCreateOrUpdatePlaylist` allows **any authenticated Subsonic user** (including non-admin) to write playlist M3U content to an attacker-controlled absolute filesystem path on the gonic host, and to create intermediate directories with `0o777` permissions.
+
+The bug is independent of the playlist ownership IDOR fixed ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-4gxv-p5g5-j7w7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55697</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">pnpm: Repository-controlled configDependencies can select a pacquet native install engine</div>
+            <div class="card-body"><!-- maintainer-action:start -->
+## Maintainer Action Plan
+
+This report is ready to review with the shared patch branch. Start with the PR and the expected fixed behavior, then use the detailed exploit narrative below only if you want to replay the original path.
+
+- Advisory: `CAND-PNPM-097` / `GHSA-gj8w-mvpf-x27x`
+- Advisory URL: https://github.co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-gj8w-mvpf-x27x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55487</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">pnpm: Manifest identity spoof satisfies allowBuilds and runs attacker lifecycle</div>
+            <div class="card-body">## Summary
+
+Keep build approval for opaque dependency sources byte-exact for GHSA-5wx6-mg75-v57r / CAND-PNPM-123.
+
+Merged upstream commit `bf1b731ee6` fixed the original name-only approval bypass by making build policy consume the resolved dependency identity. One collision remained: the generic peer-suffix normalizer also stripped parenthesized te...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-5wx6-mg75-v57r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55180</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">pnpm: Repository config can expand victim environment secrets into registry requests before scripts run</div>
+            <div class="card-body"><!-- maintainer-action:start -->
+## Maintainer Action Plan
+
+This report is ready to review with the shared patch branch. Start with the PR and the expected fixed behavior, then use the detailed exploit narrative below only if you want to replay the original path.
+
+- Advisory: `CAND-PNPM-122` / `GHSA-3qhv-2rgh-x77r`
+- Advisory URL: https://github.co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-3qhv-2rgh-x77r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53465</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.2
+                </span>
+            </div>
+            <div class="card-title">ImageMagick has a Heap Buffer Over-Write in SF3 encoder when writing multi-frame image</div>
+            <div class="card-body">An crafted multi-frame can result in a heap buffer over-write when encoding it with the SF3 encoder....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-44cp-c3ww-9rv5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53464</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.0
+                </span>
+            </div>
+            <div class="card-title">ImageMagick: Memory Leak in wand option parser when providing invalid arguments</div>
+            <div class="card-body">When providing invalid options to the wand option parser a small memory leak will occur....</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-j989-f892-2335" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54244</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.5
+                </span>
+            </div>
+            <div class="card-title">Statamic CMS's incorrect authorization lets view-only users submit Live Preview content reserved for editors</div>
+            <div class="card-body">### Impact
+
+The Live Preview endpoint for existing entries and terms only checked view authorization, but it accepts and renders caller-supplied field values. A Control Panel user with view but not edit permission could therefore submit content they were not authorized to author and generate a shareable Live Preview URL rendering it.
+
+### Patches
+
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-7mqq-4v55-88gh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53523</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: OAuth2 Redirect URL — Host Header Injection</div>
+            <div class="card-body">## 1. Description
+
+The `getRedirectURL` function in `oauth2.go:22-29` constructs the OAuth2 callback URL by concatenating the request's `Host` header with a fixed path, with **zero validation** of the Host header:
+
+```go
+func getRedirectURL(c *gin.Context) string {
+    scheme := "http://"
+    referer := c.Request.Referer()
+    if forwardedProto := ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-9rc6-8cjv-rcvx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53522</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: Unbounded WebSocket Streams — Resource Exhaustion DoS</div>
+            <div class="card-body">## 1. Description
+
+The Nezha dashboard exposes two endpoints that create long-lived WebSocket streams to monitored agents:
+
+- `POST /api/v1/terminal` → `createTerminal()` (terminal.go:27-67)
+- `POST /api/v1/file` → `createFM()` (fm.go:28-67)
+
+Both call `rpc.NezhaHandlerSingleton.CreateStream(streamId, ...)` which inserts a new `ioStreamContext` int...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-jg62-j5h6-8mpq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54243</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">Statamic Vulnerable to CSV formula injection in form submission exports</div>
+            <div class="card-body">### Impact
+
+Form submission values were not neutralized for spreadsheet formula characters when exported to CSV. A submission containing a value beginning with a formula trigger character (e.g.  = ,  + ,  - ,  @ ) could be interpreted as a live formula when a Control Panel user opens the export in a spreadsheet application. Form submissions can com...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-h77m-qrj7-jxcw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54242</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">Statamic Vulnerable to Server-Side Request Forgery via Glide (DNS rebinding)</div>
+            <div class="card-body">### Impact
+
+The Glide image proxy's URL validation could be bypassed using DNS rebinding. The remote hostname was validated as publicly routable, but resolved again when the image was actually fetched, so an attacker controlling the hostname's DNS could rebind it to an internal address after validation. This could cause the server to make HTTP requ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-v5c4-wcpj-x73m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53519</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: Pre-auth path traversal via /dashboard.. prefix confusion leaks jwt_secret_key</div>
+            <div class="card-body">### Summary
+`fallbackToFrontend` in the dashboard's `NoRoute` handler treats any URL whose **raw string** starts with `/dashboard` as an admin-frontend asset request. The check uses `strings.HasPrefix`, not a path-segment match, so the input `/dashboard../data/config.yaml` is accepted; `strings.TrimPrefix` leaves `../data/config.yaml`; and `path.Jo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-5c25-7vpj-9mqh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53521</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.4
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: Stored future DDNS profile ID allows unauthorized use of another user's DDNS profile context</div>
+            <div class="card-body">## Summary
+
+`PATCH /server/{id}` accepts and persists nonexistent `ddns_profiles` IDs for a member-owned server. If another user later creates a DDNS profile with one of those IDs, the DDNS worker resolves the stored ID and dispatches an update using the other user's DDNS profile configuration in the context of the attacker's server.
+
+This is a sec...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-39g2-8x68-pmx8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53520</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Nezha Monitoring: Authenticated users can claim the dashboard Host through NAT and preempt all dashboard routing</div>
+            <div class="card-body">### Summary
+An authenticated non-admin user who owns any server can create or update a NAT profile whose `domain` is equal to the dashboard's own HTTP Host (for example, `dashboard.example:8008`). The dashboard's top-level HTTP/gRPC multiplexer checks `NATShared.GetNATConfigByDomain(r.Host)` before dispatching requests to the dashboard API, fronten...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-x6fg-52vr-hj4w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50015</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">pnpm Vulnerable to Arbitrary File Write/Delete via Malicious Patch File (Path Traversal)</div>
+            <div class="card-body">## Summary
+
+pnpm's patch application pipeline (`@pnpm/patch-package`) performs no path validation on file paths extracted from `.patch` files. An attacker who contributes a malicious patch file via a pull request can write attacker-controlled content to or delete arbitrary files on the filesystem during `pnpm install`, as the user running the insta...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-rxhj-4m44-96r4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50017</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">pnpm binds unscoped user-level npm auth credentials to a repository-selected registry</div>
+            <div class="card-body">## Summary
+
+pnpm can send user-level unscoped npm authentication credentials to a registry chosen by a repository-local `.npmrc` file.
+
+In the reproduced case, the user's npm config contains a default registry and an unscoped `_authToken`. The repository does not provide a token-bearing auth line. It only sets `registry=` to a different registry UR...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-cjhr-43r9-cfmw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50016</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">pnpm: Transitive dependency alias path traversal allows project path override via symlink replacement</div>
+            <div class="card-body">## Summary
+
+pnpm allows a transitive dependency alias from registry package metadata to contain path traversal segments. During install, pnpm later uses that alias as a filesystem path when linking dependency nodes. As a result, a registry package can cause `pnpm install - ignore-scripts` to replace paths in the current project with symlinks to att...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-hwx4-2j3j-g496" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50014</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.4
+                </span>
+            </div>
+            <div class="card-title">pnpm: Git Fetch Argument Injection via Lockfile resolution.commit</div>
+            <div class="card-body">## Summary
+
+pnpm passes the lockfile-controlled git `resolution.commit` value to `git fetch` without a `--` separator or commit-format validation. For git dependencies fetched through the shallow-fetch path, a malicious lockfile can replace the expected 40-character commit hash with a Git option such as `--upload-pack=<command>`. For SSH and local ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-p4xf-rf54-rj3x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50021</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">pnpm Has an Integrity Check Bypass via Missing Lockfile Integrity Field</div>
+            <div class="card-body">## Summary
+
+pnpm's tarball extraction worker skips integrity verification when the `integrity` field is absent from the lockfile resolution. If an attacker can both modify `pnpm-lock.yaml` to remove the `integrity:` field and cause the referenced registry URL to serve altered package content, `pnpm install --frozen-lockfile` can install the altered...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-q6j5-fjx5-2mc3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50573</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">pnpm: Unsafe default behavior breaks integrity check</div>
+            <div class="card-body">While it is unclear whether this should be classified as a vulnerability, it is being reported through this channel because the current behavior may represent an unsafe default.
+
+## Summary
+
+`pnpm install` in non-frozen mode can accept new remote package content after detecting that the downloaded tarball does not match the integrity recorded in `p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-54hh-g5mx-jqcp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8jgf-23q5-x7xx</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">ex_aws_sns: Trusted-attacker `SigningCertURL` permits complete SNS signature bypass</div>
+            <div class="card-body">### Summary
+
+`ExAws.SNS.verify_message/1` fetches the signing certificate from the `SigningCertURL` field of the incoming SNS message without validating that the URL uses HTTPS or that its host is an AWS-owned SNS certificate domain. An unauthenticated attacker who can POST to any endpoint that calls `verify_message/1` can supply an attacker-contro...</div>
+            <div class="card-footer">
+                <span>Published: 2026-06-26</span>
+                <a href="https://github.com/advisories/GHSA-8jgf-23q5-x7xx" target="_blank">Full Report →</a>
             </div>
         </div>
         
