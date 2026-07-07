@@ -68,10 +68,91 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-07 13:59 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-07 19:28 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-34225</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Open WebUI has Blind Server Side Request Forgery in its Image Edit Functionality</div>
+            <div class="card-body">### Summary
+There is a blind server side request forgery in the functionality that allows editing an image via a prompt. The affected function will perform a GET request on the URL provided by the user. There is no restriction on the domain of the provided URL allowing the local address space to be interacted with. Since the SSRF is blind (the resp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-07</span>
+                <a href="https://github.com/advisories/GHSA-jgx9-jr5x-mvpv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26193</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">Open WebUI vulnerable to Stored XSS via iFrame embeds in response messages</div>
+            <div class="card-body">### Summary
+Manually modifying chat history allows setting the `embeds` property on a response message, the content of which is loaded into an iFrame with a sandbox that has `allow-scripts` and `allow-same-origin` set, ignoring the "iframe Sandbox Allow Same Origin" configuration. This enables stored XSS on the affected chat. This also triggers whe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-07</span>
+                <a href="https://github.com/advisories/GHSA-vjm7-m4xh-7wrc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-26192</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">Open WebUI vulnerable to Stored XSS via iFrame in citations model</div>
+            <div class="card-body">### Summary
+Manually modifying chat history allows setting the `html` property within document metadata. This causes the frontend to enter a code path that treats document contents as HTML, and render them in an iFrame when the citation is previewed. This allows stored XSS via a weaponised document payload in a chat. The payload also executes when ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-07</span>
+                <a href="https://github.com/advisories/GHSA-xc8p-9rr6-97r2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-46719</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Open WebUI vulnerable to stored XSS via unescaped markdown token in MarkdownTokens.svelte leading to full account takeover and RCE via functions</div>
+            <div class="card-body">### Summary
+
+A vulnerability in the way certain html tags in chat messages are rendered allows attackers to inject JavaScript code into a chat transcript. The JavaScript code will be executed in the user's browser every time that chat transcript is opened, allowing attackers to retrieve the user's access token and gain full control over their accou...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-07</span>
+                <a href="https://github.com/advisories/GHSA-9f4f-jv96-8766" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-46571</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Open WebUI  allows limited stored XSS vila uploaded html file</div>
+            <div class="card-body">### Summary
+Low privileged users can upload HTML files which contain JavaScript code via the `/api/v1/files/` backend endpoint. This endpoint returns a file id, which can be used to open the file in the browser and trigger the JavaScript code in the user's browser. Under the default settings, files uploaded by low-privileged users can only be viewe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-07</span>
+                <a href="https://github.com/advisories/GHSA-8gh5-qqh8-hq3x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-45016</span>
@@ -529,103 +610,6 @@ An example for ...</div>
             <div class="card-footer">
                 <span>Published: 2026-07-06</span>
                 <a href="https://github.com/advisories/GHSA-798h-hpph-m24j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55437</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Coder vulnerable to stored HTML injection via workspace agent logs in AgentLogLine component</div>
-            <div class="card-body">### Summary
-
-The `AgentLogLine` dashboard component instantiated `ansi-to-html` without `escapeXML: true` and inserted the result via `dangerouslySetInnerHTML` so HTML embedded in workspace agent log lines was rendered as live markup. Server-side sanitization did not neutralize HTML metacharacters.
-
-> **Note:** Exploitation requires a victim to vie...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-06</span>
-                <a href="https://github.com/advisories/GHSA-7qw2-f75v-62f7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55436</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">Coder's AI Bridge Proxy skips TLS certificate verification in default configuration</div>
-            <div class="card-body">### Summary
-
-The AI Bridge Proxy (`aibridgeproxyd`) created a goproxy server whose default transport set `InsecureSkipVerify: true` and only assigned a secure transport when an upstream proxy was configured. In the default configuration (no upstream proxy), outbound HTTPS to the Coder access URL accepted any TLS certificate.
-
-> **Note:** Practical ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-06</span>
-                <a href="https://github.com/advisories/GHSA-84rm-42xw-mx52" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55435</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Suspended Coder users retain access to AI Bridge LLM proxy endpoints</div>
-            <div class="card-body">### Summary
-
-AI Bridge proxy endpoints authenticate via `Server.IsAuthorized` in `coderd/aibridgedserver`, which validates key format, expiry, secret and deleted or system users but does not check whether the account is suspended. Because suspension does not revoke existing API keys, a suspended user's unexpired token keeps working.
-
-> **Note:** Pr...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-06</span>
-                <a href="https://github.com/advisories/GHSA-wqxv-w64v-5wh6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55434</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Coder vulnerable to denial of service via unbounded request body in AI Bridge provider endpoints</div>
-            <div class="card-body">### Summary
-
-AI Bridge provider handlers read request bodies with `io.ReadAll` without a maximum size so an authenticated user with AI Bridge access could send an arbitrarily large body and exhaust memory.
-
-> **Note:** Exploitation requires authenticated access to the AI Bridge endpoints and the impact is limited to availability (denial of service)...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-06</span>
-                <a href="https://github.com/advisories/GHSA-f5vp-w269-392g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55433</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Coder: Devcontainer recreate endpoint missing write authorization allows read-only roles to destroy containers</div>
-            <div class="card-body">### Summary
-
-The devcontainer recreate endpoint relied on route middleware that checked only `ActionRead` on the workspace and, unlike the sibling delete endpoint, performed no `ActionUpdate` check before triggering the destructive rebuild.
-
-> **Note:** Exploitation requires an existing low-privilege role with access to the target workspace.
-
-### I...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-06</span>
-                <a href="https://github.com/advisories/GHSA-jqj2-x4c5-jfxm" target="_blank">Full Report →</a>
             </div>
         </div>
         
