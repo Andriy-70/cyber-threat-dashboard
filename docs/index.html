@@ -68,10 +68,225 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-14 12:59 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-14 18:56 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50006</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Anyquery: Arbitrary File Write (AFW) which could lead to Remote Code Execution (RCE) via Unrestricted ATTACH DATABASE in Server Mode</div>
+            <div class="card-body">## Summary
+Anyquery's `server` mode does not disable or restrict native SQLite disk manipulation commands. Unauthenticated attackers connecting to the MySQL-compatible server port can use the `ATTACH DATABASE` command to write arbitrary SQLite databases to any path on the victim's filesystem where the process has write permissions. This leads to Ar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-xrcf-6jh3-ggvx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50131</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
+                </span>
+            </div>
+            <div class="card-title">Fedify has an incomplete SSRF mitigation after GHSA-p9cg-vqcc-grcx: validatePublicUrl allows special-use IPv4 ranges</div>
+            <div class="card-body">### Summary
+
+Fedify previously addressed SSRF/internal network access in GHSA-p9cg-vqcc-grcx by adding public URL validation before runtime document and media fetching. However, the current IPv4 validation logic appears incomplete.
+
+The `validatePublicUrl()` protection relies on `isValidPublicIPv4Address()` to reject non-public IPv4 destinations. T...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-xw9q-2mv6-9fr8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50125</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">MKP: Unbounded Pod Log Read via Attacker-Controlled `limitBytes`/`tailLines` Causes Memory Exhaustion</div>
+            <div class="card-body">## Unbounded Pod Log Read via Attacker-Controlled `limitBytes`/`tailLines` Causes Memory Exhaustion
+
+### Summary
+
+The MKP (Model Context Protocol for Kubernetes) server exposes a `get_resource` MCP tool that proxies Kubernetes pod log requests. User-supplied `limitBytes` and `tailLines` parameters are parsed as unbounded `int64` values and forwarde...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-qw5r-ppcg-f8rj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50018</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Hoverfly: Denial of Service via Goroutine Leak in Remote Post-Serve Actions</div>
+            <div class="card-body">### Summary:
+
+Remote post-serve actions use `http.DefaultClient` without any timeout configuration. When the remote endpoint is unreachable or intentionally slow (accepts TCP connection but never responds), each triggered proxy request spawns a goroutine that blocks indefinitely on `http.DefaultClient.Do()`. An attacker can cause unbounded goroutin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-42j2-w334-qxw7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50013</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Hoverfly: Process Crash via Concurrent Map Write Race Condition in Diff Mode</div>
+            <div class="card-body">### Summary:
+
+When Hoverfly is running in Diff mode, the `AddDiff()` function writes to the shared `responsesDiff` map without any synchronization (no mutex). When multiple proxy requests are processed concurrently (the normal case for any proxy), the concurrent map writes trigger Go's built-in race detector which causes a `fatal error: concurrent ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-qrh4-p6v4-mrfg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54250</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.8
+                </span>
+            </div>
+            <div class="card-title">K3s: ZIP Archive Path Traversal Vulnerability in etcd Snapshot Decompression</div>
+            <div class="card-body">#### Summary
+
+A path traversal vulnerability exists in K3s's etcd snapshot decompression functionality. Zip files containing archive members with maliciously crafted names (e.g., `../../../../etc/password`) can be written to arbitrary locations on the filesystem when an administrator restores the archive as a compressed etcd snapshot.
+
+#### Mitigat...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-jxr7-mqhw-9p98" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-61670</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.3
+                </span>
+            </div>
+            <div class="card-title">Wasmtime: Memory leak in C API with `externref` and `anyref` types</div>
+            <div class="card-body">### Impact
+
+Wasmtime 37.0.0 and 37.0.1 have memory leaks in the C/C++ API when using bindings for the `anyref` or `externref` WebAssembly values. This is caused by a regression introduced during the development of 37.0.0 and all prior versions of Wasmtime are unaffected. If `anyref` or `externref` is not used in the C/C++ API then embeddings are al...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-vvp9-h8p2-xwfc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45710</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.5
+                </span>
+            </div>
+            <div class="card-title">FacturaScripts: Stored XSS in WidgetVariante and WidgetSubcuenta modal lists via HTML-attribute decoding of `Tools::noHtml`-escaped quotes inside `onclick=`</div>
+            <div class="card-body">## Summary
+
+`WidgetVariante::renderVariantList` (`Core/Lib/Widget/WidgetVariante.php:298-330`) and `WidgetSubcuenta::renderSubaccountList` (`Core/Lib/Widget/WidgetSubcuenta.php:290-321`) build the `<tr onclick="...">` row for each modal hit by concatenating the user-controlled `referencia` / `codsubcuenta` field directly into a single-quoted JavaSc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-3x7p-v8hj-xh5m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45263</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.0
+                </span>
+            </div>
+            <div class="card-title">FacturaScripts: CSV formula injection in CSVExport allows authenticated low-priv users to plant payloads that execute when an admin opens the export</div>
+            <div class="card-body">## Summary
+
+> **Live PoC verified 2026-04-30** against a stock FacturaScripts master at `127.0.0.1:8081`. A low-privilege user (`lowpriv`) created a customer with `nombre = "=SUM(1+1)*cmd|/c calc!A1"`. An admin then exported `ListCliente` to CSV via `?action=export&option=CSV`. The downloaded file contains the raw payload as the first cell of the `...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-2p5x-4jr6-x5jg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45693</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">FacturaScripts: Unauthenticated Path Traversal in Static File Controllers Reads Private MyFiles Documents</div>
+            <div class="card-body">### Summary
+
+The static file controllers in FacturaScripts decide whether a request is authorized by looking at the URL string instead of the canonical filesystem path. A request that starts with an allow-listed folder name but contains a `../` segment in the middle ends up serving a file from a different directory than the one the URL pretended to...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-cv65-7cg8-r623" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45262</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">FacturaScripts: Authenticated SQL injection in the FacturaScripts REST API filter parameter via parenthesis bypass in `Where::sqlColumn`</div>
+            <div class="card-body">## Summary
+
+> **Live PoC verified 2026-04-30** against a stock FacturaScripts master at `127.0.0.1:8081`. A scoped `ApiKey` with `fullaccess=0` and an `ApiAccess` row granting `allowget=1` on the `clientes` resource only (no other rights, no UI session, no admin) issued one `GET /api/3/clientes?filter[(0)UNION%20SELECT%20...]=` request and the resp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-5qmh-x653-g8qj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44300</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenCost ServiceKey Endpoint Unauthorized Credential Overwrite/Injection</div>
+            <div class="card-body">## Summary
+
+OpenCost contains an unauthenticated  file write vulnerability in the `/serviceKey` endpoint that allows remote attackers to overwrite the GCP service account key file without authentication. This can lead to service disruption, credential theft, and potential privilege escalation within Kubernetes clusters.
+
+---
+
+
+## Affected Versions
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-14</span>
+                <a href="https://github.com/advisories/GHSA-wmj8-9953-vff5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-52828</span>
@@ -397,241 +612,6 @@ Requests under /configfiles/raw/{appId}/{clusterName}/{namespace} were parsed fo
             <div class="card-footer">
                 <span>Published: 2026-07-13</span>
                 <a href="https://github.com/advisories/GHSA-h4pc-58cc-hc95" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59954</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Apollo ConfigService access key authentication bypass via appId parsing and non-canonical matching</div>
-            <div class="card-body">### Summary
-Apollo ConfigService may allow unauthorized access to configuration data when AccessKey / management key authentication is enabled and ConfigService accepts a non-canonical appId variant during authentication while downstream request handling resolves it to the protected app.
-
-### Details
-ConfigService extracts appId from configuration ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-4w3q-qpfq-v992" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55372</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
-                </span>
-            </div>
-            <div class="card-title">NukeViet: Pre-authentication SSRF via X-Forwarded-Host</div>
-            <div class="card-body">## Summary
-
-An unauthenticated attacker can coerce the server into issuing HTTP requests to an attacker-chosen host by spoofing the `X Forwarded-Host` (and `X-Forwarded-Proto`) request headers. The forwarded host is used, without validation, to build the URL that `server_info_update()` fetches with cURL, resulting in a Server-Side Request Forgery (...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-4chg-4752-w88r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54065</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">NukeViet: Path Traversal to Arbitrary File Deletion in Edit Comment Function</div>
-            <div class="card-body">## Summary
-
-Path Traversal to Arbitrary File Deletion in the Edit Comment admin function. An authenticated administrator can delete arbitrary files within the application root (e.g., `config.php`) by injecting a crafted `attach` parameter, rendering the application inoperable.
-
-## Affected Component
-
-`modules/comment/admin/edit.php`
-
-## Root Cause
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-c9xg-64p9-f2jj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54064</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">NukeViet: Multiple Anti-XSS Filter Bypasses Leading to Stored XSS in News Module</div>
-            <div class="card-body">## Summary
-
-Two filter-bypass techniques in `NukeViet\Core\Request::filterAttr()` and `NukeViet\Core\Request::unhtmlentities()` allow a low-privileged user (any account with news post permission) to store and serve arbitrary JavaScript to any visitor of the affected page.
-
-## Affected Component
-
-`vendor/vinades/nukeviet/Core/Request.php` — class `N...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-465g-4q99-5x86" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49259</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">NukeViet: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')</div>
-            <div class="card-body">## Summary
-
-A stored cross-site scripting (XSS) vulnerability exists in NukeViet CMS versions 4.x through 4.5.08. A low-privileged authenticated user can store a JavaScript payload in their profile's display name fields. The payload executes in the browser of any visitor — including administrators — who clicks the **Reply** ("Answer") link on a com...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-w2w5-w2pw-r929" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48118</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">NukeViet: Unauthenticated Reflected XSS in Comment Module</div>
-            <div class="card-body">## Summary
-
-Reflected XSS in the Comment module via the `status_comment` URL parameter. The parameter accepts attacker-controlled base64-encoded HTML/JavaScript that is decoded server-side and rendered unescaped into the page. Compounded by a second flaw: the `checkss` anti-forgery token was derived from a site-wide static value (`NV_CACHE_PREFIX`)...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-mxpf-qgg6-v3ff" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45579</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">DIRAC is vulnerable to RCE in RequestManager due to eval on untrusted input</div>
-            <div class="card-body">### Summary
-An remote code execution vulnerability exists in RequestManager due to the use of eval on untrusted input that allows any authenticated user to run code/commands on the DIRAC server as the system user running the DIRAC services.
-
-### Details
-The export_getRequestCountersWeb function is callable by any authenticated user and just passes ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-9jpv-c7p4-997x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45573</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.4
-                </span>
-            </div>
-            <div class="card-title">Decidim: Push subscriptions can be abused for server-side requests</div>
-            <div class="card-body">## Description
-
-The push-subscription endpoint stores an attacker-controlled delivery URL, and the notification send path becomes an outbound-request sink when VAPID delivery is enabled. The practical result is an authenticated, stored, mostly blind SSRF primitive to arbitrary HTTPS endpoints reachable from the app server.
-
-## Technical description...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-2g9c-vf8h-prxx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45572</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">Decidim: HTML content blocks allow stored script execution</div>
-            <div class="card-body">## Description
- 
-A privileged admin user who can edit an affected landing page can store arbitrary HTML/JavaScript in an `HTML block`, and the public page renders it with `html_safe` and no output escaping.
-
-## Technical description
-    
-This issue lets any admin who can edit an affected landing page store arbitrary HTML and JavaScript in an `HTML ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-533c-2vh9-4r86" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45415</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.0
-                </span>
-            </div>
-            <div class="card-title">Decidim: CSV census record endpoints improper authorization</div>
-            <div class="card-body">## Description
-
-A participant manager can access and modify the CSV census record admin forms.
-
-## Technical description
-
-The CSV census admin record-management surface under `/admin/csv_census/census_logs` does not enforce admin-only authorization before rendering or mutating `Decidim::Verifications::CsvDatum`.
-
-A participant manager (which can on...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-q79h-67vx-m9xg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45414</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.5
-                </span>
-            </div>
-            <div class="card-title">Decidim: JWT-backed authentication can be replayed across organizations</div>
-            <div class="card-body">## Description
-
-A JWT issued to an Org 1 account is accepted on the Org 2 API and can read the admin-only GraphQL `participantDetails` field for an Org 2 participant. The same trust-boundary problem also affects API-user authentication: an Org 1 API user can use a JWT on the Org 1 host and replay that JWT to the Org 2 API to read Org 2 participant ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-r3v7-5x4c-c69q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45378</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Decidim: Verification documents can be downloaded through reusable links</div>
-            <div class="card-body">## Description
-
-Scanned identity-document images provided by participants and shown in the verification admin workflow are exposed through signed `/rails/active_storage/disk/` URLs that can be fetched without any authenticated session.
-
-Anyone who obtains one of those URLs can retrieve the document until the signature expires.
-
-## Technical descrip...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-13</span>
-                <a href="https://github.com/advisories/GHSA-3mvf-82qp-8qh5" target="_blank">Full Report →</a>
             </div>
         </div>
         
