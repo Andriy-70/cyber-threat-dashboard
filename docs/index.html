@@ -68,10 +68,512 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-15 18:49 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-16 01:16 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58196</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 4.7
+                </span>
+            </div>
+            <div class="card-title">ToolHive: SSRF in remote MCP server authentication discovery (host-side, bypasses container isolation)</div>
+            <div class="card-body"># Security Advisory: SSRF in remote MCP server authentication discovery
+
+**Severity:** High. **CWE:** CWE-918. **Affected:** ToolHive through the latest release v0.29.3 and current `main` (HEAD b672d82f, 2026-06-12; re-verified 2026-06-14). `FetchResourceMetadata` and the discovery clients remain unguarded; no commits to `pkg/auth/discovery` or `pk...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-pr64-jmmf-jp54" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xg43-5579-qw6v</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">adawolfa/isdoc: Uncontrolled resource consumption (decompression bomb) when reading untrusted ISDOCX or PDF files</div>
+            <div class="card-body">### Impact
+
+`adawolfa/isdoc` reads ISDOC invoices from ISDOCX (ZIP) archives and from PDF files with embedded ISDOC documents and supplements. Affected versions inflate ZIP entries and read embedded files **without validating their uncompressed size**, so a small crafted file can amplify into gigabytes:
+
+- **ISDOCX decompression bomb** — `getFromNa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-xg43-5579-qw6v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54504</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">@andrea9293/mcp-documentation-server: Web UI API binds to all interfaces without authentication by default</div>
+            <div class="card-body">### Summary
+
+`@andrea9293/mcp-documentation-server` v1.13.0 documents that a Web UI starts automatically on port `3080`. However, the Web UI/API appears to bind to all network interfaces by default (`*:3080` / `0.0.0.0:3080`) instead of localhost-only, and its document-management API endpoints do not require authentication.
+
+As a result, any networ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-6f5r-5672-72j7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50289</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">systeminformation: OS command injection in networkInterfaces() via interfaces(5) source-directive path on Linux</div>
+            <div class="card-body">### Summary
+
+On Linux, `systeminformation`'s `networkInterfaces()` is vulnerable to OS command injection through the Debian/Ubuntu `interfaces(5)` `source` directive. While collecting per-interface DHCP state, the library reads `/etc/network/interfaces` and, for every `source <path>` line it encounters, extracts the path token *from the file conten...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-5xpp-75jx-m839" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50285</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Pomerium Pre-Auth Memory Exhaustion via Unbounded zstd Decompression in HPKE Callback</div>
+            <div class="card-body">## Summary
+
+The HPKE V2 URL decode path in `pkg/hpke/url.go` decompresses attacker-controlled zstd data without any size limit. On Pomerium deployments using the stateless authentication flow (Pomerium Zero / hosted authenticate), the proxy's `/.pomerium/callback` endpoint is reachable without credentials and processes attacker-crafted HPKE-encrypt...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-ggw3-5987-rx77" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50276</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">dd-trace-rb: Improper parsing of W3C baggage headers may lead to DoS</div>
+            <div class="card-body">### Impact
+Datadog tracing libraries that implement W3C baggage propagation parse incoming baggage HTTP headers without enforcing item-count or byte-size limits on the extract path. The DD_TRACE_BAGGAGE_MAX_ITEMS (default 64) and DD_TRACE_BAGGAGE_MAX_BYTES (default 8192) limits were applied only to baggage injection, not extraction. A remote, unaut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-p5f6-rccc-jv98" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50274</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">dd-trace-go: Improper parsing of W3C baggage headers may lead to DoS</div>
+            <div class="card-body">### Impact
+Datadog tracing libraries that implement W3C baggage propagation parse incoming baggage HTTP headers without enforcing item-count or byte-size limits on the extract path. The DD_TRACE_BAGGAGE_MAX_ITEMS (default 64) and DD_TRACE_BAGGAGE_MAX_BYTES (default 8192) limits were applied only to baggage injection, not extraction. A remote, unaut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-74j5-xf3v-crq8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50273</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">dd-trace-dotnet: Improper parsing of W3C baggage headers may lead to DoS</div>
+            <div class="card-body">### Impact
+Datadog tracing libraries that implement W3C baggage propagation parse incoming baggage HTTP headers without enforcing item-count or byte-size limits on the extract path. The DD_TRACE_BAGGAGE_MAX_ITEMS (default 64) and DD_TRACE_BAGGAGE_MAX_BYTES (default 8192) limits were applied only to baggage injection, not extraction. A remote, unaut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-38wr-vpc7-2mp4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50272</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">dd-trace-js: Improper parsing of W3C baggage headers may lead to DoS</div>
+            <div class="card-body">### Impact
+Datadog tracing libraries that implement W3C baggage propagation parse incoming baggage HTTP headers without enforcing item-count or byte-size limits on the extract path. The DD_TRACE_BAGGAGE_MAX_ITEMS (default 64) and DD_TRACE_BAGGAGE_MAX_BYTES (default 8192) limits were applied only to baggage injection, not extraction. A remote, unaut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-wxqq-gcq8-c443" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50271</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">dd-trace-py: Improper parsing of W3C baggage headers may lead to DoS</div>
+            <div class="card-body">### Impact
+Datadog tracing libraries that implement W3C baggage propagation parse incoming baggage HTTP headers without enforcing item-count or byte-size limits on the extract path. The DD_TRACE_BAGGAGE_MAX_ITEMS (default 64) and DD_TRACE_BAGGAGE_MAX_BYTES (default 8192) limits were applied only to baggage injection, not extraction. A remote, unaut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-mw54-j2v2-42hr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50270</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">dd-trace-java: Improper parsing of W3C baggage headers may lead to DoS</div>
+            <div class="card-body">### Impact
+Datadog tracing libraries that implement W3C baggage propagation parse incoming baggage HTTP headers without enforcing item-count or byte-size limits on the extract path. The DD_TRACE_BAGGAGE_MAX_ITEMS (default 64) and DD_TRACE_BAGGAGE_MAX_BYTES (default 8192) limits were applied only to baggage injection, not extraction. A remote, unaut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-74xj-wh4w-vqxc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54497</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">ViewComponent: Reused Component Instances Retain Stale Render Context</div>
+            <div class="card-body"># Reused Component Instances Retain Stale Render Context
+
+## Summary
+
+`ViewComponent::Base` instances retain multiple render-scoped objects across calls to `render_in`. If the same component, collection, or spacer component instance is reused across requests, users, tenants, or threads, later renders can use stale `helpers`, `controller`, `request`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-9h85-g7w3-rh49" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54498</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">ViewComponent: around_render HTML-Safety Bypass</div>
+            <div class="card-body">## Summary
+
+`ViewComponent::Base#around_render` can return HTML-unsafe strings that bypass the escaping behavior applied to normal `#call` return values. This creates an XSS risk when downstream applications use `around_render` to wrap, replace, instrument, or conditionally return content that includes user-controlled data.
+
+The issue is especially...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-97jw-64cj-jc58" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54495</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">open-feature-operator: Cross-namespace FeatureFlagSource and InProcessConfiguration resolution exposes spec contents on multi-tenant clusters</div>
+            <div class="card-body">## Summary
+
+A namespaced `FeatureFlagSource` or `InProcessConfiguration` resource can be referenced cross-namespace via the `openfeature.dev/featureflagsource` annotation using the documented `{NAMESPACE}/{NAME}` syntax. The operator resolves the referenced resource cluster-wide and materializes its contents (env vars, flagd sidecar arguments inclu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-398h-7f66-3h4p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-r3hx-x5rh-p9vv</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">django-haystack: Remote Code Execution via `eval()` in Elasticsearch Result Deserialization</div>
+            <div class="card-body">## Remote Code Execution via `eval()` in Elasticsearch Result Deserialization
+
+### Summary
+
+The Elasticsearch backend in django-haystack calls `eval()` on raw field values returned from Elasticsearch when a `SearchField` is declared with an `index_fieldname` alias that differs from the logical field name. During result processing, the backend looks...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-r3hx-x5rh-p9vv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-7gcf-g7xr-8hxj</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">serde_with: KeyValueMap serialization panics on empty sequence or map entries</div>
+            <div class="card-body">### Summary
+
+The public `KeyValueMap` serializer assumes that each mapped element has at least one field or item to use as the map key, but it subtracts `1` from the caller-visible length before validating that assumption. An application that serializes attacker-controlled data through `#[serde_as(as = "KeyValueMap<_>")]` can be crashed by an empty...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-7gcf-g7xr-8hxj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54490</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">websocket-driver: Resource limit bypass via message compression</div>
+            <div class="card-body">### Impact
+
+If this library is used in tandem with the `permessage-deflate` extension, a WebSocket server or client can be made to accept messages that are larger than the configured maximum message size. This is because this limit is checked against the message frames' length headers, which give the size of the compressed data, not the size after ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-mp7j-qc5w-4988" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54466</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">websocket-driver: Message corruption via abuse of protocol length headers</div>
+            <div class="card-body">### Impact
+
+The frame format in draft versions of the WebSocket protocol includes a length header that allows an arbitrarily large integer to be encoded as a sequence of bytes with the high bit set. By sending an indefinite sequence of bytes with values `0x80` or above, a client can make the server parse these bytes into an ever-growing integer. Si...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-xv26-6w52-cph6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54465</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">websocket-driver: Memory exhaustion in HTTP header parser</div>
+            <div class="card-body">### Impact
+
+If this library is used to implement a WebSocket server on top of a TCP server (rather than an HTTP server or framework) using the `WebSocket::Driver.server()` method, or, if it is used to complement a WebSocket client, then a peer can make a single connection consume an unbounded amount of memory by sending an HTTP request or response ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-8j3g-f24p-4mpw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54464</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">websocket-driver: Resource limit bypass via message compression</div>
+            <div class="card-body">### Impact
+
+If this library is used in tandem with the `permessage-deflate` extension, a WebSocket server or client can be made to accept messages that are larger than the configured maximum message size. This is because this limit is checked against the message frames' length headers, which give the size of the compressed data, not the size after ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-33ph-fccm-39pj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54463</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">websocket-driver: Memory exhaustion via abuse of protocol length headers</div>
+            <div class="card-body">### Impact
+
+The frame format in draft versions of the WebSocket protocol includes a length header that allows an arbitrarily large integer to be encoded as a sequence of bytes with the high bit set. By sending an indefinite sequence of bytes with values `0x80` or above, a server or client can make the other peer parse these bytes into an ever-growi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-ghhp-3qvg-889p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54254</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Pixeldrain API key shared with unverified thirdparty sites</div>
+            <div class="card-body">### Summary
+
+When processing Pixeldrain URLs, `cyberdrop-dl-patched` could send an `Authorization` header that includes the user's API key to unverified hosts.
+
+### Details
+
+Pixeldrain offers several alternative domains in case the user's ISP blocks the primary domain. To support this, requests made by `cyberdrop-dl-patched` are not hardcoded and w...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-f5pf-q7c7-m3vv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54457</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">TensorZero Gateway: Arbitrary file read and SSRF in internal object storage endpoint</div>
+            <div class="card-body">### Impact
+
+The `/internal/object_storage` endpoint accepts a caller-supplied JSON `storage_path` parameter that dynamically overrides the TensorZero `[object_storage]` configuration.
+
+By abusing the `filesystem` storage type, a caller can read arbitrary files from the gateway filesystem, including files that may contain sensitive credentials. Simi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-824w-x939-6cmc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54452</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">safeurl is Missing IPv6 CIDR Ranges in Blocklist</div>
+            <div class="card-body">The `privateNetworks` blocklist was found to be missing newly added CIDR ranges. More specifically, the following CIDR ranges were not being blocked:
+- `64:ff9b:1::/48`: NAT64 local-use prefix (RFC 8215)
+- `5f00::/16`: Segment Routing (SRv6) SIDs (RFC 9602)
+- `3fff::/20`: documentation prefix (RFC 9637)
+- `100:0:0:1::/64`: Dummy IPv6 Prefix (RFC 97...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-xgch-x3mx-cm3c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53656</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.3
+                </span>
+            </div>
+            <div class="card-title">FiftyOne App server uses wildcard CORS (Access-Control-Allow-Origin: *), enabling cross-origin reads of local server data</div>
+            <div class="card-body">### Impact
+
+The FiftyOne App/API server (`fiftyone/server/app.py`) and the `/media` route (`fiftyone/server/routes/media.py`) unconditionally set a permissive CORS header (`Access-Control-Allow-Origin: *`) on their responses. Because the embedded App server runs locally and is unauthenticated, this allows **any website a user visits to make cross-o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-q78p-hj9h-5466" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-62gx-5q78-wrvx</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">obsidian-local-rest-api: Authenticated path traversal via URL-encoded %2F in /vault/{path} — arbitrary host file read/write/delete</div>
+            <div class="card-body">### Summary
+The Local REST API's `/vault/{path}` endpoints (GET/PUT/PATCH/POST/DELETE) percent-decode the request path *inside the handler — after* Express has already routed and normalized it, then hand it to the Obsidian vault adapter with no confinement check. A literal `../` is resolved/rejected at the routing layer (→ 404), but `%2F` is not a ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-62gx-5q78-wrvx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54450</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">ToolHive: SSRF guard misses IPv6 NAT64 ranges (64:ff9b::/96, 64:ff9b:1::/48), allowing metadata/internal access behind a NAT64 gateway</div>
+            <div class="card-body">## Summary
+
+ToolHive's hand-rolled private/reserved-IP SSRF guard (`networking.IsPrivateIP` in `pkg/networking/utilities.go`) does not recognize the IPv6 **NAT64** address ranges — the well-known prefix `64:ff9b::/96` (RFC 6052) and the RFC 8215 local-use prefix `64:ff9b:1::/48`. As a result, an address such as `64:ff9b:1::a9fe:a9fe` — the NAT64 en...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-pph6-vfjv-vpjw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62944</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">MantisBT: Stored XSS in print_all_bug_page_word.php</div>
+            <div class="card-body">A missing output encoding call in print_all_bug_page_word.php allows any authenticated user to inject arbitrary HTML into an IMG tag's *alt* attribute via an image attachment with a crafted filename such as `probe." onload="alert(1)`. 
+
+When any user views the HTML export page (print_all_bug_page_word.php?type_page=html&export=1), the rendered IMG ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-h2wf-967x-gxvw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-52883</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">MantisBT: Injection of TIME_TRACKING and REMINDER Notes via REST and SOAP APIs</div>
+            <div class="card-body">Unvalidated note_type Parameter in mc_issue_update SOAP Endpoint Allows creation of TIME_TRACKING and REMINDER Notes. The SOAP path passes the user-supplied note_type integer directly to bugnote_add() without validating that the user is authorized to create that type of note. If the user's access level is higher than *$g_time_tracking_view_threshol...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-15</span>
+                <a href="https://github.com/advisories/GHSA-4vpf-w7qv-5h3q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-52882</span>
@@ -97,517 +599,6 @@ MantisBT thanks Vishal Shukla for discove...</div>
             <div class="card-footer">
                 <span>Published: 2026-07-15</span>
                 <a href="https://github.com/advisories/GHSA-3v2j-6fw9-f57c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-52881</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">MantisBT: Reflected XSS in admin/install.php via unescaped printf </div>
-            <div class="card-body">MantisBT 2.28.3 and earlier contains six reflected XSS injection points in `/admin/install.php`. User-supplied parameters are echoed into HTML without escaping via an unescaped printf format string. No authentication is required.
-
-A Content Security Policy (script-src 'self') prevents inline JavaScript execution, but the CSP is missing a form-actio...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-vcrw-4xvv-jh49" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-52847</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">MantisBT: Reflected XSS in admin/install.php</div>
-            <div class="card-body">MantisBT 2.28.3 and earlier contains six reflected XSS injection points in `/admin/install.php`. User-supplied parameters are echoed into HTML without escaping via print_test_result(). No authentication is required.
-
-A Content Security Policy (script-src 'self') prevents inline JavaScript execution, but the CSP is missing a form-action directive, a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-77x8-3v3h-hrhv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54494</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Koel: Full-read SSRF via podcast enclosure URL: isPublicHost() filter_var guard does not reject NAT64 (64:ff9b::/96) or 6to4 (2002::/16) IPv6-transition wrappers of internal IPv4</div>
-            <div class="card-body">## Summary
-
-Koel's outbound-URL guard `App\Helpers\Network::isPublicHost()` classifies an IP as "public" using PHP's `filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)`. That flag set does **not** recognise IPv6 transition-address forms that embed a private/loopback/link-local IPv4: NAT64 well-known prefix `6...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-rjg7-r26h-cfp2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50552</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
-                </span>
-            </div>
-            <div class="card-title">Koel: Server-Side Request Forgery (SSRF) in radio station creation due to missing validation bail</div>
-            <div class="card-body">Summary
-
-Koel v9.5.0 contains a Server-Side Request Forgery (SSRF) vulnerability in the radio station creation endpoint (POST /api/radio/stations). The url field validation rules are declared without the bail keyword, so the HasAudioContentType rule — which issues HTTP requests to the supplied URL — still executes even after the SafeUrl rule has re...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-jr4p-4xjh-fwvw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54491</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">Koel: Incomplete fix for CVE-2026-47260 — systemic SSRF in podcast & radio fetch paths</div>
-            <div class="card-body">### Summary
-
-The fix for **CVE-2026-47260** (v9.3.5) added an **initial** `isSafeUrl()` check to several fetchers (`synchronizeEpisodes`, `getStreamableUrl`, `AddRadioStation`, `EpisodePlayable`), but the **redirect-target validation** — the per-hop Guzzle `on_redirect` callback added in follow-up commit `be1e867` — was applied to **only one** path...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-6qvr-wjmv-v8mm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54451</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Protobuf: Unbounded recursion depth in embedded-message decoding</div>
-            <div class="card-body">### Summary
-
-Unbounded recursion depth in `Protobuf.Decoder` (Hex package `protobuf`, versions `>= 0.8.0, < 0.16.1`) lets an unauthenticated attacker crash any service that decodes untrusted protobuf messages whose schema contains a self-referential or cyclic message type. A small request body (a few KB to a few MB) that nests an embedded field hun...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-rv48-qqj5-crxg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54449</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">LangBot: Authenticated RCE Via MCP Configuration</div>
-            <div class="card-body">### Summary
-Any authenticated user can achieve arbitrary command execution on the LangBot servers through changing the MCP Server Configuration by added an "STDIO" MCP with an arbitrary command.
-
-### Details
-The repository uses StdioServerParameters which is based on Anthropic's modelcontextprotocol open source, inside the code - src/langbot/pkg/pr...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-3pvh-63gf-j9mw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54447</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.4
-                </span>
-            </div>
-            <div class="card-title">garminconnect Has Insecure Permission Assignment for Garmin OAuth Token Store</div>
-            <div class="card-body">## Insecure Permission Assignment for Garmin OAuth Token Store
-
-### Summary
-
-`garminconnect` (≤ 0.3.4) wrote its OAuth token store to disk without restricting file-system permissions. Under the default Linux umask (`022`) the token file `garmin_tokens.json` was created world-readable (`0o644`). The file contains the DI **refresh token**, so any oth...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-wjhr-76vg-2hvc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8q6q-m837-fv64</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.4
-                </span>
-            </div>
-            <div class="card-title"> Koel has SSRF through Authenticated Subsonic podcast feed URLs</div>
-            <div class="card-body">## Summary
-
-Koel's Subsonic `createPodcastChannel.view` endpoint accepts a user supplied podcast feed URL and fetches it server-side before applying the safe URL checks that are used for podcast episode enclosure URLs. An authenticated Subsonic API user can provide a loopback or internal URL as the feed URL and cause the Koel backend to issue a req...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-8q6q-m837-fv64" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54493</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">Koel: Authenticated Full-Read SSRF via Subsonic Internet Radio Stations</div>
-            <div class="card-body">### Summary
-Koel v9.6.0 validates radio station URLs on the regular web API, but the Subsonic-compatible radio endpoints do not apply the same SSRF protections. An authenticated user can create or update a radio station with a private URL and then use Koel's radio streaming feature to make the server fetch that URL and return the upstream response ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-6p96-cfg5-4vhp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54492</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Koel: Authenticated Blind SSRF via Subsonic Podcast Channel Creation</div>
-            <div class="card-body">### Summary
-Koel `v9.6.0` protects the regular podcast subscription API with `SafeUrl`, but the Subsonic-compatible `createPodcastChannel.view` route does not apply the same protection. An authenticated user can supply a private URL and cause Koel to fetch it server-side during podcast parsing.
-
-This was validated against `v9.6.0` (`352ea5ec27fa222...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-w79m-f3jx-779v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49280</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">MantisBT: REST API unauthorized Issue status change</div>
-            <div class="card-body">A MantisBT user having *$g_update_bug_threshold* (UPDATER by default) can change an Issue's Status via REST and SOAP API, even if the *$g_set_status_threshold* config is set to a higher level (DEVELOPER by default).
-
-### Impact
-Unauthorized change in Issue workflow.
-
-### Patches
-https://github.com/mantisbt/mantisbt/releases/tag/release-2.28.4
-
-### ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-m7ph-9558-mrx3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49273</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">MantisBT: Remote Code Execution via eval() Class Hoisting in adm_config_set.php</div>
-            <div class="card-body">MantisBT 2.28.3 and earlier contains a remote code execution vulnerability in the admin "Manage Configuration" feature (adm_config_set.php). When setting a configuration value with a non-string type (integer, float, complex), the value is passed through ConfigParser -> Tokenizer, which calls *eval()* with a `return;` prefix intended to prevent code...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-v84x-qvhg-f36r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47156</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">MantisBT: SOAP API Authentication Bypass with Privilege Escalation to Administrator</div>
-            <div class="card-body">MantisBT 2.28.3 and earlier contains a critical authentication bypass in the SOAP API's mci_check_login() function. Any user knowing any valid cookie_string can authenticate as any other user (knowing their username), including the administrator, without knowing the target's password.
-
-The vulnerability is exploitable with zero prior access on defa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-c2xg-qjqw-2v98" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47142</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">MantisBT: SQL Injection via history_order Configuration Value</div>
-            <div class="card-body">MantisBT 2.28.3 and earlier versions contains a SQL injection vulnerability in core/history_api.php. The history_order configuration value is concatenated directly into a SQL ORDER BY clause without any sanitisation, parameterization, or validation against a whitelist.
-
-An administrator can set this configuration value via the web UI (adm_config_se...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-15</span>
-                <a href="https://github.com/advisories/GHSA-mw6p-33vw-46cc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hgjx-r89m-m7v4</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">FacturaScripts: Path traversal in UploadedFile::move() via getClientOriginalName() — arbitrary file write outside MyFiles/ leading to   RCE</div>
-            <div class="card-body">## Summary
-
-`FacturaScripts\Core\UploadedFile::move($destiny, $destinyName)` concatenates `$destiny` and `$destinyName` without normalizing the resulting path. Every caller in the codebase passes `UploadedFile::getClientOriginalName()` — the unsanitized client-supplied filename — as `$destinyName`, so an authenticated user submitting a filename con...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-hgjx-r89m-m7v4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54446</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">NetLicensing-MCP: Unauthenticated Use of Server-Side NetLicensing API Key in HTTP Mode</div>
-            <div class="card-body">## Unauthenticated Use of Server-Side NetLicensing API Key in HTTP Mode
-
-### Summary
-
-When `netlicensing-mcp` is run in HTTP transport mode, the `ApiKeyMiddleware` fails to enforce authentication: requests that carry no client API key are unconditionally forwarded to the next handler (`server.py:1427`). The downstream HTTP client then falls back to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-x9vc-9ffq-p3gj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61549</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Woodpecker: Privilege escalation via unrestricted serviceAccountName in the Kubernetes backend</div>
-            <div class="card-body">### Impact
-
-A privilege escalation vulnerability affects Woodpecker instances using the **Kubernetes backend**.
-
-The pipeline option `backend_options.kubernetes.serviceAccountName` was passed directly to the pod spec without any admin gating.
-
-**Who is impacted:** any operator running the Kubernetes backend. Any user with **Push** permission on a c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-qf34-295c-26v8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7rx3-5wx3-5v76</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">Nebula-mesh allows non-admin operators to disable webhook SSRF protection via `allow_private`</div>
-            <div class="card-body">### Summary
-
-Non-admin operators (role `user`) can set `allow_private: true` on their own managed webhook subscription (`POST`/`PATCH /api/v1/webhook-subscriptions`). No admin check exists on this field. At delivery time, `allow_private` switches the dispatcher to an unguarded HTTP client, bypassing the private/loopback/link-local SSRF guard — lett...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-7rx3-5wx3-5v76" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61699</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: Certificate revocation is never enforced at the mesh</div>
-            <div class="card-body">### Summary
-
-nebula-mesh revokes a host by adding its certificate fingerprint to a per-CA blocklist and shipping that list to every other agent on each poll. Slack's Nebula enforces certificate revocation ONLY through the `pki.blocklist` list in `config.yml` (no CRL/OCSP). The project's own code states this: `internal/pki/durations.go:15` — "Revoca...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-cm26-5974-52h8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55608</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.2
-                </span>
-            </div>
-            <div class="card-title">n8n-MCP: Incorrect authorization can expose default-scope workflow version backups in multi-tenant HTTP mode</div>
-            <div class="card-body">## Summary
-
-In multi-tenant HTTP mode (`ENABLE_MULTI_TENANT=true`), an authenticated tenant could, under certain conditions, reach n8n-mcp's local default-scope `workflow_versions` backups instead of being confined to its own tenant scope. This affects n8n-mcp's own local workflow-version storage, not a normal n8n API capability.
-
-## Impact
-
-An aut...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-2cf7-hpwf-47h9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55513</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: Web UI host creation ignores configured enrollment token TTL and mints 24-hour bearer enrollment tokens</div>
-            <div class="card-body">### Summary
-The `nebula-mgmt` Web UI host-creation path ignores both the server-wide `enrollment_token_ttl` security setting and per-network `network_config.enrollment_token_ttl` overrides. API host creation and token-regeneration paths use the configured TTL resolver, but `POST /ui/hosts` hardcodes `now.Add(24 * time.Hour)` for newly minted agent ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-g4x6-jcvr-9m3g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55512</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: Unauthenticated OIDC login endpoint allocates unbounded in-memory state entries without rate limiting</div>
-            <div class="card-body">### Summary
-When OIDC is enabled, `GET /ui/oidc/login` is reachable without authentication and is registered outside the Web UI rate-limited auth routes. Every request creates a fresh random OIDC state value and stores it in an in-memory map for `10m`. Expired states are swept lazily, but there is no rate limit or maximum live-state cap on the allo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-m3cx-mwpg-32jg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54629</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Anyquery: Local File Read (LFR) via Unrestricted SQLite Virtual Table Modules in Server Mode</div>
-            <div class="card-body">## Summary
-Anyquery's `server` mode lacks input sanitization and access control over its built-in SQLite virtual table modules (e.g., `csv_reader`, `log_reader`). Unauthenticated attackers connecting to the MySQL-compatible server port can create virtual tables pointing to local files on the system (e.g., `/etc/passwd`, `~/.ssh/id_rsa`). This allow...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-mf78-3rpf-r784" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53603</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: Operator session tokens stored in plaintext in the database</div>
-            <div class="card-body">## Impact
-
-Operator session tokens are stored in plaintext in the `operator_sessions` table (the `token` column is the PRIMARY KEY). The session token is a 32-byte random hex value sent directly in a cookie and valid for 24 hours.
-
-- `internal/models/operator.go:61` — `OperatorSession.Token` holds the plaintext token.
-- `internal/store/sqlite_opera...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-q4vm-pq3q-8wgq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-44891</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty: Denial of Service via Unbounded Headers in StompSubframeDecoder</div>
-            <div class="card-body">### Summary
-The StompSubframeDecoder fails to limit the total number of headers or their cumulative size per frame, allowing an attacker to cause an OutOfMemoryError, leading to a Denial of Service.
-
-### Details
-`io.netty.handler.codec.stomp.StompSubframeDecoder` implements the STOMP protocol. The `maxLineLength` parameter restricts the length of i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-vhch-2wf3-m8rp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53604</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">nebula-mesh: CA private key not zeroized on web mobile-bundle error paths</div>
-            <div class="card-body">## Impact
-
-The web handler `renderMobileBundle` (`internal/web/handlers.go:1325`) passes the real `*pki.CAResolver` directly into `mobilebundle.Build`. Inside `Build` (`internal/mobilebundle/builder.go:54`), `resolver.LoadByID` decrypts the CA's ed25519 private key into a `*pki.CAManager`, but `Build` never calls `CAManager.Wipe()` on any return pa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-2p2f-px33-4vv5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54628</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">Anyquery: Server-Side Request Forgery (SSRF) via Unrestricted SQLite Virtual Table Modules in Server Mode</div>
-            <div class="card-body">## Summary
-Anyquery's `server` mode does not restrict outbound HTTP requests initiated by its built-in SQLite virtual table modules (e.g., `json_reader`, `log_reader`). Unauthenticated attackers connecting to the MySQL-compatible server port can create virtual tables pointing to internal network endpoints or Cloud Metadata IPs (e.g., `http://169.25...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-hwrq-8wxh-q4xv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-q3v2-xj35-9grx</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.9
-                </span>
-            </div>
-            <div class="card-title">Umbraco.AI discloses sensitive application configuration values</div>
-            <div class="card-body">### Impact
-Under certain configurations, a user with elevated privileges may be able to cause sensitive application configuration values, potentially including secret material such as credentials, to be disclosed. Successful exploitation could expose confidential information and, depending on what the affected installation stores in configuration, ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-14</span>
-                <a href="https://github.com/advisories/GHSA-q3v2-xj35-9grx" target="_blank">Full Report →</a>
             </div>
         </div>
         
