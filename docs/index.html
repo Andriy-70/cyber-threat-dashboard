@@ -68,10 +68,287 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-21 13:08 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-21 18:59 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59879</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Immutable.js `List` 32-bit trie overflow → unrecoverable DoS</div>
+            <div class="card-body">## Summary
+
+`List#set`, `List#setSize`, `List#setIn`, `List#updateIn` (and the functional `set` / `setIn` / `updateIn`) mishandle an index or size in the range `[2 ** 30, 2 ** 31)`:
+
+- On an **empty** `List` the operation enters an **uncatchable infinite loop** (a tight CPU spin; a surrounding `try/catch` never regains control). Only killing the wo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-v56q-mh7h-f735" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59882</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">guzzlehttp/psr7: Host Confusion via Weak URI Host Validation</div>
+            <div class="card-body">### Impact
+
+`guzzlehttp/psr7` did not reject URI host components containing authority delimiters (`/`, `?`, `#`, `@`, or `\`), an embedded port such as `host:8080`, or IPv6 brackets that do not frame the host (such as `[::1` or `::1]`). `Uri::assertValidHost()` rejected only control characters, so these malformed hosts were accepted both when parsi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-c2w2-prh8-qm98" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61666</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">websocket-driver-ruby: Denial of service via malformed Host header</div>
+            <div class="card-body">### Impact
+
+If this library is used to implement a WebSocket server on top of a TCP server, by using the `WebSocket::Driver.server()` method, then a client can cause the server to crash by sending a `Host` header that is not a valid `host[:port]` string. When this happens, a `URI::InvalidURIError` exception is raised which is not caught, and this c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-2x63-gw47-w4mm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59896</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">hono/jsx does not isolate context per request, leading to cross-request data disclosure</div>
+            <div class="card-body">### Summary
+
+`hono/jsx` did not isolate context values per request during server-side rendering. While an async component was suspended on `await`, its provided context value stayed observable to other requests rendering concurrently, so `useContext()` could return a value from a different in-flight request.
+
+### Details
+
+During server-side renderi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-hvrm-45r6-mjfj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59895</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">Hono: Server-Side XSS via JSX Escaping Bypass in cx() Utility</div>
+            <div class="card-body">### Summary
+
+`cx()` in `hono/css` composes class names from plain strings but marks the result as already-escaped without HTML-escaping the input. When the result is used as a JSX `class` attribute during server-side rendering, the value is written into the attribute unescaped, so untrusted input can break out of the `class` attribute and inject ar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-w62v-xxxg-mg59" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59897</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">Hono: API Gateway v1 adapter can drop a distinct repeated request header value during de-duplication</div>
+            <div class="card-body">### Summary
+
+The AWS API Gateway v1 adapter can drop a distinct repeated request header value. When a header appears multiple times, the adapter de-duplicates values using a substring comparison instead of an exact match, so a value that is a substring of another value of the same header is omitted (for example, `203.0.113.1` is dropped when anothe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-xgm2-5f3f-mvvc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-frvp-7c67-39w9</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Node.js Adapter for Hono: Path traversal in `serve-static` on Windows via encoded backslash (`%5C`)</div>
+            <div class="card-body">The same as the `hono` core [Path traversal in `serve-static` on Windows via encoded backslash (`%5C`)](https://github.com/honojs/hono/security/advisories/GHSA-wwfh-h76j-fc44).
+
+### Summary
+
+On Windows hosts, an encoded backslash (`%5C`) in the request path decodes to `\`, which the Windows path resolver treats as a separator. `serve-static` then r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-frvp-7c67-39w9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54291</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">PostgreSQL JDBC Driver: Silent channel-binding authentication downgrade via unsupported certificate algorithms</div>
+            <div class="card-body">### Impact
+
+`channelBinding=require` connections can be silently downgraded from `SCRAM-SHA-256-PLUS` (with channel binding) to plain `SCRAM-SHA-256` (without it), losing the man-in-the-middle protection the setting is meant to guarantee. An attacker who can intercept the TLS connection triggers the downgrade with a certificate whose signature algo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-j92g-9f8w-j867" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-56170</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Microsoft Security Advisory CVE-2026-56170 – .NET Denial of Service Vulnerability</div>
+            <div class="card-body"># Microsoft Security Advisory CVE-2026-56170 – .NET Denial of Service Vulnerability
+
+## Executive summary
+
+Microsoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core SignalR (Microsoft.AspNetCore.App.Runtime). This advisory also provides guidance on what developers can do to update their applications ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-j8gr-8fp3-5q5h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50526</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.0
+                </span>
+            </div>
+            <div class="card-title">Microsoft Security Advisory CVE-2026-50526 – .NET Tampering Vulnerability</div>
+            <div class="card-body">## Executive summary
+
+Microsoft is releasing this security advisory to provide information about a vulnerability in .NET SDK (Microsoft.NET.Build.Containers). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
+
+A tampering vulnerability exists in the .NET SDK (.NET 8, .NET 9, an...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-55jh-fwmh-39m4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47300</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Microsoft Security Advisory CVE-2026-47300 – .NET Elevation of Privilege Vulnerability</div>
+            <div class="card-body">## Executive summary
+
+Microsoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core Negotiate Authentication (Microsoft.AspNetCore.Authentication.Negotiate). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
+
+An elevation of privileg...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-8prm-248r-h957" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-47303</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Microsoft Security Advisory CVE-2026-47303 – .NET Elevation of Privilege Vulnerability</div>
+            <div class="card-body">## Executive summary
+
+Microsoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core Negotiate Authentication (Microsoft.AspNetCore.Authentication.Negotiate). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
+
+An elevation of privileg...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-2p3q-h3hg-jcqq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50527</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Microsoft Security Advisory CVE-2026-50527 – .NET Denial of Service Vulnerability</div>
+            <div class="card-body">## Executive summary
+
+Microsoft is releasing this security advisory to provide information about a vulnerability in .NET XML Encryption (System.Security.Cryptography.Xml). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
+
+A denial of service vulnerability exists in the XML enc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-mmjf-rqrv-855v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50650</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">Microsoft Security Advisory CVE-2026-50650 – .NET Elevation of Privilege Vulnerability</div>
+            <div class="card-body">## Executive summary
+
+Microsoft is releasing this security advisory to provide information about a vulnerability in Windows Presentation Foundation (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
+
+An elevation of privilege vulnerability exists in Windows Presentation F...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-2969-4q4w-w5h3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8whx-365g-h9vv</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Loofah `allowed_uri?` does not detect `javascript:` URIs split by named whitespace character references</div>
+            <div class="card-body">## Summary
+
+`Loofah::HTML5::Scrub.allowed_uri?` does not correctly reject `javascript:` URIs when the scheme is split or prefixed by the HTML5 named character references `&Tab;` (tab) or `&NewLine;` (line feed).
+
+This is a bypass of the fix for [GHSA-46fp-8f5p-pf2m](https://github.com/flavorjones/loofah/security/advisories/GHSA-46fp-8f5p-pf2m), whi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-21</span>
+                <a href="https://github.com/advisories/GHSA-8whx-365g-h9vv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-h95v-h523-3mw8</span>
@@ -338,308 +615,6 @@ starting `4 * W` byt...</div>
             <div class="card-footer">
                 <span>Published: 2026-07-20</span>
                 <a href="https://github.com/advisories/GHSA-6r8x-57c9-28j4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59198</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Pillow TGA RLE encoder can serialize up to ~57 KB of adjacent heap data into generated images</div>
-            <div class="card-body">### Summary
-
-Pillow's TGA RLE encoder reads past its row buffer when saving a mode `"1"`
-image. Adjacent process heap bytes can be copied into the generated TGA file.
-
-The bug is reachable through the public save API:
-
-```python
-im.save(out, format="TGA", compression="tga_rle")
-```
-
-Older affected Pillow versions use the equivalent public option `r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-fj7v-r99m-22gq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59197</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">Pillow: Heap out-of-bounds write in `ImageFilter.RankFilter` via integer overflow in `ImagingExpand`</div>
-            <div class="card-body">### Summary
-
-Pillow's public rank-filter API can trigger a native heap out-of-bounds write
-when given a very large odd filter size.
-
-Minimal public API trigger:
-
-```python
-from PIL import Image, ImageFilter
-
-im = Image.new("L", (3, 3), 128)
-im.filter(ImageFilter.MedianFilter(4294967295))
-```
-
-`ImageFilter.RankFilter.filter()` calls `image.expand(si...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-xj96-63gp-2gmr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50651</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-50651 – .NET Denial of Service Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET HTTP client (System.Net.Http). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A denial of service vulnerability exists in .NET 8, .NET 9, and .NET 10 whe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-wp74-jgxh-gv4q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50659</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-50659 – .NET Spoofing Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET SMTP client (System.Net.Mail). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A spoofing vulnerability exists in the SMTP client implementation (System.N...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-74jp-vm22-8q8x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50525</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-50525 – .NET Denial of Service Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET XML Encryption (System.Security.Cryptography.Xml). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A denial of service vulnerability exists in the XML enc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-8q5v-6pqq-x66h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50528</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-50528 – .NET Security Feature Bypass Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET TLS/SSL (System.Net.Security). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A security feature bypass vulnerability exists in .NET 8, .NET 9, and .NET ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-qvw7-jm5c-6hqw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50648</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-50648 – .NET Denial of Service Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET XML Encryption (System.Security.Cryptography.Xml). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A denial of service vulnerability exists in the XML enc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-23rf-6693-g89p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50524</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-50524 – .NET Denial of Service Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET TLS/SSL (System.Net.Security). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A denial of service vulnerability exists in .NET 8, .NET 9, and .NET 10 whe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-w7cw-xp7h-6j5j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47304</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-47304 – .NET Security Feature Bypass Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET XML Encryption (System.Security.Cryptography.Xml). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A security feature bypass vulnerability exists in the X...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-g8r8-53c2-pm3f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47302</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-47302 – .NET Denial of Service Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in .NET XML processing (System.Security.Cryptography.Xml, System.Xml). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A denial of service vulnerability exists in...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-cvvh-rhrc-wg4q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-57108</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-57108 – .NET Denial of Service Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in the .NET runtime cryptography layer (CryptoNative_GetX509NameInfo). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A denial of service vulnerability exists in...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-rp2p-6cmp-jxj9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-gcfj-64vw-6mp9</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning</div>
-            <div class="card-body">## Summary
-
-Axios’ Node.js HTTP adapter can route requests through an attacker-controlled proxy when `Object.prototype.proxy` is polluted and request configuration is materialized as a regular object before dispatch.
-
-Recent axios releases harden merged request config by creating a null-prototype object. However, request interceptors run after that...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-gcfj-64vw-6mp9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hcpx-6fm6-wx23</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios form serializer maxDepth bypass via {} metatoken</div>
-            <div class="card-body">## Summary
-
-Axios versions in the fixed lines for GHSA-62hf-57xw-28j9 still contain an incomplete depth-limit bypass in `lib/helpers/toFormData.js`. When serializing an object with a top-level key ending in `{}`, axios calls `JSON.stringify()` on that value before the `formSerializer.maxDepth` guard can inspect the nested structure.
-
-An attacker wh...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-hcpx-6fm6-wx23" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7q8q-rj6j-mhjq</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios: Nested axios option objects can consume polluted prototype values</div>
-            <div class="card-body">## Summary
-
-Axios can consume inherited properties from nested request option objects when the JavaScript process already has a polluted `Object.prototype`.
-
-The top-level merged config is protected with a null prototype, but nested plain objects such as `auth` and `paramsSerializer` are cloned into ordinary objects. If application code passes plac...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-7q8q-rj6j-mhjq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mwf2-3pr3-8698</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios: HTTP/2 streamed uploads bypass `maxBodyLength`</div>
-            <div class="card-body">## Summary
-
-Axios versions with Node.js HTTP/2 support allow streamed request bodies to bypass `maxBodyLength` enforcement when requests are sent with `httpVersion: 2`.
-
-This affects applications that rely on `maxBodyLength` as a hard cap while forwarding attacker-controlled streams, such as upload endpoints proxying user data to an upstream HTTP/2...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-20</span>
-                <a href="https://github.com/advisories/GHSA-mwf2-3pr3-8698" target="_blank">Full Report →</a>
             </div>
         </div>
         
