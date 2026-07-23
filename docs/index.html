@@ -68,576 +68,588 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-22 18:52 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-23 01:23 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-65599</span>
+                <span class="cve-id">GHSA-652q-gvq3-74qv</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">n8n: Google Service Account Private Key Exposed in JWT Header</div>
-            <div class="card-body">## Impact
-When n8n was configured with a Google Service Account key, the full PEM private key was mistakenly placed in the JWT header's `kid` field (which should only have held a key identifier). Since JWT headers were Base64-encoded rather than encrypted, the key could be recovered by anything that logged or inspected the JWT.
-
-An attacker who obt...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-9r8p-h6cc-6qhm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-65592</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">n8n: Stored DOM XSS via Resource Locator `cachedResultUrl`</div>
-            <div class="card-body">## Impact
-The Resource Locator passes the workflow-persisted `cachedResultUrl` to `window.open()` without scheme validation. When a victim opens the crafted workflow and interact with external links, the JavaScript payload runs in the victim's browser. 
-
-## Patches
-The issue has been fixed in n8n versions 1.123.64, 2.29.8, and 2.30.1. Users should ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-9wcp-9r3j-383q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-65597</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">n8n: DOM-Based XSS via Unsandboxed iframe srcdoc in HTML Preview</div>
+            <div class="card-title">n8n: Snowflake Node executeQuery Operation Allows SQL Injection via Unparameterized Expression Interpolation</div>
             <div class="card-body">## Impact
 
-The HTML preview renders execution output into an `iframe srcdoc` without `sandbox`, so a sanitizer bypass lets injected script run same-origin as the editor. When a victim opens the preview, it can call authenticated APIs with their session. An account with `global:member` privileges can exploit it.
+The n8n Snowflake node's Execute Query operation interpolated expression values directly into the SQL string, making queries built with untrusted data susceptible to SQL injection.
+
+Exploitation requires that a workflow author has already embedded untrusted expression data directly in a raw SQL query.
 
 ## Patches
 
-The issue has been fixed...</div>
+The issue has been fixe...</div>
             <div class="card-footer">
                 <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-p3rg-hrf9-w9gj" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-652q-gvq3-74qv" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-65598</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">n8n: Race Condition in Git Clone Node Allows Authenticated Users to Achieve Remote Code Execution</div>
-            <div class="card-body">## Impact
-A TOCTOU race condition in the Git node's `clone` operation lets an authenticated user bypass its path restrictions by swapping a directory for a symlink after the path is validated but before the clone runs. This plants a crafted repository in the community node directory, which n8n loads as a custom node on the next restart, and since n...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-g3r5-9h93-4j2c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-65015</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">n8n: AI Agents Project Viewer Privilege Escalation via run_node_tool</div>
-            <div class="card-body">## Impact
-In n8n's AI Agents feature, a user with the read-only Project Viewer role could escalate their privileges by chatting with an agent that has node tools enabled. The agent's node-execution tool was authorized only by the `agent:execute` scope and ran nodes using the project's credentials, without verifying that the requesting user was perm...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-x5vx-c2c8-m3w9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mhvh-gwhr-76pw</span>
+                <span class="cve-id">GHSA-jqwr-vx3p-r266</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Duplicate Advisory: Google Service Account Private Key Exposed in JWT Header</div>
-            <div class="card-body">## Duplicate Advisory
+            <div class="card-title">n8n: PostgresTrigger Node SQL Injection Allows Authenticated Users to Execute Arbitrary SQL on Connected PostgreSQL Instances</div>
+            <div class="card-body">## Impact
 
-This advisory has been withdrawn because it is a duplicate of GHSA-9r8p-h6cc-6qhm. This link is maintained to preserve external references.
+The Postgres Trigger node interpolated user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping, so an authenticated user could inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential's privileges.
 
-## Original Description
-n8n versions before 1.123.64, 2.29.8, and 2.30.1 contain a credential exposure vulnerability: when configured with a Google Service Account key, the full PEM priv...</div>
+Successful exploitation allows ...</div>
             <div class="card-footer">
                 <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-mhvh-gwhr-76pw" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-jqwr-vx3p-r266" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-725q-c4vp-q4cg</span>
+                <span class="cve-id">GHSA-9cmh-xcqm-5hqr</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">n8n: Cross-Tenant Module-Cache Poisoning in the JS Task Runner</div>
+            <div class="card-body">## Impact
+
+n8n's JavaScript task runner shared one module cache across all users' Code-node executions, so a user able to run a Code node could poison a cached module and alter other users' Code-node executions on the same runner, affecting their confidentiality, integrity, or availability.
+
+This is a cross-user isolation break within a single n8n ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-9cmh-xcqm-5hqr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-pppj-hq3g-57pj</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">Duplicate Advisory: Race Condition in Git Clone Node Allows Authenticated Users to Achieve Remote Code Execution</div>
-            <div class="card-body">## Duplicate Advisory
+            <div class="card-title">JupyterLab: Cross-site scripting (XSS) via crafted settings file (`overrides.json`)</div>
+            <div class="card-body">JupyterLab 4.5+ allows notebook settings to be shared and applied through an `overrides.json` file using the `Import` button in the Settings Editor.
 
-This advisory has been withdrawn because it is a duplicate of GHSA-g3r5-9h93-4j2c. This link is maintained to preserve external references.
-
-## Original Description
-n8n before 1.123.64, 2.29.8, and 2.30.1 contains a TOCTOU race condition in the Git node's clone operation that allows authenticated users to bypass path restrict...</div>
+Certain notebook display settings were not properly validated before being applied. As a result, a crafted settings file could contain hidden instructions that run as code inside JupyterLab when impor...</div>
             <div class="card-footer">
                 <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-725q-c4vp-q4cg" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-pppj-hq3g-57pj" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-vhcw-f978-xjjg</span>
+                <span class="cve-id">GHSA-gx64-gj6p-pc4c</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">Duplicate Advisory: DOM-Based XSS via Unsandboxed iframe srcdoc in HTML Preview</div>
-            <div class="card-body">## Duplicate Advisory
+            <div class="card-title">JupyterLab: Image viewer allows XSS when opening malicious image in new browser tab</div>
+            <div class="card-body">JupyterLab's image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server.
 
-This advisory has been withdrawn because it is a duplicate of GHSA-p3rg-hrf9-w9gj. This link is maintained to preserve external references.
+### Impact
 
-## Original Description
-n8n before 1.123.64, 2.x before 2.29.8, and before 2.30.1 contains a DOM-based cross-site scripting vulnerability in the HTML preview, which renders execution out...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-vhcw-f978-xjjg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-h5xr-fqvj-253p</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Duplicate Advisory: Stored DOM XSS via Resource Locator `cachedResultUrl`</div>
-            <div class="card-body">## Duplicate Advisory
-
-This advisory has been withdrawn because it is a duplicate of GHSA-9wcp-9r3j-383q. This link is maintained to preserve external references.
-
-## Original Description
-
-n8n before 1.123.64, 2.29.8, and 2.30.1 contains a stored DOM cross-site scripting vulnerability in the Resource Locator component, which passes the workflow-per...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-h5xr-fqvj-253p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-w46p-w7w2-fr9g</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Duplicate Advisory:  AI Agents Project Viewer Privilege Escalation via run_node_tool</div>
-            <div class="card-body">## Duplicate Advisory
-
-This advisory has been withdrawn because it is a duplicate of GHSA-x5vx-c2c8-m3w9. This link is maintained to preserve external references.
-
-## Original Description
-n8n versions before 2.30.1 contain a privilege escalation vulnerability in the AI Agents feature where the node-execution tool lacks proper authorization checks. ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-22</span>
-                <a href="https://github.com/advisories/GHSA-w46p-w7w2-fr9g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-16221</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">fast-uri vulnerable to host confusion via literal backslash authority delimiter</div>
-            <div class="card-body">### Impact
-
-`fast-uri` v4.1.0 and earlier do not treat a literal backslash (U+005C) as an authority delimiter. Node's native WHATWG `URL` (used by `fetch()`, `undici`, and Node's `http`/`https` clients) normalizes `\` to `/` for special schemes (`http`, `https`, `ws`, `wss`, `ftp`, `file`), so the two parsers extract different hosts from the same i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-v2hh-gcrm-f6hx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f88m-g3jw-g9cj</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591</div>
-            <div class="card-body">### Impact
-
-A number of vulnerabilities, two rated as "High" severity using CVSSv4, have been discovered and fixed in the upstream libvips dependency.
-
-Those processing untrusted input with versions of sharp prior to 0.35.0 are affected.
+This vulnerability allows for arbitrary code execution.
 
 ### Patches
 
-#### Using prebuilt binaries provided by sharp?
-
-Most people rely on the prebuilt binaries provide...</div>
+JupyterLab [...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-f88m-g3jw-g9cj" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-gx64-gj6p-pc4c" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-8r6m-32jq-jx6q</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">fast-xml-parser: Repeated DOCTYPE declarations reset entity expansion limits</div>
-            <div class="card-body">### Impact
-`fast-xml-parser` processes multiple "DOCTYPE" declarations within a single XML document. Each declaration passes its entities to `@nodable/entities` through `addInputEntities()`.
-
-`addInputEntities()` resets the entity expansion counters every time it is called. An attacker can therefore insert additional DOCTYPE declarations to repeate...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-8r6m-32jq-jx6q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-rwj8-pgh3-r573</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">GitPython: Environment-variable exfiltration via os.path.expandvars() on Repo.clone_from() URL</div>
-            <div class="card-body">### Summary
-`Repo.clone_from()` passes the caller-supplied remote URL through `Git.polish_url()`, which on every non-Cygwin platform calls `os.path.expandvars()` on the URL before handing it to `git clone`. An attacker who controls the URL argument — the documented use case for `clone_from()` in "import repository from URL" features of CI servers, ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-rwj8-pgh3-r573" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-cj75-f6xr-r4g7</span>
+                <span class="cve-id">GHSA-89vp-jrxv-24w8</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Rails HTML Sanitizers: Possible XSS vulnerability with certain configurations</div>
-            <div class="card-body">## Summary
-
-There is a possible cross-site scripting vulnerability in rails-html-sanitizer when the sanitizer is configured to allow an SVG reference element such as `<use>`. See related [GHSA-9wjq-cp2p-hrgf](https://github.com/flavorjones/loofah/security/advisories/GHSA-9wjq-cp2p-hrgf) in Loofah, whose SVG local-reference logic rails-html-sanitize...</div>
+            <div class="card-title">JupyterLab: PyPI extension blocklist package-name canonicalization bypass</div>
+            <div class="card-body">JupyterLab's PyPI extension manager enforces `blocked_extensions_uris` by comparing the requested install name to blocklist entries with a custom string normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as `JupyterLab.Git` for a blocklisted package such as `jupyte...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-cj75-f6xr-r4g7" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-89vp-jrxv-24w8" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-9mqv-5hh9-4cgg</span>
+                <span class="cve-id">GHSA-h5v5-8746-g7mm</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Node.js Adapter for Hono: Unauthenticated memory-leak DoS via aborted WebSocket handshake</div>
-            <div class="card-body">## Summary
+            <div class="card-title">JupyterLab PluginManager lock-rule enforcement bypass</div>
+            <div class="card-body">JupyterLab's plugin manager exposes administrator controls intended to prevent users from enabling or disabling selected plugins. Two server-side enforcement gaps let an authenticated user bypass those controls with direct requests to `/lab/api/plugins`.
 
-A WebSocket upgrade request to an `upgradeWebSocket` route with a missing or malformed `Sec-WebSocket-Key` header leaks memory permanently. The request's `IncomingMessage` is retained in an internal map and a pending promise is never settled, even though no connection is established. Since the route is reachable pre-handshake without au...</div>
+### Impact
+
+Users could workaround the plugin manager lock rules via direct API access for eit...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-9mqv-5hh9-4cgg" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-h5v5-8746-g7mm" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-hrxh-6v49-42gf</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">gRPC-Go: xDS RBAC and HTTP/2 Vulnerabilities</div>
-            <div class="card-body">Multiple security vulnerabilities have been identified and addressed in grpc-go affecting the xDS RBAC authorization engine (internal/xds/rbac) and the HTTP/2 transport server implementation (internal/transport). These vulnerabilities could result in:
-
-- Authorization Bypass (Fail-Open) when translating xDS RBAC policies containing `Metadata` or `R...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-hrxh-6v49-42gf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-5qhf-9phg-95m2</span>
+                <span class="cve-id">GHSA-whvh-wf3x-g77j</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
                     LOW None
                 </span>
             </div>
-            <div class="card-title">Loofah `allowed_uri?` does not detect `javascript:` URIs split by numeric character references without semicolons</div>
-            <div class="card-body">## Summary
-
-`Loofah::HTML5::Scrub.allowed_uri?` does not correctly reject `javascript:` or `vbscript:` URIs when the scheme is split by a numeric character reference that has no trailing semicolon. A browser decodes such references and resolves the URL to an executable `javascript:` scheme, while `allowed_uri?` reports it safe.
-
-This is a bypass of...</div>
+            <div class="card-title">JupyterLab: Allowlist/blocklist check in `PyPIExtensionManager.install()` not enforced for direct callers (missing `await`)</div>
+            <div class="card-body">The extension allowlist/blocklist check inside `PyPIExtensionManager.install()` was not enforced due to a missing await. For purposes of JupyterLab this was a secondary defense-in-depth check: `install()` was intended to enforce the allowlist/blocklist itself for any future uses and users calling this method directly (in addition to the separate ch...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-5qhf-9phg-95m2" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-whvh-wf3x-g77j" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-9wjq-cp2p-hrgf</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">Loofah: SVG `href` attribute bypasses local-reference restriction</div>
-            <div class="card-body">## Summary
-
-Loofah's HTML5 sanitizer restricted only the `xlink:href` attribute on certain SVG elements to local, same-document references. Browsers also accept a plain `href` attribute as an alternative to the deprecated `xlink:href` per the SVG 2 spec, but Loofah did not apply the same restriction to it, allowing those elements to reference arbit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-9wjq-cp2p-hrgf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59889</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">jackson-databind: @JsonView ypassed for @JsonUnwrapped container properties on deserialization</div>
-            <div class="card-body">## Summary
-`UnwrappedPropertyHandler.processUnwrapped()` replays the buffered JSON for a `@JsonUnwrapped` property by iterating its properties and calling `prop.deserializeAndSet()` with **no `prop.visibleInView(ctxt.getActiveView())` guard** — the exact guard `processUnwrappedCreatorProperties()` received in the #5971 / GHSA-rcqc-6cw3-h962 fix, an...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-5gvw-p9qm-jgwh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-2rp8-mm9q-fp49</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.7
-                </span>
-            </div>
-            <div class="card-title"> TypeORM: migration:generate template-literal code injection</div>
-            <div class="card-body">### Summary
-
-`typeorm migration:generate` embeds database schema metadata into JS/TS template literals, escaping backticks but not `${...}`. An attacker who can write schema metadata (column comments, defaults, view definitions) achieves arbitrary code execution on the host that loads the generated migration.
-
-### Details
-
-`MigrationGenerateCommand...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-2rp8-mm9q-fp49" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-r7wm-3cxj-wff9</span>
+                <span class="cve-id">CVE-2026-64649</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">jackson-core: Async parser maxNumberLength bypass via chunked digit accumulation (incomplete fix for GHSA-72hv-8253-57qq)</div>
-            <div class="card-body">## Summary
+            <div class="card-title">Next.js: Server-Side Request Forgery in Server Actions on custom servers</div>
+            <div class="card-body">## Impact
 
-The fix released in jackson-core `2.18.6` and `2.21.1` for [GHSA-72hv-8253-57qq](https://github.com/FasterXML/jackson-core/security/advisories/GHSA-72hv-8253-57qq) (Number Length Constraint Bypass in Async Parser, published 2026-02-28) is incomplete. The fix commit `b0c428e6` (#1555) wired `validateIntegerLength` into a new `_setIntLeng...</div>
+When a Server Action forwards or redirects a request, an attacker can cause the server to send that outbound request to a malicious host (Server-Side Request Forgery). This requires the attacker's request to control Host-associated headers. In some configurations, it's also possible to obtain internal values that weaken middleware/proxy ...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-r7wm-3cxj-wff9" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-89xv-2m56-2m9x" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-20779</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">Gitea: TOTP TOCTOU race on web 2FA paths + missing replay check on Basic-Auth `X-Gitea-OTP` surface</div>
-            <div class="card-body">### Summary
-
-I'm reporting **two related TOTP one-time-use defects** in Gitea that survive the CVE-2021-45331 fix. The 2018 fix (PR #3878) introduced the `TwoFactor.LastUsedPasscode` field and added an in-memory inequality check on the web 2FA login path. That check works correctly in the single-request case, but it leaves two follow-up gaps:
-
-1. *...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-gx3v-q759-g323" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-58429</span>
+                <span class="cve-id">CVE-2026-64648</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.9
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Gitea: Public-Only Personal access tokens scope bypass in Organization and Permission Endpoints</div>
+            <div class="card-title">Next.js: Cache confusion of response bodies for requests with bodies</div>
+            <div class="card-body">## Impact
+
+A server-side `fetch` with a request body may return a cached **response** body from a different request to the same URL but different body. Confidential data in the `POST`'s **response** body would then leak to unauthorized requests. Though the request itself will not be deduped.
+
+This only applies to `fetch` calls with a request that h...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-68g3-v927-f742" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64647</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences</div>
+            <div class="card-body">## Impact
+
+A server-side `fetch` with a request body may return a cached **response** body from a different request to the same URL but different body. Confidential data in the `POST`'s **response** body would then leak to unauthorized requests. Though the request itself will not be deduped.
+
+This is only an issue when receiving request bodies with...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-4633-3j49-mh5q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64646</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Unbounded Server Action payload in Edge runtime</div>
+            <div class="card-body">## Impact
+
+Requests targeting Next.js applications using App Router with at least one Server Action can lead to excessive memory consumption if that Server Actions uses the Edge runtime
+
+## Workarounds
+
+If you cannot upgrade, ensure your hosting provider limits the request's body size. 5 MiB should be allowed at max by your hosting provider....</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-4c39-4ccg-62r3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64645</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname</div>
+            <div class="card-body">## Impact
+
+A `rewrites()` or `redirects()` rule that builds its external destination hostname from request-controlled input can be pointed at an arbitrary hostname, regardless of the rule's hostname suffix. For a rewrite, Next.js proxies the request to that arbitrary host and serves the response from the application's origin, leading to Server-Side...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-p9j2-gv94-2wf4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64644</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Denial of Service in the Image Optimization API using SVGs</div>
+            <div class="card-body">### Impact
+
+When self-hosting Next.js with the default image loader, the Image Optimization API can optimize remotely hosted images if configured (not enabled by default). If those images contain malicious content, they can cause CPU exhaustion in  `/_next/image` endpoints.
+
+- If you are using `config.images.remotePatterns`, only the patterns in th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-q8wf-6r8g-63ch" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64643</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Unauthenticated disclosure of internal Server Function endpoints</div>
+            <div class="card-body">## Impact
+
+In Next.js applications using App Router, Server Actions (`use server`) or `use cache` endpoints can be disclosed bypassing any authentication on the pages where these endpoints are usually used.
+
+Server Action IDs can be disclosed to unauthenticated users via publicly served client artifacts (for example, static chunks containing action...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-955p-x3mx-jcvp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64642</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Middleware / Proxy bypass in App Router applications using Turbopack and single locale</div>
+            <div class="card-body">## Impact
+
+Crafted requests targeting Next.js applications using App Router built with Turbopack and a **single** entry in `config.i18n.locales` can bypass middleware/proxy based authentication.
+
+## Workarounds
+
+If you cannot upgrade immediately, enforce authorization in the page's server-side data path instead of relying solely on middleware....</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-6gpp-xcg3-4w24" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64641</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Denial of Service in App Router using Server Actions</div>
+            <div class="card-body">## Impact
+
+Crafted requests targeting Next.js applications using App Router with at least one Server Action can lead to excessive CPU usage blocking processing of further requests in the same process.
+
+## Workarounds
+
+No workaround exists besides upgrading. Applications using Pages Router or not using Server Actions are not vulnerable....</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-m99w-x7hq-7vfj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2024-7708</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Eclipse Jetty: DoS attack triggering OutOfMemory with 100-Continue requests</div>
+            <div class="card-body">### Impact
+The original report:
+
+> Server handling of 100-Continue requests can lead to memory leak that can be abused to cause a Denial of Service state.
+
+After investigation, turns out that every request that has a body, but reading the body may end up in reading 0 bytes, leaks a buffer.
+This is particularly the case for 100-Continue, but any req...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-9299-c6m4-mjhc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-8384</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Eclipse Jetty: Path parameter traversal</div>
+            <div class="card-body">### Description (as reported)
+
+#### Summary
+
+In Jetty 12.1.8, org.eclipse.jetty.util.URIUtil.canonicalPath() may leave dot-dot path segments unnormalized when a semicolon path parameter marker is followed by a slash and a dot
+  segment.
+
+A minimal example is:
+
+`/public;/../admin/secret`
+
+In my local reproduction, URIUtil.canonicalPath() returns:
+
+`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-w7x5-g22v-xqhr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-6790</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Eclipse Jetty: HTTP Authority/Host mismatch</div>
+            <div class="card-body">#### Summary
+
+Jetty currently accepts HTTP/2 and HTTP/3 requests where the regular
+Host header and the pseudo-header :authority
+do not match. As a result, the same request can carry two different host identities
+through Jetty:
+
+- logic based on `HttpURI` / `Request.getServerName(request)` uses `:authority`
+- logic based on raw request headers conti...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-7p3p-8qv8-m2vh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-10051</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Eclipse Jetty: Cross-Request Leakage for trailers on HTTP/1.1 keep-alive connections</div>
+            <div class="card-body">### Description
+
+> FINDING — MEDIUM (HTTP/1.1 keep-alive connections with trailers)
+> HttpConnection._trailers Cross-Request Leakage (Never Reset Between Requests)
+> 
+> Location:
+>   jetty-core/jetty-server/src/main/java/org/eclipse/jetty/server/internal/
+>   HttpConnection.java:107, 1157-1161, 1170
+> 
+> Detail:
+>   _trailers (line 107) is a connec...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-f4v5-65jj-pcr2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-10050</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Eclipse Jetty Digest Authentication: ISO-8859-1 lossy encoding allows authentication bypass via character substitution</div>
             <div class="card-body">### Summary
-A personal access token restricted with the public-only scope can still retrieve private organization membership and organization permission details for its own account through organization-listing endpoints. This bypass breaks the intended guarantee that such tokens are limited to public resources only.
+The `DigestAuthentication.apply()` method in Jetty's HTTP client uses `getBytes(StandardCharsets.ISO_8859_1)` at three locations (lines 171, 179, 196) to compute Digest auth response hashes. ISO-8859-1 silently replaces any character above U+00FF (Chinese, Japanese, Cyrillic, Arabic, Emoji, etc.) with 0x3F (`?`), causing all such charac...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-2fvj-hgj9-j2gr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-65589</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">n8n: Custom Header Credential Values Leaked in Plaintext into LLM Node Execution Data</div>
+            <div class="card-body">## Impact
+Custom HTTP headers configured in credentials for certain LLM sub-nodes (including OpenAI, Anthropic, and Lemonade) are masked in the n8n UI but are written in plaintext into execution data during workflow runs. Any authenticated user with access to the execution data for an affected workflow can read the header names and values, which ty...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-89gh-3pgc-v5h2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59943</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Dompdf: Embedded SVG images can leak existence of files and directories within the filesystem</div>
+            <div class="card-body">### Summary
+If a malicious actor can supply unrestricted content for rendering by Dompdf they can utilize the SVG rendering functionality to leak filesystem information when rendering PDF files using image references within a data-URI encoded SVG document.
 
 ### Details
-The issue affects t...</div>
+Using an `<image>` element inside a data-URI embedded SVG, an attacker can attem...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-fq2p-5p22-8g6j" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-j8qw-6jw8-r297" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-59765</span>
+                <span class="cve-id">CVE-2026-59942</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Gitea: SSRF via Migration Asset Downloads Bypasses hostmatcher — Reads Internal Files and Cloud Metadata</div>
+            <div class="card-title">Dompdf: Denial of Service (DoS) via Resource Exhaustion using Oversized Image Bitmaps</div>
             <div class="card-body">### Summary
+Dompdf v3.1.5 is vulnerable to a Denial of Service (DoS) attack via resource exhaustion. An attacker can crash the PHP process by providing a specially crafted HTML document containing a single image with massive dimensions (e.g., 30,000x30,000 pixels).
 
-Gitea has robust SSRF protection via `hostmatcher.NewDialContext()` for webhook and migration clone URLs, which validates resolved IPs at the TCP dial level. However, three code paths use raw `http.Get()` (Go's `DefaultClient`) which completely bypasses this protection, enabling SSRF to internal services and local file read via the `fi...</div>
+While Dompdf implements internal checks to validate image dimensions, these can be ...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-2wm4-vwp6-v7xc" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-f5gf-2cj8-52g2" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-58511</span>
+                <span class="cve-id">CVE-2026-59941</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Dompdf: Uncontrolled resource consumption based on declared BMP dimensions</div>
+            <div class="card-body">### Summary
+
+dompdf accepts a BMP image and generates a PDF-compatible PNG based only on its *declared* header dimensions and never bounds width × height before the image is converted through GD. A 58-byte BMP whose header declares e.g. `6000×6000` is accepted and later drives `imagecreatetruecolor($width, $height)` (and PHP's native BMP decoder) t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-8hg6-c449-896m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59821</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 2.7
+                    LOW None
                 </span>
             </div>
-            <div class="card-title">Gitea: Webhook Authorization Header Returned in Plaintext via API</div>
-            <div class="card-body">## Summary
+            <div class="card-title">LiteLLM: Custom Code Guardrails production endpoints bypass code safety checks</div>
+            <div class="card-body">### Impact
 
-The `ToHook()` function in `services/webhook/general.go` decrypts the webhook's `HeaderAuthorizationEncrypted` field and returns the plaintext authorization header in the API response. Any repository admin can read the full plaintext value of webhook authorization headers (Bearer tokens, Basic auth credentials, API keys) set by other ad...</div>
+LiteLLM's Custom Code Guardrails production create/update paths did not apply the same sandboxing and validation used by the test endpoint.
+
+A privileged user with access to create or update guardrails could submit custom Python code that executed in the LiteLLM proxy environment. In deployments without a configured master key, callers ...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-3r5c-2xxx-h872" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-72m8-9m7m-h278" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-57897</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
+                <span class="cve-id">CVE-2026-59822</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">Gitea: Cross-Repo Information Disclosure via Org-Level Actions Run/Job APIs</div>
-            <div class="card-body">**Author:** Prakhar Porwal
-**Date:** 2026-05-24
-**Target:** Gitea (self-hosted Git service)
-**Branch tested:** `main` @ `b7e95cc48c` (development build, go1.26.3)
-**Component:** `routers/api/v1/org/action.go` (org-level Actions API)
-**OWASP:** API3:2023 Broken Object Property Level Authorization
+            <div class="card-title">LiteLLM: MCP Authentication Bypass via OAuth2 Passthrough Fallback</div>
+            <div class="card-body">### Impact
 
----
+LiteLLM's MCP Streamable HTTP endpoint could allow an unauthenticated attacker to establish an authenticated MCP session using an arbitrary Bearer token.
 
-## 1. Summary
-
-The org-level Actions REST endpo...</div>
+The MCP auth handler supported OAuth2 passthrough for upstream MCP servers, but the fallback path could replace failed LiteLLM key validation with an empty `UserAPIKeyAuth()` object. ...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-frpw-3h2q-4jj6" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-7488-6r32-c95q" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-58510</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
+                <span class="cve-id">CVE-2026-59819</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
                 </span>
             </div>
-            <div class="card-title">Gitea: GHSA-8fwc-qjw5-rvgp ClearRepoWatches fix not applied to API EditRepo path — sister code path retains stale watches on public->private</div>
-            <div class="card-body">## Summary
+            <div class="card-title">LiteLLM: Local file read via request-supplied OIDC file references</div>
+            <div class="card-body">### Impact
 
-GHSA-8fwc-qjw5-rvgp ("Gitea may send release notification emails for private repositories to users whose access has been revoked", fix in PR #36319 / commit 8a98ac22) added `repo_model.ClearRepoWatches` as a defense for the state transition public→private. The cleanup was wired into `services/repository/repository.go::MakeRepoPrivate` o...</div>
+LiteLLM's `/health/test_connection` endpoint resolved request-supplied environment and OIDC file references in `litellm_params`. A proxy administrator, or another privileged caller with permission to test model connections, could cause LiteLLM to read files from the local filesystem via an `oidc/file/` reference.
+
+Because exploitation r...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-q423-49rw-g9mh" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-4g5m-c9r5-49xf" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-58431</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Gitea: Public-only API token restriction is not enforced on team API routes</div>
-            <div class="card-body">### Summary
-
-Gitea's `/api/v1/teams/{id}` API routes do not correctly enforce the `public-only` access token restriction.
-
-A `public-only` token is intended to limit API access to public repositories and public organizations. However, several team API routes continue to return private team repository metadata and private team activity feed entries ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-h56g-4qw7-2mxg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-58427</span>
+                <span class="cve-id">CVE-2026-59820</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Gitea: Private org member list leaked via /members API endpoint — incomplete fix for PR #38145</div>
-            <div class="card-body">## Summary
-PR #38145 fixed ListPublicMembers and IsPublicMember but missed 
-ListMembers. Any authenticated user can enumerate ALL members 
-(not just public ones) of a private organization.
+            <div class="card-title">LiteLLM: Arbitrary file write via path traversal in Skills archive extraction</div>
+            <div class="card-body">### Impact
 
-## Affected Versions
-<= v1.26.4 (latest) and main branch
-
-## Root Cause
-routers/api/v1/org/member.go — ListMembers():
-
-// Missing check:
-if !organization.HasOrg...</div>
+LiteLLM Skills archive extraction did not sufficiently validate file paths from uploaded skill ZIP archives. An authenticated user with access to LiteLLM LLM API routes, or a key whose `allowed_routes` includes `/v1/skills`, `anthropic_routes`, or `llm_api_routes`, could upload a crafted skill archive containing path traversal entries.
+...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-21</span>
-                <a href="https://github.com/advisories/GHSA-prr9-9mp4-5gp2" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-22</span>
+                <a href="https://github.com/advisories/GHSA-5jmr-gcrj-2c9q" target="_blank">Full Report →</a>
             </div>
         </div>
         
