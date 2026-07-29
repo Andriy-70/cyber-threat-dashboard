@@ -68,546 +68,560 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-29 13:29 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-07-29 18:47 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-66064</span>
+                <span class="cve-id">CVE-2026-54705</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
+                    MEDIUM 6.3
                 </span>
             </div>
-            <div class="card-title">goshs has ACL Bypass & Path Traversal</div>
-            <div class="card-body">## Summary
+            <div class="card-title">mathlive's Lack of Escaping of HTML allows for XSS</div>
+            <div class="card-body">### Summary
 
-`sendFile` derives the served filename from the raw request path while opening the file from the cleaned path, so appending a trailing slash empties the derived name and defeats both the never-serve rule for the ACL file and the block list. 
+Despite the 0.104.0 patch escaping attribute-bearing constructs (`\htmlData`, `\href`), text-content reflection was missed. The `\text{}`, `\mbox{}` commands accept arbitrary characters in their body and emit them raw and unescaped into both the HTML markup and the MathML output, leading to XSS.
 
-## Finding (Medium): trailing-slash ACL and hidden-file bypass
+### Details
 
-httpserver/handler.go, sendFile...</div>
+`Box.toMarkup` at `src/cor...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-964w-f6gj-5236" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-fm7p-gw32-828p" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-54659</span>
+                <span class="cve-id">CVE-2026-54704</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenTelemetry Java Instrumentation: JDBC Auto-Instrumentation Logging Clear-Text Passwords</div>
+            <div class="card-body">OpenTelemetry Java Instrumentation JDBC auto-instrumentation may fail to sanitize passwords in SQL CONNECT statements when the password is double-quoted. As a result, clear-text database passwords can be added to trace span attributes and exported to observability backends....</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-rwqx-fvqh-6wm4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54712</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">OpenTelemetry Javaagent RMI context propagation allows resource exhaustion</div>
+            <div class="card-body">The RMI context propagation payload reader limits the number of context entries but does not limit the aggregate size of the strings read from the stream.
+
+An attacker who can reach an RMI endpoint on an instrumented JVM can send an oversized context propagation payload. This can cause excessive memory allocation while the JVM reads the payload, po...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-fq3f-m5qm-99f5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-pmwx-rm49-xv39</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">ActiveRecord::Tenanted::Storage::DiskService#path_for has a possible path traversal</div>
+            <div class="card-body">### Summary
+
+Active Record Tenanted's override of Active Storage's `DiskService#path_for` does not validate that the resolved filesystem path remains within the storage root directory. If a blob key containing path traversal sequences (e.g. `../`) is used, it could allow reading, writing, or deleting arbitrary files on the server. Blob keys are exp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-pmwx-rm49-xv39" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xvg2-cgv6-6h7v</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">netfoil: Incorrect block responses could lead to localhost traffic</div>
+            <div class="card-body">### Summary
+`0.0.0.0` was used instead of NXDOMAIN for block responses. On Linux, which is the target platform for netfoil, the `0.0.0.0` is sent to localhost rather than just dropped.
+
+### Impact
+Unintended traffic could be sent to localhost. Impact depends on running services and firewall rules....</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-xvg2-cgv6-6h7v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54680</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Logging operator has Fluentd configuration injection that allows remote code execution</div>
+            <div class="card-body">### Summary
+
+The Fluentd configuration renderer in Logging operator writes strings from CRDs such as `Flow` directly into `fluent.conf` without escaping them. As a result, a user who can create `Flow` resources can inject Fluentd configuration by providing values that contain newlines.
+
+In the confirmed path, a value in `record_transformer.records`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-mjqf-28ph-426h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54693</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">ZITADEL Users Can Self-Verify Email/Phone via API</div>
+            <div class="card-body">### Summary
+
+A vulnerability in Zitadel's self-management capability allowed users to mark their email and phone as verified without going through an actual verification process.
+
+While [`GHSA-282g-fhmx-xf54`](https://github.com/zitadel/zitadel/security/advisories/GHSA-282g-fhmx-xf54) (CVE-2026-27946, "Users Can Self-Verify Email/Phone via UpdateHu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-jq8w-8q2f-ffm9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54727</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">proot-distro has a Container Isolation Bypass via Crafted Restore Archive</div>
+            <div class="card-body">## Affected Component
+
+- **Package:** proot-distro
+- **Affected command:** `restore`
+- **Attack surface:** Host-side Termux CLI processing a user-supplied backup archive
+- **Vulnerability type:** Container Isolation Bypass / Cross-Container Read and Write
+
+---
+
+## Affected Versions
+
+| Component | Version |
+|---|---|
+| proot-distro | 5.1.5 (confirme...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-7h3g-4w2f-fj2f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54574</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">`proot-distro install` has a Symlink Escape (Arbitrary Host File Write) via Malicious Tar Archive</div>
+            <div class="card-body">**Repository:** `termux/proot-distro`  
+**Component:** `proot_distro/commands/install.py` → `_extract_plain_tar()`; also `helpers/docker.py` → `_apply_layer()`    
+
+---
+
+## Affected Versions
+
+| Component     | Version                      |
+|---------------|------------------------------|
+| proot-distro  | 5.0.2 (confirmed vulnerable) |
+| Termux ap...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-9xq3-3fqg-4vg7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-52838</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.6
+                </span>
+            </div>
+            <div class="card-title">Easy!Appointments disable_booking_message rendered as raw HTML on public booking page — Stored XSS</div>
+            <div class="card-body">## Summary
+ 
+Easy!Appointments allows administrators to define a custom "booking disabled" message through the booking settings page. That value is stored in the `disable_booking_message` setting via a rich-text editor and later passed directly to the public `booking_message` view without escaping or sanitization:
+ 
+```php
+<p><?= vars('message_text...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-996f-334j-67g7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-52841</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
+                </span>
+            </div>
+            <div class="card-title">Easy!Appointments: Authorization bypass in Google OAuth provider binding lets any backend user rebind a peer provider's Google sync</div>
+            <div class="card-body">### Summary
+
+`Google::oauth` at `application/controllers/Google.php:278` stores its URL-supplied `provider_id` in the session, and `oauth_callback` saves the issued Google OAuth token against that row without checking the caller owns the provider. Any logged-in backend user (admin, provider, or secretary) rebinds a peer provider's Google sync to a ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-8hm4-r66f-29wr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-52837</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Pagy I18n locale option is not validated before being used in a file path</div>
-            <div class="card-body">### Summary
+            <div class="card-title">Easy!Appointments has unauthenticated customer PII disclosure on booking reschedule page</div>
+            <div class="card-body">## Summary
 
-`Pagy::I18n.locale=` did not validate its argument before using it as a
-path component to load the matching dictionary file (`<locale>.yml`). An
-application that assigns untrusted input to the locale — e.g. the common
-pattern `Pagy::I18n.locale = params[:locale]` — let that input influence
-which file Pagy attempted to load.
-
-### Detail...</div>
+The booking reschedule view at `/index.php/booking/reschedule/{appointment_hash}` (handled by `Booking::index()`) embeds the **entire customer record** as inline JavaScript (`const vars = {... "customer_data": {...}, ...}`) without authentication and without field whitelisting. Anyone in possession of the 12-character `appointment_hash`...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-2xmw-f8j8-wfxc" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-xgr6-pqjv-3pf8" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-6xx4-9wp6-65p7</span>
+                <span class="cve-id">CVE-2026-52839</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.3
+                </span>
+            </div>
+            <div class="card-title">Easy!Appointments appointments/store and appointments/update allow cross-provider appointment injection — Authorization Bypass</div>
+            <div class="card-body">## Summary
+ 
+Easy!Appointments correctly filters provider-scoped appointments in the `appointments/search` response, proving that provider isolation is an intended security boundary. However, the direct mutation endpoints `appointments/store` and `appointments/update` only check generic appointment privileges and never verify that the submitted `id...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-w8xc-8g92-v77h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-52840</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.7
+                </span>
+            </div>
+            <div class="card-title">Easy!Appointments has server-side request forgery in CalDAV connection test that exposes the deployment's internal network</div>
+            <div class="card-body">### Summary
+
+`Caldav::connect_to_server` at `application/controllers/Caldav.php:60` hands the request's `caldav_url` to a Guzzle `REPORT` call without scheme or host validation. A logged-in backend user (admin, provider, or secretary) reaches loopback, RFC1918, and link-local hosts on the deployment's network. The Guzzle exception path returns the ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-pm5p-7w5h-jm5q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55651</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">Easy!Appointments Vulnerable to Appointments Takeover via Excessive Data Exposure</div>
+            <div class="card-body">### Summary
+An Excessive Data Exposure vulnerability in the customers search endpoint allows an authenticated user to obtain appointment hashes belonging to other users.
+Using these hashes, an attacker can modify or delete appointments of other providers, resulting in an Appointments Takeover.
+
+### Details
+The customers search endpoint exposes exce...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-4vmm-5qvc-w5p7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-wchh-9x6h-7f6p</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">skilo add follows symbolic links, allowing arbitrary local file disclosure from a malicious skill source</div>
-            <div class="card-body">### Impact
+            <div class="card-title">olm dependency deprecation: CVE-2022-39255 and CVE-2024-45193</div>
+            <div class="card-body">### Problem
 
-`skilo add` installs a skill by recursively copying the skill directory into the
-target skills directory. The copy routine (`copy_dir_all`) classified each entry
-with `std::fs::DirEntry::file_type()` — which does **not** follow symlinks — and
-then copied non-directory entries with `std::fs::copy()`, which **does**
-dereference symlinks.
-...</div>
+Multiple vulnerabilities were disclosed in 2024 affecting libolm (Olm): AES timing / side‑channel, Ed25519 signature malleability, and timing leaks in base64 decoding; several CVEs were assigned. Patches and mitigations were published; maintainers recommend upgrading to fixed versions. In addition, a 2022 “Olm/Megolm protocol confusion...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-6xx4-9wp6-65p7" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-wchh-9x6h-7f6p" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-54639</span>
+                <span class="cve-id">CVE-2026-11393</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
+                    HIGH 9.0
                 </span>
             </div>
-            <div class="card-title">Style Dictionary - Prototype Pollution in convertTokenData utility function</div>
-            <div class="card-body">### Impact
-Prototype pollution.
-A malicious user can create a token array `[{ key: '{__proto__.foo}', value: 'malicious' }]`, when processed by `convertTokenData()` utility function, it will pollute the Object.prototype globally where `{}.foo` will equal `{ key: '{__proto__.foo}', value: 'malicious' }`.
-
-This has been confirmed with a test/reproduc...</div>
+            <div class="card-title">AgentCore CLI Bedrock Agent Import Vulnerable to Code Injection via Improper Triple-Quote Escaping</div>
+            <div class="card-body">### Summary
+The AgentCore CLI (@aws/agentcore) is a developer tool for managing agent infrastructure lifecycle on Amazon Bedrock AgentCore. An issue exists where, under certain circumstances, a crafted collaborationInstruction value stored in Bedrock Agent collaborator metadata can break out of a Python triple-quoted string in code generated by the...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-vj5c-m527-mpff" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-m4x6-gwgp-4pm7" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-54650</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">openhole-server vulnerable to path traversal via URL-decoded request path</div>
-            <div class="card-body">## Summary
-
-openhole-server forwarded the URL-decoded request path (`r.URL.Path`) to tunnel clients instead of the original request-target. Percent-encoded dot-segments (`%2e`) and separators (`%2f`) were decoded to `../` and `/` before reaching the local service.
-
-Go's ServeMux rejects literal `../` paths, but percent-encoded traversal sequences b...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-fh2f-xfxc-q9cc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54658</span>
+                <span class="cve-id">CVE-2026-54735</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
+                    CRITICAL 10.0
                 </span>
             </div>
-            <div class="card-title">@hypequery/clickhouse has SQL Injection in parameter escaping that allows arbitrary SQL execution</div>
+            <div class="card-title">prebid-server's request forgery vulnerability allows for possible host environment data extraction</div>
             <div class="card-body">### Impact
- A SQL injection vulnerability exists in the `escapeValue()` function used for parameter substitution. Attackers who can control parameter values can inject arbitrary SQL by using a trailing backslash to escape the closing quote.
-
-Who is impacted: All users of @hypequery/clickhouse versions prior to 2.0.2 who pass user-controlled input a...</div>
+Certain bidder adapters accept user-supplied parameters that are interpolated into outbound request URLs. Without proper input validation, a malicious actor could craft bid request parameters that cause the server to send HTTP requests to unintended destinations, potentially exposing internal network services or sensitive server endpoint...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-6wcc-39rp-hh9p" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-4p3g-4hcj-wpvx" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-54638</span>
+                <span class="cve-id">CVE-2026-50559</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">td has pre-auth denial of service via unbounded memory allocation in proto.UnencryptedMessage.Decode</div>
-            <div class="card-body">### Impact
+            <div class="card-title">Quarkus: Authentication/Authorization Bypass via Advanced Path Normalization Vulnerabilities</div>
+            <div class="card-body">Quarkus HTTP path-based authorization policies can be bypassed using encoded semicolons (%3B) to smuggle matrix
+  parameters past the security layer, and using encoded slashes (%2F) or backslashes (%5C) to access protected static
+  resources. This is a distinct issue from CVE-2026-39852, which addressed only literal semicolon stripping.
 
-A remote, unauthenticated attacker can cause excessive memory allocation (and resulting CPU / GC pressure, potentially OOM termination) by sending a crafted unencrypted MTProto packet.
-
-`(*proto.UnencryptedMessage).Decode` read an attacker-controlled 32-bit `dataLen` field and immediately allocated a buffer of that size via `make([]byte...</div>
+  ### Tech...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-whmm-qj9r-wvr2" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-qcxp-gm7m-4j5v" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-66063</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">goshs has a Path Traversal issue</div>
-            <div class="card-body">## Summary
-
-The multipart upload filename fix splits on the path separator but never rejects dot-dot, allowing a write outside the served tree.
-
-## Finding (Medium): upload filename escapes the served tree (residual of CVE-2026-35393)
-
-The multipart filename fix (updown.go lines 135-136) splits on the path separator but never rejects "..". Uploadin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-wg2q-39h6-66x9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-64863</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">goshs --no-delete WebDAV MOVE bypass allows file deletion/overwrite</div>
-            <div class="card-body">## Summary
-
-The WebDAV mode-flag guard added to fix GHSA-3whc-qvhv-xqjp still does not enforce `--no-delete` on the WebDAV `MOVE` verb. `MOVE` deletes the source file (rename removes it from its original path), and with `Overwrite: T` it additionally performs an explicit `RemoveAll` on the destination. Under `-w --no-delete`, `DELETE` is correctly ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-hq33-8jgp-8qq3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54719</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">goshs: File-based .goshs ACL authorization bypass via the ?bulk zip-download route (unauthenticated read; residual of GHSA-wvhv-qcqf-f3cx)</div>
-            <div class="card-body">GHSA-wvhv-qcqf-f3cx fixed the per-folder .goshs ACL bypass on the state-changing routes (PUT/POST upload/?mkdir/?delete) and added recursive ACL resolution, and its description states the read/list path correctly enforces .goshs. That premise does not hold for the ?bulk zip-download route. bulkDownload (httpserver/updown.go) takes one or more ?file...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-rmxw-pq4x-3fvh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-62325</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">goshs SFTP authentication bypass via empty password (incomplete fix of CVE-2026-40884)</div>
-            <div class="card-body">## Summary
-
-Start goshs v2.1.3 with `-b 'admin:' -sftp`. No `-fkf`. SFTP accepts connections without password. CVE-2026-40884 blocks the empty-username variant (`-b ':pass'`). The empty-password variant bypasses that fix.
-
-## CVE-2026-40884
-
-**CVE-2026-40884** (GHSA-c29w-qq4m-2gcv, Apr 13 2026) reported the empty-username case: `-b ':pass'` with `-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-rjrw-mjq6-hpmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54654</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">`datamodel-code-generator` vulnerable to code injection via unescaped carriage return in `--extra-template-data` `comment` field</div>
-            <div class="card-body">### Summary
-
-`datamodel-code-generator` is vulnerable to code injection when a developer passes an `--extra-template-data` file whose `comment` value contains a literal `\r` (carriage return). The `comment` variable is rendered into a Python `#` comment in six built-in templates with **no** line-terminator escaping. Python's tokenizer treats a bare...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-wjv6-jcfj-mf9r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55389</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">datamodel-code-generator vulnerable to arbitrary local file read via JSON-Schema `$ref` (`file://` and `../` traversal), bypassing `--no-allow-remote-refs`</div>
-            <div class="card-body">### Summary
-
-`datamodel-code-generator` resolves JSON-Schema `$ref` targets that point at the local filesystem without restricting them to the input/base directory and without honoring the remote-reference security control. In the default configuration, an attacker who controls an input schema (a "paste your OpenAPI/JSON-Schema" service, a CI job t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-8359-h9fx-j6v9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54653</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">`datamodel-code-generator` vulnerable to code injection in via attacker-controlled `default_factory` schema field</div>
-            <div class="card-body">### Summary
-
-`datamodel-code-generator` is vulnerable to code injection when generating Python models from an attacker-controlled JSON Schema, OpenAPI, YAML, JSON, Avro, Protobuf, or XSD schema. When a property carries a `"default_factory"` key, its value is interpolated verbatim — as a raw Python expression — into the generated `Field(default_fact...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-386q-5hp3-95m9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55391</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">datamodel-code-generator vulnerable to SSRF protection bypass via DNS rebinding</div>
-            <div class="card-body">### Summary
-
-`datamodel-code-generator`'s anti-SSRF guard validates the resolved IP of a fetch target once and then lets `httpx` perform its own independent DNS resolution to connect, so the validated address is never pinned. A hostname that resolves to a public IP at validation time and a private IP at connection time (DNS rebinding) bypasses the ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-vx7x-vcc2-c44g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54656</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">`datamodel-code-generator` vulnerable to code execution on import via unescaped `validators` entries in --extra-template-data</div>
-            <div class="card-body">### Summary
-
-When the Pydantic v2 output mode is in use, `datamodel-code-generator` reads a `validators` array from each model entry in the `--extra-template-data` file and synthesises a Pydantic `@field_validator(...)` decorator from each entry. The field names and the validator mode are interpolated into the decorator call wrapped in *unescaped* ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-8m8r-38jm-f355" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54690</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">datamodel-code-generator vulnerable to SSRF via JSON-Schema `$ref` to HTTP URL (silent by default)</div>
-            <div class="card-body">### Summary
-
-JSON-Schema `$ref` values pointing at HTTP or HTTPS URLs are silently dereferenced by `datamodel-code-generator` with no IP/host validation, no scheme allow-list, and redirects followed unconditionally. The `--allow-remote-refs` gate added in 0.56.0 defaults to `None`, which only emits a deprecation warning and then fetches the URL any...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-954p-556p-r752" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55415</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">datamodel-code-generator vulnerable to code injection via `x-python-import` / `customTypePath` in generated import statements</div>
-            <div class="card-body">#### Summary
-
-A malicious input schema (OpenAPI / JSON Schema) can execute arbitrary Python code on the machine that **imports** the generated model. The `x-python-import` and `customTypePath` schema extensions flow, unsanitized, into the `import` statements datamodel-code-generator emits. A newline embedded in the extension value breaks out of the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-5578-w22f-pfx9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54621</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">`datamodel-code-generator` vulnerable to code injection via unescaped carriage return in GraphQL Union description</div>
-            <div class="card-body">### Summary
-
-`datamodel-code-generator` is vulnerable to code injection when generating Python models from an attacker-controlled GraphQL schema. A description on a Union type, written in the regular-string form (`"..."`) with a literal `\r` escape, is rendered into a Python `#` comment by a Jinja2 filter that handles only `\n`. Python's tokenizer ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-j884-q54q-mmx3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54655</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">`datamodel-code-generator` vulnerable to code execution on import via `x-python-type` JSON-Schema extension in datamodel-code-generator</div>
-            <div class="card-body">### Summary
-`datamodel-code-generator` honours a custom `x-python-type` JSON-Schema extension that lets a schema author override the generated Python type for a field. The value is forwarded verbatim into the generated Python source as the field annotation, with a single sanitisation pass that is trivial to bypass. An attacker who controls a JSON S...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-m34r-v34r-rf9q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55403</span>
+                <span class="cve-id">GHSA-pc2w-4mq8-32qw</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
                     LOW 3.7
                 </span>
             </div>
-            <div class="card-title">datamodel-code-generator: Authorization / request headers leaked to cross-origin redirect target when fetching remote schemas</div>
+            <div class="card-title">@dynatrace-oss/dynatrace-mcp-server's create_dynatrace_notebook missing the human-approval gate</div>
             <div class="card-body">### Summary
+A missing human-approval gate on the `create_dynatrace_notebook` tool allows a caller to create persistent tenant-visible documents containing arbitrary content (including embedded DQL that other users execute when opening the notebook) without operator consent.
 
-When `datamodel-code-generator` fetches a remote schema and follows an HTTP redirect, it re-sends the original request headers, including any `Authorization` header, to the redirect target even when the redirect changes origin (host/port/scheme). Credentials that an operator scoped to a trusted schema host are therefore forwarded to an...</div>
+### Details
+`dynatrace-mcp-server` registers six write tools: `send_slack_...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-r5vv-ff45-prp2" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-pc2w-4mq8-32qw" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-54691</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">datamodel-code-generator vulnerable to SSRF via --url: no host/IP validation, follows redirects</div>
-            <div class="card-body">### Summary
-
-`datamodel-code-generator`'s built-in HTTP fetcher (`http.get_body`) issues an `httpx.GET` against any URL passed to `--url` (or reached via a redirect chain) with **no allow-list, no deny-list, no IP/host validation, and `follow_redirects=True`**. Loopback addresses, RFC1918 ranges, link-local (`169.254.169.254` cloud metadata), uniqu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-rfr2-mq9m-x2qx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55390</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">datamodel-code-generator vulnerable to arbitrary local file read via XSD `schemaLocation` (`xs:include`/`xs:import`) path traversal, with no remote-ref gate</div>
-            <div class="card-body">### Summary
-
-When generating models from an XML Schema (`--input-file-type xmlschema`), `datamodel-code-generator` resolves `<xs:include>`, `<xs:import>`, `<xs:redefine>`, and `<xs:override>` `schemaLocation` attributes against the source directory and reads the target with no restriction to the input/base directory. An attacker who controls the in...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-442q-2j6p-642g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32203</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-32203 – .NET and Visual Studio Denial of Service Vulnerability</div>
-            <div class="card-body">## Executive Summary: 
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Xml. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A vulnerability exists in EncryptedXml class where a buffer overflow can gi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-6588-8gv4-xfgh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-52888</span>
+                <span class="cve-id">CVE-2026-50558</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
+                    MEDIUM 5.9
                 </span>
             </div>
-            <div class="card-title">NocoBase: Sensitive Data Exposure via SQL Blacklist Bypass</div>
-            <div class="card-body"># Security Vulnerability Report: Sensitive Data Exposure via SQL Blacklist Bypass
-
-## Summary
-
-The `checkSQL()` function in `plugin-collection-sql` implements a **keyword-based blacklist** to prevent dangerous SQL queries from being executed through the SQL Collection feature. However, the blacklist is **incomplete**: it only checks for a subset of...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-v8vm-cqh8-q87q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49446</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">Cosmos-Server has an authentication bypass via forward-auth header smuggling on Constellation tunnel</div>
+            <div class="card-title">Penelope unsafe tar extraction allows arbitrary local file write via crafted session archive</div>
             <div class="card-body">### Summary
 
-The Constellation-tunnel bypass branch in `tokenMiddleware` at `src/proxy/routerGen.go:53-66` returns to the upstream handler before the request's `x-cosmos-user`, `x-cosmos-role`, `x-cosmos-user-role`, and `x-cosmos-mfa` headers are stripped at lines 68-72, and before the `AdminOnlyWithRedirect` gate at lines 109-117 runs. Any holder ...</div>
+Penelope versions prior to 0.19.3 extracted tar archives received from remote sessions without validating archive member paths. When using the affected Unix download path, a malicious or compromised remote session could return a crafted tar archive containing path traversal entries, such as `../`, causing files to be written outside th...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-2rx5-2g7j-2659" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-f42x-p2mx-hm8r" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-49447</span>
+                <span class="cve-id">CVE-2026-49756</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Cosmos-Server's constellation public-devices endpoint accepts arbitrary bearer tokens</div>
+            <div class="card-title">Req vulnerable to multipart form-data header injection via unescaped name/filename/content_type</div>
             <div class="card-body">### Summary
-`GET /cosmos/api/constellation/public-devices` discloses Constellation device metadata to a requester that supplies any non-empty `Authorization` header. The handler strips the string `Bearer ` from the header but never validates the resulting token and never uses it in the database query.
 
-This was confirmed locally by routing a reques...</div>
+Req's multipart form encoder interpolates the per-part `name`, `filename`, and `content_type` directly into the part headers without escaping. An attacker who can influence any of those values can inject CRLF-separated header lines, smuggle additional form fields, or prepend a whole extra part into the request the victim service sends ...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-5fqm-cc34-fcf5" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-px9f-whj3-246m" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-50568</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.6
-                </span>
-            </div>
-            <div class="card-title">Fission: SanitizeFilePath lexical HasPrefix bypass permits sibling-directory escape</div>
-            <div class="card-body">`SanitizeFilePath` in `pkg/utils/utils.go` validated that a path stayed under a safe directory by calling `strings.HasPrefix(path, safedir)`. This is a lexical check, not a directory boundary check: `/packages-extra/evil` starts with
-`/packages`, so it passed. The function did not enforce a path-separator boundary, so any sibling directory whose na...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-r5jh-q2mw-gcx4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50567</span>
+                <span class="cve-id">CVE-2026-49755</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title"> Fission: Zip Slip in pkg/utils/zip.go:Unarchive allows fetcher to write outside the destination directory</div>
-            <div class="card-body">`Unarchive` in `pkg/utils/zip.go` joined each archive entry name with the destination directory via `filepath.Join` and wrote the result without checking whether the resolved path stayed under the destination. A zip entry named
-  `../../tmp/evil` therefore landed at `/tmp/evil`. An attacker who could control a `Package.Spec.Source.URL` or `Deployme...</div>
+            <div class="card-title">Req vulnerable to unbounded archive/compression extraction triggered by response content-type</div>
+            <div class="card-body">### Summary
+
+Req's default response pipeline auto-decodes archive and compressed bodies based on the server-supplied `content-type` (or URL extension) and materialises the full decompressed contents in memory with no size cap. An attacker who controls (or can redirect a victim into) an HTTP endpoint reached by `Req.get!/1` can return a tiny "decomp...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-q6vm-xqc9-v3ff" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-655f-mp8p-96gv" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-50569</span>
+                <span class="cve-id">CVE-2026-54081</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Fission: HTTPTrigger admission omits RelativeURL / Prefix validation; kubectl apply bypasses CLI checks</div>
-            <div class="card-body">`HTTPTriggerSpec.Validate()` validated `Methods`, `FunctionReference`, `Host`, `IngressConfig`, and `CorsConfig`, but silently skipped `RelativeURL` and `Prefix`. Those two fields were validated at the CLI level only
-(`pkg/fission-cli/cmd/httptrigger/create.go:83`). The post-CRD-modernization webhook for HTTPTrigger was retired in favor of API-serv...</div>
+            <div class="card-title">veraPDF Parser DoS via PostScript Type 1 Font Programs</div>
+            <div class="card-body">## Summary
+
+**Description**
+
+A PostScript-interpreter-driven Denial of Service (CWE-1325) vulnerability in veraPDF allows a remote attacker to exhaust validator memory or CPU by submitting a PDF whose Type 1 font `/FontFile` is a font program containing attacker-supplied PostScript. veraPDF's Type 1 font program parser dispatches every cleartext to...</div>
             <div class="card-footer">
-                <span>Published: 2026-07-28</span>
-                <a href="https://github.com/advisories/GHSA-vchh-r53j-8mpw" target="_blank">Full Report →</a>
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-7c26-995w-6f47" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54080</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">veraPDF Parser DoS via PostScript CMap Streams</div>
+            <div class="card-body">## Summary
+
+**Description**
+
+A PostScript-interpreter-driven Denial of Service (CWE-1325) vulnerability in veraPDF allows a remote attacker to exhaust validator memory or CPU by submitting a PDF whose Type 0 font `/Encoding` (or any `/ToUnicode`) is a CMap stream containing attacker-supplied PostScript. veraPDF reuses its CMap parser as a general P...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-jrmc-qg6p-94fp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54082</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">veraPDF-validatio: Use of Default `DocumentBuilderFactory` leads to XXE When Processing Untrusted PDFs</div>
+            <div class="card-body">### Summary
+
+veraPDF-validation has an XML External Entity (XXE) vulnerability in two PDF parsing paths (validate and `GFPDAcroForm.getdynamicRender()`). A malicious/crafted PDF supplied to a veraPDF consumer can lead to the expansion of external entities while parsing rich-text annotation/form-field values or XFA configurations, allowing local fil...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-cg9x-g3gm-h5h6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54078</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">veraPDF Validation XXE via Rich Text</div>
+            <div class="card-body">## Summary  
+  
+**Description**
+An XML External Entity Injection (CWE-611) vulnerability in veraPDF allows a remote attacker to read arbitrary files on the server file system and perform Server-Side Request Forgery by submitting a crafted PDF containing a malicious rich-text (/RC or /RV) entry. This affects all current versions of veraPDF-validatio...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-3jh7-wm29-q568" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54079</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">veraPDF Validation XXE via XFA</div>
+            <div class="card-body">## Summary  
+  
+**Description**
+An XML External Entity Injection (CWE-611) vulnerability in veraPDF allows a remote attacker to read arbitrary files on the server file system and perform Server-Side Request Forgery by submitting a crafted PDF containing a malicious XFA stream. This affects all current versions of veraPDF-validation.  
+  
+## Details...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-36mm-w85j-3q2j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54666</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.3
+                </span>
+            </div>
+            <div class="card-title">swagger-typescript-api vulnerable to code injection via unescaped OpenAPI path strings in generated method bodies</div>
+            <div class="card-body">### Summary
+
+`swagger-typescript-api` interpolates OpenAPI path strings (the keys of the `paths` object, e.g. `/users/{id}`) directly into a JavaScript template literal inside the body of every generated API method, without escaping. A spec path containing `${ … }` survives `parseRouteName`'s `{x}` / `:x` rewriter verbatim and lands as live JS-temp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-w284-33mx-6g9v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54664</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.3
+                </span>
+            </div>
+            <div class="card-title">swagger-typescript-api vulnerable to code injection via unescaped enum string values</div>
+            <div class="card-body">### Summary
+
+`swagger-typescript-api` interpolates `components.schemas.*.enum[i]` string values into the body of generated TypeScript `enum` declarations without escaping. A malicious enum value can close the enclosing string literal, terminate the enum body, and inject a bare-block IIFE that executes at **module load** the first time the generated...</div>
+            <div class="card-footer">
+                <span>Published: 2026-07-29</span>
+                <a href="https://github.com/advisories/GHSA-5f94-x226-ccpm" target="_blank">Full Report →</a>
             </div>
         </div>
         
