@@ -68,10 +68,434 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-03 19:13 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-04 01:14 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69248</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">python-cryptography verifier accepts wildcard DNS names allowing escape from permittedSubtrees</div>
+            <div class="card-body">### Summary
+If an intermediate constrained CA permits the DNS name `foo.example.com`, and the leaf certificate has a wildcard in its DNS SAN of `*.example.com`, python-cryptography's verifier accepts which allows escaping outside of the permitted names.
+
+### PoC
+
+```
+#!/usr/bin/env python3
+"""Standalone PoC: pyca's DNSConstraint::matches admits a t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-m2h6-j472-rp4c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69249</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">python-cryptography: Duplicate self-signed intermediates can cause exponential path-building</div>
+            <div class="card-body">### Summary
+When resolving invalid certificate chains that include duplicate copies of self-signed certificates, the processing recursively invokes the same candidate, leading to an exponential blowup. Although the limitation that the chain depth cannot exceed a specified maximum depth prevents unbounded recursion and guarantees termination, an att...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-jwv3-5hgf-82ww" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69247</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">cryptography: PKCS#7 EnvelopedData decryption exposes a Bleichenbacher oracle through distinguishable errors and timing</div>
+            <div class="card-body">### Summary
+
+`pkcs7_decrypt_der`, `pkcs7_decrypt_pem`, and `pkcs7_decrypt_smime` reported the
+outcome of decrypting a `RecipientInfo`'s `encryptedKey` in several
+distinguishable ways, one of which disclosed the exact length recovered from the
+RSA operation. The same distinction was also observable by timing. An
+application that decrypts attacker-su...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-g6cj-pr64-35w5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69246</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">Guzzle: Noncanonical host can bypass host-based checks</div>
+            <div class="card-body">### Impact
+
+In affected versions, Guzzle gives a transport the request URI as text and supplies the `Host` header separately. The cURL handlers set `CURLOPT_URL` to the URI exactly as written and push that `Host` into `CURLOPT_HTTPHEADER`; `StreamHandler` does the same through `fopen()`. libcurl then parses the authority itself, percent-decoding it...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-v5mv-p594-2x33" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69245</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Guzzle: Noncanonical cookie domain keeps subdomain scope</div>
+            <div class="card-body">### Impact
+
+`SetCookie::matchesDomain()` gives every subdomain of a cookie `Domain` that cookie unless it recognizes the `Domain` as an IP literal or a numeric host, and it decides that from the domain's own text, so two spellings a transport reads as an address keep subdomain scope. On `7.15`, hexadecimal and mixed-base forms such as `0x7f000001` ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-f7vp-7xgx-4w4r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69244</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">AIOHTTP: Out-of-bounds heap read in C HTTP response parser error path (malformed chunked response)</div>
+            <div class="card-body">### Summary
+
+An out-of-bounds heap read could occur in the C response parser while building an error message for a malformed response.
+
+### Impact
+
+An attacker controlled server, or possibly an accidental response could trigger a DoS in the client.
+
+### Workaround
+
+If unable to upgrade, the Python parser is unaffected and can be used with `AIOHTTP_...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-cq5v-8q36-5273" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69243</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">AIOHTTP: HTTP request smuggling via WebSocket upgrade</div>
+            <div class="card-body">### Summary
+
+The HTTP parsers were vulnerable to a request smuggling attack relating to WebSocket upgrades.
+
+### Impact
+
+If using the server-side component, it may be possible for an attacker to execute a request smuggling vulnerability using an edge case in the WebSocket upgrade procedure. AIOHTT is unaware of any public exploit code.
+
+---
+
+Patch:...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-mfx4-hv73-q22v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59881</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">AIOHTTP: WebSocket client accepts compressed frames without negotiated permessage-deflate</div>
+            <div class="card-body">### Summary
+
+The client accepts and decompresses frames with the RSV1 bit set even when the `permessage-deflate` extension was not negotiated.
+
+### Impact
+
+A client may unexpectedly decompress WebSocket frames when explicitly opted out. This could lead to additional CPU/memory consumption, but is unlikely to be a significant issue unless a zip bomb...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-mq44-7p77-q5h7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69240</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Sequelize: SQL Injection (Oracle DB)</div>
+            <div class="card-body">### Summary
+SQL Injection is possible with strings only **if dialect is set to `oracle`**.
+The vulnerability was confirmed on Sequelize v6.37.3.
+
+### Details
+The `escape` function defined in `sql-string.js` does not escape quotes if the value starts with `TO_TIMESTAMP` or `TO_DATE`.
+
+```javascript
+  } else if (dialect === 'oracle' && typeof val ===...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-v8fg-2rw7-q452" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69207</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Hono: ReDoS in CORS middleware via Access-Control-Request-Headers</div>
+            <div class="card-body">### Summary
+
+The built-in CORS middleware (`hono/cors`) parses the attacker-controlled `Access-Control-Request-Headers` request header during a preflight (`OPTIONS`) request using a regular expression whose running time is quadratic in the input length. A single request carrying a long run of whitespace can consume seconds of CPU, and repeated requ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-8j4g-w8fx-2239" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-p538-c434-8v24</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">GitPython: Arbitrary file truncation via git rev-list --output argument injection in unguarded Commit.count</div>
+            <div class="card-body">## Summary
+`Commit.count()` forwards `**kwargs` into `rev_list` with **no** `check_unsafe_options` guard (the guard exists only in the sibling `iter_items`, commit.py:341). `git rev-list --output=<path>` opens and truncates the target file to 0 bytes before revision parsing, so `count(output='/victim')` destroys/blanks an arbitrary file.
+
+## Root C...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-p538-c434-8v24" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-539m-9xh6-q6rr</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">GitPython: Incomplete unsafe_git_archive_options denylist omits --add-file / --add-virtual-file, enabling arbitrary file read via Repo.archive()</div>
+            <div class="card-body">**Target:** gitpython-developers/GitPython
+**Tested:** HEAD `07e80555` (2026-07-25), latest release 3.1.55, `git version 2.50.1`
+
+## Summary
+
+`Repo.archive()` does call the option guard, so this is not a missing-guard report. The guard is present and working; the **denylist it consults is incomplete**.
+
+```python
+# git/repo/base.py:169
+unsafe_git_a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-539m-9xh6-q6rr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3f7w-8rr8-f37f</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">GitPython: Unguarded git option forwarding in IndexFile.checkout() and TagReference.create() enables arbitrary file overwrite and arbitrary file read</div>
+            <div class="card-body">**Target:** gitpython-developers/GitPython
+**Tested:** HEAD `07e80555` (2026-07-25), latest release 3.1.55, `git version 2.50.1`
+**Reported instances:** 2 exploitable, from a sweep of 14 unguarded call sites
+
+## Summary
+
+GitPython blocks dangerous git options through `Git.check_unsafe_options()`, gated per method by an `allow_unsafe_options` parame...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-3f7w-8rr8-f37f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69192</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">ip-address: Address4 decodes leading-zero octets as decimal while resolvers decode them as octal, allowing SSRF and trust-boundary bypass</div>
+            <div class="card-body">### Summary
+
+`Address4` accepts an octet written with a leading zero and decodes it as decimal, while the WHATWG URL host parser, `inet_aton`, and `getaddrinfo` all decode a leading zero as octal. The library and the network stack therefore disagree about which host a string names. `new Address4('012.0.0.1')` reports `correctForm()` of `12.0.0.1` a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-mwp4-54f8-5fhr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69198</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">ip-address: a CIDR suffix on the parsed address suppresses special-use classification and can bypass SSRF and trust-boundary checks</div>
+            <div class="card-body">### Summary
+
+Every special-use classification method is built on `isInSubnet`, which short-circuits to `false` whenever the address's own subnet mask is *shorter* than the reference range's mask. That mask comes verbatim from the CIDR suffix on the parsed input, so appending a suffix such as `/0` suppresses classification entirely: `isLoopback()`, ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-4xrf-jv44-h6hh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54272</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">ip-address: misclassification of IPv4-mapped/NAT64 IPv6 addresses can bypass SSRF and trust-boundary checks</div>
+            <div class="card-body">### Summary
+
+`Address6`'s special-property checks misclassify IPv4-mapped (`::ffff:0:0/96`) and NAT64 well-known (`64:ff9b::/96`) IPv6 addresses. These checks classify an address by its IPv6 wrapper rather than by the IPv4 address it embeds, so `isLoopback()`, `isLinkLocal()`, `isMulticast()`, and `isUnspecified()` all return `false` for literals s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-22jq-vg5j-6vgg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-15157</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to CRLF Injection via blob-like body 'type' property</div>
+            <div class="card-body">### Impact
+
+When an application passes a duck-typed blob-like body to undici's HTTP/1.1 dispatcher (via `request()`, `stream()`, `pipeline()`, or `dispatch()`) with a `.type` derived from untrusted input, an attacker can inject CRLF sequences (`\r\n`) to append arbitrary HTTP headers and potentially smuggle a second request past the upstream.
+
+The ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-m8rv-5g2x-5cg5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-14643</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to cross-user information disclosure via whitespace around equals in Cache-Control directives</div>
+            <div class="card-body">## Impact
+
+Undici's cache interceptor mishandles optional whitespace (OWS) placed around the `=` of a qualified `no-cache` or `private` Cache-Control directive, such as `no-cache ="authorization"` (OWS before `=`) or `no-cache= "authorization"` (OWS after `=`). The parser either drops the directive entirely or stores a field name with literal quote...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-jr45-8vmc-qm54" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-16729</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields</div>
+            <div class="card-body">## Impact
+
+The `setCookie` function has two attribute injection paths. `validateCookieDomain` does not reject semicolons (`validateCookiePath` already does at 0x3B), so a `domain` value like `example.com; SameSite=None` lands verbatim as `Domain=example.com; SameSite=None`. The `unparsed` array's loop only checks each entry contains `=` and does no...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-v3r7-h72x-cjcm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-16728</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to downstream response desynchronization via retry interceptor</div>
+            <div class="card-body">### Impact
+
+Undici's `interceptors.retry()` can deliver a response whose body length does not match the `Content-Length` header exposed to the application after a retry or resume of a partial response. Applications that use `interceptors.retry()` and forward upstream response headers and bodies downstream, for example proxy or gateway applications,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-8xcm-r25x-g524" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-13697</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to cross-user information disclosure and parse-time crash via degenerate private cache directives</div>
+            <div class="card-body">### Summary
+
+Two issues in undici's cache interceptor, both fixed by the same patch on `lib/util/cache.js`:
+
+1. **Shared-cache disclosure:** Responses with malformed qualified `Cache-Control: private` directives such as `private=""` or `private=","` can be incorrectly stored in the default shared cache, then served to a later caller with the same c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-4cwx-7wf7-3272" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-18446</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fast-uri vulnerable to host confusion via backslash authority introducer</div>
+            <div class="card-body">### Impact
+
+`fast-uri` v4.1.1 and earlier require a literal `//` to recognize a URI authority, so a reference that uses `\\`, `/\`, or `\/` as the authority introducer (in place of `//`, after an optional scheme) is parsed with no authority: the sequence and everything after it fold into the path. Node's native WHATWG `URL` (used by `fetch()`, `und...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-03</span>
+                <a href="https://github.com/advisories/GHSA-7p8r-x3mc-p8w7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-69185</span>
@@ -213,422 +637,6 @@ The primary vector is the `path` parameter: it is passed directly to `idx.GetRea
             <div class="card-footer">
                 <span>Published: 2026-07-31</span>
                 <a href="https://github.com/advisories/GHSA-vvp7-h4fj-m28w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2016-1000305</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">guard-livereload has a directory traversal vulnerability</div>
-            <div class="card-body">The vulnerability allows remote attackers to read arbitrary files
-on the server by exploiting improper path validation in the
-livereload server functionality.
-
-This vulnerability is related to the handling of file paths in the
-livereload server component, which could allow an attacker to traverse
-directories and access files outside the intended we...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-g65v-27r3-5p6m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54785</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
-                </span>
-            </div>
-            <div class="card-title">gemini-bridge vulnerable to arbitrary local file read via consult_gemini_with_files inline mode</div>
-            <div class="card-body">### Summary
-`consult_gemini_with_files` in **inline mode** read any file path supplied in
-the `files` argument without confining it to the working `directory`, then
-forwarded the contents to the Gemini CLI. Because the caller also controls
-`query`, the file contents are echoed back through the Gemini round-trip
-(and sent to Google), making this an ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-c5px-58j2-7fqp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54768</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">WPGraphQL has deprecated `user` field on SendPasswordResetEmailPayload that leaks user existence + profile (defeats explicit anti-enumeration design)</div>
-            <div class="card-body">## Summary
-
-The `sendPasswordResetEmail` mutation in WPGraphQL is explicitly designed to prevent user enumeration. The resolver in `src/Mutation/SendPasswordResetEmail.php` states in a code comment:
-
-`// We obsfucate the actual success of this mutation to prevent user enumeration.`
-
-The mutation always returns `success: true` regardless of whether ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-jhh7-832h-f8hv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53573</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">core-geonetwork has an Open Redirect Bypass</div>
-            <div class="card-body">### Summary
-GeoNetwork's post-login redirect handling can be bypassed to redirect users to an attacker-controlled external site, even though the code attempts to restrict redirect targets to relative, in-application URLs. This affects both supported SSO login methods: OAuth2/OIDC and Keycloak.
-
-### Details
-Both the OAuth2/OIDC and Keycloak login fi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-pjp7-q6wp-97qx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54908</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Pion DTLS vulnerable to denial of service via panic while parsing a crafted ECDHE_PSK ServerKeyExchange message</div>
-            <div class="card-body">### Impact
-Remote denial of service via panic while parsing a crafted ECDHE_PSK ServerKeyExchange message.
-
-### Patches
-Upgrade to v3.1.4 or later. This version includes this patch https://github.com/pion/dtls/pull/839 which fixes the issue.
-
-### Workarounds
-No work around; please upgrade to v3.1.4 or a newer version....</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-wg4g-wm44-ch5j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54909</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Pion STUN vulnerable to remote denial of service via panic while parsing a malformed XOR-MAPPED-ADDRESS attribute</div>
-            <div class="card-body">### Impact
-Remote denial of service via panic while parsing a malformed XOR-MAPPED-ADDRESS attribute
-
-### Patches
-Upgrade to v3.1.5 or later. This version includes this patch https://github.com/pion/stun/pull/278 which fixes the issue.
-
-### Workarounds
-No work around; please upgrade to v3.1.5 or a newer version....</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-34rh-wp3j-6cxc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54787</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.1
-                </span>
-            </div>
-            <div class="card-title">sigstore-go fails to check signature timestamps against a signing key's validity period</div>
-            <div class="card-body">sigstore-go fails to check signature timestamps against a signing key's validity period for self-managed long-lived keys without certificates.
-
-## Impact
-
-To verify a bundle with a self-managed long-lived key, the key needs to be wrapped in an `ExpiringKey` type that implies expiration semantics:
-
-```go
-signatureVerifier, _ := signature.LoadDefault...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-wqqc-jjcq-vfxm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53608</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">@apostrophecms/seo Vulnerable to Stored XSS via Unsanitized Google Analytics / GTM ID Injected into Script Tag</div>
-            <div class="card-body"><img width="1919" height="1046" alt="curl" src="https://github.com/user-attachments/assets/8aa19ff1-7f4b-44ee-83d5-d0dd1a0269f6" />
-<img width="1919" height="775" alt="xss" src="https://github.com/user-attachments/assets/a65012e8-9b2f-416f-94df-c00493f2ca1d" />
-
-### Summary
-
-The `@apostrophecms/seo` package injects the Google Analytics Tracking ID ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-wf43-fpp3-cf65" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53607</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">@apostrophecms/file pretty-URL Vulnerable to Unauthenticated SSRF via Host header</div>
-            <div class="card-body">### Summary
-
-When `prettyUrls: true` is enabled on `@apostrophecms/file` (a documented SEO
-feature for serving uploaded files at clean URLs), the public pretty-URL
-handler builds the upstream URL using the raw `Host` HTTP request header:
-
-```js
-proxyUrl = `${req.protocol}://${req.get('host')}${uglyUrl}`
-```
-
-That URL is then `fetch`'ed and the resp...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-34pj-2622-jvxq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53609</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">Apostrophe has Server-Side Prototype Pollution in apos.util.set via patch operators that leads to process-wide authorization bypass</div>
-            <div class="card-body"><img width="1919" height="1046" alt="proto" src="https://github.com/user-attachments/assets/c5c69718-6448-448d-b64b-e3db41ab6ff6" />
-
-## Summary
-
-`apos.util.set()` traverses dot-notation paths without sanitizing `__proto__`, allowing an authenticated editor to write arbitrary values to `Object.prototype` via the `$pullAll` patch operator.
-
-A confir...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-6h5j-32cf-4253" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53606</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">sanitize-html has incomplete URI scheme validation in that allows javascript: URIs through action, formaction, data, poster, and background attributes</div>
-            <div class="card-body">## Summary
-
-sanitize-html uses `allowedSchemesAppliedToAttributes` (default: `['href', 'src', 'cite']`) to gate the `naughtyHref()` function that blocks dangerous URI schemes like `javascript:` and `vbscript:`. The HTML specification defines 10+ attributes that accept URIs (`action`, `formaction`, `data`, `poster`, `background`, `ping`, `xlink:href...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-vccv-cmxp-4j9h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53551</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">free5GC AUSF: null byte injection in supiOrSuci causes HTTP 500 internal service failure</div>
-            <div class="card-body">### Summary
-
-The free5GC AUSF (Authentication Server Function) does not validate the `supiOrSuci` field in UE authentication requests. Null bytes (`\x00`) and other control characters pass through JSON parsing unchanged and are forwarded to the UDM in an unescaped URL path. This causes Go's `net/url.Parse()` to fail, returning HTTP 500 "System fail...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-qj55-47fp-p62j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-3whf-vgf2-9w6g</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">zaino-state has a Non-Finalized State Reorg — No Cycle Detection or Depth Limit</div>
-            <div class="card-body">### Summary
-`NonFinalizedState::handle_reorg` is a recursive, unbounded async function that traverses parent blocks until it finds a common ancestor on the main chain. It has **no recursion depth limit** and **no cycle detection**. A malicious or buggy validator can serve a block whose `previous_block_hash` points back to itself (or forms a cycle w...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-3whf-vgf2-9w6g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-52887</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">NocoBase: SQL injection in /api/myInAppChannels:list filter to PG-superuser RCE</div>
-            <div class="card-body">## Summary
-
-`GET /api/myInAppChannels:list` accepts a structured `filter` query parameter. The handler for the `latestMsgReceiveTimestamp` field splices the `$lt` value directly into a `Sequelize.literal()` template string with no escape, type cast, or parameter binding. The action ACL is `loggedIn`, so any authenticated account reaches it. The def...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-p849-8hwh-84j9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53599</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Redaxo has a Mediapool isAllowedExtension bypass via multi-segment filename that leads to authenticated RCE on Apache mod_php multi-extension handlers</div>
-            <div class="card-body">## Summary
- 
-`rex_mediapool::isAllowedExtension` in `redaxo/src/addons/mediapool/lib/mediapool.php` accepts filenames that contain a blocked extension as a non-terminal segment of a longer extension chain, for example `shell.php.any.jpg`. The check only catches the blocked extension when it appears at the end of the filename or immediately before t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-98pp-vccm-qm25" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53466</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">ImageMagick: Heap Buffer Over-Read in XCF decoder due to integer conversion overflow</div>
-            <div class="card-body">An integer overflow in the XCF decoder can result in an out of bounds read when a crafted image is read and that can result in a crash....</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-pjxj-pchx-4c3m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53510</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Savon::Model evaluates WSDL operation names as Ruby source</div>
-            <div class="card-body">### Impact
-
-`Savon::Model` generated SOAP operation methods by interpolating operation names into Ruby source passed to `module_eval`. An attacker who can control the operation names of a WSDL, can inject Ruby code that executes in the application process. This affects only the `.all_operations` class method provided by `Savon::Model` to automatica...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-mx5j-mp4f-g8jg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-65841</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Jodit has cross-site scripting (XSS) via <script> nested in SVG that bypasses clean-html sanitization</div>
-            <div class="card-body">A `<script>` element placed directly inside an `<svg>` (or MathML) container was not removed by Jodit's clean-html sanitizer.
-
-The deny/allow tag filter compared `node.nodeName` against an upper-cased tag hash, but foreign (SVG/MathML) elements preserve their original-case node names — an SVG script reports `"script"`, not `"SCRIPT"` — so the defau...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-45qg-252v-3f7p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-58263</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
-                </span>
-            </div>
-            <div class="card-title">Jodit Editor: Mutation XSS in jodit clean-html via a MathML/style rawtext carrier</div>
-            <div class="card-body">### Summary
-jodit's built-in `clean-html` sanitizer can be bypassed by a MathML/`<style>` carrier that hides a dangerous element from the sanitizer's element walk, so a no-interaction event handler survives into the editor value. When an application supplies attacker-influenced HTML to the editor's value-set or insertion paths, the sanitized output...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-rxcw-mc6f-6hr3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54756</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Jodit has prototype pollution via Jodit.configure() / ConfigMerge</div>
-            <div class="card-body">### Summary
-`Jodit.configure(options)` — and the internal `ConfigMerge` / `ConfigProto` helpers — merged user-supplied options into the editor configuration without filtering prototype-mutating keys. A payload nested under an existing plain-object option such as `controls` could reach and mutate `Object.prototype` (prototype pollution).
-
-### Affect...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-5957-5c94-3v7w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-62324</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Jodit has incomplete javascript: scheme normalization in sanitizeHTMLElement href check that allows link XSS</div>
-            <div class="card-body">### Summary
-
-jodit's `sanitizeHTMLElement` neutralizes a `javascript:` `href` using a bare `href.trim().indexOf('javascript') === 0` check. This omits the normalization jodit applies to every other URL attribute: `isDangerousUrl` strips control bytes with `value.replace(/[\u0000-\u0020]+/g, '')` and lowercases the value before testing the scheme. B...</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-j839-gqq4-gf9j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53502</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Thumbor has path traversal via post-validation URL decoding bypass in file_loader</div>
-            <div class="card-body">The file_loader performs `unquote()` on the file path AFTER the `abspath() + startswith()` security check. An attacker can use percent-encoded path traversal sequences (`%2e%2e` for `..`) that pass the security check as literal directory names, but are then decoded to actual `..` traversal sequences.
-
-## Affected code
-
-`thumbor/loaders/file_loader....</div>
-            <div class="card-footer">
-                <span>Published: 2026-07-31</span>
-                <a href="https://github.com/advisories/GHSA-cj54-hpcc-gj6h" target="_blank">Full Report →</a>
             </div>
         </div>
         
