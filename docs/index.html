@@ -68,10 +68,357 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-05 13:28 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-05 19:07 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70612</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Electron: Sandboxed iframes can launch external protocol handlers</div>
+            <div class="card-body">### Impact
+Requests to open external protocol URLs from web content did not take iframe sandbox restrictions into account, so a sandboxed iframe could cause an OS-registered external application to be launched. The frame's sandbox state was also not made available to the app's permission handlers.
+
+Apps are only affected if they render untrusted co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-p2rr-rvmm-c5fp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70611</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.9
+                </span>
+            </div>
+            <div class="card-title">Electron: DevTools embedder handler executes arbitrary files via shell open</div>
+            <div class="card-body">### Impact
+The DevTools "reveal in file manager" action could launch the target file rather than reveal it. An attacker with a separate means of running script inside the DevTools frontend (such as a malicious DevTools extension) could use this to execute native code outside the sandbox.
+
+Apps are only affected if DevTools is opened for windows exp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-f2r8-jv7c-xqmp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70610</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Electron: contextBridge object copy honors prototype setters</div>
+            <div class="card-body">### Impact
+Objects copied across the `contextBridge` boundary from untrusted content could carry an attacker-influenced prototype, enabling prototype-pollution-style attacks against preload code despite context isolation being enabled.
+
+Apps are only affected if their preload code accepts object arguments from untrusted content and reads properties...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-ff2p-hmqr-hxm4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70609</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.7
+                </span>
+            </div>
+            <div class="card-title">Electron: DevTools JavaScript Injection via Unsanitized Dock State Parameter</div>
+            <div class="card-body">### Impact
+The `mode` option of `webContents.openDevTools()` was not sanitized before use by the DevTools frontend. If an attacker can influence this value, script under their control may run in the DevTools context, which in unsandboxed configurations has access to Node.js.
+
+Apps are only affected if untrusted input can reach the `mode` argument o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-4f78-qhmw-8j8m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70608</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">Electron: Sandboxed iframe can bypass the allow-popups restriction via the OpenURL navigation path</div>
+            <div class="card-body">### Impact
+A sandboxed iframe without the `allow-popups` keyword could still open a new window (or trigger `setWindowOpenHandler`) with no user interaction, because new-window navigations taking the OpenURL path did not apply the iframe sandbox popup restriction.
+
+Apps that embed untrusted content in sandboxed iframes and rely on the absence of `al...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-9f4c-93c8-jc8g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70607</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Electron: window.open features string controls some window options considered privileged</div>
+            <div class="card-body">### Impact
+Some window options supplied by web content in the `window.open()` features string were applied to the new `BrowserWindow` without an allowlist. Untrusted content could set window options it should not control, including options that cause the main process to access attacker-chosen file or network paths.
+
+Apps are only affected if untrus...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-v93f-fgjr-hjrj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70606</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Electron: ProtocolResponse.url reuses the default session cache instead of the registering session</div>
+            <div class="card-body">### Impact
+When a custom protocol handler returned a `ProtocolResponse` with a `url` and no `session`, Electron made the upstream request through `defaultSession` instead of the session that handled the protocol. A cached response could then be reused across otherwise isolated session partitions.
+
+Apps that use `ProtocolResponse.url`, omit `Protoco...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-r4w5-6pfg-jxp5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70605</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Electron: HTTP redirect followed into local file loader</div>
+            <div class="card-body">### Impact
+When following HTTP redirects, `net.fetch()` and `net.request()` did not restrict which schemes a redirect could target. A remote server could redirect a request to a local resource, and if the app returns or forwards the response body, local file contents could be disclosed.
+
+Apps are only affected if they make `net` requests to attacke...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-v64r-4m7r-3mvq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70604</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">Electron: Custom protocol with supportFetchAPI but not corsEnabled allows cross-origin reads</div>
+            <div class="card-body">### Impact
+A custom scheme registered with `supportFetchAPI: true` but without `corsEnabled: true` was not subject to CORS enforcement. A page loaded from a remote origin could therefore `fetch()` or `XMLHttpRequest` that scheme cross-origin and read the full response body, rather than the read being blocked.
+
+Apps that serve sensitive data from su...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-v3j7-r9gq-3gjw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70602</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.6
+                </span>
+            </div>
+            <div class="card-title">Electron: Extension tab APIs operate across session boundaries</div>
+            <div class="card-body">### Impact
+Extension tab and scripting APIs were not scoped to the extension's own `session`. A malicious or compromised extension loaded into one session could navigate, script, and read from windows belonging to a different session.
+
+Apps are only affected if they load Chrome extensions via `session.loadExtension` and rely on separate sessions to...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-m55f-7gqj-fr98" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70603</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.0
+                </span>
+            </div>
+            <div class="card-title">Electron: shell.openPath path validation bypass via embedded null byte</div>
+            <div class="card-body">### Impact
+`shell.openPath()` did not reject paths containing embedded null bytes. Apps that perform string-only validation of file paths (for example, checking the file extension) before passing them to `shell.openPath()` could be bypassed, allowing an attacker-controlled path to open a different file than the one that passed validation.
+
+Apps are...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-5c9j-mhmv-5xgx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70601</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Electron: Context isolation bypass via Function.prototype.bind hijack</div>
+            <div class="card-body">### Impact
+Apps that expose Promise-returning functions to web content via `contextBridge` may be vulnerable to a context isolation bypass. Untrusted web content could obtain access to the isolated preload world and, through it, every capability the preload script has. In renderers without a sandbox, or with `nodeIntegration` enabled, this may esca...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-h7rp-cf8h-j98x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70600</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
+                </span>
+            </div>
+            <div class="card-title">Electron: Cross-origin iframe can position native autofill popup</div>
+            <div class="card-body">### Impact
+The native autofill popup could be positioned by a cross-origin iframe outside that iframe's bounds, over the embedding page's UI, enabling clickjacking or spoofing of trusted UI.
+
+Apps are only affected if they embed untrusted content in iframes within windows that also display trusted UI. Apps that do not embed untrusted third-party co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-x8rc-wpg4-grpf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70599</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Electron: Permission Check Handler Receives Main Frame Origin Instead of Requesting Iframe Origin</div>
+            <div class="card-body">### Impact
+For serial-port and media (camera / microphone) permission checks made from an iframe, the `requestingOrigin` passed to `session.setPermissionCheckHandler` was the top-level frame's origin rather than the requesting frame's. Origin-based handler logic could therefore grant a cross-origin iframe device access intended only for the top-lev...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-9pf5-hg6p-4pwp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70598</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.9
+                </span>
+            </div>
+            <div class="card-title">Electron: Off-screen rendering trusts GPU-supplied geometry over shared-memory size</div>
+            <div class="card-body">### Impact
+In offscreen rendering mode, frame data received from the GPU process was not fully validated by the main process. A compromised GPU process could cause the main process to read out-of-bounds memory while producing `paint` event images, disclosing memory or crashing the app.
+
+Apps are only affected if they use offscreen rendering (`webPr...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-pfmc-3mgc-p6fp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70597</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.3
+                </span>
+            </div>
+            <div class="card-title">Electron: Parent process code-sign check is spoofable</div>
+            <div class="card-body">### Impact
+On macOS, the check Electron uses to confirm it was launched by a same-signed parent process could be bypassed by a local process. Apps that enable the fuse-based hardening restricting `ELECTRON_RUN_AS_NODE` and `NODE_OPTIONS` to same-signed parents rely on this check; a local attacker could bypass it and run their own code inside the si...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-jm7p-cc5g-qwxx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53949</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Ghost Content API filter bypass reveals private fields</div>
+            <div class="card-body">### Impact
+
+The validation applied to filters on the public API endpoints could be partially bypassed, making it possible to reveal private fields via a brute force attack. If SQLite was used as the database password hashes were fully accessible. If MySQL was used as the database the password hashes' case (uppercase / lowercase) would have been los...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-jx35-x7fj-vgpr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70596</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Ghost: Cross-Site Scripting in Feature Image Captions</div>
+            <div class="card-body">### Impact
+
+An input validation issue allowed any staff user to create a post with content that could be used to hijack another staff user's Ghost Admin session resulting in privilege escalation.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost from v4.9.0 up to v6.54.0.
+
+### Patches
+
+v6.54.1 contains a fix for this issue.
+
+### How ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-pr22-p9rp-2cqv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70595</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.0
+                </span>
+            </div>
+            <div class="card-title">Ghost: Server-Side Request Forgery Mitigation Issue</div>
+            <div class="card-body">### Impact
+
+A validation issue allowed some functionality, such as Webmentions, to be abused by an unauthenticated user to make limited HTTP requests to hosts in the Ghost server's internal network. A successful attack would not result in any response data being returned.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost from v6.26.0...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-05</span>
+                <a href="https://github.com/advisories/GHSA-x5mm-wm4g-j5xv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-59817</span>
@@ -332,340 +679,6 @@ v6.21.1 contains a fix for this issue.
             <div class="card-footer">
                 <span>Published: 2026-08-04</span>
                 <a href="https://github.com/advisories/GHSA-wvp2-4qqp-4h3r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70589</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">Ghost: Archived Offers can be Redeemed</div>
-            <div class="card-body">### Impact
-
-A missing validation check allowed users to redeem subscription offers that were no longer active.
-
-### Vulnerable versions
-
-This vulnerability is present in Ghost from v4.22.0 up to v6.54.0.
-
-### Patches
-
-v6.54.1 contains a fix for this issue.
-
-### How to update
-
-For self-hosters using Docker, find [Docker's official Ghost image here](...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-4wx2-7gvj-qfq3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53948</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Ghost: File Upload Content-Type Spoofing</div>
-            <div class="card-body">### Impact
-
-Insufficient validation of the client-supplied `Content-Type` on Ghost's Admin API file upload endpoint allowed uploaded files to be served from the site with an attacker-chosen content type on S3/GCS storage backends. On installations that serve uploaded files from the same origin as the site, this could have been used to facilitate st...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-944x-pm95-3jpr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70588</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.0
-                </span>
-            </div>
-            <div class="card-title">Ghost: Cross-Site Scripting in Universal Import</div>
-            <div class="card-body">### Impact
-
-The Universal Import feature in Ghost Admin failed to properly sanitize imported content resulting in XSS in post content.
-
-### Vulnerable versions
-
-This vulnerability is present in Ghost from v5.26.0 up to v6.54.0.
-
-### Patches
-
-v6.54.1 contains a fix for this issue.
-
-### How to update
-
-For self-hosters using Docker, find [Docker's off...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-2gx6-7gx2-wwcf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70494</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: A folder write-collaborator can permanently delete the owner's chats by deleting a shared subfolder</div>
-            <div class="card-body">## Summary
-A user granted write access to a shared chat folder could permanently delete chats and messages belonging to the folder's owner. Deleting a folder cascades into the owner's chats and the entire subfolder subtree, and the deletion handler required only write access on subfolders instead of ownership. Root folders were restricted to the ow...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-3cg5-48j3-v4gv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70493</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Any authenticated user can stall a worker via a knowledge-search pattern that backtracks catastrophically</div>
-            <div class="card-body">## Summary
-The built-in knowledge search tools let a chat participant choose the pattern used to grep knowledge files. Patterns containing regex metacharacters were compiled with Python's backtracking `re` engine and run against every line of every reachable file, with no time limit anywhere on that path. A single crafted pattern and a single short...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-2f54-p244-32q6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70492</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Stored XSS via unescaped KaTeX render-error fallback in rendered messages</div>
-            <div class="card-body">## Summary
-Any authenticated user can store a chat message whose math block makes KaTeX fail with a stack overflow instead of a parse error. When that happens the renderer falls back to inserting the original math source into the page as HTML rather than as text, so script in the message runs in the browser of whoever views it. Every surface that r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-pwxh-7358-jq2x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70491</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Tool source code disclosed to read-only users via the tool list and get endpoints</div>
-            <div class="card-body">## Summary
-
-A workspace tool shared with a read grant returned its full Python source to the recipient. Any authenticated non-admin who could use a shared tool could also read its source, including any user on the instance when a tool was shared publicly. Source is meant to be a writer-only tier: the list response schema deliberately omits it and s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-3r7g-q6cg-q2vx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70490</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Unapproved accounts can open terminal sessions via a WebSocket auth path missing the role check</div>
-            <div class="card-body">## Summary
-The terminal WebSocket route authenticates its own first-message JWT instead of going through the HTTP dependency chain, and never applies the role check that `get_verified_user` enforces on every HTTP terminal route. An account whose role is `pending`, meaning registered but not approved, or approved and later deactivated back to `pendi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-5gpj-vj23-vhhv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70489</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Instance-wide stall via automation recurrence rules that force multi-second parsing</div>
-            <div class="card-body">## Summary
-In every affected release, automation recurrence parsing anchors minutely and hourly rules at a fixed date of 2000-01-01 and then walks forward one interval at a time to find the next run. A single `FREQ=MINUTELY` rule therefore enumerates roughly a quarter-century of occurrences, synchronously, on the event loop that also serves the sch...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-73cq-mcgh-379c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54020</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: DNS Rebinding SSRF Bypass</div>
-            <div class="card-body">## Summary
-Open WebUI vetted user-supplied URLs by resolving the hostname once and rejecting private, loopback and link-local addresses, then let the HTTP client resolve that hostname again at connect time. An attacker who controls the authoritative DNS for a hostname they submit can answer with a public address during the check and an internal one...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-h6x2-583h-x99r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70487</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Cross-user file content disclosure via request-scoped direct model knowledge metadata</div>
-            <div class="card-body">## Summary
-Open WebUI lets a client define a model inline on a chat request instead of selecting a saved workspace model. The knowledge attached to such an inline model was used as-is, without checking that the caller can read what it points at. Any authenticated user who knows another user's file id could therefore have the builtin knowledge tools...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-6xhv-rxhv-pwm4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70488</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Deletion of directories and file embeddings in other knowledge bases via sync cleanup</div>
-            <div class="card-body">## Summary
-A user with write access to one knowledge base could delete directories, and drop file embeddings, belonging to knowledge bases they do not control. The sync cleanup endpoint verified write access on the knowledge base named in the URL and then acted on the directory and file ids supplied in the request body without checking that those o...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-jxc9-xmc4-gr23" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70486</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Same-origin XSS to account takeover via terminal file-preview iframe hardcoding allow-same-origin</div>
-            <div class="card-body">## Summary
-Any authenticated user with access to a terminal server could get script of their choosing to run in the Open WebUI origin itself. The HTML file preview rendered terminal-served files in an iframe whose sandbox always granted `allow-same-origin` alongside `allow-scripts`, and the file is served from a path on the application's own origin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-3xpf-xq7r-v8c5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70485</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Any authenticated user can reach internal services and cloud metadata via NAT64-encoded URLs</div>
-            <div class="card-body">## Summary
-
-Open WebUI fetches user-supplied URLs on the server for RAG URL ingestion, URL-to-markdown conversion and web-search content retrieval, and decides whether a destination is allowed by asking whether its IP address is globally routable. That test operates on the literal IPv6 address and does not look at the IPv4 address embedded inside i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-8x5v-cpv7-8jjp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70484</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Users denied the image-generation permission can still generate images via chat completions</div>
-            <div class="card-body">## Summary
-An authenticated user whose `features.image_generation` permission has been revoked can still make the server generate images by sending the feature flag in a chat-completion request. The chat pipeline took the client-supplied `features` object at face value and never re-checked the permission that the direct image routes enforce, so the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-g423-grf7-98rv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70480</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.1
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Client-side SSRF via unrestricted external resource loading in Vega/Vega-Lite chart rendering</div>
-            <div class="card-body">## Summary
-Open WebUI renders `vega` and `vega-lite` fenced code blocks in chat content by building a Vega view in the viewer's browser without a restricted resource loader. Any user who can place such a block where another user will see it can make that user's browser issue attacker-chosen outbound GET requests, and read back responses from same-o...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-rffm-9q57-q649" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70483</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.1
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Any authenticated user can cancel another user's chat generation via the chat delete endpoint</div>
-            <div class="card-body">## Summary
-`DELETE /api/v1/chats/{id}` cancelled a chat's in-flight tasks before it checked whether the caller was allowed to delete that chat. Any authenticated user who knew another user's chat id could therefore abort that user's running model response, title generation or tag generation. The deletion itself was still refused, so the only missin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-3vf6-64vr-3g56" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70482</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Account takeover via OAuth token exchange accepting tokens issued to any client</div>
-            <div class="card-body">## Summary
-
-The OAuth token exchange endpoint accepts a raw provider access token and validates it by calling the provider's userinfo endpoint. A userinfo endpoint reports only that a token is valid, never which OAuth client it was issued to, and the endpoint performed no audience or client check of its own. Anyone holding an access token minted fo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-rq84-p6rr-vf89" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70481</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Any member with write access to a standard channel can edit or delete other members' messages</div>
-            <div class="card-body">## Summary
-On standard channels, the message update and delete handlers accepted any caller holding write access on the channel, without checking that the caller wrote the message. Write access is the same grant a member needs in order to post, so every ordinary participant in a shared channel could rewrite or permanently delete any other participa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-04</span>
-                <a href="https://github.com/advisories/GHSA-mj5r-jf49-m3w7" target="_blank">Full Report →</a>
             </div>
         </div>
         
