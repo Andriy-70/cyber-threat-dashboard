@@ -68,544 +68,559 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-06 13:27 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-06 23:45 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-65602</span>
+                <span class="cve-id">GHSA-957r-qf9p-67xw</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Traefik CRD IngressRouteTCP ServersTransport Cross-Provider Namespace Bypass</div>
-            <div class="card-body">## Summary
-
-There is a medium-severity cross-provider reference vulnerability in Traefik's Kubernetes CRD provider. The `crossProviderNamespaces` allowlist is enforced for HTTP `serversTransport` references but was not enforced for `IngressRouteTCP` service `serversTransport` references. A low-privileged Kubernetes user in a namespace that is not l...</div>
+            <div class="card-title">Craft CMS: Arbitrary file read via SplFileObject in non-sandboxed template contexts</div>
+            <div class="card-body">The `create()` Twig function (introduced in 5.9.0) allows instantiation of arbitrary PHP classes from template code, restricted only by a 5-entry blocklist. `SplFileObject` is not in the blocklist, enabling arbitrary file read, including `.env` (security key, DB credentials) and the passwd file from non-sandboxed Twig template contexts, such as ent...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-42cj-m3vj-89wv" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-957r-qf9p-67xw" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-65601</span>
+                <span class="cve-id">CVE-2026-71554</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">h2: Duplicate Host header could facilitate request smuggling</div>
+            <div class="card-body">### Impact
+h2 <=4.4.0 accepts request header blocks containing more than one Host header, and forwards every Host header to the consuming application. Where the consumer downgrades HTTP/2 to HTTP/1.1, the resulting request carries two Host header lines, which is a request smuggling primitive (CWE-444).
+
+### Patches
+Patched and fixed in v4.4.1
+
+### ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-6hr6-w5qg-qmwg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-596p-6jv8-775v</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Traefik Gateway API HTTPRoute BackendRef ExtensionRef Namespace Confusion</div>
-            <div class="card-body">## Summary
+            <div class="card-title">Craft CMS: Authenticated leak of secret environment variables</div>
+            <div class="card-body">Environment variables and secrets are interpolated into a Twig template even when the Twig sandbox is enabled, allowing them to be leaked by an authenticated attacker.
 
-There is a medium-severity namespace-confusion vulnerability in Traefik's Kubernetes Gateway API provider. When resolving `HTTPRoute.spec.rules[].backendRefs[].filters[].extensionRef`, Traefik used the backend Service namespace instead of the `HTTPRoute` namespace. A low-privileged route author holding a `ReferenceGrant` for a cross-nam...</div>
+The Craft vulnerability [CVE-2026-31857](https://github.com/craftcms/cms/security/advisories/GHSA-fp5j-j7j4-mcxc) was only patched by applying sandboxed Twig templating. This theore...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-qq9q-x9w4-chhj" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-596p-6jv8-775v" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-71321</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Nuxt: Unauthenticated CPU exhaustion parsing and hashing the Nuxt island endpoint body before hash validation</div>
-            <div class="card-body">### Impact
-
-The internal island renderer endpoint (`/__nuxt_island/...`) decodes and hashes attacker-controlled request input before it validates the URL-resident hash. An unauthenticated `POST /__nuxt_island/<name>_<anything>.json` with a large JSON body (for example ~4.6 MB / 150k keys) is fully read, `destr`-parsed, and run through `ohash` befor...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-9pgf-384g-p7mv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71320</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Nuxt: Server-Side Remote Code Execution via Runtime Template Injection in Nuxt Server Island Props</div>
-            <div class="card-body">## Impact
-
-Nuxt server islands accept props via the `/__nuxt_island/` endpoint. When `vue.runtimeCompiler: true` is enabled (off by default) and the application has a server island component that forwards props into Vue's dynamic component resolution (`<component :is>`, `resolveDynamicComponent`, or `h()`), an attacker can inject a `template` key i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-9473-5f9j-94wq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71319</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.6
-                </span>
-            </div>
-            <div class="card-title">Unauthenticated Nuxt DevTools RPC allows arbitrary command execution on the developer's host</div>
-            <div class="card-body">### Impact
-
-Nuxt DevTools (development mode only) exposes a bidirectional RPC channel over the Vite HMR WebSocket via the `nuxt:devtools:rpc` plugin. On affected versions the channel has no authentication: any client that can reach the Vite HMR endpoint (`ws://<host>:<port>/`, subprotocol `vite-hmr`) can call RPC methods, with no token, handshake, ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-279x-mwfv-vcqv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71318</span>
+                <span class="cve-id">GHSA-rvmm-v933-jgxq</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Nuxt: Unauthorized Component Instantiation via Server Island Props</div>
-            <div class="card-body">## Impact
-
-Nuxt server islands accept props via the `/__nuxt_island/` endpoint. When an application has a server island component that forwards props directly into Vue's dynamic component resolution (`<component :is>`, `resolveDynamicComponent`, or `h()`), an attacker can pass a plain string value (rather than a component definition) to instantiate...</div>
+            <div class="card-title">Craft CMS: Missing authorization check allows non-admin control panel users access to user registration metrics</div>
+            <div class="card-body">`ChartsController::actionGetNewUsersData()` at `/actions/charts/get-new-users-data` is missing a `requirePermission('viewUsers')` authorization check. Any authenticated control panel user, regardless of permissions beyond `accessCp`, can POST to this endpoint to receive time-series user registration counts for the entire site or for an arbitrary us...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-48hr-524c-v5w3" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-rvmm-v933-jgxq" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-71316</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Nuxt runtime payload cache discloses another user's SSR data across users and to unauthenticated clients</div>
-            <div class="card-body">### Impact
-
-When a page is covered by `routeRules` `cache` / `swr` / `isr`, Nuxt enables runtime payload extraction and serves `/<page>/_payload.json`. On affected versions the renderer stored the SSR payload in the shared `cache:nuxt:payload` storage under a path-only key (no cookie, `authorization`, or `cache.varies` dimension) and, on a later pa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-wm8w-6qjm-cv43" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71315</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">Nuxt route rules silently dropped for mixed-case paths, bypassing appMiddleware auth gates (incomplete fix for CVE-2026-53721)</div>
-            <div class="card-body">### Impact
-
-Nuxt matches route rules case-insensitively by default (mirroring vue-router's default `sensitive: false` routing). The fix for GHSA-mm7m-92g8-7m47 / CVE-2026-53721 lowercased the *lookup* path before matching route rules, but the route-rule *keys* compiled into the matcher were left verbatim. As a result, any route rule whose key conta...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-hxvh-4h3w-prp9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71314</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Nuxt: Unauthenticated out-of-memory crash via unbounded v-for expansion in island rendering</div>
-            <div class="card-body">### Impact
-
-An unauthenticated attacker can crash a Nuxt server that renders any island / server component containing a `v-for` over a prop (for example `v-for="n in count"` or a `<slot v-for>`). Because the island URL hash is a non-secret digest of the request, the attacker can compute a valid hash for arbitrary props and send the iterated prop as...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-hxcr-hm88-mpq6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71313</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.9
-                </span>
-            </div>
-            <div class="card-title">rclone: Local Encoding Path Traversal</div>
-            <div class="card-body">## Summary
-
-The local backend relies on its configurable filename encoder to prevent remote filename data from becoming operating-system path syntax. If a local destination uses an encoding that omits `Dot`, such as `Slash`, `None`, or `Raw`, a remote object's standard-encoded `．．` component is decoded into an actual `..` component. `backend/local....</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-7p4m-qxvv-g567" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59732</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.0
-                </span>
-            </div>
-            <div class="card-title">rclone archive extract allows S3 destination prefix escape via crafted archive paths</div>
-            <div class="card-body">### Summary
-
-`rclone archive extract` can write extracted files outside the user-selected destination prefix when extracting a crafted archive. A malicious archive entry containing parent path components such as `../` can escape the requested extraction prefix and create or overwrite sibling objects in the same bucket/path scope.
-
-### Details
-
-The ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-4vr5-p2gc-h23p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-gx4c-2hqx-cw2r</span>
+                <span class="cve-id">GHSA-7hxc-f267-h5q7</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.1
+                    LOW None
                 </span>
             </div>
-            <div class="card-title">rclone: S3 backend does not strip X-Amz-Security-Token on a same-host HTTPS->HTTP redirect</div>
-            <div class="card-body">## Vulnerability Details
+            <div class="card-title">Craft CMS: Incorrect path validation could potentially lead to path traversal</div>
+            <div class="card-body">The `ensurePathIsContained` function of the `Local` file system class is theoretically vulnerable to path traversal, although no exploitable scenario has been discovered.
 
-**File**: `backend/s3/s3.go`
-**Lines**: 1359-1380 (functions `s3CheckRedirect` / `s3RedirectCrossesHost`)
-
-### Root Cause
-Commit `e7b1eb774` (released in v1.74.3) added a `CheckRedirect` policy for
-the S3 HTTP client whose purpose is to strip the `X-Amz-Security-Token`
-header (the AWS STS session token) whenever a redirect...</div>
+When a file is read, an `Asset` object uses the `getFileStream` method of the `Volume` where the asset file is stored, which in turn uses the `getFileStream` method of the file s...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-gx4c-2hqx-cw2r" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-7hxc-f267-h5q7" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-59733</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">rclone `serve restic --private-repos` authorization bypass: `..` in the URL path lets an authenticated user read, overwrite and delete other users' repositories</div>
-            <div class="card-body">## Summary
-
-`rclone serve restic --private-repos` exists to let one rclone instance host many users' restic backup repositories behind HTTP Basic auth while keeping each user confined to a path prefix of `/<username>/`. The documentation states the flag "can be used to limit users to repositories starting with a path of `/<username>/`", and the shi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-fqj9-69pf-6pjg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71312</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.0
-                </span>
-            </div>
-            <div class="card-title">rclone: PowerShell Smart-Quote Filename Injection Enables SFTP Server-Side Command Execution</div>
-            <div class="card-body">## 1. Summary
-
-rclone interpolates remote SFTP paths into PowerShell hash commands. Its quoting helper escapes only ASCII apostrophe, although PowerShell accepts four Unicode smart quotes as single-quote delimiters. An attacker-controlled filename can therefore terminate the intended path literal and append PowerShell statements executed as the vic...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-2m8m-jhrm-w6j2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-h4mf-4v27-hggj</span>
+                <span class="cve-id">GHSA-2rp4-x2j7-qmcc</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
+                    MEDIUM None
                 </span>
             </div>
-            <div class="card-title">rclone: WebDAV Credentials Survive a Same-Host HTTPS-to-HTTP Redirect</div>
-            <div class="card-body">## 1. Summary
+            <div class="card-title">Craft CMS: Stored XSS in the control panel via unescaped draft name</div>
+            <div class="card-body">The control-panel helper that renders element chip/card labels writes an element's `draftName` into the page without HTML-encoding it, while the surrounding path segments are encoded.
 
-WebDAV's default redirect handling can replay Basic authorization and configured Cookie headers over plaintext HTTP after a same-host HTTPS-to-HTTP redirect. This was reproduced through the real backend. Unlike the low-impact STS token in rclone's published S3 redirect advisory, Basic passwords and session cookies are complete reusab...</div>
+A low-privilege control-panel user who can create a draft of an element (for example, an entry) controls the draft name, so they can store an XSS payload that execut...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-h4mf-4v27-hggj" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-2rp4-x2j7-qmcc" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-71311</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.4
-                </span>
-            </div>
-            <div class="card-title">rclone: FTP Command Arguments Permit CRLF Injection When Custom Encoding Preserves Newlines</div>
-            <div class="card-body">## 1. Summary
-
-A valid but nondefault FTP filename encoding can restore raw CR/LF immediately before an attacker-controlled path is interpolated into the line-oriented FTP control channel. The dependency does not reject CR or LF in command arguments, so a filename can inject an independent authenticated command. A real test server observed the inje...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-8c48-q9wj-3w37" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8mxv-9xhp-86h4</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">rclone: S3 Redirect Sanitization Omits IBM IAM Bearer Tokens and SSE-C Keys</div>
-            <div class="card-body">## 1. Summary
-
-The S3 redirect callback strips `X-Amz-Security-Token` when a redirect changes scheme or host, but it does not strip IBM IAM bearer authorization or customer-provided encryption keys. Two independently validated paths remain:
-
-- a same-host HTTPS-to-HTTP redirect preserves `Authorization: Bearer ...` and exposes a reusable IBM IAM to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-8mxv-9xhp-86h4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-8v25-v8p6-qf7v</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title"> rclone: Path traversal in serve s3 allows reading and overwriting root-level files</div>
-            <div class="card-body">### Summary
-
-rclone serve s3 allows a client to read and write files at the root of the remote which would normally be inaccessible by using dot-dot path segments in the object key. It does not allow reading files outside of the root. A request such as GET /bucket/../root-secret.txt is handled as an object request for bucket "bucket", but rclone no...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-8v25-v8p6-qf7v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-3x6r-wxxg-53vv</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">rclone: Infinite Scale TUS Creation Transport Error Causes a Nil-Response Panic</div>
-            <div class="card-body">## 1. Summary
-
-A transport failure during the initial Infinite Scale TUS creation POST can return `(nil response, non-nil error)`. Rclone dereferences the nil response before processing the error and panics. The production `CreateUploader` path reproduced the crash against a closed endpoint.
-
-The security case is deployment-dependent. A one-shot up...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-3x6r-wxxg-53vv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71310</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">rclone: Unbounded HTTP CONNECT Response Headers Can Exhaust rclone Memory</div>
-            <div class="card-body">## 1. Summary
-
-The shared HTTP CONNECT helper parses a proxy response with `http.ReadResponse` over an unrestricted buffered reader. The production helper accepted a valid response containing a 2 MiB header in three consecutive runs. A malicious or compromised configured proxy, or an active on-path actor controlling a plaintext HTTP-proxy hop, can ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-xhf4-832v-7xcr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54572</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">rclone: Unvalidated symlink target in local `--links` — arbitrary file write from an untrusted remote</div>
-            <div class="card-body">### Summary
-With `-l/--links`, rclone serializes symlinks as `<name>.rclonelink` text objects whose body is the link target. When rclone writes such an object to a local destination, it recreates the symlink with `os.Symlink(<object body>, <dest path>)` and performs NO validation of the target. If the source is attacker-controlled, the attacker set...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-cf44-9pgv-m4xc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71309</span>
+                <span class="cve-id">CVE-2026-67434</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">rclone: Incomplete path validation allows backend root escape in serve restic</div>
+            <div class="card-title">PHP_CodeSniffer gitblame report command injection via crafted filename</div>
+            <div class="card-body">### Impact
+
+PHP_CodeSniffer versions before v3.13.6 and v4.0.2 contain a command injection vulnerability in the code creating the `Gitblame`, `Hgblame` and `Svnblame` report(s).
+
+As a result, running PHP_CodeSniffer over untrusted files, for example, in a CI pipeline that scans pull requests, or on a developer machine reviewing third-party code, co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-hmqg-cxww-wqhq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71498</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.1
+                </span>
+            </div>
+            <div class="card-title">node-re2: Out-of-bounds heap read in `replace`/`split` via a `Buffer` ending in a truncated multi-byte UTF-8 character → adjacent heap memory disclosed to JavaScript</div>
             <div class="card-body">## Summary
 
-`rclone serve restic` does not correctly reject URL paths beginning with `../`. On affected backends, an attacker who can access the REST endpoint can read, create, overwrite, or delete objects outside the path configured by the operator.
-
-The issue affects `rclone v1.40` through `rclone v1.74.4`. The proof of concept and backend matrix...</div>
+`re2` infers a character's byte length from its UTF-8 lead byte alone, with no bound on the
+bytes actually remaining in the input. `Buffer` arguments reach the native layer verbatim —
+only strings are re-encoded into well-formed UTF-8 — so a `Buffer` whose last byte is a
+multi-byte lead promises continuation bytes that are not there, an...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-45pq-889g-fcgh" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-j4r3-hg7j-8chg" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-945v-v9p3-v5xw</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.6
-                </span>
-            </div>
-            <div class="card-title">rclone local `--metadata` applies attacker-controlled mode/uid - setuid binary planted from an untrusted remote</div>
-            <div class="card-body">### Summary
-When writing an object with metadata, the local backend applies the source-supplied `mode`, `uid`, and `gid` verbatim: it parses `mode` as an octal integer and passes it straight into `os.Chmod(o.path, os.FileMode(umode))`, and passes `uid`/`gid` straight into `os.Chown`. The value is never masked to permission bits, so any value with G...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-945v-v9p3-v5xw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-gwfq-86j8-7qhv</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 2.7
-                </span>
-            </div>
-            <div class="card-title">rclone: Verbose Stack Trace Disclosure in RC API Error Responses</div>
-            <div class="card-body">### Summary
-
-When an RC API call triggers a panic (recovered by the job runner), the full Go stack trace is included in the JSON error response. This leaks internal file paths, Go module versions, goroutine state, and memory addresses to the API caller.
-
-### Details
-
-The panic recovery in `fs/rc/jobs/job.go:110-115`:
-
-```go
-func (j *Job) run(ctx co...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-gwfq-86j8-7qhv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70612</span>
+                <span class="cve-id">CVE-2026-71430</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
+                    MEDIUM 6.2
                 </span>
             </div>
-            <div class="card-title">Electron: Sandboxed iframes can launch external protocol handlers</div>
-            <div class="card-body">### Impact
-Requests to open external protocol URLs from web content did not take iframe sandbox restrictions into account, so a sandboxed iframe could cause an OS-registered external application to be launched. The frame's sandbox state was also not made available to the app's permission handlers.
+            <div class="card-title">node-re2: String.prototype.replace(re2, template) aborts the Node process (uncatchable ToLocalChecked on empty MaybeLocal) when the result exceeds V8's max string length</div>
+            <div class="card-body">## Description
 
-Apps are only affected if they render untrusted co...</div>
+`WrappedRE2::Replace` builds the replacement result and hands it to V8 with `.ToLocalChecked()` **without checking for the empty `MaybeLocal`** that V8 returns when the string/buffer exceeds its maximum length:
+
+`lib/replace.cc` (v1.24.1):
+```cpp
+// L553 — Buffer return path
+info.GetReturnValue().Set(Nan::CopyBuffer(result.data(), r...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-p2rr-rvmm-c5fp" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-8hcv-x26h-mcgp" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-70611</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.9
-                </span>
-            </div>
-            <div class="card-title">Electron: DevTools embedder handler executes arbitrary files via shell open</div>
-            <div class="card-body">### Impact
-The DevTools "reveal in file manager" action could launch the target file rather than reveal it. An attacker with a separate means of running script inside the DevTools frontend (such as a malicious DevTools extension) could use this to execute native code outside the sandbox.
-
-Apps are only affected if DevTools is opened for windows exp...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-f2r8-jv7c-xqmp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70610</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Electron: contextBridge object copy honors prototype setters</div>
-            <div class="card-body">### Impact
-Objects copied across the `contextBridge` boundary from untrusted content could carry an attacker-influenced prototype, enabling prototype-pollution-style attacks against preload code despite context isolation being enabled.
-
-Apps are only affected if their preload code accepts object arguments from untrusted content and reads properties...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-ff2p-hmqr-hxm4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70609</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.7
-                </span>
-            </div>
-            <div class="card-title">Electron: DevTools JavaScript Injection via Unsanitized Dock State Parameter</div>
-            <div class="card-body">### Impact
-The `mode` option of `webContents.openDevTools()` was not sanitized before use by the DevTools frontend. If an attacker can influence this value, script under their control may run in the DevTools context, which in unsandboxed configurations has access to Node.js.
-
-Apps are only affected if untrusted input can reach the `mode` argument o...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-4f78-qhmw-8j8m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-70608</span>
+                <span class="cve-id">GHSA-w9hm-4m3m-fxmm</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">Electron: Sandboxed iframe can bypass the allow-popups restriction via the OpenURL navigation path</div>
-            <div class="card-body">### Impact
-A sandboxed iframe without the `allow-popups` keyword could still open a new window (or trigger `setWindowOpenHandler`) with no user interaction, because new-window navigations taking the OpenURL path did not apply the iframe sandbox popup restriction.
+            <div class="card-title">ngx-extended-pdf-viewer bundles a version of pdf.js vulnerable to CVE-2026-16633</div>
+            <div class="card-body">ngx-extended-pdf-viewer embeds a fork of Mozilla's pdf.js rather than depending on pdfjs-dist, so this vulnerability is not visible to dependency scanners through package.json.
 
-Apps that embed untrusted content in sandboxed iframes and rely on the absence of `al...</div>
+### Impact
+Opening a malicious PDF can execute attacker-controlled JavaScript in the context of the hosting page. Upstream advisory: GHSA-hq66-cqwq-w95j / CVE-2026-16633.
+
+...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-9f4c-93c8-jc8g" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-w9hm-4m3m-fxmm" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-70607</span>
+                <span class="cve-id">CVE-2026-16633</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">PDF.js: Arbitrary JavaScript execution upon opening a malicious PDF </div>
+            <div class="card-body">### Impact
+
+If PDF.js is used to load a malicious PDF, and PDF.js is configured with `enableScripting` set to true (which is the default value) and no CSP for disallowing script-src, unrestricted attacker-controlled JavaScript will be executed in the context of the hosting domain.
+
+### Patches
+
+### Workarounds
+Set `enableScripting` to `false` or se...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-hq66-cqwq-w95j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71497</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.7
+                </span>
+            </div>
+            <div class="card-title">jsoup: Cleaner may expose markup with custom raw-text elements</div>
+            <div class="card-body">When a custom `Safelist` permits certain raw-text elements, jsoup may incorrectly sanitize malformed HTML containing a tag name that ends in a control character. The tag may acquire the parsing behavior of a different element, causing content that should remain text to be emitted as active markup after serialization and potentially allowing XSS.
+
+j...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-pmhh-3w7g-xqp8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-p8x7-9vfw-p7vc</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS: Arbitrary user password reset leading to administrator account takeover</div>
+            <div class="card-body">The vulnerability allows any authenticated user to change their own password without providing the current password or having an active elevated session. It also allows the attacker to change other users’ passwords if the attacker’s account has `edit users` permission (which doesn’t allow changing others’ passwords) and lacks `Administrate users` p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-p8x7-9vfw-p7vc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-f5wm-88jv-g5hx</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS: Authenticated RCE through Twig sandbox escape</div>
+            <div class="card-body">The Twig sandbox mechanism in Craft CMS is configured to allow dangerous functionality from the Yii framework, leading to authenticated RCE in a manner similar to previously disclosed vulnerabilities.
+
+The Twig sandbox in Craft CMS works by implementing Twig's `SecurityPolicyInterface`. The resulting `SecurityPolicy` class implements the `checkMeth...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-f5wm-88jv-g5hx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-14793</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Craft CMS: Missing authorization check allows non-admin control panel users to reorder Global Sets</div>
+            <div class="card-body">The `reorder-sets` action in Craft CMS’s `GlobalsController` is missing the `requireAdmin()` check that the adjacent `save-set` and `delete-set` actions both enforce. Any authenticated control panel user can POST to `/actions/globals/reorder-sets` and permanently reorder all global sets in the project config, regardless of whether they have admin a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-9p7c-v5x3-rfx8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-265m-7826-wjqm</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS: Authenticated RCE via `condition.config` JSON cleanse bypass</div>
+            <div class="card-body">Craft CMS has an authenticated remote code execution issue in the control panel element-search condition handling.
+
+Craft cleans the outer request-controlled condition array with `Component::cleanseConfig()`, but `Conditions::createCondition()` later decodes and merges the JSON string in `condition.config` without re-running `cleanseConfig()` on th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-265m-7826-wjqm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-mj63-m3rc-8ppr</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.3
                 </span>
             </div>
-            <div class="card-title">Electron: window.open features string controls some window options considered privileged</div>
+            <div class="card-title">league/commonmark: Denial of service via deeply nested XML output</div>
             <div class="card-body">### Impact
-Some window options supplied by web content in the `window.open()` features string were applied to the new `BrowserWindow` without an allowlist. Untrusted content could set window options it should not control, including options that cause the main process to access attacker-chosen file or network paths.
 
-Apps are only affected if untrus...</div>
+`XmlRenderer` pretty-prints XML by emitting depth-proportional indentation whitespace for **every** opening and closing tag. For a tree of depth n, the indentation alone sums to **O(n²)** bytes of output (and corresponding memory), reachable through `MarkdownToXmlConverter` — e.g. `str_repeat('> ', $depth) . "x\n"`, a single line of nes...</div>
             <div class="card-footer">
-                <span>Published: 2026-08-05</span>
-                <a href="https://github.com/advisories/GHSA-v93f-fgjr-hjrj" target="_blank">Full Report →</a>
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-mj63-m3rc-8ppr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-mh25-x5hq-wrqp</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">league/commonmark: Denial of service via colliding heading slugs</div>
+            <div class="card-body">### Impact
+
+`UniqueSlugNormalizer::normalize()` makes each slug document-unique by searching for an unused numeric suffix, but **restarts that search from `1` on every collision**. The k-th heading that collapses to the same base slug performs k−1 array lookups, so K colliding slugs cost Σ(k−1) = **O(K²)**. An attacker can force every heading onto ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-mh25-x5hq-wrqp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jfm3-95jq-q3rf</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">league/commonmark:  Denial of service via duplicate footnote definitions</div>
+            <div class="card-body">### Impact
+
+The Footnote extension records one backref per footnote *reference* and then appends the **entire** backref list for **every** footnote *definition* block in the document, without ever de-duplicating or removing repeated definitions of the same label (`GatherFootnotesListener`, populated by `NumberFootnotesListener`). A document that re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-jfm3-95jq-q3rf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-g2gp-3wwq-f4ph</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">league/commonmark: Denial of service via adjacent inline attribute blocks</div>
+            <div class="card-body">### Impact
+
+With the Attributes extension enabled, `AttributesListener::findTargetAndDirection()` resolves each attribute node's target by walking outward through its siblings. For a run of N adjacent inline attribute blocks placed at the start of a block (with nothing to their left), each node scans the **entire** sibling list to the far-right end...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-g2gp-3wwq-f4ph" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71488</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">league/commonmark: Quadratic-time denial of service when parsing crafted Markdown</div>
+            <div class="card-body">### Impact
+
+Affected versions of `league/commonmark` can have quadratic time complexity when parsing specially crafted Markdown lines. In practical terms, doubling the length of an affected line can make the parser perform roughly four times as much work. The parser identifies locations using character positions, but regular-expression matches repo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-2q4p-g7hv-5rgv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71478</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">league/commonmark: AttributesExtension href/src unsafe-link filter bypass via embedded control bytes</div>
+            <div class="card-body">﻿## Summary
+
+The `AttributesExtension`'s `href`/`src` unsafe-link filter (`AttributesHelper::filterAttributes()`) can be bypassed by embedding control bytes in a `javascript:` URL that browsers discard before parsing the scheme. Two variants:
+
+- **Tab/newline inside the scheme** — a literal ASCII TAB (0x09), CR (0x0D), or LF (0x0A), e.g. `java<TAB>...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-29pj-957v-52mc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5p4m-2wfm-xmqj</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported</div>
+            <div class="card-body"># Quadratic CPU consumption in `!!omap` resolution (js-yaml 3.x and 4.x)
+
+## Summary
+
+`resolveYamlOmap()` enforces key uniqueness for `!!omap` sequences with a linear
+scan (`objectKeys.indexOf(...)`) inside the per-element loop, making resolution
+**O(n²)** in the number of entries. A modestly sized YAML document therefore
+consumes disproportionate ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-5p4m-2wfm-xmqj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54717</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Silverstripe: XSS in breadcrumbs in page list view</div>
+            <div class="card-body">### Impact
+Page breadcrumbs in the CMS are vulnerable to XSS when viewed using the page list view
+
+### Reporter
+Fase Rais Baradika...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-w3cp-g2pf-65wh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-18654</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">AWS CLI: Disabled SSH host key verification in Amazon AWS CLI EMR helper commands</div>
+            <div class="card-body">### Summary
+The AWS Command Line Interface (AWS CLI) is a unified tool to manage AWS services from the command line. An issue exists where the EMR SSH helper commands (`aws emr ssh`, `aws emr socks`, `aws emr put`, `aws emr get`) passed `StrictHostKeyChecking=no` to the underlying SSH client, disabling host key verification.
+
+### Impact
+A network-p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-hqvf-45jj-mccq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71476</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Nx: Zip-Slip in the self-hosted remote cache</div>
+            <div class="card-body">## Summary
+
+The Nx **self-hosted HTTP remote cache** extracts downloaded cache artifacts without constraining where files are written. A malicious — or on-path (MITM) — remote cache server can return a crafted tar archive whose entries escape the cache directory and write to arbitrary locations on the machine running Nx. This arbitrary file write c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-vp3h-ghgh-jr7g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71439</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Mermaid radar diagrams are vulnerable to DoS</div>
+            <div class="card-body">### Impact
+
+Mermaid radar diagrams allow arbitrary large values for `ticks`, which can cause high CPU usage, freezing the webpage/JavaScript process for long periods of time, until the process is eventually killed due to OOM/running out of memory.
+
+#### Proof-of-concept
+
+```txt
+radar-beta
+  axis a, b
+  curve c {1, 1}
+  ticks 1000000000
+```
+
+### Pat...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-rhh3-jpg6-66xh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71438</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Mermaid configuration APIs allow prototype pollution</div>
+            <div class="card-body">### Summary
+
+Mermaid's configuration setters (`mermaid.initialize`, `mermaidAPI.setConfig`, and `mermaidAPI.updateSiteConfig`) merge the caller-supplied configuration object into Mermaid's internal config using the `assignWithDepth` deep-merge helper that is vulnerable to prototype pollution.
+
+Because these APIs are intended to receive **trusted** ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-c4c3-pg64-4m4v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-50159</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Mermaid allows CSS injection applying to sibling elements of the diagram</div>
+            <div class="card-body">### Summary
+
+Mermaid does not fully restrict CSS to the rendered SVG subtree. Although selectors are prefixed with `#mermaid-X`, sibling (`~` and `+`) combinators can still escape the Mermaid container and inject styles to DOM elements adjacent to the diagram `<svg>`.
+
+**Most users of mermaid would not be affected by this**, as mermaid adds its `<s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-6x64-9x62-f2gx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71437</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Mermaid Architecture diagrams are vulnerable to prototype pollution</div>
+            <div class="card-body">Rendering an untrusted `architecture-beta` diagram lets the diagram author write an arbitrary property with the value `horizontal` or `vertical` onto `Object.prototype`. A group id of `__proto__` is accepted as a valid parent.
+
+### Impact
+
+Any code in the same realm that reads a property of that name from an arbitrary object, or enumerates an objec...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-3rrr-jr9j-h3q3" target="_blank">Full Report →</a>
             </div>
         </div>
         
