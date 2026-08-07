@@ -68,10 +68,422 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-07 12:33 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-07 18:35 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71847</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams</div>
+            <div class="card-body">### Summary
+
+Ruby's JSON native C extension clears the consumed `JSON::ResumableParser` input buffer but leaves `state.start`, `state.cursor`, and `state.end` pointing into released storage.
+
+When `partial_value` reconstructs an incomplete object containing duplicate keys, the duplicate-key warning path calls `cursor_position`, which dereferences t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-9hj4-r449-hfvc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-67422</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">pymdown-extensions: exponential-backtracking ReDoS in caret, tilde, betterem, and magiclink inline processors</div>
+            <div class="card-body">### Summary
+
+Four inline processors in pymdown-extensions contain regular expressions with
+exponential backtracking. A single untrusted Markdown line under
+50 bytes drives `markdown.markdown()` into unbounded CPU on the rendering thread
+(seconds at ~45 bytes, growing exponentially with each added character). All four
+fire in the extension's **defau...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-gm37-52c6-37mw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63223</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules</div>
+            <div class="card-body">### Impact
+This is an unsafe file upload validation vulnerability that can lead to remote code execution in vulnerable application configurations.
+
+Applications are impacted when they:
+- validate uploads using `is_image` or `mime_in` without an independent safe extension check, such as `ext_in` on patched versions
+- save uploaded files using the cl...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-mmj4-63m4-r6h5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63222</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">CodeIgniter: Path traversal in UploadedFile::move() when using client-provided filenames</div>
+            <div class="card-body">### Impact
+In affected versions, calling `UploadedFile::move()` **without a second argument** uses the client-provided filename without sanitization. Depending on the destination path and server configuration, an attacker can supply a filename containing path traversal sequences (e.g. `../../public/shell.php`) to write uploaded content outside the ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-hhmc-q9hp-r662" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63221</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.4
+                </span>
+            </div>
+            <div class="card-title">CodeIgniter: SQL injection in Query Builder deleteBatch() when used with where() conditions</div>
+            <div class="card-body">### Impact
+A SQL injection vulnerability exists in the Query Builder's `deleteBatch()` method. When `deleteBatch()` is used together with `where()` conditions, the bound values from the `WHERE` clause are substituted directly into the generated SQL **with their escape flag ignored**, so they are never escaped or quoted. If an application passes use...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-c9w5-rwh3-7pm9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63220</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">CodeIgniter: Spoofable forwarded HTTPS headers in IncomingRequest::isSecure()</div>
+            <div class="card-body">### Impact
+`IncomingRequest::isSecure()` trusted the `X-Forwarded-Proto` and `Front-End-Https` headers from any incoming request. In affected deployments, an attacker could spoof these headers and cause the application to incorrectly treat an HTTP request as secure.
+
+This may impact applications that rely on `isSecure()`, `force_https()`, `forceGlo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-7wmf-pw8j-mc78" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-15895</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">jsii-diff: Command Injection via npm: package argument</div>
+            <div class="card-body">## Summary
+
+jsii-diff is a command line tool to compare the API differences between two jsii assemblies, and report errors if there are backwards-incompatible changes to the API. An issue exists where specially formatted command line arguments can be used to execute shell commands via this tool.
+
+## Impact
+jsii-diff supports downloading packages to...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-wcx4-wpfv-mc5c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-56818</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state</div>
+            <div class="card-body">## Summary
+
+`RedisArrayAggregator` clears retained partial aggregate state when the `maxNestedArrayDepth` limit is exceeded, but it does not clear the same state when the sibling `maxElements` limit is exceeded. A peer can start a valid RESP array, send a bulk-string child, then send a nested array header longer than the configured `maxElements`. N...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-p9jm-q85p-7mcp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54164</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the wrong resource type (type confusion)</div>
+            <div class="card-body">## Summary
+
+The API Platform serializer's `AbstractItemNormalizer` does not validate the resource type returned when resolving relation IRIs, allowing type confusion where a resource of an unintended type can be silently assigned to a relation property.
+
+## Impact
+
+An attacker who can submit write requests (POST/PUT/PATCH) to an API Platform endpoi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-9rjg-x2p2-h68h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-66062</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">SvelteKit: ReDoS (O(n^2)) in content negotiation — unauthenticated DoS via the Accept header</div>
+            <div class="card-body">### Impact
+SvelteKit is vulnerable to remote CPU-exhaustion DoS attacks via specifically-crafted `Accept` headers. The impact is mitigated by default header length limits on most platforms, but in the case of raised or absent limits a denial of service is possible.
+
+### Patches
+The vulnerability is patched in `@sveltejs/kit` version 2.70.2....</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-29g2-3rmr-qm68" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-7c4v-fwgw-9rf7</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint</div>
+            <div class="card-body">### Impact
+
+When a Nuxt dev server is bound to a network-reachable interface (for example `nuxt dev --host` for on-device testing), the default-enabled Chrome DevTools workspace endpoint `GET /.well-known/appspecific/com.chrome.devtools.json` returns the absolute project root (`workspace.root`, i.e. `rootDir`) and a persistent per-project workspace...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-7c4v-fwgw-9rf7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71557</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.3
+                </span>
+            </div>
+            <div class="card-title">go-git: Malicious reference names may modify files outside the reference storage</div>
+            <div class="card-body">### Impact
+A path traversal issue in `go-git` could allow malicious reference names to access files outside the repository's intended reference storage.
+
+Loose references are stored under `.git/<reference-name>`. The reference name was previously used as a path without verifying that the resolved path remained within the reference storage. A name s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-qgq7-7hm3-q39j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-71556</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">go-git: Worktree operations may follow symlinks</div>
+            <div class="card-body">## Impact
+
+A symlink traversal issue in `go-git` could allow worktree operations to modify files outside the intended worktree path.
+
+The `worktreeFilesystem` wrapper rejected dangerous path strings, including paths containing `.git`, parent-directory components, or control characters. However, it did not prevent filesystem operations from followin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-hc8v-wwc9-vgxm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-wvpp-8hx9-p66j</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smuggling enables command execution</div>
+            <div class="card-body">## Summary
+The `check_unsafe_options` guard can be bypassed on every guarded method (clone/clone_from, fetch/pull/push, ls_remote, iter_commits, blame, archive) by combining a single-character kwarg with `split_single_char_options=False`. The guard's candidate list omits the smuggled option, but `transform_kwarg` emits a JOINED `-n<value>` argv tok...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-wvpp-8hx9-p66j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jm78-9fvv-mhgr</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">GitPython: git-config OPTION-name injection via =/#/whitespace bypasses name validator, enabling forged core.sshCommand/hooksPath (RCE)</div>
+            <div class="card-body">## Summary
+GitPython's config-name validator only neutralizes CR/LF/NUL for the `"option"` label; it does not reject `=`, `#`, `;`, `[`, `]`, or whitespace in an **option name**. `write_section` writes the option name verbatim into the config file, so an option name such as `sshCommand = touch <cmd> #` is written as `\tsshCommand = touch <cmd> # = ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-jm78-9fvv-mhgr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-hmq2-w58f-27jc</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">GitPython: Arbitrary Git Repository Creation Outside the Working Tree via Unvalidated .gitmodules Submodule Name in GitPython</div>
+            <div class="card-body">### Summary
+GitPython computes the on-disk location of a submodule's separate Git directory (`.git/modules/<name>`) from the submodule's `.gitmodules` section name with no validation. Because that name is fully attacker-controlled content of a cloned repository, a malicious repository can set a submodule name to a traversal string (e.g. `../../../....</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-hmq2-w58f-27jc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-hh9p-6wh2-4mfc</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()</div>
+            <div class="card-body">## Summary
+
+`IndexFile.remove()` and `Head.checkout()` forward `**kwargs` into `git rm` and `git checkout`
+with no guard. Passing `--pathspec-from-file=<file>` **together with `--pathspec-file-nul`**
+makes Git treat the whole file as a single NUL-delimited pathspec, and the unmatched-pathspec
+error quotes it verbatim. GitPython surfaces that throug...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-hh9p-6wh2-4mfc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-9rj7-rf2p-w77r</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">GitPython: Unguarded git option forwarding in Repo.init enables arbitrary command execution via --template clone hooks</div>
+            <div class="card-body">## Summary
+`Repo.init()` forwards `**kwargs` verbatim to `git init` with no unsafe-option guard and no `allow_unsafe_options` parameter. `git init --template=<dir>` copies `<dir>/hooks/*` into the new repo's `.git/hooks`, so an attacker-controlled `template` kwarg plants a hook that executes on the next git operation → arbitrary code execution. `--...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-9rj7-rf2p-w77r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-4gmw-gg2m-w46p</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">GitPython: Unguarded git read-tree option forwarding in IndexFile.from_tree/reset/merge_tree enables arbitrary file overwrite</div>
+            <div class="card-body">## Summary
+`IndexFile.from_tree`, `IndexFile.reset` (→ from_tree) and `IndexFile.merge_tree` append caller-influenced treeish strings positionally to `git read-tree` with no unsafe-option guard, no `allow_unsafe_options` parameter, and no `--` separator. `git read-tree --index-output=<file>` writes the resulting index to an arbitrary path, and last...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-4gmw-gg2m-w46p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-55q2-fjhq-7xh7</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS</div>
+            <div class="card-body">### Summary
+
+During `IN_PLACE` sanitization, a hook that removes an element can leave that element's detached descendants executable. A descendant image can retain its attacker-provided `onload` handler and fire after `sanitize()` returns, even though the returned root is clean and the image remains disconnected from the document.
+
+### Details
+
+In ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-55q2-fjhq-7xh7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62996</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Smarty Security stream restriction bypass through stream: resource</div>
+            <div class="card-body">`smarty/smarty` version `5.8.0` can read local files through PHP stream wrappers even when Smarty Security is enabled and all streams are disabled with `Security::$streams = null`.
+
+The bypass uses Smarty's built-in `stream:` resource type. A template such as:
+
+```smarty
+{include file="stream:php://filter/read=convert.base64-encode/resource=/tmp/se...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-rjhh-76wf-8xmw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62992</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Smarty: Symlink path traversal out of trusted directories</div>
+            <div class="card-body">When Smarty's Security policy is enabled, secure_dir (and the configured template/trusted directories) restrict which local files a template may read via {include} and {fetch}. The trust check in Security::_checkDir() resolved the requested path with Smarty::_realpath(), which normalizes the path as a string only and does not follow symbolic links....</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-f6wf-28g6-769x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-wg23-69c2-gjc8</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS: Passkey login accepts replayed WebAuthn assertions</div>
+            <div class="card-body">Craft CMS passkey login accepts WebAuthn requestOptions from the unauthenticated login request body and does not persist the updated credential counter returned by the WebAuthn assertion validator. A captured passkey login request body can therefore be replayed because the old challenge is accepted again, and the stored credential counter remains s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-07</span>
+                <a href="https://github.com/advisories/GHSA-wg23-69c2-gjc8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-957r-qf9p-67xw</span>
@@ -127,6 +539,23 @@ The Craft vulnerability [CVE-2026-31857](https://github.com/craftcms/cms/securit
         
         <div class="card">
             <div class="card-header">
+                <span class="cve-id">GHSA-xxpx-f366-4xpq</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Craft CMS:Authorization bypass: view-only Categories user can modify category structure via structures/move-element</div>
+            <div class="card-body">A control-panel user who holds only the viewCategories permission for a category group (and not saveCategories) can permanently modify that group's category structure — reordering and re-parenting categories via the structures/move-element action.
+
+A read-time authorization grant that a write endpoint later trusts. For categories, the structureEdit...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-06</span>
+                <a href="https://github.com/advisories/GHSA-xxpx-f366-4xpq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
                 <span class="cve-id">GHSA-rvmm-v933-jgxq</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
@@ -171,456 +600,6 @@ A low-privilege control-panel user who can create a draft of an element (for exa
             <div class="card-footer">
                 <span>Published: 2026-08-06</span>
                 <a href="https://github.com/advisories/GHSA-2rp4-x2j7-qmcc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-67434</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">PHP_CodeSniffer gitblame report command injection via crafted filename</div>
-            <div class="card-body">### Impact
-
-PHP_CodeSniffer versions before v3.13.6 and v4.0.2 contain a command injection vulnerability in the code creating the `Gitblame`, `Hgblame` and `Svnblame` report(s).
-
-As a result, running PHP_CodeSniffer over untrusted files, for example, in a CI pipeline that scans pull requests, or on a developer machine reviewing third-party code, co...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-hmqg-cxww-wqhq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71498</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.1
-                </span>
-            </div>
-            <div class="card-title">node-re2: Out-of-bounds heap read in `replace`/`split` via a `Buffer` ending in a truncated multi-byte UTF-8 character → adjacent heap memory disclosed to JavaScript</div>
-            <div class="card-body">## Summary
-
-`re2` infers a character's byte length from its UTF-8 lead byte alone, with no bound on the
-bytes actually remaining in the input. `Buffer` arguments reach the native layer verbatim —
-only strings are re-encoded into well-formed UTF-8 — so a `Buffer` whose last byte is a
-multi-byte lead promises continuation bytes that are not there, an...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-j4r3-hg7j-8chg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71430</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
-                </span>
-            </div>
-            <div class="card-title">node-re2: String.prototype.replace(re2, template) aborts the Node process (uncatchable ToLocalChecked on empty MaybeLocal) when the result exceeds V8's max string length</div>
-            <div class="card-body">## Description
-
-`WrappedRE2::Replace` builds the replacement result and hands it to V8 with `.ToLocalChecked()` **without checking for the empty `MaybeLocal`** that V8 returns when the string/buffer exceeds its maximum length:
-
-`lib/replace.cc` (v1.24.1):
-```cpp
-// L553 — Buffer return path
-info.GetReturnValue().Set(Nan::CopyBuffer(result.data(), r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-8hcv-x26h-mcgp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-w9hm-4m3m-fxmm</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">ngx-extended-pdf-viewer bundles a version of pdf.js vulnerable to CVE-2026-16633</div>
-            <div class="card-body">ngx-extended-pdf-viewer embeds a fork of Mozilla's pdf.js rather than depending on pdfjs-dist, so this vulnerability is not visible to dependency scanners through package.json.
-
-### Impact
-Opening a malicious PDF can execute attacker-controlled JavaScript in the context of the hosting page. Upstream advisory: GHSA-hq66-cqwq-w95j / CVE-2026-16633.
-
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-w9hm-4m3m-fxmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-16633</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">PDF.js: Arbitrary JavaScript execution upon opening a malicious PDF </div>
-            <div class="card-body">### Impact
-
-If PDF.js is used to load a malicious PDF, and PDF.js is configured with `enableScripting` set to true (which is the default value) and no CSP for disallowing script-src, unrestricted attacker-controlled JavaScript will be executed in the context of the hosting domain.
-
-### Patches
-
-### Workarounds
-Set `enableScripting` to `false` or se...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-hq66-cqwq-w95j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71497</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">jsoup: Cleaner may expose markup with custom raw-text elements</div>
-            <div class="card-body">When a custom `Safelist` permits certain raw-text elements, jsoup may incorrectly sanitize malformed HTML containing a tag name that ends in a control character. The tag may acquire the parsing behavior of a different element, causing content that should remain text to be emitted as active markup after serialization and potentially allowing XSS.
-
-j...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-pmhh-3w7g-xqp8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-p8x7-9vfw-p7vc</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Craft CMS: Arbitrary user password reset leading to administrator account takeover</div>
-            <div class="card-body">The vulnerability allows any authenticated user to change their own password without providing the current password or having an active elevated session. It also allows the attacker to change other users’ passwords if the attacker’s account has `edit users` permission (which doesn’t allow changing others’ passwords) and lacks `Administrate users` p...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-p8x7-9vfw-p7vc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f5wm-88jv-g5hx</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Craft CMS: Authenticated RCE through Twig sandbox escape</div>
-            <div class="card-body">The Twig sandbox mechanism in Craft CMS is configured to allow dangerous functionality from the Yii framework, leading to authenticated RCE in a manner similar to previously disclosed vulnerabilities.
-
-The Twig sandbox in Craft CMS works by implementing Twig's `SecurityPolicyInterface`. The resulting `SecurityPolicy` class implements the `checkMeth...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-f5wm-88jv-g5hx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-14793</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Craft CMS: Missing authorization check allows non-admin control panel users to reorder Global Sets</div>
-            <div class="card-body">The `reorder-sets` action in Craft CMS’s `GlobalsController` is missing the `requireAdmin()` check that the adjacent `save-set` and `delete-set` actions both enforce. Any authenticated control panel user can POST to `/actions/globals/reorder-sets` and permanently reorder all global sets in the project config, regardless of whether they have admin a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-9p7c-v5x3-rfx8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-265m-7826-wjqm</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Craft CMS: Authenticated RCE via `condition.config` JSON cleanse bypass</div>
-            <div class="card-body">Craft CMS has an authenticated remote code execution issue in the control panel element-search condition handling.
-
-Craft cleans the outer request-controlled condition array with `Component::cleanseConfig()`, but `Conditions::createCondition()` later decodes and merges the JSON string in `condition.config` without re-running `cleanseConfig()` on th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-265m-7826-wjqm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mj63-m3rc-8ppr</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">league/commonmark: Denial of service via deeply nested XML output</div>
-            <div class="card-body">### Impact
-
-`XmlRenderer` pretty-prints XML by emitting depth-proportional indentation whitespace for **every** opening and closing tag. For a tree of depth n, the indentation alone sums to **O(n²)** bytes of output (and corresponding memory), reachable through `MarkdownToXmlConverter` — e.g. `str_repeat('> ', $depth) . "x\n"`, a single line of nes...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-mj63-m3rc-8ppr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mh25-x5hq-wrqp</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">league/commonmark: Denial of service via colliding heading slugs</div>
-            <div class="card-body">### Impact
-
-`UniqueSlugNormalizer::normalize()` makes each slug document-unique by searching for an unused numeric suffix, but **restarts that search from `1` on every collision**. The k-th heading that collapses to the same base slug performs k−1 array lookups, so K colliding slugs cost Σ(k−1) = **O(K²)**. An attacker can force every heading onto ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-mh25-x5hq-wrqp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-jfm3-95jq-q3rf</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">league/commonmark:  Denial of service via duplicate footnote definitions</div>
-            <div class="card-body">### Impact
-
-The Footnote extension records one backref per footnote *reference* and then appends the **entire** backref list for **every** footnote *definition* block in the document, without ever de-duplicating or removing repeated definitions of the same label (`GatherFootnotesListener`, populated by `NumberFootnotesListener`). A document that re...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-jfm3-95jq-q3rf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-g2gp-3wwq-f4ph</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">league/commonmark: Denial of service via adjacent inline attribute blocks</div>
-            <div class="card-body">### Impact
-
-With the Attributes extension enabled, `AttributesListener::findTargetAndDirection()` resolves each attribute node's target by walking outward through its siblings. For a run of N adjacent inline attribute blocks placed at the start of a block (with nothing to their left), each node scans the **entire** sibling list to the far-right end...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-g2gp-3wwq-f4ph" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71488</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">league/commonmark: Quadratic-time denial of service when parsing crafted Markdown</div>
-            <div class="card-body">### Impact
-
-Affected versions of `league/commonmark` can have quadratic time complexity when parsing specially crafted Markdown lines. In practical terms, doubling the length of an affected line can make the parser perform roughly four times as much work. The parser identifies locations using character positions, but regular-expression matches repo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-2q4p-g7hv-5rgv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71478</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">league/commonmark: AttributesExtension href/src unsafe-link filter bypass via embedded control bytes</div>
-            <div class="card-body">﻿## Summary
-
-The `AttributesExtension`'s `href`/`src` unsafe-link filter (`AttributesHelper::filterAttributes()`) can be bypassed by embedding control bytes in a `javascript:` URL that browsers discard before parsing the scheme. Two variants:
-
-- **Tab/newline inside the scheme** — a literal ASCII TAB (0x09), CR (0x0D), or LF (0x0A), e.g. `java<TAB>...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-29pj-957v-52mc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-5p4m-2wfm-xmqj</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported</div>
-            <div class="card-body"># Quadratic CPU consumption in `!!omap` resolution (js-yaml 3.x and 4.x)
-
-## Summary
-
-`resolveYamlOmap()` enforces key uniqueness for `!!omap` sequences with a linear
-scan (`objectKeys.indexOf(...)`) inside the per-element loop, making resolution
-**O(n²)** in the number of entries. A modestly sized YAML document therefore
-consumes disproportionate ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-5p4m-2wfm-xmqj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54717</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Silverstripe: XSS in breadcrumbs in page list view</div>
-            <div class="card-body">### Impact
-Page breadcrumbs in the CMS are vulnerable to XSS when viewed using the page list view
-
-### Reporter
-Fase Rais Baradika...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-w3cp-g2pf-65wh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-18654</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">AWS CLI: Disabled SSH host key verification in Amazon AWS CLI EMR helper commands</div>
-            <div class="card-body">### Summary
-The AWS Command Line Interface (AWS CLI) is a unified tool to manage AWS services from the command line. An issue exists where the EMR SSH helper commands (`aws emr ssh`, `aws emr socks`, `aws emr put`, `aws emr get`) passed `StrictHostKeyChecking=no` to the underlying SSH client, disabling host key verification.
-
-### Impact
-A network-p...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-hqvf-45jj-mccq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71476</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Nx: Zip-Slip in the self-hosted remote cache</div>
-            <div class="card-body">## Summary
-
-The Nx **self-hosted HTTP remote cache** extracts downloaded cache artifacts without constraining where files are written. A malicious — or on-path (MITM) — remote cache server can return a crafted tar archive whose entries escape the cache directory and write to arbitrary locations on the machine running Nx. This arbitrary file write c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-vp3h-ghgh-jr7g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71439</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Mermaid radar diagrams are vulnerable to DoS</div>
-            <div class="card-body">### Impact
-
-Mermaid radar diagrams allow arbitrary large values for `ticks`, which can cause high CPU usage, freezing the webpage/JavaScript process for long periods of time, until the process is eventually killed due to OOM/running out of memory.
-
-#### Proof-of-concept
-
-```txt
-radar-beta
-  axis a, b
-  curve c {1, 1}
-  ticks 1000000000
-```
-
-### Pat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-rhh3-jpg6-66xh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71438</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Mermaid configuration APIs allow prototype pollution</div>
-            <div class="card-body">### Summary
-
-Mermaid's configuration setters (`mermaid.initialize`, `mermaidAPI.setConfig`, and `mermaidAPI.updateSiteConfig`) merge the caller-supplied configuration object into Mermaid's internal config using the `assignWithDepth` deep-merge helper that is vulnerable to prototype pollution.
-
-Because these APIs are intended to receive **trusted** ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-c4c3-pg64-4m4v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-50159</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Mermaid allows CSS injection applying to sibling elements of the diagram</div>
-            <div class="card-body">### Summary
-
-Mermaid does not fully restrict CSS to the rendered SVG subtree. Although selectors are prefixed with `#mermaid-X`, sibling (`~` and `+`) combinators can still escape the Mermaid container and inject styles to DOM elements adjacent to the diagram `<svg>`.
-
-**Most users of mermaid would not be affected by this**, as mermaid adds its `<s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-6x64-9x62-f2gx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71437</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Mermaid Architecture diagrams are vulnerable to prototype pollution</div>
-            <div class="card-body">Rendering an untrusted `architecture-beta` diagram lets the diagram author write an arbitrary property with the value `horizontal` or `vertical` onto `Object.prototype`. A group id of `__proto__` is accepted as a valid parent.
-
-### Impact
-
-Any code in the same realm that reads a property of that name from an arbitrary object, or enumerates an objec...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-06</span>
-                <a href="https://github.com/advisories/GHSA-3rrr-jr9j-h3q3" target="_blank">Full Report →</a>
             </div>
         </div>
         
