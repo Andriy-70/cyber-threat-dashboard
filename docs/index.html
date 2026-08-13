@@ -68,10 +68,99 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-12 18:42 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-13 00:52 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55074</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Ansible FreeBSD Jail Connection Plugin: Jail escape via symlink following in put_file (host-side root mv)</div>
+            <div class="card-body">Through version 1.3.0, the jailexec connection plugin's put_file resolved a transfer's destination to a path on the jail host (<jail filesystem root> + <destination>) and ran mkdir -p and mv there as root on the host. Those commands follow symbolic links, and the path was operated on outside the jail, so a symlink existing inside the jail was follo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-12</span>
+                <a href="https://github.com/advisories/GHSA-cxgv-hp74-jj7r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-pfvm-w89x-94jw</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">SIPSorcery: Malformed UDP datagram crashes TurnServer receive loop with no restart, disabling TURN UDP relay for all clients (DoS)</div>
+            <div class="card-body">## Summary
+`TurnServer.ReceiveUdpAsync` places its generic `catch (Exception)` OUTSIDE the `while` receive loop, and `Start()` launches the loop fire-and-forget with no supervision or restart. A single pre-authentication UDP datagram whose STUN header first byte is in `0x80–0xFF` causes `STUNHeader.ParseSTUNHeader` to throw `ApplicationException`, ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-12</span>
+                <a href="https://github.com/advisories/GHSA-pfvm-w89x-94jw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jwjp-4649-v8jp</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">SIPSorcery vulnerable to Denial of Service via out-of-bounds read in SCTP SACK chunk parsing</div>
+            <div class="card-body">## Summary
+`SctpSackChunk.ParseChunk` reads the `numGapAckBlocks` and `numDuplicateTSNs` fields (each up to 65535) directly from an attacker-controlled SCTP SACK chunk and loops that many times reading 4 bytes per iteration, with no validation of the counts against the chunk length or the receive buffer. A single crafted SACK chunk from a negotiate...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-12</span>
+                <a href="https://github.com/advisories/GHSA-jwjp-4649-v8jp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55071</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.4
+                </span>
+            </div>
+            <div class="card-title">MCP-for-Stata: Stata Command Injection via Unsanitized `package` in `ado_package_install`</div>
+            <div class="card-body">## Stata Command Injection via Unsanitized `package` in `ado_package_install`
+
+### Summary
+
+The `ado_package_install` MCP tool in `stata-mcp` concatenates user-controlled input directly into a Stata command string without any validation or sanitization. An attacker who can invoke the MCP tool or the equivalent Python API can embed newline character...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-12</span>
+                <a href="https://github.com/advisories/GHSA-49m4-vp58-wgc9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54917</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">SeaweedFS: Path traversal in the S3 and Iceberg REST gateways allows cross-bucket access</div>
+            <div class="card-body">## Summary
+
+The S3 API gateway and the Iceberg REST catalog gateway construct their routers with `mux.NewRouter().SkipClean(true)`. With path cleaning disabled, a `..` segment inside the URL survives routing, so a request such as:
+
+```
+GET /bucket-A/../evil-bucket/key
+```
+
+is matched as `bucket=bucket-A`, `object=../evil-bucket/key`. The captured o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-12</span>
+                <a href="https://github.com/advisories/GHSA-w62w-66v9-vvgv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-52776</span>
@@ -265,6 +354,21 @@ Users with the `backend.manage_branding` ("Customize the back-end") permission c
             <div class="card-footer">
                 <span>Published: 2026-08-12</span>
                 <a href="https://github.com/advisories/GHSA-v7cf-8gh9-gxmj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-9318</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">tablib: Stored XSS in the HTML export via unescaped dataset title</div>
+            <div class="card-body">tablib prior to 3.10.0 contains a stored cross-site scripting vulnerability in the HTML export functionality that allows attackers to execute arbitrary JavaScript by embedding malicious payloads in dataset titles, which are interpolated unsanitized into HTML output via the export_book method in the _html.py format handler. Attackers can rename work...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-12</span>
+                <a href="https://github.com/advisories/GHSA-gqgw-jghv-mxwx" target="_blank">Full Report →</a>
             </div>
         </div>
         
@@ -515,129 +619,6 @@ Coinspect's [Ill Bloom](https://www.coinspect....</div>
             <div class="card-footer">
                 <span>Published: 2026-08-07</span>
                 <a href="https://github.com/advisories/GHSA-rg76-677x-56q9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71850</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">Hono: `memo()` retains SSR output across requests, leading to cross-user data disclosure</div>
-            <div class="card-body">### Summary
-
-`memo()` from `hono/jsx` retains the result of a server-side render and reuses it for later renders with comparator-equal props. Request-scoped values read inside the component take no part in that comparison, so a response can contain HTML rendered for another user's request.
-
-### Details
-
-Components wrapped with `memo()` are compared...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-07</span>
-                <a href="https://github.com/advisories/GHSA-f23p-vx2j-j53r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71849</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Hono: Proxy Helper does not remove response headers listed in the `Connection` header</div>
-            <div class="card-body">### Summary
-
-The Proxy Helper (`hono/proxy`) does not remove response headers named by the origin's `Connection` header. Headers that the origin marked as connection-scoped are therefore forwarded to clients.
-
-### Details
-
-Per RFC 9110 Section 7.6.1, an intermediary must remove the header fields listed in a message's `Connection` header field befor...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-07</span>
-                <a href="https://github.com/advisories/GHSA-79qm-7rj5-m7r9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71848</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Hono: Algorithmic Complexity DoS in Language Middleware</div>
-            <div class="card-body">### Summary
-
-The `languageDetector` middleware is vulnerable to algorithmic complexity denial of service when processing a crafted language tag containing a large number of hyphen-separated subtags.
-
-### Details
-
-To implement progressive language-tag truncation, `normalizeLanguage()` repeatedly calls `parts.slice(0, i).join('-')` for every possible...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-07</span>
-                <a href="https://github.com/advisories/GHSA-54fx-42gc-7vw4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71847</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams</div>
-            <div class="card-body">### Summary
-
-Ruby's JSON native C extension clears the consumed `JSON::ResumableParser` input buffer but leaves `state.start`, `state.cursor`, and `state.end` pointing into released storage.
-
-When `partial_value` reconstructs an incomplete object containing duplicate keys, the duplicate-key warning path calls `cursor_position`, which dereferences t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-07</span>
-                <a href="https://github.com/advisories/GHSA-9hj4-r449-hfvc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-67422</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">pymdown-extensions: exponential-backtracking ReDoS in caret, tilde, betterem, and magiclink inline processors</div>
-            <div class="card-body">### Summary
-
-Four inline processors in pymdown-extensions contain regular expressions with
-exponential backtracking. A single untrusted Markdown line under
-50 bytes drives `markdown.markdown()` into unbounded CPU on the rendering thread
-(seconds at ~45 bytes, growing exponentially with each added character). All four
-fire in the extension's **defau...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-07</span>
-                <a href="https://github.com/advisories/GHSA-gm37-52c6-37mw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-63223</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules</div>
-            <div class="card-body">### Impact
-This is an unsafe file upload validation vulnerability that can lead to remote code execution in vulnerable application configurations.
-
-Applications are impacted when they:
-- validate uploads using `is_image` or `mime_in` without an independent safe extension check, such as `ext_in` on patched versions
-- save uploaded files using the cl...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-07</span>
-                <a href="https://github.com/advisories/GHSA-mmj4-63m4-r6h5" target="_blank">Full Report →</a>
             </div>
         </div>
         
