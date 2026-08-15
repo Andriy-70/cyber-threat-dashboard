@@ -68,10 +68,210 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-14 18:36 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-15 00:28 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-10740</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">s2n-quic has excessive memory allocation</div>
+            <div class="card-body">s2n-quic is a Rust implementation of the QUIC protocol. An unauthenticated user can attempt to exhaust server memory on an s2n-quic endpoint by sending crafted CRYPTO frames with high offsets. The buffer used for processing CRYPTO frames does not enforce a maximum size. In the worst case, a single 1200-byte packet can cause approximately 9.4 MB of ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-9q54-f358-3fqf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55156</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Token Optimizer MCP: Unauthenticated Path Traversal in Dashboard Session Log API Endpoints</div>
+            <div class="card-body"># Unauthenticated Path Traversal in Dashboard Session Log API Endpoints
+
+| Field            | Value |
+| ---------------- | ----- |
+| Repository       | ooples/token-optimizer-mcp |
+| Affected version | 5.0.1 (commit 8137147) |
+| Vulnerability    | CWE-22 — Improper Limitation of a Pathname to a Restricted Directory |
+| Severity         | Medium |
+|...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-76pc-mqxp-3rq5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55157</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.4
+                </span>
+            </div>
+            <div class="card-title">Token Optimizer MCP: OS command injection in smart_user via username in get-user-info</div>
+            <div class="card-body">### Summary
+
+`token-optimizer-mcp` is vulnerable to OS command injection in the `smart_user` tool.
+
+The `get-user-info` operation accepts a user-controlled `username` argument and later interpolates it into a shell command executed through `execAsync()`:
+
+```ts
+getent passwd "${username}" || grep "^${username}:" /etc/passwd
+```
+
+Although the value ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-49mq-fc6q-3h46" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53708</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.6
+                </span>
+            </div>
+            <div class="card-title">ContextForge: DNS TOCTOU race condition causes SSRF protection bypass (`/admin/gateways/test`)</div>
+            <div class="card-body">## Summary
+
+The `/admin/gateways/test` endpoint validates submitted URLs by resolving the hostname at validation time and blocking private address ranges. The HTTP client independently re-resolves DNS at connection time with no IP binding between the two operations, creating a TOCTOU window exploitable via DNS rebinding. The source code explicitly ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-9hgc-g3w5-67cm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8rw6-p7m8-63jp</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">SurrealDB: Array element-level (field.*) SELECT permissions leak denied elements to record users</div>
+            <div class="card-body">A `SELECT` permission defined on an array element (`DEFINE FIELD field.* … PERMISSIONS FOR select …`) is not enforced correctly for `RECORD` users. Instead of hiding the denied elements, the query leaks a subset of them: a deny-all returns the odd-indexed elements, and a per-element predicate keeps and drops the wrong ones.
+
+The filter removed each...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-8rw6-p7m8-63jp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55153</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">mchange-commons-java contains elements susceptible to abuse via JNDI injection and "deserialization gadgets"</div>
+            <div class="card-body">### Impact
+Prior to version 0.6.0, mchange-commons-java includes a JNDI `ObjectFactory` implementation (`com.mchange.v2.naming.JavaBeanObjectFactory`) willing to construct objects of arbitrary classes and initialize "JavaBean"-style properties. There are classes for which this kind of initialization is unsafe. For example, setting the "contentType"...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-h84g-69h7-mw6v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53660</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">OpenAM Insecure SSO Cookie Initialization</div>
+            <div class="card-body">## Summary
+
+**Description**
+An Insecure Default Initialization of Resource (CWE-1188) issue in the OpenAM default configuration ships the `iPlanetDirectoryPro` SSO cookie with `HttpOnly=false`. Also, the `iPlanetDirectoryPro` SSO cookie is used as a CSRF token in OAuth/OIDC flows. This affects OpenAM Community Edition through version 16.0.6 and was...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-fpmh-vx4h-xc33" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53658</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Fabric CA Developer's Guide: LDAP Injection via Unescaped Username in GetUser Filter</div>
+            <div class="card-body">When fabric-ca is configured with an LDAP backend, the username from HTTP Basic authentication is included in an LDAP uid search filter without proper escaping. An unauthenticated attacker with network access to the CA enrollment endpoint could exploit this to perform LDAP injection before password validation, and potentially steer authentication a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-xghw-p77p-3r7x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53657</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">Lima: An arbitrary user in a QEMU VM could gain the root privilege in the VM via the guest agent socket</div>
+            <div class="card-body">### Impact
+On an instance of Lima running with `qemu` driver, an arbitrary user in the VM could access `/run/lima-guestagent.sock` when the guest agent is enabled.
+
+This could result in running an arbitrary command with the root privileges in the VM (**not on the host**), as `lima-guestagent.sock` provides the tunneling service for an arbitrary add...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-2j9v-p4xj-cjw2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53653</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Grav: Unauthenticated denial of service via unbounded image derivative dimensions</div>
+            <div class="card-body">### Summary
+An unauthenticated visitor exhausts server memory and CPU by requesting an image with oversized resize dimensions. One request drives a worker to several gigabytes of RAM and tens of seconds of CPU. A few concurrent requests take the host down.
+
+### Details
+`Grav::fallbackUrl()` (system/src/Grav/Common/Grav.php:800-804) loops over every...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-4x9g-vw65-vvf9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-35219</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Budibase: SSRF in Automation Steps - Webhook, Zapier, N8N, Slack, Discord Bypass IP Blacklist</div>
+            <div class="card-body">## Summary
+
+Budibase automation steps (outgoing webhook, Zapier, n8n, Slack, Discord, Make.com) make server-side HTTP requests to user-provided URLs using `node-fetch` directly, completely bypassing the IP blacklist protection that exists in the REST API integration. Additionally, the REST API blacklist itself defaults to empty when `BLACKLIST_IPS`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-14</span>
+                <a href="https://github.com/advisories/GHSA-5fpj-28rv-84r7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-35511</span>
@@ -413,202 +613,6 @@ is matched as `bucket=bucket-A`, `object=../evil-bucket/key`. The captured o...<
             <div class="card-footer">
                 <span>Published: 2026-08-12</span>
                 <a href="https://github.com/advisories/GHSA-q939-rpr3-3284" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-48786</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Fleet: Observer-class users can view team enroll secrets and credential-bearing configuration via target search endpoint</div>
-            <div class="card-body">### Summary
-
-The target search endpoint (`POST /api/latest/fleet/targets`) returned team enroll secrets and full team configuration, including credential-bearing agent options, to observer-class users. Other team-facing endpoints mask these fields for observers; the target search endpoint did not apply the same sanitization.
-
-### Impact
-
-An authent...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-88p2-jj8w-j8qg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47132</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">phpMyFAQ: SQL LIKE Wildcard Injection in Chat User Search Allows Authenticated User Enumeration</div>
-            <div class="card-body">### Summary
-
-  An authenticated SQL LIKE wildcard injection vulnerability in phpMyFAQ’s chat user search allows any logged-in user to bypass the intended display-name search  filter and enumerate active users. The endpoint escapes SQL string syntax but does not escape `%` and `_`, which remain active `LIKE` wildcards.
-
-  ### Details
-
-  The vulnerab...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-6pvm-2vjj-rx4w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46369</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">nimiq-blockchain: Validity store off by one error</div>
-            <div class="card-body">### Impact
-The validity store treats a transaction with stored `block_number = X` as "in window" only when `X > last_bn - transaction_validity_window_blocks` (strict inequality). However the protocol's `Transaction::is_valid_at` accepts a transaction for inclusion in any block in `[validity_start_height - blocks_per_batch, validity_start_height + w...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-3763-qp59-59vf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45694</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">LibreNMS: Reflected XSS via Proxmox instance/vmid GET parameters injected into document.title JavaScript assignment</div>
-            <div class="card-body">### Summary
-`LegacyController.php:75` writes the page title into a `document.title` JS assignment using string interpolation. `apps/proxmox.inc.php` pushes `$vars['instance']` and `$vars['vmid']` (GET params, only `strip_tags()` applied) directly into `$pagetitle`. A single quote terminates the JS string, executing arbitrary script.
-
-### Details
-``...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-jmqm-f8q4-v7wx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-35445</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Winter: Authenticated backend users can bypass Users controller permission checks</div>
-            <div class="card-body">### Impact
-
-Affected versions of Winter CMS did not validate the handler name submitted through the form postback mechanism (`_handler` POST field) in the same way as AJAX requests (`X_WINTER_REQUEST_HANDLER` header). The AJAX path validates that handler names match the `on[A-Z][\w+]*` pattern, but the postback path passed the handler name directly...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-j5jq-cr68-v2xx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32639</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Winter: Broken access control in `Cms\Controllers\Index` allows cross-template actions and unauthorized asset uploads</div>
-            <div class="card-body">### Impact
-
-Affected versions of Winter CMS did not enforce per-template-type permission checks in the CMS section's AJAX handlers. The CMS controller (`Cms\Controllers\Index`) used OR-logic across its five permissions (`cms.manage_pages`, `cms.manage_partials`, `cms.manage_layouts`, `cms.manage_content`, `cms.manage_assets`) to control access to t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-5c4f-9pq9-6c77" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32593</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Winter: SQL Injection in Backend Filter Widget numberrange Scope via numbersFromAjax</div>
-            <div class="card-body">## Impact
-
-The Backend Filter widget (`Backend\Widgets\Filter`) is vulnerable to SQL injection through the `numberrange` scope type when the scope is configured with a `conditions` key. An authenticated backend user with access to a list view containing a vulnerable filter scope can inject arbitrary SQL via the filter's AJAX handler, potentially ga...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-m7jc-g4rc-jmvh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32258</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Winter: Stored XSS through Editor Settings custom styles</div>
-            <div class="card-body">### Impact                                                                                                       
-                                                                                                                   
-Authenticated Backend Users with the `backend.manage_editor` ("Manage editor settings") permission can provide custom st...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-vgp4-2fc4-qff2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32257</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Winter: Stored XSS through Brand Settings custom styles</div>
-            <div class="card-body">### Impact                                                                                                       
-
-Users with the `backend.manage_branding` ("Customize the back-end") permission can provide custom CSS through **Settings → Customize Backend → Styles** that is compiled through the LESS CSS parser and rendered on every backend page. Pr...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-v7cf-8gh9-gxmj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-9318</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">tablib: Stored XSS in the HTML export via unescaped dataset title</div>
-            <div class="card-body">tablib prior to 3.10.0 contains a stored cross-site scripting vulnerability in the HTML export functionality that allows attackers to execute arbitrary JavaScript by embedding malicious payloads in dataset titles, which are interpolated unsanitized into HTML output via the export_book method in the _html.py format handler. Attackers can rename work...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-12</span>
-                <a href="https://github.com/advisories/GHSA-gqgw-jghv-mxwx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-62902</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Microsoft Security Advisory CVE-2026-62902 – .NET Information Disclosure Vulnerability</div>
-            <div class="card-body">## Executive summary
-
-Microsoft is releasing this security advisory to provide information about a vulnerability in Windows Presentation Foundation. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability.
-
-A specially crafted document parsed in .NET can trigger the inclusion of funct...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-11</span>
-                <a href="https://github.com/advisories/GHSA-9mrh-pw7c-9mqm" target="_blank">Full Report →</a>
             </div>
         </div>
         
