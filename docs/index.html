@@ -68,10 +68,405 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-18 12:18 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-18 18:17 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-68922</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">MobSF Vulnerable to Arbitrary File Read via Path Traversal in ZIP Uploads</div>
+            <div class="card-body">### Summary
+The `find_icon_path_zip()` function in MobSF does not properly sanitize the `android:icon` attribute extracted from an Android manifest before resolving it as a filesystem path.
+
+An attacker can supply a malicious `android:icon` value containing path traversal sequences, causing MobSF to read arbitrary files from the server filesystem a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-8j49-mmcx-4mp5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-68923</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">MobSF's CSRF checks not enforced after Django migration</div>
+            <div class="card-body">### Summary
+
+Django's `CsrfViewMiddleware` exists only in the deprecated `MIDDLEWARE_CLASSES` (ignored since Django 2.0). The active `MIDDLEWARE` tuple does not include it. All authenticated web POST endpoints (delete scan, upload, download APK, change password, manage users) accept requests without CSRF tokens.
+
+### Verified Impact
+
+This was verif...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-3p54-567p-2wpr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-68927</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.0
+                </span>
+            </div>
+            <div class="card-title">MobSF has SSRF port restriction bypass in assetlinks_check</div>
+            <div class="card-body">## Summary
+
+MobSF's Android App Link assetlinks checker validates only the manifest `android:host` value with `valid_host()`, but then appends the separate `android:port` value into the URL used for the server-side request. This bypasses the current port restriction in `valid_host()` and lets a crafted APK cause MobSF to fetch `http://host:<attacke...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-95px-34x5-p37h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-68924</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">MobSF Vulnerable to Zip Bomb Denial of Service via Per-File Size Limit Bypass in ZIP/APK Extraction</div>
+            <div class="card-body">### Summary
+
+When extracting uploaded ZIP/APK files, MobSF checks if individual files exceed `ZIP_MAX_UNCOMPRESSED_FILE_SIZE` (400 MB) and logs "Skipping" — but the code lacks a `continue` statement, so extraction proceeds anyway. The log message is misleading; the file is still written to disk.
+
+### Verified Impact (Code Audit)
+
+The vulnerable cod...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-x768-8642-mmq9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63640</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">MagicMirror socket payload secret placeholder expansion can disclose SECRET_* environment variables</div>
+            <div class="card-body">### Summary
+When `hideConfigSecrets: true` is enabled, MagicMirror redacts `SECRET_*` environment placeholders in the HTTP `/config` response, but the shared node-helper socket dispatcher expands `**SECRET_NAME**` placeholders in every inbound socket payload before passing it to module helpers. Any client that can connect to a loaded module namespa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-q4gh-4ffp-5cg8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55178</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">GeoLens: Cross-dataset authorization bypass discloses private dataset metadata, schema, sample values, table rows, and raster/vector tile data</div>
+            <div class="card-body">### Summary
+
+Multiple GeoLens read/link endpoints authorized only the resource named in the
+request URL (a map, a VRT, a source dataset, an AI request) and failed to
+re-authorize a **second, caller-influenced dataset** that the request reached
+through a relationship, layer reference, mosaic source, or request body. This
+"authorize the URL resource,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-p23g-mvhj-jh3j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55182</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">LibreNMS Vulnerable to Remote Code Execution by Signal Alert Transportation module</div>
+            <div class="card-body">### Summary
+A vulnerability has been identified that allows an authenticated administrator to execute arbitrary code on the host server. By adding an alert transport entry, an attacker with administrative privileges can execute malicious commands.
+
+### Details
+The vulnerability is caused by an unsafe `exec` call in `deliverAlert` function of `Libre...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-c9fv-cgmm-2wg7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63643</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">MagicMirror: ssrf calendar .js</div>
+            <div class="card-body"># Vulnerability — SSRF via `ADD_CALENDAR` (MagicMirror² calendar)
+
+> Analysis of the PoC `exploit-ssrf-calendar.js`.
+> Target: `calendar/node_helper.js` of MagicMirror², socket.io namespace `/calendar`.
+
+---
+
+## Identification
+
+| Field | Value |
+|-------|-------|
+| **PoC file** | `exploit-ssrf-calendar.js` |
+| **Endpoint** | socket.io namespace `/c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-w6x9-28jw-hq7j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63642</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">MagicMirror newsfeed Socket.IO notification allows blind server-side request forgery</div>
+            <div class="card-body"># Vulnerability — Blind SSRF via `CHECK_ARTICLE_URL` (MagicMirror² newsfeed)
+
+> Analysis of the PoC `exploit-ssrf-newsfeed.js`.
+> Target: `newsfeed/node_helper.js` of MagicMirror², socket.io namespace `/newsfeed`.
+
+---
+
+## Identification
+
+| Field | Value |
+|-------|-------|
+| **PoC file** | `exploit-ssrf-newsfeed.js` |
+| **Endpoint** | socket.io na...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-998g-7v5w-cr7g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63641</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">MagicMirror Socket.IO module namespaces bypass configured IP whitelist and allow unauthenticated server-side actions</div>
+            <div class="card-body">### Summary
+MagicMirror applies `ipWhitelist` only as Express middleware, but the Socket.IO server is attached directly to the HTTP server without equivalent IP allowlist, origin, or namespace authentication checks. In a documented common deployment where MagicMirror listens on a non-loopback interface but expects `ipWhitelist` to restrict access, ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-w26r-fwg8-rcp3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61634</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">RabbitMQ Java client accepts broker frames larger than the negotiated AMQP frame_max</div>
+            <div class="card-body">## Summary
+The max body size was enforced to patch CVE-2023-46120, but even though that limit still works, the frame size itself still exceeds the given max size. 
+
+## Root cause
+The Java client records the AMQP 0-9-1 `frame_max` negotiated during connection tuning, but the socket inbound frame reader continues to validate broker-controlled payload...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-5xwg-cfvj-gff5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63336</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">RabbitMQ Java client: TrustEverythingTrustManager used by default in useSslProtocol() enables MITM</div>
+            <div class="card-body">## Vulnerability Summary
+
+`com.rabbitmq.client.TrustEverythingTrustManager` accepts ANY TLS certificate (including null chains) and is used as the default trust manager when calling `ConnectionFactory.useSslProtocol()` without arguments. Combined with hostname verification being disabled by default, this enables trivial man-in-the-middle attacks.
+
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-5m9f-rphj-c435" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63335</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">RabbitMQ Java client malformed body frame triggers raw command assembler exception</div>
+            <div class="card-body">### Summary
+RabbitMQ Java Client's inbound AMQP command assembly accepts a content header declaring a small body and then processes a larger body frame by throwing a raw `UnsupportedOperationException` from `CommandAssembler`. A broker peer that the client has connected to can use this malformed frame sequence to fail frame processing and tear down...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-qx7j-jv8m-fppr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63337</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">RabbitMQ Java client: Unvalidated Class.forName in JSON-RPC ProcedureDescription enables arbitrary class loading</div>
+            <div class="card-body">The JSON-RPC tools in `com.rabbitmq.tools.jsonrpc` perform `Class.forName(javaReturnType)` with `initialize=true` on class names received from untrusted AMQP messages, without any validation or allowlist.
+
+**Vulnerable code** (`ProcedureDescription.java:101-127`):
+When a `JsonRpcClient` connects, it calls `system.describe` and receives a service de...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-6g32-pxv4-2wfj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69219</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">RabbitMQ Java client ValueReader: Oversized LongString/bytes length triggers OOM via unchecked allocation</div>
+            <div class="card-body">## Summary
+
+`ValueReader.readBytes()` allocates a byte array sized by a wire-declared content length without validating it against actual frame data. A malicious AMQP peer triggers OOM by declaring a ~2GB string/bytes field.
+
+## Vulnerable Code
+
+`src/main/java/com/rabbitmq/client/impl/ValueReader.java` lines 83-95:
+
+```java
+private static byte[] re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-68mj-5wr7-6fgg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69220</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">RabbitMQ Java client ValueReader: Unbounded recursive table/array nesting causes StackOverflowError DoS</div>
+            <div class="card-body">## Summary
+
+`ValueReader.readTable()` and `readArray()` recursively call `readFieldValue()` with no depth limit. A malicious AMQP peer can crash the client JVM by sending a deeply nested table structure.
+
+## Vulnerable Code
+
+`src/main/java/com/rabbitmq/client/impl/ValueReader.java` lines 139-155 and 237-249:
+
+```java
+private static Map<String, Obje...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-93j5-89vc-pph4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63328</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Trivy Plugin Manager has Path Traversal that Allows Arbitrary File Write</div>
+            <div class="card-body">## Summary
+
+Trivy's plugin manager does not fully validate metadata from a plugin's manifest before using it to construct filesystem paths under the plugin root (`~/.trivy/plugins`). A crafted plugin can cause Trivy to write its files (the manifest and the downloaded plugin binary) outside the plugin root, to an arbitrary location writable by the u...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-8rc5-4fr6-64pw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55839</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">Kestra vulnerable to stored XSS via custom Markdown [[link]] attribute injection</div>
+            <div class="card-body">## Summary
+
+Kestra’s Markdown renderer supports a custom `[[link ...]]` syntax that is converted into a custom HTML element. The custom Markdown parser allows attacker-controlled attributes to be rendered into the generated element without proper allowlisting or sanitization.
+
+As a result, a user who can create or edit Markdown-rendered content, su...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-34pm-923j-7wf8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-2mf3-mr2r-r4vf</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">@rhinostone/swig: arbitrary local file read via include/extends path traversal</div>
+            <div class="card-body">### Overview
+
+`@rhinostone/swig` is a maintained fork of the abandoned `swig` template engine and inherited the directory-traversal vulnerability tracked upstream as CVE-2023-25345 / GHSA-2rq5-699j-x7p6. The `{% include %}`, `{% extends %}`, and `{% import %}` tags resolve their target path through the filesystem loader without confining the result...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-2mf3-mr2r-r4vf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70657</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Copyparty vulnerable to file/dirkey confusion</div>
+            <div class="card-body">A valid filekey could potentially be converted into a dirkey, granting read-access to the containing folder.
+
+This issue only affected volumes which simultaneously enable both filekeys and dirkeys, with volflag `dk` or `dks` combined with `fk` or `fka`.
+
+Both required features are default-disabled, and must be explicitly enabled in the volflags (th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-18</span>
+                <a href="https://github.com/advisories/GHSA-x5pq-m9p8-f4vx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-69148</span>
@@ -248,370 +643,6 @@ A WordprocessingML document containing a cyclic style chain (for example, Style 
             <div class="card-footer">
                 <span>Published: 2026-08-17</span>
                 <a href="https://github.com/advisories/GHSA-g4w2-6h2r-3m3w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-j659-8xh6-5pq5</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">atomic-agents-stack: Parallel helper/delegate batch reserves $0 for models absent from the pricing table, bypassing the cost-cap fan-out guard</div>
-            <div class="card-body">`_estimate_batch_cost` (`atomic_agents/agent.py`) looks up the per-model output price with `PRICING.get(model, {})`, returning 0.0 for any model not in the hardcoded pricing table. `_check_batch_reservation` then early-returns when the reservation is <= 0, skipping the batch reservation entirely. That reservation is the only defense against the doc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-j659-8xh6-5pq5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-xhcr-cqfr-m3hv</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">atomic-agents-stack: HTTP MCP catalog accepts cleartext http and spawns catalog-supplied commands (MITM to RCE)</div>
-            <div class="card-body">The HTTP MCP server-registry backend factory (`atomic_agents/mcp_registry/http.py`, `make_http_mcp_server_registry_backend_from_url`) accepts both `http` and `https` schemes. Catalog entries carry `command`/`args` that are type-validated but content-unrestricted, and are later spawned as local stdio subprocesses by `MCPClientPool`. Over a cleartext...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-xhcr-cqfr-m3hv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59903</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Netty Vulnerable to Cache Poisoning and Information Disclosure via CORS Vary Header Overwrite</div>
-            <div class="card-body">### Summary
-Netty's `CorsHandler` silently overwrites existing `Vary` headers, enabling cache poisoning and sensitive information disclosure.
-
-### Details
-`io.netty.handler.codec.http.cors.CorsHandler#setVaryHeader` overwrites any existing Vary headers set by backend applications. 
-
-```java
-    private static void setVaryHeader(final HttpResponse r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-8c42-7qj2-3j46" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59902</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Netty: Memory Exhaustion in SctpMessageCompletionHandler</div>
-            <div class="card-body">### Summary
-SctpMessageCompletionHandler does not limit the total size of buffered fragments, allowing an unauthenticated attacker to cause an OutOfMemoryError by sending large SCTP fragments.
-
-### Details
-`io.netty.handler.codec.sctp.SctpMessageCompletionHandler` buffers fragments for incomplete SCTP messages. The fix for CVE-2026-46340 fixed unbo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-2qj4-mmr9-4v2f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-fhgh-wq4q-r37x</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">uniget CLI: Metadata signature verification only runs when UNIGET_IGNORE_METADATA_SIGNATURE is set</div>
-            <div class="card-body">## Summary
-
-The sigstore check on `metadata.json` is gated on the wrong side of the condition. `LoadMetadata` in `internal/config/update.go:81` verifies the bundle only when `UNIGET_IGNORE_METADATA_SIGNATURE` is non-empty, so in a normal run, where nobody sets that variable, the signature is never checked. Setting the variable that is named "ignore...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-fhgh-wq4q-r37x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59893</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">sqlparse: Inefficient Regex Handling of Dollar-Quoted SQL Literals Leads to ReDoS (Denial of Service)</div>
-            <div class="card-body">### Summary
-
-sqlparse contains a Regular Expression Denial of Service (ReDoS) vulnerability in its dollar-quoted SQL literal lexer. The regex pattern at `sqlparse/keywords.py:33` uses a backreference (`\1`) to match closing dollar-quote delimiters, causing O(n²) CPU complexity when processing inputs containing many unique, unmatched dollar-quote op...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-prg7-hcfm-mfcr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-54284</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">sqlparse: TokenList.__init__ materializes O(subtree) value per group, causing CPU DoS before depth/token caps trigger</div>
-            <div class="card-body">### Summary
-
-`sqlparse` ships hard limits (`MAX_GROUPING_DEPTH=100`, `MAX_GROUPING_TOKENS=10000`) intended to bound parsing work on attacker-supplied SQL, but the path that *reaches* those limits is itself `O(n*depth)` per token-group construction. A ~1-2 KB SQL payload (e.g. `SELECT (((((1))))) ...` with 500-2000 nesting levels, or a 200-400-level...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-pwgv-4x5q-6m9f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55090</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Etherpad has stored XSS in HTML export via unescaped attribute-pool values</div>
-            <div class="card-body">Fix: PR #7905 (ether/etherpad).
-
-`getHTMLFromAtext` in `src/node/utils/ExportHtml.ts` interpolates values from the `exportHtmlAdditionalTagsWithData` plugin hook into `span data-<k>="<v>"` without HTML-attribute escaping. The value comes verbatim from the pad attribute pool, which a pad editor controls via a crafted changeset (only `author` attribu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-2jp7-wwpg-3p9w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-92hr-gmr6-h8cp</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Etherpad addressed weak token RNG, login timing, plugin path handling, API request handling</div>
-            <div class="card-body">Fix: PR #7906 (ether/etherpad). A set of medium/low hardening fixes:
-
-- **Weak RNG for tokens (CWE-330):** author/session/readonly IDs were generated with `Math.random()` (client and server). Now use `crypto.getRandomValues`.
-- **Login timing / no failure delay (CWE-208/CWE-307):** the OIDC interaction login used a non-constant-time password compar...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-92hr-gmr6-h8cp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55062</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">uniget CLI has Path Traversal in Hook Files - Directory Escape Vulnerability</div>
-            <div class="card-body">### Summary
-Path Traversal vulnerability in hook filename handling allows attackers to access and manipulate arbitrary files outside the hooks directory via directory escape sequences like [passwd](vscode-file://vscode-app/app/extra/vscode/resources/app/out/vs/code/electron-browser/workbench/workbench.html).
-
-**Details**
-File: [hooks.go](vscode-fil...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-m6jg-wr9m-cg2f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55061</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">uniget CLI has an EDITOR Command Injection</div>
-            <div class="card-body">### Summary
-The uniget CLI has a command injection vulnerability in [hooks.go](vscode-file://vscode-app/app/extra/vscode/resources/app/out/vs/code/electron-browser/workbench/workbench.html) line 199 where [strings.Split(editor, " ")](vscode-file://vscode-app/app/extra/vscode/resources/app/out/vs/code/electron-browser/workbench/workbench.html) naive...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-qmcq-xw74-w667" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-v836-6xw4-9cx3</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">vm2 has Memory Exhaustion DoS via bufferAllocLimit Bypass</div>
-            <div class="card-body">### Summary:
-
-The `bufferAllocLimit` defense (GHSA-6785-pvv7-mvg7) can be completely bypassed using `ArrayBuffer`, `SharedArrayBuffer`, or any `TypedArray` constructor. These allocate identical host-process RSS through the same V8/libuv C++ allocation path as `Buffer.alloc` but are not subject to the size cap.
-
-### Details:
-
-The `bufferAllocLimit` ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-v836-6xw4-9cx3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-m5w8-4gq2-6f8x</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">vm2: NodeVM `builtin: ['*']` exposes `os` and `dns` — process-wide observability reads AND writes that hijack the host (sibling class of GHSA-9g8x-92q2-p28f)</div>
-            <div class="card-body"># NodeVM `builtin: ['*']` exposes `os` and `dns` — process-wide observability reads AND writes that hijack the host (sibling class of GHSA-9g8x-92q2-p28f)
-
-**CWE**: CWE-200 (Exposure of Sensitive Information to an Unauthorized Actor) chained with CWE-732 (Incorrect Permission Assignment for Critical Resource) and CWE-285 (Improper Authorization) — ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-m5w8-4gq2-6f8x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47698</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">vm2: Sandbox Breakout Using Dangerous Host Proto Mutators</div>
-            <div class="card-body">### Summary
-
-VM2 suffers from a sandbox breakout vulnerability. This allows attackers to write code which can escape from the VM2 sandbox and execute arbitrary commands on the host system.
-
-### Details
-
-The fix for https://github.com/patriksimek/vm2/security/advisories/GHSA-v6mx-mf47-r5wg is insufficient and can be bypassed by replacing `indirectca...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-cfcw-xp6x-25gj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47686</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">VM2 has Missing Error.cause Sanitization that Enables Sandbox Escape to RCE</div>
-            <div class="card-body">**Affected:** vm2 <= 3.11.3
-**CVSS 3.1:** 9.9 HIGH (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H)
-**CWE:** CWE-693 (Protection Mechanism Failure)
-**Prerequisite:** Embedder exposes a host function that throws an Error with `.cause` referencing a powerful host object (e.g., `process`)
-
-## Summary
-
-I found that `handleException()` in `lib/setup-sandb...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-m283-3h24-438v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-47683</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">vm2's bufferAllocLimit cap bypassed by Buffer.concat and Buffer.from arrayLike</div>
-            <div class="card-body">## Summary
-
-vm2 bufferAllocLimit cap bypassed by Buffer.concat and Buffer.from arrayLike
-
-The `bufferAllocLimit` option introduced in 3.11.0 (GHSA-6785-pvv7-mvg7) caps host-side Buffer allocations driven by sandbox code, the way embedders opt into `timeout`. The cap wraps `Buffer.alloc`, `Buffer.allocUnsafe`, `Buffer.allocUnsafeSlow`, and the depre...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-gmc2-2x9w-cgh9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71491</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">sqlparse: Quadratic O(n²) DoS in group_comments</div>
-            <div class="card-body">### Summary
-A comment-only statement (`-- c\n`*n) may cause a Denial of Service (DoS).
-
-### Details
-Location: [sqlparse/engine/grouping.py:331-341](https://github.com/andialbrecht/sqlparse/blob/f80af6a4007f11ada847218df8c29dc859238290/sqlparse/engine/grouping.py#L332) (`group_comments`), invoked first in `group()` at `grouping.py:439`. Reachable vi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-f2ff-p2ww-7p4p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-68520</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Glances: as_dict_secure() Value-Level Bypass Leaks Credentials in URL Values via /api/4/config</div>
-            <div class="card-body">## Summary
-
-Glances provides `as_dict_secure()` explicitly designed for unauthenticated API access, with a docstring stating it returns "a sanitised copy of the configuration dict" where "Sensitive keys in remaining sections are replaced by '********'". However, the implementation only checks KEY names against a regex pattern and never inspects VAL...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-4h34-v6r8-mmjc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-68519</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Glances: `--disable-config-exec` does not cover on-alert action commands (incomplete fix of CVE-2026-53925)</div>
-            <div class="card-body">## Summary
-In Glances 4.5.5 the `--disable-config-exec` flag was extended (GHSA-3vwc-qwhc-3mj7) to stop `secure_popen()` from
-interpreting the shell operators `&&`, `|` and `>` in **AMP** command values taken from the configuration file. The
-hardening was not applied to the **on-alert action** command path, which reads its command lines from the sa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-59fj-m2j6-hcxh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-62982</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">Glances: Incomplete fix of CVE-2026-32608: action-template sanitizer is bypassed by nested stat values (process 'cmdline') → OS command injection</div>
-            <div class="card-body">## Summary
-CVE-2026-32608 ("Command Injection via Process Names in Action Command Templates") was fixed (commit `5680a5d`) by adding `_sanitize_mustache_dict`, which replaces the shell operators `&&`, `|`, `>>`, `>` with spaces in the values rendered into action command templates.
-
-The sanitizer only processes **top-level string** values (`if isins...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-73wf-9vmv-5pv9" target="_blank">Full Report →</a>
             </div>
         </div>
         
