@@ -68,10 +68,241 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-17 18:17 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-18 00:27 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69148</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">MLflow: CreateModelVersion source validation does not check READ permission on referenced run_id</div>
+            <div class="card-body">### Summary
+
+The `_validate_source_run` and `_validate_source_model` functions in `mlflow/server/handlers.py` verify that a model version source path is within the artifact directory of a specified run or logged model, but do not check whether the caller has READ permission on that run or model. An authenticated MLflow user can therefore reference ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-gqch-g4w5-7qcw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69146</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">MLflow: LogInputs endpoint bypasses per-run UPDATE authorization in basic-auth</div>
+            <div class="card-body">### Summary
+
+When MLflow is deployed with the built-in basic-auth plugin (`--app-name basic-auth`), any authenticated user can inject arbitrary dataset records into another user's run by calling `POST /api/2.0/mlflow/runs/log-inputs`. The `LogInputs` proto handler is absent from the `BEFORE_REQUEST_HANDLERS` map in `mlflow/server/auth/__init__.py`,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-3p64-6gvh-82v5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-64849</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">MLflow: Unauthenticated full-read SSRF in webhook delivery: _validate_webhook_url bypassed via unvalidated HTTP redirects (and DNS rebinding)</div>
+            <div class="card-body">### Summary
+The default MLflow Tracking Server (`mlflow server`, no authentication, default SQLite backend) exposes the model-registry webhooks API unauthenticated, including a synchronous `POST /api/2.0/mlflow/webhooks/{id}/test` endpoint that returns the upstream response status and body to the caller. The SSRF guard added in PR #20747 (`_validat...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-7gwp-5pfp-969j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-56677</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
+                </span>
+            </div>
+            <div class="card-title">9Router: Authenticated Server-Side Request Forgery (SSRF) via OIDC Provider Test Endpoint</div>
+            <div class="card-body">### Summary
+
+A Server-Side Request Forgery (SSRF) vulnerability exists in the 9Router dashboard via the `/api/auth/oidc/test` endpoint. The application accepts a user-controlled URL string through the `issuerUrl` parameter and performs an outbound HTTP request without validating if the destination IP belongs to a restricted internal network range.
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-8g4w-4ffg-8vgx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54148</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">http4k: `DigestAuthProvider.verify` did not bind to request URI</div>
+            <div class="card-body">### Impact
+
+An issue in `DigestAuthProvider.verify`:
+
+The `uri` parameter in the client's `Authorization: Digest …` response was not checked against the actual request URL. A captured Digest authentication response could be replayed against any other URL served by the same realm, breaking the per-request-URL binding the Digest scheme assumes.
+
+**Wh...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-p28p-j94q-pg32" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54147</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">http4k: `DigestAuthProvider.verify` ignored configured algorithm and did not bind to request URI</div>
+            <div class="card-body">### Impact
+
+An issue in `DigestAuthProvider.verify`:
+
+ **Algorithm silently forced to MD5.** The configured `algorithm` parameter was ignored — every verification used MD5 regardless of configuration. Deployments believing they were running SHA-256 Digest auth were silently inheriting MD5's collision weaknesses, including documented attack paths ag...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-vxxm-wwqh-mh47" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53766</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">chrome-devtools-mcp: validatePath() does not canonicalize symlinks before enforcing roots</div>
+            <div class="card-body">### Summary
+
+I originally reported this through Google Bug Hunters. The Google Bug Hunters team said this is in OSS VRP scope but not reward-eligible due to the project tier, and asked me to file an issue or PR directly with this repository. I am reporting it privately here first because it is an unfixed security issue.
+
+`McpContext.validatePath()`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-8qf9-62x2-82pp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-mpwr-8vm7-h73f</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">package pkcs12: Authentication bypass in Decode functions</div>
+            <div class="card-body">`Decode`, `DecodeChain`, `DecodeTrustStore`, and `ToPEM` can incorrectly accept PKCS#12 files which were encoded with the wrong password, due to a failure to reject excessively-short PBMAC1 keys. Users who decode PKCS#12 files from untrusted sources and rely on the password for authentication can be tricked into accepting malicious PKCS#12 files. U...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-mpwr-8vm7-h73f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53752</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">docx4j: Stack Overflow via Cyclic `w:basedOn` Style Chain leads to Denial of Service</div>
+            <div class="card-body">### Summary
+docx4j's `PropertyResolver` and several adjacent helpers recursively walk the OpenXML style inheritance chain (`w:basedOn`) without cycle detection. 
+
+A WordprocessingML document containing a cyclic style chain (for example, Style A based on B and Style B based on A) causes unbounded recursion and a `java.lang.StackOverflowError` within...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-gc95-3vw8-vg43" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-53659</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">http4k: Unbounded gzip decompression in `ServerFilters.GZip` / `RequestFilters.GunZip` allowed memory-exhaustion DoS</div>
+            <div class="card-body">### Impact
+
+`ServerFilters.GZip` and `RequestFilters.GunZip` (and the underlying `Gzip` functions used to decompress request bodies) did not impose any cap on the decompressed size. A small malicious gzip-encoded request body (on the order of kilobytes) could decompress to gigabytes, exhausting the JVM heap and denying service to other clients.
+
+**...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-g4w2-6h2r-3m3w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-j659-8xh6-5pq5</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">atomic-agents-stack: Parallel helper/delegate batch reserves $0 for models absent from the pricing table, bypassing the cost-cap fan-out guard</div>
+            <div class="card-body">`_estimate_batch_cost` (`atomic_agents/agent.py`) looks up the per-model output price with `PRICING.get(model, {})`, returning 0.0 for any model not in the hardcoded pricing table. `_check_batch_reservation` then early-returns when the reservation is <= 0, skipping the batch reservation entirely. That reservation is the only defense against the doc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-j659-8xh6-5pq5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xhcr-cqfr-m3hv</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">atomic-agents-stack: HTTP MCP catalog accepts cleartext http and spawns catalog-supplied commands (MITM to RCE)</div>
+            <div class="card-body">The HTTP MCP server-registry backend factory (`atomic_agents/mcp_registry/http.py`, `make_http_mcp_server_registry_backend_from_url`) accepts both `http` and `https` schemes. Catalog entries carry `command`/`args` that are type-validated but content-unrestricted, and are later spawned as local stdio subprocesses by `MCPClientPool`. Over a cleartext...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-xhcr-cqfr-m3hv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59903</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Netty Vulnerable to Cache Poisoning and Information Disclosure via CORS Vary Header Overwrite</div>
+            <div class="card-body">### Summary
+Netty's `CorsHandler` silently overwrites existing `Vary` headers, enabling cache poisoning and sensitive information disclosure.
+
+### Details
+`io.netty.handler.codec.http.cors.CorsHandler#setVaryHeader` overwrites any existing Vary headers set by backend applications. 
+
+```java
+    private static void setVaryHeader(final HttpResponse r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-17</span>
+                <a href="https://github.com/advisories/GHSA-8c42-7qj2-3j46" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-59902</span>
@@ -381,245 +612,6 @@ The sanitizer only processes **top-level string** values (`if isins...</div>
             <div class="card-footer">
                 <span>Published: 2026-08-17</span>
                 <a href="https://github.com/advisories/GHSA-73wf-9vmv-5pv9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59894</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">sqlparse: Generated Python and PHP snippets allow SQL string breakout through unescaped backslashes</div>
-            <div class="card-body">### Summary
-
-The documented Python and PHP output modes generate source-code snippets from caller-supplied SQL. Their output filters escape quote characters without first escaping existing backslashes. Crafted SQL can therefore neutralize the generated quote escape, terminate the intended language string, and place attacker-controlled code into the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-3496-9g83-7v6x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-68517</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Glances: REST API CORS Credentials Guard Uses Exact-Match Instead of Membership Test — Bypassed by Any Multi-Origin Allowlist Containing the Wildcard</div>
-            <div class="card-body">### Summary
-Glances's REST API server includes a documented safety check intended to guarantee that `cors_credentials=True` can never be combined with an unrestricted CORS origin allowlist. The check compares the configured origin list to the wildcard using exact list equality (`cors_origins == ["*"]`) instead of a membership test. Any multi-entry ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-fp27-88fp-2phg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45099</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Terragrunt: Arbitrary File Deletion via Malicious Module Manifest</div>
-            <div class="card-body">### Summary
-
-Terragrunt is vulnerable to an arbitrary file deletion flaw when downloading external modules. If a remote module contains a maliciously crafted `.terragrunt-module-manifest` file, Terragrunt can be tricked into deleting files anywhere on the local filesystem that the Terragrunt process has access to.
-
-### Impact
-
-This vulnerability im...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-8394-6f8r-whxg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-68518</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Glances has a command injection bypass of action-template sanitizer via cross-field shell-operator reconstruction</div>
-            <div class="card-body">### Summary
-
-The Glances action system lets an administrator configure shell commands that run
-when a monitoring threshold is crossed. The command is a Mustache template whose
-variables are filled with runtime stat fields such as a process name, a container
-name or a filesystem mount point. Those fields are attacker-influenceable: a
-local, unprivil...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-qcpp-8x79-hhp3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-64865</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">New API: Redis user quota cache overwrite via PUT /api/user/self allows quota bypass</div>
-            <div class="card-body">### Summary
-Authenticated users can repeatedly call PUT /api/user/self with language or sidebar_modules while relay requests are consuming quota. The settings path reads a full User snapshot and writes it back through User.Update(), which refreshes Redis with RedisHSetObj and overwrites the Quota field. This can erase concurrent HINCRBY quota deduc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-j6gc-4893-qwmp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-71479</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">New API: Integer overflow in quota billing yields negative charges (self-crediting)</div>
-            <div class="card-body">## Summary
-
-Multiple billing paths multiplied **user-controlled quantity parameters** into the quota calculation without an upper bound or overflow-safe integer conversion. A crafted extreme value (e.g. image `n = 18446744073686646784`, a wrapped-negative accepted by a `*uint` field) makes conversions like `int(float64(quota) * n)` wrap past the in...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-8r8v-xf7q-rcpr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-64866</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">New API: Admin can reset passkeys for same-level or higher-privileged users</div>
-            <div class="card-body">## Summary
-
-The admin passkey reset endpoint lacked the role-level authorization check used by comparable privileged account-protection endpoints. A lower-privileged administrator could attempt passkey reset operations against same-level or higher-privileged users, including root-level accounts.
-
-## Impact
-
-If the target account had a passkey confi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-p845-629j-rcj6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-64868</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">New API: Unauthenticated payment webhooks allow memory and disk DoS via unbounded body reads and full-body logging</div>
-            <div class="card-body">## Summary
-
-Unauthenticated payment webhook endpoints could read and log the entire request body before validating the webhook signature. When a payment webhook was enabled, an unauthenticated attacker could send oversized requests to public callback endpoints and force excessive memory use and log growth before the request was rejected.
-
-Affected ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-v828-m3pf-vq9q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-64859</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">New API: User List API Leaks Root User Access Token Leading to Privilege Escalation</div>
-            <div class="card-body">## Vulnerability Information
-
-- **Product**: new-api
-- **Affected versions**: versions before `v1.0.0-rc.7` that serialize `User.AccessToken` as `access_token`; the issue was confirmed in `v0.12.14`
-- **Patched version**: `v1.0.0-rc.7`
-- **Fixed commit**: `0936e2504655a5cbf7bc3c388f6d3e2bb24916d3`
-- **Type**: Information Disclosure / Privilege Esca...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-6x2c-phff-wx57" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-53728</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">Medplum: Improper Validation of Redirect URI in External Auth Callback allows Authorization Code Leakage</div>
-            <div class="card-body">## Summary
-
-The external identity provider callback at `GET /auth/external` accepts attacker-controlled redirect URIs that only need to start with a registered client redirect URI, rather than matching exactly. After a successful external IdP login, the server appends Medplum `login` and `code` values to that attacker-supplied URL and issues a redi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-m44r-7c5h-m6mj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55158</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">conflibot vulnerable to command injection via crafted pull request branch names under pull_request_target</div>
-            <div class="card-body">### Impact
-
-Versions of conflibot before `1.2.1` build `git` commands by string interpolation and run them through a shell. Several of the interpolated values are pull request branch names (`head.ref`), which are attacker-controlled: anyone can open a pull request (including from a fork) whose head branch name contains shell metacharacters such as ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-2qvg-qr73-mqxp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-40345</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">DeepmergeTS has stack exhaustion when merging recursive object graphs</div>
-            <div class="card-body">### Summary
-
-`deepmerge()` and `deepmergeInto()` can be crashed with a crafted recursive object graph. When both merged values contain self-references at the same property path, the library recurses until Node throws `RangeError: Maximum call stack size exceeded`.
-
-### Details
-
-Record merging is implemented recursively. For each enumerable key, the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-17</span>
-                <a href="https://github.com/advisories/GHSA-ggr8-5vv4-36mx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-10740</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">s2n-quic has excessive memory allocation</div>
-            <div class="card-body">s2n-quic is a Rust implementation of the QUIC protocol. An unauthenticated user can attempt to exhaust server memory on an s2n-quic endpoint by sending crafted CRYPTO frames with high offsets. The buffer used for processing CRYPTO frames does not enforce a maximum size. In the worst case, a single 1200-byte packet can cause approximately 9.4 MB of ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-14</span>
-                <a href="https://github.com/advisories/GHSA-9q54-f358-3fqf" target="_blank">Full Report →</a>
             </div>
         </div>
         
