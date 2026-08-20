@@ -68,10 +68,139 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-20 12:19 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-20 18:18 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55253</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">LangChain MongoDB has NoSQL Operator Injection in MongoDBSaver.list() leading to cross-tenant data exposure</div>
+            <div class="card-body"># Executive Summary
+
+A NoSQL injection issue exists in the langgraph-checkpoint-mongodb and
+langgraph-store-mongodb libraries. MongoDBSaver.list() and MongoDBStore.search() methods
+accept a filter parameter that is incorporated into MongoDB queries without sufficient validation.
+Because MongoDB query operator keys (those prefixed with $) are not re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-20</span>
+                <a href="https://github.com/advisories/GHSA-533j-2v4q-mw5h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54061</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">Dgraph Alpha group stores can be replaced via unauthenticated external snapshot import</div>
+            <div class="card-body">## Summary
+
+Dgraph Alpha exposes the RPCs used for external snapshot import on the public gRPC port `:9080` without authentication or authorization. As a result, an unauthenticated network client can open `StreamExtSnapshot` and send Badger stream data to the target group’s store. In addition, the receiver calls `Prepare()` before processing the st...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-20</span>
+                <a href="https://github.com/advisories/GHSA-rrwh-6jrq-wp5v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55244</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.0
+                </span>
+            </div>
+            <div class="card-title">asteval has a Sandbox Escape via BaseException Subclasses</div>
+            <div class="card-body">## Summary
+
+An attacker who can supply expressions to `asteval.Interpreter.eval()` can raise `SystemExit`,
+`KeyboardInterrupt`, `GeneratorExit`, or `BaseException` from inside the sandbox. These
+exceptions are subclasses of `BaseException` but not `Exception`, so they bypass the
+`except Exception:` safety net in both `run()` and `eval()`. The excep...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-20</span>
+                <a href="https://github.com/advisories/GHSA-89v8-rhwq-hf77" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-9w56-46f6-3qhx</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.5
+                </span>
+            </div>
+            <div class="card-title">asteval Sandbox Escape: arbitrary native memory read/write via numpy ctypes in default asteval Interpreter</div>
+            <div class="card-body">### Summary
+With its default configuration (numpy enabled, `import` disabled), asteval's `Interpreter` lets an attacker-controlled expression obtain a raw **arbitrary process-memory read and write** primitive, without using `import`, any `__dunder__` attribute, or `eval`/`exec`/`getattr`. Arbitrary in-process read/write is equivalent to arbitrary c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-20</span>
+                <a href="https://github.com/advisories/GHSA-9w56-46f6-3qhx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55149</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">vouch-proxy has an Unbounded Multipart Cookie Allocation DoS</div>
+            <div class="card-body">## Unbounded Multipart Cookie Allocation DoS in vouch-proxy
+
+### Summary
+
+vouch-proxy v0.47.2 contains an unauthenticated remote denial-of-service vulnerability in its multipart cookie reassembly logic. The `/validate` endpoint parses the total cookie part count directly from the attacker-controlled cookie name (e.g., `VouchCookie_1of<N>`) and pass...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-20</span>
+                <a href="https://github.com/advisories/GHSA-qqff-5854-px68" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-45404</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">OpenTelemetry-Go: Unsynchronized baggage map can panic under concurrent access</div>
+            <div class="card-body">### Summary
+
+`go.opentelemetry.io/otel/bridge/opentracing` introduced an unsynchronized `extraBaggageItems` map on `bridgeSpan`. One goroutine can write this map through `Span.SetBaggageItem` while another goroutine reads and iterates it during correlation baggage propagation, which can trigger Go's fatal concurrent map access panic and crash the p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-20</span>
+                <a href="https://github.com/advisories/GHSA-42cj-99w8-cp2p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32637</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Velero vulnerable to file path traversal when extracting from backup's tarball</div>
+            <div class="card-body">### Impact
+_What kind of vulnerability is it? Who is impacted?_
+If the attacker compromises the backup's object storage backend and uploads a malicious backup tarball including file names like the following:
+* ../../../tmp/escape_1              -> file created at /tmp/escape_1
+* ../../../../../../../../tmp/escape_2 -> file created at /tmp/escape_2
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-20</span>
+                <a href="https://github.com/advisories/GHSA-j2g6-362q-6qc6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-63123</span>
@@ -504,127 +633,6 @@ fn eager_digest_blocks_panic_corrupts_inline_position() {
             <div class="card-footer">
                 <span>Published: 2026-08-19</span>
                 <a href="https://github.com/advisories/GHSA-j4r7-8ph4-43g3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-cc2g-gq8c-r332</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">grok-faf-mcp has an arbitrary local file read via unconfined `path` argument in FAF tools</div>
-            <div class="card-body">### Summary
-Several `grok-faf-mcp` MCP tools accept a caller-controlled `path` argument and resolve it (`~` expansion + `path.resolve()`) straight into a filesystem read **without confining it to a trusted project directory**. An absolute path or `../` traversal is resolved and used as-is, so the server process can be made to read files outside the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-19</span>
-                <a href="https://github.com/advisories/GHSA-cc2g-gq8c-r332" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55236</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">langgraph-api: Incomplete assistant authorization in LangGraph Server run creation</div>
-            <div class="card-body">## Summary
-
-In affected versions of `langgraph-api` (the LangGraph Server runtime), the run-creation path authorized the assistant attached to a run using a different authorization event than the rest of the assistant-handling code paths. Direct assistant reads and cron creation dispatch the `assistants.read` authorization event; run creation dispa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-19</span>
-                <a href="https://github.com/advisories/GHSA-jfj5-wrj9-63x4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55235</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">langgraph-api: Relative webhook targets in LangGraph Server can reach in-process routes without authentication</div>
-            <div class="card-body">## Summary
-
-In affected versions of `langgraph-api` (the LangGraph Server runtime), a run or cron could be created with a relative webhook target. When the server later delivers such a webhook, it routes the request back into the same application through an in-process loopback transport that the authentication middleware treats as internal and does...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-19</span>
-                <a href="https://github.com/advisories/GHSA-2c9q-c2q9-qgqv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-73974</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.5
-                </span>
-            </div>
-            <div class="card-title">linuxfabrik-lib: Arbitrary root file read via live --test argument (lib.lftest) across sudoers-whitelisted plugins (LPE)</div>
-            <div class="card-body">## Summary
-Every Linuxfabrik check plugin that supports the shared `--test` argument (routed through `lib.lftest.test()`) will, when `--test` is supplied, treat the first CSV element as a filesystem path and read its full contents as the plugin's simulated STDOUT — running as root when the plugin is invoked through the shipped `nagios`/`icinga` sud...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-18</span>
-                <a href="https://github.com/advisories/GHSA-rh9c-rqvg-f7pr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-17106</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">moby/go-archive: Crafted tar archive can write outside the extraction directory</div>
-            <div class="card-body">### Summary
-The tar extraction routines in `moby/go-archive` (`Unpack`, `UnpackLayer`, `Untar`/`UntarUncompressed`, and the `ApplyLayer` helpers) do not confine filesystem operations to the destination directory. A crafted archive can create or overwrite files **outside** the intended destination. 
-
-### Details
-The extractor decides where each arch...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-18</span>
-                <a href="https://github.com/advisories/GHSA-hfg8-hc9c-6c3h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7gww-x7fh-jf9j</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">LibreNMS: SSRF-driven stored XSS via Oxidized API response fields in device showconfig page</div>
-            <div class="card-body">### Summary
-The Oxidized integration URL (`oxidized.url`) is admin-configurable. LibreNMS fetches device info and version history from that URL and renders JSON fields (`name`, `ip`, `model`, `author`, commit message) into HTML without `htmlspecialchars()`. An admin pointing the URL at an attacker-controlled server achieves persistent XSS affecting...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-18</span>
-                <a href="https://github.com/advisories/GHSA-7gww-x7fh-jf9j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7cj5-v4pp-v632</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">LibreNMS: Stored XSS via graph_descr admin config settings echoed without escaping to all authenticated users</div>
-            <div class="card-body">### Summary
-The `graph_descr.<graphtype>` family of settings is echoed verbatim without `htmlspecialchars()` in `includes/html/pages/graphs.inc.php:194`. Any admin can store a malicious HTML payload that executes in every authenticated user's browser viewing that graph type.
-
-### CVSS
-`CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N` — **4.8 Medium**
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-18</span>
-                <a href="https://github.com/advisories/GHSA-7cj5-v4pp-v632" target="_blank">Full Report →</a>
             </div>
         </div>
         
