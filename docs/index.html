@@ -68,10 +68,251 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-24 18:19 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-08-25 00:28 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-fx4f-mhw4-qm7j</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">vibeio-http has a DoS vulnerability in HTTP/1.x chunked encoding parser triggered by maliciously crafted chunk lengths</div>
+            <div class="card-body">When using the affected versions of the `vibeio-http` crate, an attacker could craft a malicious HTTP/1.x request with a large chunk length (between `usize::MAX - 1` and `usize::MAX` inclusive) and send it, causing the server to crash (integer overflow panic in debug builds, split_to out of bounds panic in release builds).
+
+This was fixed in `vibei...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-fx4f-mhw4-qm7j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w8j7-39hp-8x59</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Cloudreve's remote download file paths can escape the selected destination directory</div>
+            <div class="card-body">### Summary
+
+Cloudreve trusts file paths returned by the configured remote downloader. A downloader-reported path such as `../../escaped.txt` can cause a downloaded file to be created outside the user-selected destination directory.
+
+### Details
+
+In the remote download master transfer path, Cloudreve joins the user-selected destination URI with the...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-w8j7-39hp-8x59" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vx2m-jpxr-xv7w</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Cloudreve has Broken Access Control - Revoked Share Access Still Allows Signed File URL Generation via Cached context_hint</div>
+            <div class="card-body">## Summary
+ 
+Cloudreve's file-listing responses hand the client a `context_hint` (UUID) that is meant to speed up follow-up operations. When that hint is replayed on the `file/url` (and `file/thumb`) routes, DBFS caches a `shareNavigatorState` containing the already-loaded share root and share row.
+ 
+On a later request carrying the same hint, `shar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-vx2m-jpxr-xv7w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55477</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.2
+                </span>
+            </div>
+            <div class="card-title">3X-UI Vulnerable to Authenticated Arbitrary File Write via Database Import and Xray Log Path Manipulation</div>
+            <div class="card-body"># Summary
+
+An authenticated administrator can abuse the database import functionality to achieve arbitrary file write on the host by modifying Xray configuration values stored in the database. This can be leveraged to obtain code execution and persistent access as the user running Xray (including root when Xray is running as root).
+
+# Details
+
+The ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-jm48-m3rr-9hgg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w67g-5rqw-f597</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Gorilla WebSocket Uses Cryptographically Weak PRNG for WebSocket Mask Key</div>
+            <div class="card-body">gorilla/websocket used `math/rand` (cryptographically weak pseudo-random number generator) to generate WebSocket frame mask keys prior to commit d67f4185. WebSocket masking keys MUST be unpredictable to prevent frame content injection attacks. math/rand produces deterministic output when seeded with a known value, enabling an attacker to predict or...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-w67g-5rqw-f597" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-4ph6-mjv7-3fq6</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">netfoil vulnerable to improper handling of untrusted DoH response data</div>
+            <div class="card-body">### Summary
+HTTPS RR data returned from the DoH server was not properly handled. Unverified APLN data (which could contain arbitrary byte sequences) was written directly to the log. It could also cause unnecessary memory usage. The single-byte response code was also written directly to the log....</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-4ph6-mjv7-3fq6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54625</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">django CMS: Page cache ignores plugin-declared Vary headers (disclosure & poisoning)</div>
+            <div class="card-body">### Summary
+The CMS page cache key ignores the request headers that plugins declare via `get_vary_cache_on()`. The header is added to the response `Vary` header, but the CMS's own cache key does not incorporate the header values, so the first visitor's variant is served to all subsequent visitors regardless of their header values.
+
+### Details
+`_pa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-fwjf-m4qw-9f2x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54623</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">django CMS: Plugin move endpoint allows cyclic reparenting (DoS)</div>
+            <div class="card-body">### Summary
+The `move_plugin` admin endpoint does not prevent a plugin from being   reparented under itself or one of its own descendants. Doing so creates a  cycle in the plugin tree, after which the recursive descendant/ancestor SQL  queries loop without terminating, stalling the request worker.
+
+### Details
+`move_plugin` (in `cms/admin/placehold...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-8jj7-4v57-frf5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3gjw-f78c-vvpw</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">tokio-postgres: Panic on a `DataRow` with fewer fields than columns allows denial of service</div>
+            <div class="card-body">A malicious or compromised server can send a row containing fewer fields than
+its row description declares columns. Reading one of the missing columns then
+panics with an out-of-bounds index, aborting the calling task. This affects even
+the otherwise non-panicking `try_get`, and both `Row` and `SimpleQueryRow`.
+
+Applications that connect only to a ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-3gjw-f78c-vvpw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-rgqc-3x5p-6gwg</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">postgres-protocol: Panic decoding a malformed `hstore` value allows denial of service</div>
+            <div class="card-body">A malicious or compromised server can return a binary `hstore` value with an
+invalid internal length field, causing the client to panic while decoding it.
+
+Applications that connect only to a trusted database are not exposed; the risk
+applies to clients that may connect to untrusted or user-supplied servers, or
+whose connection can be intercepted b...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-rgqc-3x5p-6gwg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5x78-73v4-xg6w</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">postgres-protocol: Unbounded SCRAM iteration count allows a malicious server to cause CPU-exhaustion denial of service</div>
+            <div class="card-body">A malicious, compromised, or man-in-the-middle server can supply an arbitrarily
+large SCRAM-SHA-256 PBKDF2 iteration count during authentication. The client
+runs it inline with no upper bound, pinning a `tokio` worker thread for minutes
+per connection, possibly stalling the whole async runtime.
+
+Applications that connect only to a trusted database ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-5x78-73v4-xg6w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54050</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Sakai Profile Image Deletion has an IDOR</div>
+            <div class="card-body">### Summary
+
+The Sakai REST API endpoint `DELETE /api/users/{userId}/profile/image` does not verify that the requesting user is authorized to modify the target user's profile. Any authenticated user can delete the profile image of any other user, including administrators, by supplying a different `userId` in the path. The service layer has no autho...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-9284-fjc3-fmmj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54049</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">Sakai Conversations has a Stored XSS Issue</div>
+            <div class="card-body">### Summary
+
+The Sakai Conversations tool stores topic and post messages without HTML sanitization, and the frontend renders them using LitElement's `unsafeHTML()` directive, resulting in stored cross-site scripting (XSS). Any authenticated user with access to a site that has the Conversations tool enabled can inject arbitrary HTML and JavaScript t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-08-24</span>
+                <a href="https://github.com/advisories/GHSA-w2x5-gv52-9ccv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-77415</span>
@@ -396,251 +637,6 @@ When request-body validation fails, Unleash builds the error message by calling 
             <div class="card-footer">
                 <span>Published: 2026-08-21</span>
                 <a href="https://github.com/advisories/GHSA-r5pq-6chh-j3xp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-67448</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Mailpit: WebSocket origin check bypass via percent-encoded path (regression of CVE-2026-22689)</div>
-            <div class="card-body">## Summary
-
-The cross-site WebSocket hijacking fix was reimplemented as an origin check gated on a raw-URI prefix test, but Go's ServeMux routes on the percent-decoded path, so requesting /%61pi/events reaches the WebSocket handler while skipping the only origin control, and the upgrader itself accepts every origin. Confirmed at HEAD 408b30d. Affec...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-8r62-w5wh-fc5m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-67447</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Mailpit: SMTP DATA line reader buffers over-limit input before size enforcement</div>
-            <div class="card-body">## Summary
-
-Mailpit's SMTP DATA reader enforces the configured `MaxMessageSize` only after `bufio.Reader.ReadBytes('\n')` has already buffered a complete DATA line. A remote unauthenticated SMTP client can send one line larger than the configured message-size cap and force memory allocation before Mailpit returns the expected `552 5.3.4` rejection,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-r553-m4fv-5v97" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55451</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">gettext-converter: Prototype pollution in js2i18next() via crafted translation keys</div>
-            <div class="card-body">### Impact
-
-`js2i18next()` is vulnerable to prototype pollution. When converting translations, it splits nested keys on the key separator (default `##`) and uses each segment as a dynamic object key while building the output object. A key whose segment is `__proto__` (e.g. `__proto__##gcPolluted`) causes the converter to resolve `Object.prototype` ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-f4jp-rw7w-ccwg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-jm5p-837g-rv8g</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Wagtail: Improper restriction handling on Page translation API endpoint</div>
-            <div class="card-body">### Impact
-A CMS user with the "submit translations" permission, could use the Admin API's "copy for translation" endpoint to copy an existing page that they do not have edit access to, allowing them to view its contents.
-
-### Patches
-Patched versions have been released as Wagtail 7.0.9, 7.3.4, 7.4.3 and 8.0rc2.
-
-### Workarounds
-N/A
-
-### Acknowledg...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-jm5p-837g-rv8g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-x5cx-w6p2-mxf2</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Wagtail: Improper permission handling when copying snippets</div>
-            <div class="card-body">### Impact
-A CMS user with "add" permission over a snippet model, but not "change" or "view" permission, could copy an existing snippet that they do not have access to, allowing them to view its contents.
-
-### Patches
-Patched versions have been released as Wagtail 7.0.9, 7.3.4, 7.4.3 and 8.0rc2.
-
-### Workarounds
-N/A
-
-### Acknowledgements
-Many thank...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-x5cx-w6p2-mxf2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-c2xx-cjmh-9q8f</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Wagtail: Improper restriction handling on descendant collections in Documents and Images API</div>
-            <div class="card-body">### Impact
-
-The Documents and Images [API V2](https://docs.wagtail.org/en/stable/advanced_topics/api/index.html) incorrectly listed items in descendants of private collections, which should inherit the view restrictions defined on their ancestors. A user with access to the API could see the filename and name of documents and images in these descend...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-c2xx-cjmh-9q8f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-92hv-j533-69wc</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Wagtail: Identification of documents by SHA1 hash</div>
-            <div class="card-body">### Impact
-By passing specific HTTP headers to the document serve URL endpoint, an attacker was able to determine whether a document with a given ID matched a specified SHA1 hash, regardless of any permission restrictions on the document or knowing its filename. This could allow an attacker to determine whether a document with a specific known hash...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-92hv-j533-69wc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hq84-x37p-j6q5</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.5
-                </span>
-            </div>
-            <div class="card-title">Winter: Reflected XSS through the search query parameter in the backend Table widget</div>
-            <div class="card-body">### Impact
-
-Affected versions of Winter CMS render the `search` query parameter without HTML encoding inside a `<script type="text/template">` block in the backend Table widget partial (`modules/backend/widgets/table/partials/_table.php`):
-
-```php
-value="<?= get('search') ?>"
-```
-
-`<script>` is an HTML raw-text context, so the surrounding `value="…...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-hq84-x37p-j6q5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-p2ch-c2c3-4xm5</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">Winter: CSRF through AJAX handler names reachable as backend page actions</div>
-            <div class="card-body">### Impact
-
-Affected versions of Winter CMS allow a backend AJAX handler to be invoked by a plain top-level `GET` navigation with no CSRF token. `Backend\Classes\Controller::actionExists()` accepted any public method on a controller as a page action, so handler-shaped names were never reserved from URL dispatch: an authenticated and authorized requ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-p2ch-c2c3-4xm5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-5cwr-5jxg-pcf6</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.5
-                </span>
-            </div>
-            <div class="card-title">Winter: Stored XSS through cached Brand Settings and Editor Settings custom styles</div>
-            <div class="card-body">### Impact
-
-Users with the `backend.manage_branding` ("Customize the back-end") or `backend.manage_editor` ("Manage global code editor preferences") permission can provide custom CSS through **Settings → Customize Backend → Styles** or **Settings → Editor Settings → Markup Styles** that is compiled through the LESS CSS parser and rendered on every ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-5cwr-5jxg-pcf6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-fm29-4mq3-phg6</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.3
-                </span>
-            </div>
-            <div class="card-title">Winter: ImportExportController AJAX handlers bypass granular import/export permission gate</div>
-            <div class="card-body">### Impact
-
-Affected versions of Winter CMS did not enforce the `ImportExportController` behavior's granular access control on the handlers that actually perform the work.
-
-The behavior supports per-operation access control through the `import[permissions]` and `export[permissions]` configuration keys, enforced by `userHasAccess()`. That check was ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-fm29-4mq3-phg6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mpmw-f6h6-3g26</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Winter: My Account preview exposes another backend user's profile by record ID</div>
-            <div class="card-body">### Impact
-
-`Backend\Controllers\MyAccount`, introduced in v1.2.13, declares an empty `$requiredPermissions` array so that any authenticated backend user can manage their own account. It implements the `FormController` behavior, which exposes three routable actions — `create`, `update` and `preview` — that each take a record id from the URL.
-
-`inde...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-mpmw-f6h6-3g26" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-7mpf-4465-7fc2</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 2.0
-                </span>
-            </div>
-            <div class="card-title">Winter: Stored XSS through Backend List widget image columns</div>
-            <div class="card-body">### Impact
-
-`Backend\Widgets\Lists::evalImageTypeValue()` interpolated the resolved image URL into a single-quoted `src` attribute without escaping it. Where a list column of type [`image`](https://wintercms.com/docs/v1.2/docs/backend/lists#image) rendered an attacker-influenced value, that value could break out of the attribute and inject arbitrar...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-20</span>
-                <a href="https://github.com/advisories/GHSA-7mpf-4465-7fc2" target="_blank">Full Report →</a>
             </div>
         </div>
         
