@@ -68,10 +68,242 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-01 15:37 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-01 20:12 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73228</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Django REST framework: Potential bypass of Django `DATA_UPLOAD_MAX_MEMORY_SIZE` when parsing oversized JSON and urlencoded request bodies via DRF `request.data`</div>
+            <div class="card-body">## Summary
+
+While investigating Django REST Framework's request parsing behavior, I identified that DRF's high-level `request.data` parsing appears to bypass Django's configured `DATA_UPLOAD_MAX_MEMORY_SIZE` protection for `application/json` and `application/x-www-form-urlencoded` request bodies.
+
+In the tested configurations, Django correctly rais...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-2m8g-3cmr-wg3w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73229</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Django REST framework: AdminRenderer may disclose GET-protected data when rendering invalid write requests</div>
+            <div class="card-body">Summary
+
+AdminRenderer may disclose data that would normally be protected by GET permissions when rendering a 400 Bad Request response for an invalid write request.
+
+If a view allows POST (or another write method) but denies GET, an invalid request rendered through AdminRenderer can invoke the view's GET handler and include data from the GET repres...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-g47c-3xmw-q6m2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73086</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">nanoid: Integer Overflow or Wraparound</div>
+            <div class="card-body">### Summary
+
+An integer overflow in `nanoid(size)` permanently corrupts the process-wide CSPRNG pool, causing all subsequent ID generation to return the deterministic string `"uuuuuuuuuuuuuuuuuuuuu"`. Any application that passes user-influenced values to the `size` parameter loses all randomness guarantees for session tokens, CSRF tokens, and uniqu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-xwg4-73v4-xw9w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vx52-2968-3vc6</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">pnpm: Environment secrets exfiltrated via env-placeholder expansion in proxy settings read from an untrusted pnpm-workspace.yaml</div>
+            <div class="card-body">## Summary
+
+pnpm expands `${VAR}` environment placeholders in the `httpProxy` / `httpsProxy` / `noProxy` settings read from a project's `pnpm-workspace.yaml`. Because a project manifest is repository-controlled, a malicious repository that a victim merely clones and runs `pnpm install` in can route all install traffic through an attacker proxy whos...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-vx52-2968-3vc6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-2rx9-3g3h-c2jv</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">pnpm: pacquet trust-lockfile install can create dependency symlinks outside the project</div>
+            <div class="card-body">## Summary
+
+A crafted lockfile alias could reach several install-time filesystem joins. With `--trust-lockfile` or a frozen lockfile, traversal segments could create links outside the intended project or `node_modules` boundary. This patch validates dependency names and every virtual-store slot before creating directories, links, bins, or hoisted e...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-2rx9-3g3h-c2jv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58191</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Appium: Reflected XSS / arbitrary JS in @appium/base-driver /test/guinea-pig* routes</div>
+            <div class="card-body">## Summary
+
+Appium's base-driver mounts the built-in `/test/guinea-pig`, `/test/guinea-pig-scrollable` and `/test/guinea-pig-app-banner` routes **unconditionally** on every server. The handler reflects the `throwError` query param, the `comments` POST field, and the `User-Agent` request header into the returned HTML via `compileLodashTemplate`, whi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-3wgp-x9p5-c7cc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-gqvg-gmmx-x4hm</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">MLFLOW_ALLOW_PICKLE_DESERIALIZATION=False safety control bypassed by mlflow.statsmodels flavor — RCE via crafted model artifact</div>
+            <div class="card-body">## Summary
+
+MLflow introduced `MLFLOW_ALLOW_PICKLE_DESERIALIZATION` as a security control to prevent unsafe `pickle.load` execution during model loading, in response to CVE-2024-37052 through CVE-2024-37060. When set to `False`, operators expect all pickle deserialization to be blocked. The most recent related fix (#21188) patched a bypass in the p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-gqvg-gmmx-x4hm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73089</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM</div>
+            <div class="card-body">## Vulnerability Details
+
+**File**: `index.js`
+**Location**: `cache` (browserslist()'s result cache, line ~402) and
+`parseCache` (parseQueries()'s AST cache)
+
+### Root Cause
+```js
+var cache = {}
+var parseCache = {}
+
+function browserslist(queries, opts) {
+  ...
+  var cacheKey = JSON.stringify([queries, context])
+  if (cache[cacheKey]) return cache[c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-c83g-rgw3-j3cx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73088</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)</div>
+            <div class="card-body">## Vulnerability Details
+
+**File**: `node.js`
+**Function**: `normalizeStats()` (line ~214), reached from `getStat()` (called
+**unconditionally** on every `browserslist()` call) and `loadStat()`
+
+### Root Cause
+```js
+function normalizeStats(data, stats) {
+  if (!data) { data = {} }
+  if (stats && 'dataByBrowser' in stats) { stats = stats.dataByBrows...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-73wf-gq98-2v4g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3f6p-5ww8-9rcr</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">MySQL2: Auth Plugin Downgrade to mysql_clear_password Leaks Plaintext Credentials</div>
+            <div class="card-body">## Summary
+
+A rogue MySQL server (or MITM) can force mysql2 to send credentials in **plaintext** by requesting an auth switch to `mysql_clear_password`. The driver complies without verifying that TLS is active.
+
+## Details
+
+`mysql_clear_password` is registered as a default standard plugin in `lib/commands/auth_switch.js` (line 21). When a server se...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-3f6p-5ww8-9rcr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62993</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Smarty: SSRF via redirect bypass of trusted_uri using {fetch}</div>
+            <div class="card-body">When a Security policy is active, {fetch} validates the requested remote URL against the trusted_uri allowlist via Security::isTrustedUri(). For non-http:// schemes (e.g. https://) the resource was then read with file_get_contents(), which follows HTTP redirects by default. Because isTrustedUri() only validates the initial URL, an open redirect on ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-cq55-c7wv-pxmq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69127</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Kirby: System path exposure from error messages in the REST API</div>
+            <div class="card-body">### TL;DR
+
+This vulnerability affects all Kirby sites that have not disabled the REST API with the `'api' => false` option.
+
+It was possible to trigger a PHP error in the API backend that would expose the full filesystem path of the Kirby installation on the server. This could be used to guess the default `content.salt` or prepare specialized attac...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-01</span>
+                <a href="https://github.com/advisories/GHSA-rf2p-vh74-7vvh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-71415</span>
@@ -408,234 +640,6 @@ The AUSF component of free5GC stores per-subscriber authentication state in a gl
             <div class="card-footer">
                 <span>Published: 2026-08-28</span>
                 <a href="https://github.com/advisories/GHSA-334q-h5g3-fpxv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55779</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">silverstripe/versioned has XSS in archive admin restore</div>
-            <div class="card-body">### Impact
-It's possible to use the page title as an XSS vector when restoring a page in ArchiveAdmin
-
-### Reporter
-Steve Boyd
-Silverstripe Ltd....</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-m4g4-86qc-v8w7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55874</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.7
-                </span>
-            </div>
-            <div class="card-title">SeaweedFS: Path traversal in the S3 gateway X-Amz-Copy-Source header allows cross-bucket object read</div>
-            <div class="card-body">### Summary
-The SeaweedFS S3 API gateway did not reject `..` path segments in the `X-Amz-Copy-Source` header used by `CopyObject` and `UploadPartCopy`. The request URL path was hardened against traversal in 4.30 (CVE-2026-54917), but the copy-source header was only checked for emptiness, so a `..` segment in the copy source survived into the server...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-56wq-x3wv-3ff4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55873</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">SeaweedFS: Improper authorization in the S3Tables / Iceberg REST management API lets a low-privileged S3 user enumerate administrator-owned table buckets</div>
-            <div class="card-body">### Summary
-SeaweedFS routes requests signed with SigV4 service `s3tables` to the S3Tables
-management API. Authorization on that path collapsed account-less S3 identities
-into the shared `admin` account and failed open, so a user holding only ordinary
-S3 `Read` credentials — and no S3Tables-specific permission — could invoke
-S3Tables management ope...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-hgpf-8634-g44c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55867</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Graylog token revocation endpoint allows authenticated users to delete other users’ access tokens</div>
-            <div class="card-body">### Impact
-
-Graylog contains an insecure direct object reference (IDOR) vulnerability in the token revocation endpoint. An authenticated user can delete access tokens belonging to other users, including service account tokens and administrator tokens, if they know or can guess a valid token identifier.
-
-The issue does not expose token contents, but...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-j769-9gv9-65gr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55841</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Fortigate syslog message parser can be exploited to modify or delete fields from the original message</div>
-            <div class="card-body">### Impact
-
-A security issue has been identified in Graylog affecting the parsing of syslog messages that use a key-value format, such as those generated by Fortigate devices.
-
-The vulnerability allows attackers to overwrite individual message fields, or to produce invalid messages which Graylog will discard. This effectively enables log evasion te...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-gqr6-r77p-c2pj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55764</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">klever-go: SFT add-quantity `int64` overflow bypasses a finite per-nonce MaxSupply</div>
-            <div class="card-body">## Summary
-On the SFT add-quantity path the only supply bound is `SFTAddCirculation`, which does
-`meta.Circulation += amount` with **no overflow guard**, then checks
-`if meta.Circulation > meta.MaxSupply && meta.MaxSupply != 0`. If `amount` overflows `int64` and wraps
-**negative**, `negative > MaxSupply` is false, the cap check passes, the function...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-mrpp-v6pg-p54x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55854</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">MariaDB has Cleartext Transmission of Sensitive Information and Insufficiently Protected Credentials</div>
-            <div class="card-body">### Summary
-
-When PAM (dialog) authentication is used, the connector can be coerced into sending the account password in cleartext over an insecure connection. A hostile or man-in-the-middle server can trigger this with the default configuration, disclosing the user's password.
-
-### Details
-
-The mysql_clear_password plugin is gated behind a secure ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-42r5-vhpq-m858" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55678</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">arc has unauthenticated cluster node admission when `cluster.shared_secret` is unset</div>
-            <div class="card-body">## Summary
-
-Arc Enterprise clustering accepts cluster join requests without authentication when `cluster.enabled=true` but `cluster.shared_secret` is not configured. The coordinator validates HMAC authentication only if a shared secret is non-empty; otherwise, a network attacker who can reach the coordinator port can send a join request with attack...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-p378-jp5r-gpgw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55761</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 5.9
-                </span>
-            </div>
-            <div class="card-title">Portainer has Unauthenticated Restore Endpoint that Allows Admin Takeover on Uninitialized Instances</div>
-            <div class="card-body">## Summary
-Portainer supports restoring an instance from a backup archive via the /api/restore endpoint. This endpoint is intentionally unauthenticated to allow restoring before the first admin account is created, and remains accessible for the five-minute initialization window that opens each time Portainer starts. Any unauthenticated attacker wit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-x626-fcwx-f5pc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55763</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">klever-go: Percentage-transfer royalty skips the source debit at exactly-100% splits</div>
-            <div class="card-body">## Summary
-In `processPercentageRoyaltiesTransfer` the royalty pool is collected from the sender by `SubFromBalance` that is
-ordered **after** the split loop and after `if royaltiesToPay <= 0 { return Ok }`. The split-payout guard rejects
-only an allocation that *exceeds* the pool (a strict `splitToPay > royaltiesToPay`), so a split entry of **exac...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-v358-wf77-39xv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55891</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">PrivateBin has reflected JSON injection in backend responses via unescaped REQUEST_URI</div>
-            <div class="card-body">## Vulnerability Details
-
-A reflected JSON injection allows an attacker to return arbitrary data in the JSON endpoints (like ` /?jsonld=` and `/?pasteid`).
-
-### Root Cause
-
-`Request::getRequestUri()` sanitizes `$_SERVER['REQUEST_URI']` with `FILTER_SANITIZE_URL`:
-
-```php
-public function getRequestUri()
-{
-    $uri = array_key_exists('REQUEST_URI', $...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-xrjc-c68j-hp7w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-55696</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">PrivateBin has stored Cross-Side-Scripting (XSS) vulnerability in attachment download link via dangerous MIME types with required user-interaction</div>
-            <div class="card-body">### Summary
-
-Stored cross-site scripting (XSS) in PrivateBin's attachment download link. An anonymous attacker can create a paste with a **text/html** attachment that, with certain user interaction, bypasses protections similar to CVE-2022-24833. When a victim opens the "Download attachment" link in a new tab, the attacker's inline JavaScript execu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-08-28</span>
-                <a href="https://github.com/advisories/GHSA-f2xf-7x3g-4272" target="_blank">Full Report →</a>
             </div>
         </div>
         
