@@ -68,10 +68,112 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-02 15:25 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-02 20:10 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75931</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fast-uri vulnerable to host confusion via skipped IDN canonicalization on scheme-relative references</div>
+            <div class="card-body">### Impact
+
+`fast-uri` canonicalizes a host to its ASCII form only when the input carries an explicit scheme. When `resolve()` resolves a scheme-relative reference (`//host/`) against a scheme-bearing base, it still emits the host verbatim even though the effective scheme is known, so re-parsing the resolved URI yields a different host than the one...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-02</span>
+                <a href="https://github.com/advisories/GHSA-5jgf-p345-68v8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75975</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization</div>
+            <div class="card-body">### Impact
+
+`fast-uri` does not validate the complete RFC 3986 grammar for bracketed IPv6 literals, so a malformed literal with invalid trailing text is silently truncated to a different valid IPv6 address with no error reported. For example, `normalize('http://[::not-valid]/private')` returns `http://[::]/private`, and `[fc00::not-hex]` and `[fe80...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-02</span>
+                <a href="https://github.com/advisories/GHSA-f65p-4m7j-42xc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75899</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding</div>
+            <div class="card-body">### Impact
+
+`fast-uri` decodes a hostname's percent escapes twice in a single `normalize()` or `resolve()` call: once during parsing and again during authority recomposition. A nested percent-encoded host therefore survives the first decode and is turned into a live destination by the second, so `normalize('http://%256c%256f%2563%2561%256c%2568%256...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-02</span>
+                <a href="https://github.com/advisories/GHSA-fph4-wmhf-6fwf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-76172</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fast-uri vulnerable to host confusion via percent-encoded scheme normalization</div>
+            <div class="card-body">### Impact
+
+`fast-uri` decodes percent-encoded characters in the scheme component with the legacy global `unescape()` and serializes the result back as raw characters, without re-escaping it or validating it as a scheme. A scheme that decodes to characters outside the RFC 3986 scheme grammar can therefore introduce structure the original input did ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-02</span>
+                <a href="https://github.com/advisories/GHSA-jqff-g426-hqxp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62388</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">NLTK: Default ENFORCE=False Disables All pathsec Security Controls</div>
+            <div class="card-body">NLTK's pathsec.py security module defaults to ENFORCE=False (line 24), which means all 8 security validation functions only emit RuntimeWarning instead of raising exceptions when violations are detected.
+
+The pathsec module was introduced as the fix for CVE-2024-39705 (arbitrary code execution via pickle) and CVE-2026-0846 (path traversal). However...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-02</span>
+                <a href="https://github.com/advisories/GHSA-p3m8-78j2-g5p3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63311</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">NLTK: SSRF Fail-Open in validate_network_url() via DNS Resolution Failure</div>
+            <div class="card-body">There is an SSRF vulnerability in NLTK 3.9.4's network URL validation. The validate_network_url() function in nltk/pathsec.py fails open when DNS resolution returns an error.
+
+The _resolve_hostname() helper at lines 193-234 catches OSError and ValueError during socket.getaddrinfo() and returns an empty list []. When this happens, the validation loo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-02</span>
+                <a href="https://github.com/advisories/GHSA-3gqm-fcw5-w839" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-83610</span>
@@ -536,113 +638,6 @@ If you cannot upgrad...</div>
             <div class="card-footer">
                 <span>Published: 2026-09-02</span>
                 <a href="https://github.com/advisories/GHSA-fc8x-2rww-xw9m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-81891</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">elFinder: ZIP extraction bypasses uploadDeny MIME filter allowing PHP file upload (RCE)</div>
-            <div class="card-body">### Summary
-
-elFinder provides `uploadDeny` and `uploadAllow` options in its connector configuration to restrict which MIME types may be uploaded. When `uploadDeny` includes `text/x-php`, direct upload of `.php`, `.phtml`, and `.phar` files is correctly blocked. However, the `extract` command (ZIP decompression) internally calls `checkExtractItems(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-gxmj-r5rf-ggwq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-81890</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">elFinder: CSRF in netmount allows forced FTP mounts and server-side FTP connections</div>
-            <div class="card-body">### Summary
-The PHP connector's CSRF gate protects many mutating commands, but it does not protect the `netmount` connector command. In the shipped minimal connector setup, FTP network mounting is enabled by default, so a cross-site request can force an elFinder instance to mount an attacker-chosen FTP endpoint in the victim's session and cause the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-9hjf-w35w-6vx2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-82392</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">pnpm: Virtual store linker path traversal via unvalidated depPath name in lockfileToDepGraph</div>
-            <div class="card-body">## Summary
-
-The virtual store linker constructs package installation directories using `path.join(modules, pkgName)` where `pkgName` is extracted from lockfile `packages` keys via `dp.parse(depPath).name` without validation. A crafted `pnpm-lock.yaml` with traversal sequences in depPath keys (e.g., `../../../tmp/pwned@1.0.0`) causes package content...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-c59q-g84q-2gj5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-82393</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">pnpm: A tarball dependency's manifest `name` escapes node_modules → arbitrary file write/overwrite on install</div>
-            <div class="card-body">## Summary
-When resolving a package, pnpm uses the resolved **manifest `name`** as a raw path segment for the isolated-linker import target. A tarball dependency whose `package.json` `name` is a scoped path traversal (`@x/../../…/<abs path>`) is therefore extracted **outside `node_modules`**, to an attacker-chosen absolute path, and can **overwrite...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-vq4v-j7r6-jq4m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-81722</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NLTK: Quadratic-time DoS in PorterStemmer via long runs of 'y'</div>
-            <div class="card-body">`nltk.stem.PorterStemmer.stem()` -- a ubiquitous public API applied to arbitrary, often untrusted, tokens -- runs in O(n^2) time on a token containing a long run of the letter 'y', letting a single ~20-50 KB token pin a CPU core (CWE-407).
-
-## Root cause
-
-`_is_consonant(word, i)` was made *iterative* (commit for #3633, GHSA/CWE-674) to fix an earli...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-ww6m-cw3f-q94g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-81727</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 7.1
-                </span>
-            </div>
-            <div class="card-title">NLTK: Downloader.download follows hardlinks and overwrites outside-root files</div>
-            <div class="card-body">### Summary
-
-NLTK's downloader now blocks symlink escapes during ZIP extraction, but it still treats pre-existing hardlinks inside the install tree as ordinary in-root files. A normal package install can therefore overwrite an outside-root inode through that hardlink.
-
-### Details
-
-- **Vulnerability type:** Filesystem containment bypass
-- **Affecte...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-f794-5jv7-7672" target="_blank">Full Report →</a>
             </div>
         </div>
         
