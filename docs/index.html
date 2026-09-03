@@ -68,10 +68,82 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-03 10:11 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-03 15:18 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-gw25-m53r-qh88</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">SiYuan: path traversal via /export/temp/ short-circuit branch (incomplete fix for the export-disclosure hardening, GHSA-6865-qjcf-286f)</div>
+            <div class="card-body">## Summary
+SiYuan's `/export/` file handler was hardened against export disclosure (issue #12213) by adding an
+`IsSubPath(exportBaseDir, fullPath)` check and an `IsSensitivePath()` check in commit `bb481e1`. These guards
+were added only to the main branch of the handler. The handler begins with a short-circuit branch:
+```go
+if strings.HasPrefix(c.R...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-03</span>
+                <a href="https://github.com/advisories/GHSA-gw25-m53r-qh88" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-99rq-75j6-5j9f</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">SiYuan: Stored and reflected XSS in SiYuan through an SVG sanitizer bypass</div>
+            <div class="card-body">### Summary
+SiYuan cleans user supplied SVG with `util.SanitizeSVG` before it serves the file inline as `image/svg+xml`. This cleaner is the guard behind the `Editor.AllowSVGScript` setting, which is off by default, so a `<script>` inside an SVG is meant to be removed.
+
+The cleaner reads the input as HTML, but the browser reads the served file as X...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-03</span>
+                <a href="https://github.com/advisories/GHSA-99rq-75j6-5j9f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73846</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">CKAN MCP Server: Cache-key canonicalization collision enables cache confusion / poisoning</div>
+            <div class="card-body">## Summary
+
+The response cache derives its key from an ambiguous string serialization of the request parameters. `canonicalizeParams` joins sorted `${key}=${value}` pairs with `&` and does not escape `&`, `=`, or the `|` field separators used in `buildCacheKey`. Two **different** logical parameter sets can therefore serialize to the **same** key an...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-03</span>
+                <a href="https://github.com/advisories/GHSA-78x9-fhhx-v2g6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73844</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">CKAN MCP Server: Information disclosure via verbose error reflection</div>
+            <div class="card-body">## Summary
+
+Error paths reflect raw upstream response bodies and internal exception messages back to the caller instead of a sanitized, generic message. When the server is pointed at (or redirected/SSRF'd to) a host that returns a non-CKAN response, or when an internal exception occurs, the caller receives verbatim upstream content and internal det...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-03</span>
+                <a href="https://github.com/advisories/GHSA-6f9w-9hf2-5rg3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-73667</span>
@@ -524,82 +596,6 @@ The pathsec module was introduced as the fix for CVE-2024-39705 (arbitrary code 
             <div class="card-footer">
                 <span>Published: 2026-09-02</span>
                 <a href="https://github.com/advisories/GHSA-p3m8-78j2-g5p3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-63311</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">NLTK: SSRF Fail-Open in validate_network_url() via DNS Resolution Failure</div>
-            <div class="card-body">There is an SSRF vulnerability in NLTK 3.9.4's network URL validation. The validate_network_url() function in nltk/pathsec.py fails open when DNS resolution returns an error.
-
-The _resolve_hostname() helper at lines 193-234 catches OSError and ValueError during socket.getaddrinfo() and returns an empty list []. When this happens, the validation loo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-3gqm-fcw5-w839" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-83610</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization</div>
-            <div class="card-body">## Summary
-
-An `EntityReference` node can be created with an invalid, attacker-controlled name through `Document.createEntityReference(name)`. When this node is serialized directly with:
-
-```js
-serializer.serializeToString(ref, { requireWellFormed: true })
-```
-
-the invalid `nodeName` is emitted into the serialized XML fragment without validation or...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-6gmq-8vp8-gcm6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-76098</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Mistune: Denial of Service — RecursionError via Excessive Emphasis Markers in Markdown</div>
-            <div class="card-body">## Summary
-Mistune v3.3.2 is vulnerable to a Denial of Service (DoS) attack via uncontrolled recursion in the HTML rendering of deeply-nested emphasis tokens. By submitting Markdown containing approximately 1,000 consecutive asterisk characters, an attacker causes the Python process to crash with RecursionError.
-
-## Details
-The InlineParser's _proc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-6m44-fpc8-c3rq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-16732</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">fastify vulnerable to X-Forwarded-* spoofing under trustProxy hop-count</div>
-            <div class="card-body">## Impact
-
-The fix for [CVE-2026-3635](https://www.cve.org/CVERecord?id=CVE-2026-3635) ([GHSA-444r-cwp2-x5xf](https://github.com/fastify/fastify/security/advisories/GHSA-444r-cwp2-x5xf)) added a `proxyFn(socket.remoteAddress, 0)` guard on the `X-Forwarded-*` reads in `request.host`, `request.protocol`, `request.hostname`, `request.ip`, and `request...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-02</span>
-                <a href="https://github.com/advisories/GHSA-3m5p-2c4r-xxw2" target="_blank">Full Report →</a>
             </div>
         </div>
         
