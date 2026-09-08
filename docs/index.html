@@ -68,10 +68,52 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-08 10:09 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-08 15:27 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-65915</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">NLTK: FileSystemPathPointer.open() sandbox check is dead code — arbitrary file read via file:// protocol</div>
+            <div class="card-body">### Summary
+
+There's a logic bug in `FileSystemPathPointer.open()` inside `nltk/data.py`
+that makes the sandbox check permanently inert. The guard condition is always
+`False` — meaning any file the process can read is accessible by passing a
+`file://` URL to `nltk.data.load()`.
+
+---
+
+### Details
+
+In `nltk/data.py`, `FileSystemPathPointer.open()` wa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-08</span>
+                <a href="https://github.com/advisories/GHSA-72r2-7mfr-5xr9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-70626</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 6.2
+                </span>
+            </div>
+            <div class="card-title">NLTK: Symlink escape in CorpusReader allows arbitrary local file read outside the corpus root</div>
+            <div class="card-body">### Summary
+`nltk.corpus.reader.api.CorpusReader.open()` can be used to read files outside the intended corpus root via a symlink placed inside that root. Although NLTK blocks absolute paths and `..` traversal, the current boundary check is only lexical and does not account for symlink resolution. This leads to an arbitrary local file read / filesy...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-08</span>
+                <a href="https://github.com/advisories/GHSA-r6gq-whwq-mvg9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-7q9c-hpx7-9cwm</span>
@@ -594,44 +636,6 @@ This happens before the configured Apple/Google/etc trust anchor (which is co...
             <div class="card-footer">
                 <span>Published: 2026-09-03</span>
                 <a href="https://github.com/advisories/GHSA-5fhr-f75j-8wr9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-72801</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">SiYuan: Encrypted-notebook key-derivation material and wrapped notebook keys disclosed to anonymous readers, enabling offline master-password cracking</div>
-            <div class="card-body">**CVE:** This vulnerability corresponds to [CVE-2026-72801](https://nvd.nist.gov/vuln/detail/CVE-2026-72801).
-
-### Summary
-
-Two `CheckAuth`-only endpoints disclose the complete offline attack material for the encrypted-notebook master password, plus the wrapped per-notebook key needed to use it. Both are reachable by the publish `RoleReader` token ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-03</span>
-                <a href="https://github.com/advisories/GHSA-8x84-r2ff-h8pq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-72802</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">SiYuan: Absolute filesystem path and OS username disclosure via resolveAssetPath</div>
-            <div class="card-body">**CVE:** This vulnerability corresponds to [CVE-2026-72802](https://nvd.nist.gov/vuln/detail/CVE-2026-72802).
-
-### Summary
-
-`POST /api/asset/resolveAssetPath` returns the resolved **absolute** filesystem path of an asset, unmodified. The route is `CheckAuth`-only, so it is reachable by the publish `RoleReader` token and by the anonymous account whe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-03</span>
-                <a href="https://github.com/advisories/GHSA-jv8v-xq2h-657v" target="_blank">Full Report →</a>
             </div>
         </div>
         
