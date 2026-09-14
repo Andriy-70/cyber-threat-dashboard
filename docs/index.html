@@ -68,10 +68,57 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-14 17:06 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-14 21:05 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59178</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">ESPHome Device Builder: Renamed auth env vars silently disable dashboard authentication on upgrade</div>
+            <div class="card-body">## Summary
+
+The dashboard reads its authentication credentials from `$ESPHOME_USERNAME` and `$ESPHOME_PASSWORD`. Earlier versions, and the legacy `esphome` dashboard, read the bare `$USERNAME` and `$PASSWORD` instead. When the env vars were renamed the bare names were dropped with no fallback, so an operator who had protected their dashboard with `...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-14</span>
+                <a href="https://github.com/advisories/GHSA-rrxg-g2pf-6hh4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-2xmm-m4wv-3fjh</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.9
+                </span>
+            </div>
+            <div class="card-title">October CMS: Incomplete Scheme Validation in Image Resizer</div>
+            <div class="card-body">The image resizer classified external sources by testing whether the source string began with the substring `http`, and the string-source branch in `ResizeImageItem::fromObject()` accepted any value containing `://` as a URL. As a result, non-http(s) PHP stream wrappers such as `phar://`, `file://` and `ftp://` could be stored in the resizer cache ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-14</span>
+                <a href="https://github.com/advisories/GHSA-2xmm-m4wv-3fjh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-49400</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.3
+                </span>
+            </div>
+            <div class="card-title">October CMS: PHP Object Injection via Backend Widget Session Storage</div>
+            <div class="card-body">The backend `SessionMaker` trait stored widget session state as `base64(serialize(...))` and consumed it with `unserialize()` without an `allowed_classes` restriction. Any code path that could write to a `widget.*` session key with attacker-controlled bytes could trigger PHP object injection the next time the widget read its session state, allowing...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-14</span>
+                <a href="https://github.com/advisories/GHSA-2ff2-mx52-q8wp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-46696</span>
@@ -554,59 +601,6 @@ With `-l/--links`, rclone's local backend recreates a source `.rclonelink` objec
             <div class="card-footer">
                 <span>Published: 2026-09-10</span>
                 <a href="https://github.com/advisories/GHSA-f8g7-2xjc-7mfh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88015</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">rclone local: crafted Range request against a translated symlink panics (DoS)</div>
-            <div class="card-body">### Summary
-When `backend/local` is used with `--links`/`-l` (or the `links=true` config option), each symlink is exposed as an rclone object whose content is the target path string, suffixed `.rclonelink`. `Object.Open()` decodes an incoming `fs.RangeOption` via `Decode(o.Size())`, then for a translated-symlink object passes the decoded `offset` s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-p6m2-r3w9-mpxw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88018</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">rclone serve s3: --auth-proxy without --auth-key authenticates nobody - full SigV4 signature bypass</div>
-            <div class="card-body">### Summary
-`rclone serve s3`'s handler chain, when `--auth-proxy` is configured, is (outermost first): `authPairMiddleware` -> `proxyAuthMiddleware` -> gofakes3's own SigV4-verifying handler.
-
-`authPairMiddleware` parses the accessKeyID straight out of the incoming request's own `Authorization` header (entirely client-controlled) and registers `{a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-xwwr-4h3p-r22c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88044</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">rclone: RC per-server auth-proxy bypass</div>
-            <div class="card-body">## Summary
-
-`serve/start` accepts protocol options in a per-server `proxyOpt` object. The FTP and S3 RC adapters parse that object and pass it to their server constructors, but the constructors decide whether proxy authentication is enabled by checking the process-global `proxy.Opt.AuthProxy` instead of the supplied `proxyOpt.AuthProxy`.
-
-When the ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-p569-5gjg-9cmj" target="_blank">Full Report →</a>
             </div>
         </div>
         
