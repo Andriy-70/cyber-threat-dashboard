@@ -68,10 +68,307 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-15 15:46 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-15 20:30 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-88975</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE</div>
+            <div class="card-body">### Summary
+An unauthenticated peer can make Ember's HTTP/2 read loop hold 16 MiB of a single frame in memory on a connection where Ember advertised a 16 KiB limit. The declared length is readable from the frame's first 9 bytes, but it is not compared against SETTINGS_MAX_FRAME_SIZE until the whole payload has been read into a contiguous buffer. Th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-gq9p-f254-h286" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61544</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">libp2p-quic: Remote panic via certificate expiry race during QUIC handshake</div>
+            <div class="card-body">### Summary
+
+`libp2p-quic` can panic on an inbound QUIC handshake if a malicious peer presents a valid, short lived libp2p TLS certificate and delays the final TLS 1.3 handshake fragment until the certificate expires.
+
+This is remotely reachable by a network peer and can crash applications exposing a libp2p QUIC listener.
+
+### Details
+During the TL...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-5hq8-qhww-jm7q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69201</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Http4s: ResourceService and Webjar Service path escape via percent-encoded separators</div>
+            <div class="card-body">The static content handlers `ResourceService` and `WebjarService` URL decode each path segment and then reject only segments that are exactly `""`, `"."`, or `".."`.  A percent-encoded separator (`%2F`) lets an attacker smuggle a `../` segment past that filter and escape the configured base, reading resources that should not be public.
+
+On Windows,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-crq5-92j2-j7wv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69218</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Http4s Ember HTTP/2: unbounded continuation frame accumulation</div>
+            <div class="card-body">When Ember receives an HTTP/2 `HEADERS` or `PUSH_PROMISE` frame without the `END_HEADERS` flag, it buffers the header block fragment and waits for subsequent `CONTINUATION` frames.  These accumulate unbounded until the connection closes. 
+
+### Impact
+
+A remote, unauthenticated peer can exhaust the heap on any Ember endpoint that has HTTP/2 enabled:...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-cp4q-fqw9-4hf6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69216</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Http4s: Ember chunk parser lenience (TE.TE request smuggling)</div>
+            <div class="card-body">## Summary
+
+Ember's chunk decoder parses the size token leniently: it strips leading and trailing whitespace and accepts a leading `+` or `-` sign.  RFC9112 §7.1 defines `chunk-size = 1*HEXDIG`.  An intermediary that parses the chunk boundary differently (or rejects it) will disagree with Ember on request framing, enabling HTTP request smuggling (T...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-jrpm-956j-96jg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69215</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">Http4s: CookieJar middleware matches by substring, leaking cookies cross-origin</div>
+            <div class="card-body">The `CookieJar` client middleware decides whether to attach a cookie to an outgoing request using an unanchored substring test on the host and path, instead of the domain match specified by RFC6265 5.1.3.  A cookie stored for `example.com` is therefore sent to any host whose name merely contains `example.com` (e.g. `evilexample.com`), leaking poten...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-grh8-3p95-f9rr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69214</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">Http4s: CookieJar middleware accepts arbitrary Set-Cookie domain</div>
+            <div class="card-body">When processing a `Set-Cookie` from a response, the `CookieJar` client middleware trusts the server-supplied `Domain` attribute verbatim, with no check that it domain-matches the host that sent the cookie (RFC6265 §5.3 step 6) and no public suffix check.  A malicious or compromised server can therefore plant a cookie for any domain in the cookie ja...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-wv64-j4fq-5f9x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69213</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Http4s Ember HTTP/2 has an unbounded outbound frame queue</div>
+            <div class="card-body">Ember's HTTP/2 connection serializes all outgoing frames through a single unbounded queue drained by one writer fiber (`writeLoop`).  When the write side stalls, any frames the connection keeps producing accumulate in that queue without limit.  The peer can drive this cheaply because the connection emits a control frame in response to inbound frame...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-8f3q-3jmv-7prw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69208</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Http4s: DigestAuth nonce map grows unbounded</div>
+            <div class="card-body">The `DigestAuth` server middleware's stale-nonce cleanup uses an inverted comparison: it removes *fresh* nonces and stops at the first *stale* one.  Because a new nonce is created for every unauthenticated challenge, an attacker can drive the nonce map to grow without bound until the JVM runs out of heap.
+
+## Impact
+
+Unauthenticated remote denial o...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-fm4g-76c9-7w69" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69206</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">Http4s: DigestAuth allows replay of captured requests</div>
+            <div class="card-body">The `DigestAuth` replay defence stores `lastNc + 1` rather than the nonce-count (`nc`) value it just accepted. When a legitimate client sends non-contiguous `nc` values (parallel or retried requests, as browsers do), the server's counter lags behind the highest `nc` seen, and a captured `Authorization` header can be replayed multiple times.
+
+## Imp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-9xww-74xv-gjfp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69205</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">Http4s Ember Transfer-Encoding value parsing (TE.CL / TE.0 request smuggling)</div>
+            <div class="card-body">## Summary
+
+Ember's HTTP/1.1 header parser matches the `Transfer-Encoding` header value
+with a case-sensitive substring test (`hValue.contains("chunked")`). RFC
+9112 §7 requires transfer-coding names to be compared case-insensitively. A
+request carrying `Transfer-Encoding: Chunked` (capital C) is therefore not
+recognised as chunked, and Ember falls...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-9998-894r-fwvr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69204</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Http4s Ember accepts Transfer-Encoding combined with Content-Length (CL.TE request smuggling)</div>
+            <div class="card-body">## Summary
+
+Ember's HTTP/1.1 request parser does not reject a message that carries both a
+`Transfer-Encoding` and a `Content-Length` header. RFC 9112 §6.1 requires a
+server to treat such a message as a framing error and close the connection.
+An intermediary that follows the RFC's CL-strip-and-forward path (or that
+prioritises `Content-Length`) will...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-8h4c-x2wg-6xp8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69203</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Http4s Ember HTTP/2 does not enforce SETTINGS_MAX_CONCURRENT_STREAMS</div>
+            <div class="card-body">An ember server with HTTP/2 enabled (`.withHttp2`) does not enforce `SETTINGS_MAX_CONCURRENT_STREAMS` on streams opened by the peer.  A single unauthenticated connection can open an unbounded number of concurrent streams, each of which allocates per-stream server state that is never released, exhausting the heap.
+
+## Impact
+
+Unauthenticated remote ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-9vwc-pc8p-253q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-69202</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Http4s Ember HTTP/2: unbounded inbound body buffering</div>
+            <div class="card-body">Ember's HTTP/2 stack replenishes the inbound flow-control window based on bytes
+received off the wire, not bytes consumed by the application.  Received DATA is buffered in an unbounded per-stream channel.  Flow control therefore
+provides no backpressure: a peer can stream a large or unbounded body faster than the application drains it and the conne...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-6m4x-pp6q-5jmm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-rf68-8gjr-36q7</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Nezha: OAuth2 redirect_uri Host header injection regression when dashboard_host is empty</div>
+            <div class="card-body">## Summary
+
+Nezha v2.2.3 regresses the GHSA-9rc6-8cjv-rcvx host header injection fix for deployments where the new `dashboard_host` setting is empty. In that configuration, `/api/v1/oauth2/{provider}` again reflects the request `Host` header into the OAuth2 `redirect_uri` sent to the identity provider, even if `install_host` is configured.
+
+## Impa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-rf68-8gjr-36q7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-32599</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Netmaker has a boolean‑based SQL Injection</div>
+            <div class="card-body"># SQL Injection in Netmaker SQLite Database Backend
+
+## Summary
+
+The `sqliteDeleteRecord` function in Netmaker's database layer constructs SQL `DELETE` statements using direct string concatenation of user-supplied input. This allows an authenticated attacker to perform **boolean-based SQL injection**.
+
+---
+
+## Details
+
+The endpoint:
+
+
+DELETE /api/d...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-r8cr-4f9w-7r75" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-76081</span>
@@ -318,290 +615,6 @@ A lack of authorization control was discovered on both the per-record delete act
             <div class="card-footer">
                 <span>Published: 2026-09-11</span>
                 <a href="https://github.com/advisories/GHSA-2cg9-97gq-9mqp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56830</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Shopper: Media sub-form store() still lacks authorization (Incomplete fix for GHSA-h4mp-g9c6-xwph)</div>
-            <div class="card-body">## Title
-
-Missing authorization on Media sub-form store action allows unpermissioned product media update
-
-## Description
-
-A lack of authorization control on the `store()` method was found in `packages/admin/src/Livewire/Components/Products/Form/Media.php`. The security fix released for GHSA-h4mp-g9c6-xwph added `#[Locked]` to the `$product` proper...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-99h5-jhh7-v3r3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56829</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Shopper: Unauthorized inventory stock manipulation via unlocked variant property in VariantStock component</div>
-            <div class="card-body">## Title
-
-Unauthorized inventory stock manipulation via unlocked variant property in VariantStock component
-
-## Description
-
-A lack of authorization control was discovered in the `stockAction()` method in `packages/admin/src/Livewire/Components/Products/VariantStock.php`. The component exposes a `public $variant` property without the `#[Locked]` at...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-g3f9-g5vj-p62f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56828</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">Shopper: privilege escalation via improper Livewire admin component authorization</div>
-            <div class="card-body">## Summary
-
-Three Livewire admin components in `shopper/framework` (latest master at commit `fcd0c59`, released as v2.8.0) gate state-mutating actions on the read-only `view_users` permission. This is the same class as the issue Shopper fixed in v2.8.0 / PR #511 / [GHSA-f946-9qp6-vgch](https://github.com/shopperlabs/shopper/security/advisories/GHSA...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-j328-xmgp-j4q3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56826</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Shopping privilege escalation through missing authorization in Settings components</div>
-            <div class="card-body">## Summary
-
-Four Livewire components in the Settings area expose destructive Filament actions (`delete` / `edit`) that perform **no server-side authorization**. Any authenticated user who can reach the Settings pages — i.e. holding only the coarse `access_setting` permission, **without** being an admin and **without** any `delete_*`/`edit_*` permis...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-f7h9-qv4x-9x57" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56831</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Shopper: Negative discount values accepted and propagated through order calculation pipeline</div>
-            <div class="card-body">## Summary
-
-The Shopper Framework discount management functionality accepts negative discount values without server-side validation.
-
-It was confirmed that negative fixed-amount discounts can be created through the administrative interface, persisted to the database, and subsequently processed by the cart/order calculation pipeline.
-
-The applicatio...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-5vf4-452p-jjhf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56827</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Shopper: Authorization bypass in Filament bulk actions allows browse-only staff to mass-delete attributes/tags and mass-toggle visibility of brands/categories/suppliers</div>
-            <div class="card-body">## Summary
-
-Five Filament `groupedBulkActions` blocks across the Shopper admin Livewire pages omit the `->authorize(...)` permission gate, while their per-record sibling actions (and other Shopper Index pages such as `Pages/Settings/Currencies.php`, `Pages/Reviews/Index.php`, `Pages/Collection/Index.php`, and `Pages/Discount/Index.php`) correctly c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-243p-f3cv-c5wh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-11745</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Central Dogma: SSH host-key verification permanently disabled in Git mirror (SshGitMirror)</div>
-            <div class="card-body"># Vulnerability
-
-Central Dogma's Git mirror SSH client installs an Apache MINA SSHD `ServerKeyVerifier` lambda that returns `true` unconditionally for every outbound SSH connection used by `git+ssh://` mirrors. The accompanying lines disable the `known_hosts` and `~/.ssh/config` fallbacks, and a repo-wide search confirms that no host-key pinning me...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-vjfw-cpmh-xwv3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-11746</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Central Dogma: Hard-coded ZooKeeper replication secret 'ch4n63m3' with silent fallback enables cluster takeover</div>
-            <div class="card-body">## Vulnerability
-
-`ZooKeeperReplicationConfig.secret()` silently substitutes the hard-coded constant `"ch4n63m3"` (leetspeak for "change me") whenever the operator omits `replication.secret`. The same secret is wired into both the **client-facing SASL context** and the **quorum/learner SASL contexts** of the embedded ZooKeeper. The constant is in O...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-2j95-gqxf-v3vg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-11748</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Central Dogma: LDAP injection in SearchFirstActiveDirectoryRealm enables authentication confusion and audit log evasion</div>
-            <div class="card-body"># Vulnerability
-
-`SearchFirstActiveDirectoryRealm.findUserDn()` substitutes the user-supplied username from the login form into an LDAP search filter template (default `cn={0}`) **without escaping RFC 4515 filter metacharacters** (`*`, `(`, `)`, `\`, NUL). Combined with `SearchControls.setCountLimit(1)` on the same call site, this allows three dist...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-98q5-5qh2-7w75" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59971</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">MySQL MCP Server: Missing Origin/Host Validation in SSE Transport Enables Unauthenticated SQL Execution (DNS Rebinding / Direct Exposure)</div>
-            <div class="card-body">## Summary
-
-In SSE/HTTP transport mode, `mysql_mcp_server` constructs `SseServerTransport` without passing `security_settings`. As a result, the MCP Python SDK's DNS-rebinding protection (Origin/Host header validation) is disabled; the Starlette application has no CORS or TrustedHost middleware; and the service binds to `0.0.0.0` by default with no...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-rqfv-2mw9-78g2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88006</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Open WebUI: Users denied by the OAuth role policy can still sign in via token exchange</div>
-            <div class="card-body">## Summary
-Open WebUI's OAuth token exchange endpoint issues a session for a provider access token without running the OAuth role management that the normal OAuth login callback runs. A user whose provider roles the login callback would refuse, or would demote, could still obtain a working session at their existing role through this endpoint.
-
-## P...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-wvm9-9g5j-623f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88008</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Traefik: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') and Incorrect Authorization</div>
-            <div class="card-body">## Summary
-
-There is a high-severity request-smuggling vulnerability in Traefik's handling of the HTTP/1.1 `Upgrade` mechanism. Since Traefik moved to unencrypted HTTP/2 with prior knowledge (Go 1.24), a client-initiated `Upgrade: h2c` request header and its connection-specific `HTTP2-Settings` header were forwarded to the backend. A backend that h...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-w4v4-9rw7-5326" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88004</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Traefik entrypoint header-name sanitization bypassed via request trailers</div>
-            <div class="card-body">## Summary
-
-Traefik's entrypoint defenses against spoofed trusted header names — `aliasHeadersStrategy` / `underscoreHeadersStrategy` in `delete` or `reject` mode, and the default `forwardedHeaders` stripping of client-supplied `X-Forwarded-*` — scan `req.Header` only and never `req.Trailer`. An unauthenticated client can therefore smuggle a saniti...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-v67p-phpq-fc8x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88007</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Traefik HTTP/3 Backend NTLM Connection Reuse</div>
-            <div class="card-body">## Summary
-
-Traefik's HTTP/3 request path did not initialize the connection-scoped backend transport holder that isolates connection-bound NTLM and Negotiate (Kerberos) authentication on the HTTP/1.1 and HTTP/2 paths. The HTTP/3 entrypoint reuses the HTTPS handler chain and reaches the same backend round-tripper, but its `ConnContext` never called ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-qqjf-53cj-pwvv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88009</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Traefik: Rootless HTTP/1 request-target routes as "/" but is forwarded verbatim, bypassing path-scoped routing, middleware guards and access logging</div>
-            <div class="card-body">## Summary
-
-Traefik accepts an HTTP/1.x request whose request-target is in rootless / opaque form (for example `GET http:http://internal-vhost/admin HTTP/1.1`). Go parses this into `URL.Opaque` with an empty `URL.Path`, so Traefik evaluates all routing, path-sanitization, middleware and access-log decisions against a path that normalizes to `/`, wh...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-f52w-8j3h-j724" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-88014</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.3
-                </span>
-            </div>
-            <div class="card-title">rclone archive/zip: Zip Slip via unsanitized zip entry names lets a malicious archive escape its own namespace</div>
-            <div class="card-body">### Summary
-`backend/archive` mounts a zip file as a browsable, syncable rclone `Fs` (e.g. `rclone lsf :zip:downloaded.zip` or `rclone copy :zip:downloaded.zip dest:`). Go's `archive/zip` package does not sanitize `file.Name` - it is taken verbatim from the untrusted zip's central directory. `readZip()` in `backend/archive/zip/zip.go` applies `path...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-10</span>
-                <a href="https://github.com/advisories/GHSA-66hp-wgxq-6f5q" target="_blank">Full Report →</a>
             </div>
         </div>
         
