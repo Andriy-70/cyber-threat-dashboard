@@ -68,10 +68,112 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-16 10:21 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-16 15:38 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-59953</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">LMdeploy has Remote Code Execution by Pickle Deserialization via zmq_rpc.call_and_response() in InterLM/lmdeploy</div>
+            <div class="card-body">### Description
+
+The LMdeploy implements an rpc server (AsyncRPCServer in zmq_rpc.py) for supporting the RPC communications. In its core functionality call_and_response(), I found it will directly use the pickles.loads() to deserialize the received messages without any sanitization, hence resulting in a remote code execution vulnerability by this R...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-5h8j-6crg-7rmw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61595</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">djust: Multi-tenant isolation fails open on the WebSocket/SSE path, disclosing other tenants' data</div>
+            <div class="card-body">### Impact
+`djust.tenants` isolation was enforced only on the HTTP path. The current tenant was stored in `threading.local()` and set exclusively by the HTTP-only `TenantMiddleware`, so on the live (WebSocket/SSE) path `get_current_tenant()` was always `None` during mount and every event handler — and the tenant-aware `QuerySet` manager failed **OP...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-3492-cvg7-9mr2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61598</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">djust: Client mass-assignment of arbitrary view attributes via the default dj-model update_model handler</div>
+            <div class="card-body">### Impact
+`djust.mixins.model_binding.ModelBindingMixin` provides a default `update_model` event handler and is part of the **LiveView base MRO**, so every LiveView exposes it. It `setattr`s a view attribute whose **name is client-supplied** (`field`), gated only by: reject `_`-prefixed names; reject a **14-entry denylist** of framework internals ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-cc7c-9jff-58wj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-81192</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.0
+                </span>
+            </div>
+            <div class="card-title">OpenTelemetry.Resources.Host vulnerable to arbitrary code execution via local PATH hijacking on macOS</div>
+            <div class="card-body">### Summary
+
+The `OpenTelemetry.Resources.Host` NuGet package is affected by an untrusted search path vulnerability on macOS. The `host.id` resource attribute detector launches the `sh` and `ioreg` executables by bare name rather than by absolute path, so both are resolved
+through the `PATH` environment variable.
+
+A local attacker who is less privi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-v8pv-4842-x354" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61590</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">djust's observability endpoints are network-exposed: the localhost gate is an opt-in middleware the docs omit, and the views enforce only DEBUG</div>
+            <div class="card-body">### Impact
+djust's observability endpoints expose live view/session state and a remote method-invocation surface (`eval_handler`). The localhost restriction was an **opt-in middleware that the documented setup omits**; the views themselves enforced only `DEBUG`. In the misconfigured-but-documented scenario (DEBUG on, middleware not installed) a non...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-8g2f-g3gq-5rjv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61560</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">@zereight/mcp-gitlab: Unauthenticated arbitrary file read via `upload_markdown` enables PAT exfiltration and full account takeover</div>
+            <div class="card-body">### Summary
+
+The SSE transport mode (`SSE=true`) exposes all MCP tools without any authentication. The `upload_markdown` tool reads arbitrary files from the server's local filesystem via an unsanitized `file_path` parameter and uploads them to a GitLab project. Combined, any unauthenticated network-reachable attacker can read `/proc/self/environ` t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-cv3r-c5h8-f4g5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-61559</span>
@@ -514,106 +616,6 @@ The dashboard reads its authentication credentials from `$ESPHOME_USERNAME` and 
             <div class="card-footer">
                 <span>Published: 2026-09-14</span>
                 <a href="https://github.com/advisories/GHSA-2xmm-m4wv-3fjh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-49400</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.3
-                </span>
-            </div>
-            <div class="card-title">October CMS: PHP Object Injection via Backend Widget Session Storage</div>
-            <div class="card-body">The backend `SessionMaker` trait stored widget session state as `base64(serialize(...))` and consumed it with `unserialize()` without an `allowed_classes` restriction. Any code path that could write to a `widget.*` session key with attacker-controlled bytes could trigger PHP object injection the next time the widget read its session state, allowing...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-14</span>
-                <a href="https://github.com/advisories/GHSA-2ff2-mx52-q8wp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-46696</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.3
-                </span>
-            </div>
-            <div class="card-title">October CMS: Safe Mode Sandbox Bypass via Session Store and Forwarded Builder Calls</div>
-            <div class="card-body">A vulnerability was identified in the Twig sandbox security policy that allowed a chained bypass when `cms.safe_mode` is enabled. The Laravel session store was exposed to Twig with unrestricted method access, and raw SQL methods reachable through Eloquent's `__call` forwarding were not blocked across the full builder chain. When combined, a backend...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-14</span>
-                <a href="https://github.com/advisories/GHSA-xv9m-fm3w-8w5x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56666</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title"> ZITADEL: Auto-linking by email: IdP-side email verification is not checked</div>
-            <div class="card-body">### Summary
-
-A flaw in the external identity provider handler allows unauthorized account linking to occur under specific administrative configurations. When auto-linking by email is enabled, ZITADEL checks that the local user's email is verified, but does not explicitly cross-check whether the incoming external identity provider (IdP) also verifie...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-992q-9gwp-7r79" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61534</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.1
-                </span>
-            </div>
-            <div class="card-title">yayson: Prototype pollution in Store/LegacyStore deserialization</div>
-            <div class="card-body"># Summary
-`Store`/`LegacyStore` key internal lookup tables by the `type`, `id`, and relationship names from a JSON:API document. Because these were plain objects, a document with `type: "__proto__"` writes onto `Object.prototype`, polluting every object in the process.
-
-# Severity
-Suggested CVSS v3.1 `AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H` (8.1). The...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-325j-mg25-8q58" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59148</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secret theft</div>
-            <div class="card-body">## Summary
-
-Mockoon's admin API ([`commons-server/src/libs/server/admin-api.ts`](https://github.com/mockoon/mockoon/blob/4375a8f/packages/commons-server/src/libs/server/admin-api.ts)) is mounted on the same Express listener as the user-defined mock routes, **enabled by default** in every shipped runtime (commons-server, CLI, serverless), serves **`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-rqx4-3f6q-3x2v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59149</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">@Mockoon/commons-server: Path traversal in templated `filePath` lets a request escape the served directory (prefix-only base check)</div>
-            <div class="card-body">## Summary
-
-A `FILE` response whose `filePath` embeds request data (e.g. `"/srv/public/{{queryParam 'name'}}"`, the documented way to let the client pick a file) is confined by `getSafeFilePath` with `resolvedPath.startsWith(staticBaseDir)`. That prefix test has no path-separator boundary, so a `../`-escaped path whose absolute form string-prefixes...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-8wqc-v2q8-vff2" target="_blank">Full Report →</a>
             </div>
         </div>
         
