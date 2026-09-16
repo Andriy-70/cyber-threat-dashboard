@@ -68,10 +68,88 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-15 20:30 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-16 01:54 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61559</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.6
+                </span>
+            </div>
+            <div class="card-title">@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery</div>
+            <div class="card-body"># Server-Side Request Forgery via X-GitLab-API-URL Header Allows Credential Theft
+
+## Affected
+
+- **Repository:** `zereight/gitlab-mcp`
+- **Affected versions:** All versions through commit `74a8c83`
+- **Patched versions:** None at time of report
+
+## Severity
+
+High. CVSS v3.1 8.5 (`AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N`)
+
+## Description
+
+When the envi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-2h44-8472-frjj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61568</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.6
+                </span>
+            </div>
+            <div class="card-title">@zereight/mcp-gitlab: DNS rebinding reaches local Streamable HTTP MCP transport</div>
+            <div class="card-body">`@zereight/mcp-gitlab` exposes its Streamable HTTP MCP endpoint without an effective Host or Origin allowlist. A malicious web page can use DNS rebinding to route browser requests to a victim's local MCP listener while preserving an attacker-controlled `Host` and `Origin`. The server accepts those headers and reaches the MCP initialization path ins...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-vmp7-252j-cwp7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5648-rgj9-v224</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list bypass, unauthenticated transports, session-exhaustion DoS</div>
+            <div class="card-body">### Summary
+@zereight/mcp-gitlab exposes GitLab to an LLM agent while relying on read-only mode, a project allow-list, and transport auth as its safety controls. Five defects defeat those controls. Under the MCP threat model, tool-call arguments/content can be shaped by untrusted input (prompt injection) or a malicious client.
+
+Reviewed commit: 60a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-5648-rgj9-v224" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61554</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">emp3r0r has an unauthenticated HTTP Polling DoS</div>
+            <div class="card-body">### Summary
+The `http_poll` C2 transport accepts attacker-controlled HTTP polling sessions before CBOR `MsgAuth` authentication is completed. A remote unauthenticated attacker can create arbitrary polling sessions and send request bodies that are forwarded into the C2 dispatch path. This can consume server resources and trigger pre-auth C2 processi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-15</span>
+                <a href="https://github.com/advisories/GHSA-4595-rvpx-4q34" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-88975</span>
@@ -536,85 +614,6 @@ A `FILE` response whose `filePath` embeds request data (e.g. `"/srv/public/{{que
             <div class="card-footer">
                 <span>Published: 2026-09-11</span>
                 <a href="https://github.com/advisories/GHSA-8wqc-v2q8-vff2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59973</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.5
-                </span>
-            </div>
-            <div class="card-title">FrontMCP and mcp-from-openapi have bypass of OpenAPI external $ref SSRF fix</div>
-            <div class="card-body">## Summary
-
-The published fix for GHSA-v6ph-xcq9-qxxj / CVE-2026-39885 added a direct hostname denylist for OpenAPI external `$ref` dereferencing, but the latest patched dependency `mcp-from-openapi` 2.3.0 still makes backend-origin requests to loopback when the target is reached through hostname resolution, redirects, or IPv4-mapped IPv6 syntax.
-
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-65h7-9wrw-629c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-59151</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.6
-                </span>
-            </div>
-            <div class="card-title">Prowler: SAML Domain Claiming Enables Cross-Tenant Account Takeover</div>
-            <div class="card-body">## SAML Tenant Binding Enables Cross-Tenant Account Takeover
-
-### Summary
-
-Prowler's SAML authentication flow trusted the email domain asserted in a SAMLResponse when deciding which tenant should receive the final token. A malicious tenant with its own SAML configuration and a self-controlled IdP could complete a valid SAML flow for its own configu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-h8m9-jgf8-vwvp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56665</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.2
-                </span>
-            </div>
-            <div class="card-title">ZITADEL: Missing Token Expiration (`exp`) Validation in JWT IdP Provider</div>
-            <div class="card-body">### Summary
-
-A token lifecycle validation vulnerability was discovered in ZITADEL's external JWT Identity Provider (IdP) implementation
-Specifically, within the validation pipeline, if an incoming JWT omits the `exp` claim entirely, the expiration block is silently skipped rather than rejected. The token is treated as valid forever.
-
-Per the OIDC C...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-v77h-2w3m-94hx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56825</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Shopper: Missing authorization on product removal actions in CollectionProducts component</div>
-            <div class="card-body">## Title
-
-Missing authorization on product removal actions in CollectionProducts component
-
-## Description
-
-A lack of authorization control was discovered on both the per-record delete action and the bulk delete action inside `packages/admin/src/Livewire/Components/Collection/CollectionProducts.php`. Neither the `Action::make('delete')` at line 73 ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-11</span>
-                <a href="https://github.com/advisories/GHSA-2cg9-97gq-9mqp" target="_blank">Full Report →</a>
             </div>
         </div>
         
