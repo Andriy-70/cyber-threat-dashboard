@@ -68,10 +68,284 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-16 20:30 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-17 01:58 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61709</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">OpenFGA: ListUsers returns a deliberately-excluded user when a `but not` exclusion under a type-bound wildcard is intersected (`and`) with another relation that also grants that user</div>
+            <div class="card-body">### Description
+
+In OpenFGA, the ListUsers API could incorrectly return a user who should have been excluded.
+
+
+### Preconditions
+
+This applies if all of the following are present:
+
+- The authorization model contains a relation defined as an intersection (and) where at least one operand is an exclusion of the form base but not excluded: e.g. `rel1:...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-g3pg-frfm-pr2m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58657</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">Grav: Stored CSS injection via Markdown image resize() bypasses prior media style sanitizers in Grav</div>
+            <div class="card-body">## Summary
+
+Grav 2.0.0-rc.9 and the current 2.0 branch still allow stored CSS injection through Markdown image media actions. The prior media hardening rejects direct `?style=` payloads and unsafe `attribute()` fallbacks, but the adjacent `resize()` action still writes caller-controlled values directly into `styleAttributes`.
+
+A publisher who can e...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-ffmg-hfvg-jhg9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63671</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">@nuxtjs/mdc's URL sanitizer misses SVG xlink:href and data:text/html, allowing XSS from untrusted markdown at the default configuration</div>
+            <div class="card-body">## Summary
+
+`@nuxtjs/mdc` renders untrusted markdown (including raw HTML) to a Vue component tree. Across two prior advisories it added a URL/attribute sanitizer to block dangerous links in that HTML: `validateProps` / `validateProp` and an `unsafeLinkPrefix` deny-list (`dist/runtime/parser/utils/props.js`). The sanitizer runs at parse time (`dist/...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-mxm6-v9r6-r94c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63128</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">RMCP: Unauthenticated permanent session-table leak in rmcp Streamable HTTP server transport leads to remote denial-of-service</div>
+            <div class="card-body">### Summary
+
+An unauthenticated remote attacker can leak one entry per HTTP request out of the in-memory session table of `LocalSessionManager` by sending a well-formed JSON-RPC `POST` that is *not* an `InitializeRequest`. The Streamable HTTP server's `handle_post` allocates the session **before** it validates the body, then early-returns on the va...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-9pj6-vhgr-3mwh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63127</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">RMCP: Missing Resource Field Validation in OAuth Protected Resource Metadata Discovery</div>
+            <div class="card-body">### Summary
+The `rmcp` library does not validate the `resource` parameter in OAuth Protected Resource metadata (RFC 9728), allowing a malicious MCP server to redirect OAuth flows to a legitimate authorization server and steal the resulting access tokens.
+
+### Details
+RFC 9728 specifies two MUST requirements for resource parameter validation:
+- Sect...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-33f5-2c5q-wgwj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61453</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Grav: XSS Blueprint Validation Bypass via Twig String Concatenation</div>
+            <div class="card-body">## Summary
+
+The XSS blueprint validator (`Security::detectXss()`) runs on the **raw page content before Twig processing**. An attacker can use Twig's string concatenation operator (`~`) to dynamically construct an event handler name at render time. The validator sees `{{ "on" ~ "error" }}` - a harmless Twig expression - and allows the content. Afte...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-2c4f-86xc-cr74" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-57173</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">vLLM: Unauthenticated audio decompression-bomb DoS in /v1/chat/completions</div>
+            <div class="card-body">### Summary
+The audio decode-duration guard (`max_duration_s`, env `VLLM_MAX_AUDIO_DECODE_DURATION_S`, default 600s) that protects against audio decompression-bomb DoS is wired into **only** the speech-to-text path (`/v1/audio/transcriptions`). The **chat** audio path (`/v1/chat/completions`, `input_audio` content parts) calls the same decoder with...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-hcwq-8wjf-3gcr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59193</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">Grav CMS — Improper Handling of Highly Compressed Data in Installer::unZip()</div>
+            <div class="card-body">### Summary
+An authenticated admin.super user can crash Grav or fill the disk by uploading a specially crafted ZIP archive through the Direct Install tool. The method `Installer::unZip()` calls `ZipArchive::extractTo()` without any limit on uncompressed size, entry count, or directory depth, enabling Zip Bomb (CWE-409), stack overflow (CWE-674), an...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-2vcx-h8p2-9pg9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61599</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">djust has an unauthenticated arbitrary module import via the WebSocket/SSE view-mount path</div>
+            <div class="card-body">### Impact
+The djust live transport resolves the LiveView to mount from a **client-supplied dotted path** by calling `__import__(module_path, ...)`. The module is imported — running its **top-level code (import side effects)** — *before* the framework checks that the resolved object is a `LiveView` subclass and *before* any per-view authentication....</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-7prp-2623-8g45" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61589</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.3
+                </span>
+            </div>
+            <div class="card-title">djust: WebSocket/runtime reconstructed request omits the client Host, causing host/subdomain TenantResolvers to misresolve the tenant on the live path</div>
+            <div class="card-body">### Impact
+The WebSocket `handle_mount` and `ViewRuntime._build_request` rebuild an `HttpRequest` via `RequestFactory().get(...)` with no `HTTP_HOST`, so `request.get_host()` defaulted to `"testserver"` on the live path. Host/subdomain/domain `TenantResolver`s then misresolved the tenant — `None` on the live path while the HTTP path resolved correc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-v9rj-xjfv-xj9r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61596</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">djust has broken object-level access control (IDOR)</div>
+            <div class="card-body">### Impact
+djust's per-object authorization (`get_object` + `has_object_permission`, ADR-017) was enforced on the WebSocket **mount** and **event** paths but **not** on three other render entry points: (a) the initial **HTTP GET** render, (b) **SPA `url_change`** navigation, and (c) `{% live_render %}` **embedded child** views. An authenticated use...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-c7c5-5j6r-q957" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61588</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">djust's Django model serialization has no sensitive-field denylist: password hashes, privilege flags, and PII on a public view attribute are sent to the client</div>
+            <div class="card-body">### Impact
+When a Django `Model` instance is assigned to a **public** view attribute, djust serialized it to the client with **no sensitive-field denylist** — sending fields such as `password` (the hash), privilege flags (e.g. `is_staff` / `is_superuser`), tokens, and other PII to the browser. Because exposing model objects to templates is a normal...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-pvg3-6q9j-mj3x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61594</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.1
+                </span>
+            </div>
+            <div class="card-title">djust has an authorization bypass on the WebSocket/SSE mount path</div>
+            <div class="card-body">### Impact
+The live (WebSocket) transport authorizes a mount via `check_view_auth`, not Django's `View.dispatch()` chain. As a result, standard Django authorization — `LoginRequiredMixin`, `PermissionRequiredMixin`, `UserPassesTestMixin`, `@method_decorator(login_required, name="dispatch")`, and custom `dispatch()` guards — **and** the djust admin ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-xhhm-f6hp-2qwj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61591</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">djust: Unsigned client state snapshot is restored as trusted view state (privilege escalation / state injection)</div>
+            <div class="card-body">### Impact
+For views that opt into state snapshots, the snapshot `state_json` embedded in the client page was restored on reconnect as **trusted** view state with no integrity check. A client could edit the unsigned `state_json` in their page and return it in the reconnect mount frame to **inject arbitrary view attributes** — e.g. flip `is_admin` t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-c67v-vqrp-m5wj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61592</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">djust: SSE sessions are not bound to the authenticated user; the client-chosen session_id is the sole authorization capability (session hijack)</div>
+            <div class="card-body">### Impact
+SSE sessions were keyed solely by a **client-chosen** `session_id` with no binding to the authenticated user — a control the WebSocket transport has but that was dropped on SSE. An attacker who learns (or a victim who leaks) a `session_id` could connect to the message endpoint and dispatch event handlers that execute with the **victim's ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-f795-p5jw-j6g2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61597</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">djust is vulnerable to stored/reflected XSS via javascript: URLs in built-in component template tags</div>
+            <div class="card-body">### Impact
+Many djust built-in component template tags (`djust.components.templatetags.*`) render a developer/user-supplied URL into an `href` / `action` attribute, HTML-escaping it with `conditional_escape` but **never validating the URL scheme**. HTML escaping prevents attribute breakout but does not neutralize a `javascript:` URI (which needs no...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-16</span>
+                <a href="https://github.com/advisories/GHSA-4mf4-73j6-mvrw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-68904</span>
@@ -320,303 +594,6 @@ During the TL...</div>
             <div class="card-footer">
                 <span>Published: 2026-09-15</span>
                 <a href="https://github.com/advisories/GHSA-5hq8-qhww-jm7q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69201</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Http4s: ResourceService and Webjar Service path escape via percent-encoded separators</div>
-            <div class="card-body">The static content handlers `ResourceService` and `WebjarService` URL decode each path segment and then reject only segments that are exactly `""`, `"."`, or `".."`.  A percent-encoded separator (`%2F`) lets an attacker smuggle a `../` segment past that filter and escape the configured base, reading resources that should not be public.
-
-On Windows,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-crq5-92j2-j7wv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69218</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Http4s Ember HTTP/2: unbounded continuation frame accumulation</div>
-            <div class="card-body">When Ember receives an HTTP/2 `HEADERS` or `PUSH_PROMISE` frame without the `END_HEADERS` flag, it buffers the header block fragment and waits for subsequent `CONTINUATION` frames.  These accumulate unbounded until the connection closes. 
-
-### Impact
-
-A remote, unauthenticated peer can exhaust the heap on any Ember endpoint that has HTTP/2 enabled:...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-cp4q-fqw9-4hf6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69216</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Http4s: Ember chunk parser lenience (TE.TE request smuggling)</div>
-            <div class="card-body">## Summary
-
-Ember's chunk decoder parses the size token leniently: it strips leading and trailing whitespace and accepts a leading `+` or `-` sign.  RFC9112 §7.1 defines `chunk-size = 1*HEXDIG`.  An intermediary that parses the chunk boundary differently (or rejects it) will disagree with Ember on request framing, enabling HTTP request smuggling (T...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-jrpm-956j-96jg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69215</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Http4s: CookieJar middleware matches by substring, leaking cookies cross-origin</div>
-            <div class="card-body">The `CookieJar` client middleware decides whether to attach a cookie to an outgoing request using an unanchored substring test on the host and path, instead of the domain match specified by RFC6265 5.1.3.  A cookie stored for `example.com` is therefore sent to any host whose name merely contains `example.com` (e.g. `evilexample.com`), leaking poten...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-grh8-3p95-f9rr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69214</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Http4s: CookieJar middleware accepts arbitrary Set-Cookie domain</div>
-            <div class="card-body">When processing a `Set-Cookie` from a response, the `CookieJar` client middleware trusts the server-supplied `Domain` attribute verbatim, with no check that it domain-matches the host that sent the cookie (RFC6265 §5.3 step 6) and no public suffix check.  A malicious or compromised server can therefore plant a cookie for any domain in the cookie ja...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-wv64-j4fq-5f9x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69213</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Http4s Ember HTTP/2 has an unbounded outbound frame queue</div>
-            <div class="card-body">Ember's HTTP/2 connection serializes all outgoing frames through a single unbounded queue drained by one writer fiber (`writeLoop`).  When the write side stalls, any frames the connection keeps producing accumulate in that queue without limit.  The peer can drive this cheaply because the connection emits a control frame in response to inbound frame...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-8f3q-3jmv-7prw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69208</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Http4s: DigestAuth nonce map grows unbounded</div>
-            <div class="card-body">The `DigestAuth` server middleware's stale-nonce cleanup uses an inverted comparison: it removes *fresh* nonces and stops at the first *stale* one.  Because a new nonce is created for every unauthenticated challenge, an attacker can drive the nonce map to grow without bound until the JVM runs out of heap.
-
-## Impact
-
-Unauthenticated remote denial o...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-fm4g-76c9-7w69" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69206</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Http4s: DigestAuth allows replay of captured requests</div>
-            <div class="card-body">The `DigestAuth` replay defence stores `lastNc + 1` rather than the nonce-count (`nc`) value it just accepted. When a legitimate client sends non-contiguous `nc` values (parallel or retried requests, as browsers do), the server's counter lags behind the highest `nc` seen, and a captured `Authorization` header can be replayed multiple times.
-
-## Imp...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-9xww-74xv-gjfp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69205</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.7
-                </span>
-            </div>
-            <div class="card-title">Http4s Ember Transfer-Encoding value parsing (TE.CL / TE.0 request smuggling)</div>
-            <div class="card-body">## Summary
-
-Ember's HTTP/1.1 header parser matches the `Transfer-Encoding` header value
-with a case-sensitive substring test (`hValue.contains("chunked")`). RFC
-9112 §7 requires transfer-coding names to be compared case-insensitively. A
-request carrying `Transfer-Encoding: Chunked` (capital C) is therefore not
-recognised as chunked, and Ember falls...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-9998-894r-fwvr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69204</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Http4s Ember accepts Transfer-Encoding combined with Content-Length (CL.TE request smuggling)</div>
-            <div class="card-body">## Summary
-
-Ember's HTTP/1.1 request parser does not reject a message that carries both a
-`Transfer-Encoding` and a `Content-Length` header. RFC 9112 §6.1 requires a
-server to treat such a message as a framing error and close the connection.
-An intermediary that follows the RFC's CL-strip-and-forward path (or that
-prioritises `Content-Length`) will...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-8h4c-x2wg-6xp8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69203</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Http4s Ember HTTP/2 does not enforce SETTINGS_MAX_CONCURRENT_STREAMS</div>
-            <div class="card-body">An ember server with HTTP/2 enabled (`.withHttp2`) does not enforce `SETTINGS_MAX_CONCURRENT_STREAMS` on streams opened by the peer.  A single unauthenticated connection can open an unbounded number of concurrent streams, each of which allocates per-stream server state that is never released, exhausting the heap.
-
-## Impact
-
-Unauthenticated remote ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-9vwc-pc8p-253q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-69202</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Http4s Ember HTTP/2: unbounded inbound body buffering</div>
-            <div class="card-body">Ember's HTTP/2 stack replenishes the inbound flow-control window based on bytes
-received off the wire, not bytes consumed by the application.  Received DATA is buffered in an unbounded per-stream channel.  Flow control therefore
-provides no backpressure: a peer can stream a large or unbounded body faster than the application drains it and the conne...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-6m4x-pp6q-5jmm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-rf68-8gjr-36q7</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Nezha: OAuth2 redirect_uri Host header injection regression when dashboard_host is empty</div>
-            <div class="card-body">## Summary
-
-Nezha v2.2.3 regresses the GHSA-9rc6-8cjv-rcvx host header injection fix for deployments where the new `dashboard_host` setting is empty. In that configuration, `/api/v1/oauth2/{provider}` again reflects the request `Host` header into the OAuth2 `redirect_uri` sent to the identity provider, even if `install_host` is configured.
-
-## Impa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-rf68-8gjr-36q7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-32599</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Netmaker has a boolean‑based SQL Injection</div>
-            <div class="card-body"># SQL Injection in Netmaker SQLite Database Backend
-
-## Summary
-
-The `sqliteDeleteRecord` function in Netmaker's database layer constructs SQL `DELETE` statements using direct string concatenation of user-supplied input. This allows an authenticated attacker to perform **boolean-based SQL injection**.
-
----
-
-## Details
-
-The endpoint:
-
-
-DELETE /api/d...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-15</span>
-                <a href="https://github.com/advisories/GHSA-r8cr-4f9w-7r75" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-76081</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.5
-                </span>
-            </div>
-            <div class="card-title">ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions</div>
-            <div class="card-body">### Summary
-
-A bug in how ZITADEL updates permissions when multiple project roles are deleted at the same time can cause some user permissions to be missed. This issue specifically affects **User Grants on Granted Projects** (projects shared between different organizations), **potentially** allowing users to keep access rights that were supposed to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-14</span>
-                <a href="https://github.com/advisories/GHSA-v859-c572-qh5p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56668</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">ZITADEL: Unauthorized Token Privilege Escalation in OAuth2 Token Exchange</div>
-            <div class="card-body">### Summary
-
-A vulnerability in ZITADEL’s OAuth2 Token Exchange endpoint allows an authenticated user or client to exchange a low-privilege access token for a token with elevated permissions at a completely different application. This bypasses the intended authorization and separation policies configured within ZITADEL.
-
-### Impact
-
-ZITADEL enables...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-14</span>
-                <a href="https://github.com/advisories/GHSA-vrh8-c9cm-wh8v" target="_blank">Full Report →</a>
             </div>
         </div>
         
