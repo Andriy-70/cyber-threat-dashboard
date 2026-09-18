@@ -68,10 +68,125 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-17 20:37 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-18 01:45 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-72819</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Grav CMS vulnerable to remote code execution via .zip file upload</div>
+            <div class="card-body">### Summary
+
+A logged-in user can run any command on the server. A settings field can fill itself by calling one of Grav's built-in routines, and a safety check is supposed to allow only harmless ones. The check only recognises a routine when its name is written as one piece of text; named as a pair of values instead, it is not examined at all and ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-17</span>
+                <a href="https://github.com/advisories/GHSA-r94f-hx44-8jqf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75837</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 9.1
+                </span>
+            </div>
+            <div class="card-title">Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to escalate to super-admin</div>
+            <div class="card-body">## Summary
+The core Flex group blueprint `system/blueprints/user/group.yaml` (access field, lines 48-55) omits the `security@: admin.super` field guard that its sibling account blueprint carries (`account.yaml:131/138/150`, added by the CVE-2026-42613 fix). A delegated non-super operator holding `admin.users.update` can therefore save a group whose...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-17</span>
+                <a href="https://github.com/advisories/GHSA-xhfv-7758-r9hx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75834</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Grav: Single invalid UTF-8 byte disables every rule in Security::detectXss(), bypassing the page-content XSS safety gate</div>
+            <div class="card-body">## Vulnerability Details
+
+**Component**: getgrav/grav core
+**File**: `system/src/Grav/Common/Security.php`
+**Function**: `detectXss()` (all six entries in the `$patterns` array use the PCRE `u` modifier), invoked from `Grav\Common\Data\Validation::checkSafety()` (the save-time XSS gate for any non-`security.xss_whitelist` account's blueprint field,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-17</span>
+                <a href="https://github.com/advisories/GHSA-q2j8-x8hf-63ch" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75827</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 8.8
+                </span>
+            </div>
+            <div class="card-title">Grav: Blueprint dynamic-data bare-function branch is denylist-gated and omits error_log, giving arbitrary file write</div>
+            <div class="card-body">## Affected versions and vulnerable location
+
+- Confirmed on grav core at `78ebfc1` (tag 2.0.13).
+- Sinks:
+  - `system/src/Grav/Common/Data/Blueprint.php:455-458` `call_user_func_array($o, $params)` (bare-function dynamic-data provider).
+  - Twin: `system/src/Grav/Framework/Flex/FlexDirectory.php:936-938` `call_user_func_array($function, $params)`....</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-17</span>
+                <a href="https://github.com/advisories/GHSA-f8wv-xp27-6gq7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75828</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 8.7
+                </span>
+            </div>
+            <div class="card-title">Grav: detectXss() misses an event-handler attribute after an unpaired quote in an unquoted attribute value, giving stored XSS</div>
+            <div class="card-body">## Affected versions and vulnerable location
+
+- Confirmed on grav core at `78ebfc1` (tag 2.0.13).
+- Detector: `system/src/Grav/Common/Security.php:290`, the `on_events` regex, run via `patternMatches()` (`:315-330`).
+- The `on_events` pattern at HEAD:
+  `#<(?:"[^"]*"|'[^']*'|[^>"'])*?(?:[\s\x00-\x20"'/]|"[^"]*"|'[^']*')on\s*[a-z]+\s*=#iu`
+- Sole sa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-17</span>
+                <a href="https://github.com/advisories/GHSA-vfmf-q6x9-cw96" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-74907</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 5.9
+                </span>
+            </div>
+            <div class="card-title">Grav: Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` Static Asset Server (`index.php`)</div>
+            <div class="card-body">**Verified against:** `getgrav/grav` devel branch, `GRAV_VERSION = "2.0.15"`, file `index.php
+
+## Title
+Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` Static Asset Server (`index.php`)
+
+## Product / Affected Versions
+- Product: `getgrav/grav`
+- File: `index.php` (top-level front controller, runs before...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-17</span>
+                <a href="https://github.com/advisories/GHSA-4v9q-p283-qc2m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-72695</span>
@@ -520,112 +635,6 @@ edito...</div>
             <div class="card-footer">
                 <span>Published: 2026-09-17</span>
                 <a href="https://github.com/advisories/GHSA-38p6-h87p-r4cg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-72702</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Grav: Origin validation bypass in Uri::referrer() and Pages::referrerRoute() via unanchored prefix match</div>
-            <div class="card-body">## Summary
-
-`Grav\Common\Uri::referrer()` and `Grav\Common\Page\Pages::referrerRoute()` both check whether an incoming request's `Referer` header "came from our site" using `str_starts_with($referrer, $base)`, where `$base` is the site's own absolute root URL (for example `https://example.com`, no trailing slash). Because the comparison has no boun...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-9ccq-2jfg-qw33" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-45140</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Chamilo LMS CStudio upload flow allows unauthenticated remote code execution</div>
-            <div class="card-body">### Impact
-Ability to run arbitrary code on the server without authentication....</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-g4c3-4g96-6g4m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-68537</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Fulgur: Non-painting replaced elements amplify to thousands of blank PDF pages (denial of service)</div>
-            <div class="card-body">`fulgur` converts untrusted HTML/CSS into PDF, commonly on a server that
-processes input supplied by many tenants. In versions prior to 0.26.0, a
-childless box that resolves to a pathologically tall height was amplified into
-thousands of blank PDF pages, even when it produces no visible output.
-
-The childless-collapse defense that would normally co...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-4rf6-qx84-q9fv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-68523</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Fulgur: Unbounded page slicing from attacker-controlled CSS height causes denial of service</div>
-            <div class="card-body">`fulgur` converts untrusted HTML/CSS into PDF, commonly on a server that
-processes input supplied by many tenants. In versions prior to 0.19.0, a
-body-direct child whose CSS-resolved height greatly exceeds the page height was
-sliced into one fragment per page with **no upper bound**.
-
-The height is taken directly from attacker-controlled HTML/CSS (...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-j5cx-ph8g-95v3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-86039</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">libp2p: PeerStore accepts attacker-signed PeerRecords for a victim peer ID and stores certified attacker addresses</div>
-            <div class="card-body">### Summary
-`@libp2p/peer-store` accepts a signed `PeerRecord` whose envelope is signed by one peer but whose payload claims a different peer ID. The vulnerable `consumePeerRecord` path verifies the envelope signature, but does not verify that the envelope signer is the same peer as the wrapped `PeerRecord.peerId`. As a result, an attacker can sign...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-vrf4-mx87-p53w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-75523</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Steeltoe.Management.Endpoint: HttpExchanges URI masking leaks query-string secrets</div>
-            <div class="card-body">## Summary
-
-Steeltoe's `/actuator/httpexchanges` endpoint records and displays request URIs after passing them through `MaskedUri`. The masking only covers the `UserInfo` portion of the URI (inline `user:password@host` credentials) and does not inspect the query string. With `IncludeQueryString` enabled by default, any secrets carried in query stri...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-8phw-xrj9-cpqp" target="_blank">Full Report →</a>
             </div>
         </div>
         
