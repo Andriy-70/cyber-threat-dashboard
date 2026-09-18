@@ -68,10 +68,65 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-18 10:07 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-18 15:16 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2025-53837</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">org.xwiki.rendering:xwiki-rendering-xml has an Eval Injection issue</div>
+            <div class="card-body">### Impact
+Any user who can edit their own user profile or any other document can execute arbitrary script macros including Groovy and Python macros that allow remote code execution including unrestricted read and write access to all wiki contents. The reason is that rendering output is included as content of HTML macros without further escaping an...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-18</span>
+                <a href="https://github.com/advisories/GHSA-26vp-8gxg-v4pg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-77615</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.7
+                </span>
+            </div>
+            <div class="card-title">Opencast: Stored XSS in Paella player via WebVTT/DFXP caption cue text</div>
+            <div class="card-body">## Summary
+
+The Opencast Paella player renders caption cue text into `innerHTML` without escaping. The captions canvas clears `_captionsContainer.innerHTML` and then appends each active cue with `_captionsContainer.innerHTML += cue`, so HTML inside a WebVTT or DFXP cue becomes live DOM and executes in the Opencast origin.
+
+The caption track is read...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-18</span>
+                <a href="https://github.com/advisories/GHSA-m6c8-jcw2-5r25" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-77281</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity bypass</div>
+            <div class="card-body"># Caddy v2.11.3 — Three vulnerabilities in handler/placeholder layer
+
+**Tested against:** `caddy:2.11.3` (official Docker image, SHA verified at runtime)
+**Reproduction environment:** Docker Desktop 4.73.1 / Engine 29.4.3 on Windows 10 host, isolated containers, no network egress required for any of the exploits
+
+This advisory bundles three indepen...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-18</span>
+                <a href="https://github.com/advisories/GHSA-j8px-rmrx-76h9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-72819</span>
@@ -580,61 +635,6 @@ returns, so any sandboxed template with access to a `User` object can read
             <div class="card-footer">
                 <span>Published: 2026-09-17</span>
                 <a href="https://github.com/advisories/GHSA-3jhr-mxmx-38cx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-76846</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Grav: config_denied_paths default list omits `system`, exposing real secrets (e.g. system.cache.redis.password) via the Twig sandbox when config_access is enabled</div>
-            <div class="card-body">## Summary
-
-`system/config/security.yaml`'s default `twig_sandbox.config_denied_paths` list
-(`plugins`, `streams`, `security`, `backups`, `scheduler`) omits the `system` prefix.
-When an operator enables the documented, non-default `twig_content.config_access: true`
-setting (intended to safely expose low-sensitivity values like `site.title` to
-edito...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-xjw5-q542-3vmr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-72698</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 6.5
-                </span>
-            </div>
-            <div class="card-title">Grav: The system, site, and theme Twig variables bypass the content sandbox entirely and are never covered by config_denied_paths</div>
-            <div class="card-body">## Summary
-
-`Grav\Common\Twig\Twig::init()` unconditionally puts the raw `system`, `site`, and `theme` config arrays into `$this->twig_vars`. `Twig::processPage()` builds the variables for the sandboxed, editor-authored page-content render by copying that same base array (`$sandbox_vars = $twig_vars;`) and replacing only the `config` key with a fil...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-p597-crqc-m349" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-72701</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Grav: Non constant time nonce comparison in Utils::verifyNonce() used for CSRF protection</div>
-            <div class="card-body">## Summary
-
-`Grav\Common\Utils::verifyNonce()`, the core function Grav and its plugins use to validate CSRF nonces, compares the submitted nonce to the expected value with PHP's `===` operator instead of `hash_equals()`. `===` on strings short circuits at the first differing byte, so the comparison time leaks how many leading bytes of a guess are c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-17</span>
-                <a href="https://github.com/advisories/GHSA-38p6-h87p-r4cg" target="_blank">Full Report →</a>
             </div>
         </div>
         
