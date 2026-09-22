@@ -68,10 +68,78 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-21 21:16 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-22 02:01 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61628</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title"> nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition</div>
+            <div class="card-body">## Summary
+
+`POST /api/users/onboarding/finish` is registered as **anonymous (unauthenticated)** and creates a user with **full ReadWrite admin permissions**. Because the handler uses a check-then-act (TOCTOU) pattern between the "onboarding already completed?" check and the user-creation write, with no atomic guard, a remote unauthenticated attack...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-21</span>
+                <a href="https://github.com/advisories/GHSA-pxcx-fv34-x9p5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61629</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">nginx ignition has  ParseAcceptLanguage `_` separator bypass that enables ~75x CPU amplification via Accept-Language header in i18nMiddleware</div>
+            <div class="card-body">### Summary
+
+The gin i18n middleware in nginx-ignition's API server runs in front of every HTTP request and calls `golang.org/x/text/language.ParseAcceptLanguage` on the raw `Accept-Language` header without imposing any size or shape filter. The underlying parser has quadratic-time behaviour on long lists of malformed language tags. The CVE-2022-32...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-21</span>
+                <a href="https://github.com/advisories/GHSA-jr34-h97m-9hpx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61630</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">nginx ignition has TOTP Reuse During Validity Window</div>
+            <div class="card-body">### Summary
+Any user that has enabled the OTP 2FA can have their TOTP reused during the standard 30 second validity window.
+
+### Details
+The https://github.com/pquerna/otp package [doesn't include](https://github.com/pquerna/otp/issues/61) checking for already used TOTPs within its the validity window. This requires each application that uses the p...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-21</span>
+                <a href="https://github.com/advisories/GHSA-hf33-q6cf-c66f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-jhjp-4c2q-xmx4</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers</div>
+            <div class="card-body">The `k8saudit` plugin's per-container fields (`ka.req.pod.containers.*`) and the shipped `k8s_audit_rules.yaml` evaluated only `requestObject.spec.containers`. Security-relevant settings on a pod's `initContainers` or `ephemeralContainers` were not inspected, so the shipped `Create Privileged Pod` rule did not fire for a privileged container placed...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-21</span>
+                <a href="https://github.com/advisories/GHSA-jhjp-4c2q-xmx4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-61687</span>
@@ -539,83 +607,6 @@ A validation bug in `internal/webhook/tenant/validation/forbidden_annotations_re
             <div class="card-footer">
                 <span>Published: 2026-09-18</span>
                 <a href="https://github.com/advisories/GHSA-gxjc-74v5-3vx3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-39wr-7q6h-cf68</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">LMDeploy has an SSRF bypass</div>
-            <div class="card-body">### Summary
-The URL checking logic in lmdeploy has a logical flaw that could be bypassed by attackers, leading to SSRF attacks.
-
-### Details
-The current lmdeploy project uses `_is_safe_url` to validate the input URL. The main logic is to perform security checks on the host portion of the URL extracted by urlparse to prevent SSRF attacks.
-<img width...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-39wr-7q6h-cf68" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-33625</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">LMDeploy vulnerable to arbitrary code execution via eval() of untrusted quant_dtype in model config loading</div>
-            <div class="card-body">### Summary
-
-lmdeploy <= latest contains a code injection vulnerability in `lmdeploy/pytorch/config.py` line 620 that allows an attacker to execute arbitrary Python code by publishing a malicious HuggingFace model with a crafted `quantization_config.quant_dtype` value. When a user loads the model with lmdeploy, the `quant_dtype` is passed to `eval(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-3hmm-rh5q-gwwr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2025-66455</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">LMDeploy has Remote Code Execution by Pickle Deserialization via handle_zmq_recv in lmdeploy/lmdeploy/pytorch/disagg/conn/engine_conn.py</div>
-            <div class="card-body">## Summary
-
-LMDeploy's PyTorch DistServe/PD-disaggregation control plane used
-`recv_pyobj()` to deserialize messages received through a ZeroMQ PULL
-socket. PyZMQ implements `recv_pyobj()` using Python pickle
-deserialization, which can execute arbitrary code while reconstructing
-an object.
-
-The peer address used by the receiver was supplied through ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-2vh9-42vm-xmv2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-jr78-w6w5-m8f8</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.3
-                </span>
-            </div>
-            <div class="card-title">Semantic MediaWiki'a missing authorization in the smwtask API module allows unauthenticated access to admin-only maintenance tasks</div>
-            <div class="card-body">### Summary
-
-The `api.php?action=smwtask` API module performs no authorization check. The equivalent maintenance interface in the web UI (`Special:SMWAdmin`) requires the `smw-admin` right, but the API module that backs several of the same operations enforces nothing. An unauthenticated visitor can therefore retrieve internal Semantic MediaWiki dat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-jr78-w6w5-m8f8" target="_blank">Full Report →</a>
             </div>
         </div>
         
