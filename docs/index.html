@@ -68,10 +68,124 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-22 10:25 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-22 15:48 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61612</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.7
+                </span>
+            </div>
+            <div class="card-title">@aborruso/ckan-mcp-server has SSRF via DNS-name → internal IP — incomplete fix of CVE-2026-53509</div>
+            <div class="card-body">## Summary
+The SSRF guard `validateServerUrl` (added for CVE-2026-33060, extended for CVE-2026-53509) validates only the **hostname string** and never resolves DNS. Any caller-supplied `server_url` whose hostname *resolves* to an internal address passes the guard, so the server issues requests to **loopback and cloud metadata (`169.254.169.254`)**....</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-798p-78g2-v556" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58272</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Sync-in Server has Username/Login Enumeration via Timing Side-Channel on POST /api/auth/login (incomplete fix of the prior timing-attack advisory)</div>
+            <div class="card-body">## Summary
+
+validateUser() in backend/src/authentication/providers/mysql/auth-provider-mysql.service.ts returns immediately when the supplied login/email does not match any account, without ever calling comparePassword():
+
+    async validateUser(loginOrEmail: string, password: string, ip?: string, scope?: AUTH_SCOPE): Promise<UserModel> {
+      let...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-29hq-23m2-2j47" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58270</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Sync-in Server has a ReDoS via Unsanitized Regex in Sync Diff `pathFilters`</div>
+            <div class="card-body">**Affected component:** Sync-in Server v2.3.0, `POST /api/app/sync/operation/diff/:id`, vulnerable implementation of `pathFilters` in `backend/src/applications/sync/dtos/sync-operations.dto.ts`.
+
+## Summary
+
+In the vulnerable version, the sync diff endpoint accepted a user-controlled regex pattern through `pathFilters` and compiled it into a `RegEx...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-jx63-h26r-8cph" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58269</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Sync-in Server has a complete 2FA Bypass via `POST /api/auth/token`</div>
+            <div class="card-body">**Affected component:** Sync-in Server v2.3.0, `POST /api/auth/token` (`auth.controller.ts:50-55`).
+
+**Required attacker capability:** Valid username and password for a 2FA-enabled account.
+
+## Summary
+
+`POST /api/auth/token` authenticates with username and password only, then calls `getTokens()`, which returns unrestricted Bearer access and refres...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-92cr-jxw4-5wjg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58271</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">@sync-in/server vulnerable to TOTP Brute-Force via `POST /api/app/sync/register`</div>
+            <div class="card-body">**Affected component:** Sync-in Server v2.3.0, `POST /api/app/sync/register`.
+
+**Required attacker capability:** Valid login and password for a TOTP-enabled account with desktop sync permission.
+
+## Summary
+
+`POST /api/app/sync/register` accepts credentials and a TOTP code to register a desktop sync client. In the vulnerable version, on a failed TO...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-274f-6w77-8qm9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61647</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">@roomi-fields/notebooklm-mcp has a path traversal in vault.batch tool that allows arbitrary file write outside intended vault directory</div>
+            <div class="card-body">## Summary
+
+The `vault_batch` MCP tool (and the equivalent `POST /batch-to-vault` HTTP endpoint) accepted a caller-supplied `vault_dir` path that was passed directly to `path.resolve()` + `fs.mkdir()` with no containment check. A caller — or a prompt-injected LLM driving the MCP — could therefore create directories and write `.md` / `.json` answer ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-jjhp-8crj-mppq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-61628</span>
@@ -506,107 +620,6 @@ In `pusher/http.go`, the `Handler` function extracts `body_md5` from the URL que
             <div class="card-footer">
                 <span>Published: 2026-09-18</span>
                 <a href="https://github.com/advisories/GHSA-5p54-whvp-x327" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-58197</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">ToolHive: containerized MCP servers can reach host services via host.docker.internal, enabling lateral movement</div>
-            <div class="card-body">## Summary
-
-A containerized MCP server running with the default `network` permission profile (`insecure_allow_all: true`) can reach host-local services via `host.docker.internal`. This includes the ToolHive API itself, other ToolHive-managed MCP server proxies, and any other service listening on the host's localhost. Combined with the unauthenticat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-qg2g-g9w3-m5h8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61682</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">kcp front-proxy does not strip inbound X-Remote-* identity headers, allowing any authenticated client to inject groups/warrants and impersonate system:masters in any workspace</div>
-            <div class="card-body"># Summary
-
-The kcp front-proxy fails to strip client-supplied identity headers before forwarding requests to shards. Any authenticated tenant can inject their own `X-Remote-Group` and `X-Remote-Extra-*` headers, which the shard trusts as a verified identity assertion — allowing a low-privilege user to escalate to cluster administrator (`system:mast...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-c8w2-fgvx-vhv4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61833</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">zot: Bearer authentication maps DELETE to push scope, allowing unauthorized deletion</div>
-            <div class="card-body">### Summary
-
-A bearer token with only `pull` and `push` scopes can successfully delete manifests and blobs from a zot registry. The bearer authentication handler maps all non-GET/HEAD HTTP methods, including DELETE, to the `"push"` action, and the `DistSpecAuthzHandler` middleware is bypassed entirely for bearer-authenticated requests. This allows ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-qg67-7m6v-qg25" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61795</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Capsule: hostnameRegexHandler.OnUpdate validates stale (old) Tenant regex, allowing invalid AllowedHostnames regex to bypass webhook validation</div>
-            <div class="card-body">### Summary
-
-A parameter order bug in `internal/webhook/tenant/validation/hostname_regex.go` causes the `hostnameRegexHandler.OnUpdate` webhook to validate the **old** Tenant object's `AllowedHostnames.Regex` instead of the **new** one being submitted. This allows an invalid (malformed) regex to bypass admission validation and be persisted to etcd,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-f94q-w3w8-cj67" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61672</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">Capsule: Tenant owner bypasses Capsule's forbidden namespace/service/node label and annotation enforcement</div>
-            <div class="card-body">## Summary
-
-Capsule lets a cluster administrator forbid specific metadata keys that tenant owners must not place on their own resources: `Tenant.spec.namespaceOptions.forbiddenLabels` / `forbiddenAnnotations` (namespaces), `Tenant.spec.serviceOptions.forbiddenLabels` / `forbiddenAnnotations` (Services), and the cluster-wide forbidden worker-node la...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-gjw4-3v3v-rqxg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61794</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.9
-                </span>
-            </div>
-            <div class="card-title">Capsule: Malformed ForbiddenAnnotations.Regex can bypass Tenant validation and trigger namespace admission panic</div>
-            <div class="card-body">### Summary
-A validation bug in `internal/webhook/tenant/validation/forbidden_annotations_regex.go` allows an invalid `ForbiddenAnnotations.Regex` value to bypass Tenant admission on update. The webhook compiles `ForbiddenLabels.Regex` for both labels and annotations, so a malformed annotations regex can be persisted. Once stored, namespace admissi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-gxjc-74v5-3vx3" target="_blank">Full Report →</a>
             </div>
         </div>
         
