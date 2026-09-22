@@ -68,10 +68,187 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-22 15:48 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-22 20:32 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58268</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">SIPGO: DoS via unvalidated Content-Length in the stream parser</div>
+            <div class="card-body">### Summary
+
+The stream parser allocates the SIP body buffer from the `Content-Length` header before validating its size, which can lead to an unauthenticated DoS.
+
+### Details
+
+`ParserStream.parseSingle` allocates the body buffer from the declared `Content-Length` with no size check (https://github.com/emiago/sipgo/blob/v1.4.0/sip/parser_stream.go...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-pg59-5vwg-4jxq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63116</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">deepstream: PATCH_MULTI action bypasses Valve permission system allowing unauthorized record writes</div>
+            <div class="card-body">## Summary
+
+The `RECORD_ACTION.PATCH_MULTI` action is not registered in the Valve permission system's `RULES_MAP` (`src/services/permission/valve/rules-map.ts`). When `ConfigPermission.canPerformAction()` is called for a PATCH_MULTI message, `getRulesForMessage()` returns `null` because the action is missing from the map. This triggers an unconditi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-89vx-jh4q-vg3w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62985</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">request-filtering-agent: Synchronous throw from createConnection() for literal private-IP hosts bypasses req.on('error'), crashing the Node.js process</div>
+            <div class="card-body">### Summary
+`RequestFilteringHttpAgent` / `RequestFilteringHttpsAgent` block requests to private IPs, but the blocking happens via a **synchronous `throw`** inside `createConnection()` for literal private-IP hostnames (e.g. `169.254.169.254`, `127.0.0.1`). Node.js's `http.request` / `http.get` expects `createConnection` to emit an error asynchronou...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-r3r9-wp5j-pq5g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62866</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.2
+                </span>
+            </div>
+            <div class="card-title">Dasel: Selector lexer panics on trailing whitespace in `parseCurRune`</div>
+            <div class="card-body">Same panic class as GHSA-m5j3-4634-c2vq and GHSA-m6xr-fvfg-5g64, sister site on the same function. Trigger is any selector ending in whitespace: `dasel query 'a '` panics at `selector/lexer/tokenize.go:60`.
+
+The whitespace-skip loop right above (lines 55-57) advances `p.i` to `p.srcLen` when the input is all-whitespace or whitespace-trailing. The v...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-65gg-g7rw-6cpc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59168</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.2
+                </span>
+            </div>
+            <div class="card-title">Dasel: Unbounded recursion in JSON and XML readers causes unrecoverable stack-overflow DoS</div>
+            <div class="card-body">## Summary
+
+`dasel`'s JSON and XML readers parse nested structures with unbounded recursion, one
+native stack frame per nesting level, with no depth guard. A small (sub-10 MB), deeply
+nested document drives the Go runtime past its goroutine stack limit and triggers a
+`fatal error: stack overflow`. This is **unrecoverable**: it is a runtime fatal er...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-cqxr-jxr2-85pq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62282</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">OpenCVE: Server-Side Request Forgery (SSRF) in notifications</div>
+            <div class="card-body">### Impact
+
+OpenCVE contains a Server-Side Request Forgery (SSRF) vulnerability in the notification testing functionality for both Webhook and Slack integrations.
+
+An authenticated user with permission to configure notification channels can trigger test requests to arbitrary HTTP(S) endpoints. Insufficient validation of target destinations allows r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-ch3g-4xvr-674q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59991</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">psd-tools composite/numpy has uncontrolled memory allocation via crafted PSD geometry</div>
+            <div class="card-body">### Summary
+`PSDImage.composite()` (and `.numpy()`) allocate the output image buffer from the PSD's header geometry (width × height × channels × depth, and per-layer rectangles) before validating those values against the actual file contents. A tiny crafted PSD declaring huge dimensions causes a multi-gigabyte allocation. Critically, `composite()` ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-8q6g-vjhf-jp8m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61670</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">microsandbox: Secret values exposed in world-readable process arguments</div>
+            <div class="card-body">## Summary
+
+When the SDK spawns a sandbox, the `msb sandbox` child process receives the full network configuration as an inline `--network-config <json>` command-line argument, and any per-sandbox environment as repeated `--env KEY=VALUE` arguments. On Linux a process's arguments are world-readable via `/proc/<pid>/cmdline`, and on both Linux and m...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-m8f5-rh7h-vgg3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-56682</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">9Router has a Login Brute-Force Lockout Bypass via Spoofable X-9r-Real-Ip Header</div>
+            <div class="card-body"># Summary
+
+9router enforces a progressive login lockout (5 failed attempts → temporary 30s+ lock) keyed on the client IP. The client IP used for this limiter is taken from the X-9r-Real-Ip request header, which is intended to be set only by the bundled custom-server.js layer from the unspoofable TCP socket address. In deployment modes where request...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-32gc-64m7-hj7v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-56681</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">9Router has an Authentication Bypass in Public LLM API via Spoofable X-9r-Real-Ip Header</div>
+            <div class="card-body">## Summary
+
+9router determines whether an incoming request originates from localhost by trusting the X-9r-Real-Ip HTTP request header. This header is intended to be produced and sanitized exclusively by the bundled custom-server.js layer from the TCP socket address. In deployment modes where requests reach Next.js directly (the header is never stri...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-22</span>
+                <a href="https://github.com/advisories/GHSA-5mj8-gf6m-fhw8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-61612</span>
@@ -437,189 +614,6 @@ An authenticated user who is only a viewer on project team-a requests GET /api/v
             <div class="card-footer">
                 <span>Published: 2026-09-18</span>
                 <a href="https://github.com/advisories/GHSA-cjgj-2fwf-4c2w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-91127</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.2
-                </span>
-            </div>
-            <div class="card-title">File Viewer: DOM XSS via unsafe hyperlink schemes in the legacy DOC renderer</div>
-            <div class="card-body">### Summary
-
-Before 2.3.1, the legacy `.doc` renderer emitted document hyperlink targets after HTML escaping but without a URL-scheme allowlist. A crafted `.doc` could therefore render a live `javascript:`, `vbscript:`, `data:`, or similarly unsafe link. Script could execute in the embedding origin if a viewer clicked it.
-
-### Impact
-
-Applications ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-3753-m2x2-q623" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77301</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">adm-zip: Uncontrolled memory allocation via the declared uncompressed size (DoS)</div>
-            <div class="card-body">### Summary
-adm-zip allocates an entry's output buffer from the declared uncompressed size (central-directory `size` field) before validating it against the actual data. A tiny crafted ZIP that declares a huge uncompressed size forces a multi-gigabyte allocation from a few bytes.
-
-### Impact
-On adm-zip 0.5.17 (latest), Node 24, a 105-byte ZIP with ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-7q85-xj36-vmfc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77339</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Process Compose: Browser DNS rebinding lets websites control local process-compose MCP tools</div>
-            <div class="card-body">## Summary
-
-A malicious website can use DNS rebinding to control a developer's local process-compose MCP SSE listener when MCP SSE is enabled. The vulnerable path accepts browser-origin requests before any Host validation, Origin validation, or caller-secret check, then dispatches the requests into process-compose MCP tools.
-
-This advisory covers `...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-5gm3-9crp-6g3v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-81505</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Convoy: Cross-Tenant Source IDOR Leaks Plaintext Message Broker Credentials</div>
-            <div class="card-body">## Summary
-frain-dev/convoy (all versions up to and including v26.6.2, no patch
-available) lets any authenticated caller who is authorized on at least one
-project read ANY OTHER project's "Source" record by ID via
-GET /api/v1/projects/{projectID}/sources/{sourceID} -- regardless of whether
-that Source actually belongs to the project named in the UR...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-p5vg-v7mj-f6q4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-84992</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">md-editor-v3: XSS via fenced-code language rendering bypass</div>
-            <div class="card-body">### Summary
-`MdPreview` interpolates a fenced-code language into HTML attributes without escaping it. A crafted info string therefore executes JavaScript even when the shipped `XSSPlugin` is enabled.
-
-### Details
-`useMarkdownIt()` (`packages/MdEditor/layouts/Content/composition/useMarkdownIt.ts:206`) registers a `highlight` callback whose final ret...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-3rm2-h79c-8qw6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-63406</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">AnyCable: Telemetry Subsystem Contains Hardcoded Authentication Token and Transmits CLI Arguments Including Secrets</div>
-            <div class="card-body">### Summary
-The telemetry subsystem embeds a hardcoded auth token (`"secret"`) in the public source and transmits raw CLI arguments—including `--secret`, `--jwt_secret`, and `--http_rpc_secret` values—to a third-party telemetry endpoint.
-
-### Details
-In `telemetry/config.go` line 12, `var authToken = "secret"` is committed in the public repository ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-w72w-9qmj-c9qm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-63349</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">AnyIO run_process/open_process ignores extra_groups and can retain parent supplementary groups</div>
-            <div class="card-body">AnyIO 4.14.0 accepts the POSIX extra_groups argument on anyio.run_process() and anyio.open_process(), but open_process() forwards the wrong variable to the backend: when extra_groups is not None, it assigns kwargs["extra_groups"] = group instead of extra_groups. As a result, callers cannot reliably clear or set supplementary groups for child proces...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-3w57-8xmc-8v26" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-63374</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing</div>
-            <div class="card-body">### Impact
-Services using internationalized (non-ASCII) domain names are potentially vulnerable to TLS connections made from AnyIO's `connect_tcp()` or directly via `TLSStream.wrap()` where the connection has (through other means) been hijacked and redirected to a malicious server. The attacker would obtain a legitimate certificate using the IDNA 2...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-82r6-8w77-94w6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-64847</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">AnyIO process-pool workers can block indefinitely on undrained stderr</div>
-            <div class="card-body">### Impact
-AnyIO starts process-pool workers with stderr connected to a pipe but never drains that pipe. The worker redirects stdin and stdout to /dev/null to protect its protocol, but does not redirect stderr even though the documentation says all three standard streams are redirected. Worker code that writes enough attacker-influenced data to std...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-5p39-cfhj-2xmp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-63405</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">AnyCable: Pusher REST API Does Not Verify Request Body MD5 Enabling Signed-Request Replay with Arbitrary Body</div>
-            <div class="card-body">### Summary
-The Pusher-compatible REST API includes `body_md5` in the HMAC signature string but never computes or verifies the MD5 of the received HTTP body, allowing anyone who observes a signed request to replay it with an entirely different body.
-
-### Details
-In `pusher/http.go`, the `Handler` function extracts `body_md5` from the URL query stri...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-18</span>
-                <a href="https://github.com/advisories/GHSA-5p54-whvp-x327" target="_blank">Full Report →</a>
             </div>
         </div>
         
