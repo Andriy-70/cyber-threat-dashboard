@@ -68,10 +68,65 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-24 10:35 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-24 15:59 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-92164</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Streamlink: HTTPSession follows HTTP redirects into file:// URLs, reading local files</div>
+            <div class="card-body">## Summary
+
+`HTTPSession` mounts a `FileAdapter` for the `file://` scheme and inherits redirect handling
+unchanged from `requests.Session`. `requests` does not check for scheme downgrades or
+cross-protocol transitions when it follows a redirect, so any http(s) request Streamlink makes can
+be redirected by the remote server into `file:///...` and th...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-24</span>
+                <a href="https://github.com/advisories/GHSA-vf2x-4v53-pm7v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59167</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
+                </span>
+            </div>
+            <div class="card-title">SunEditor: Critical XSS vulnerability - sanitizer bypass</div>
+            <div class="card-body">## Summary
+
+SUNEDITOR `v2.47.10` appears to allow JavaScript execution through crafted namespaced HTML elements.
+
+The sanitization logic does not fully remove executable event-handler attributes from certain custom/namespaced tags. As a result, an attacker may be able to inject HTML content that executes JavaScript when the rendered element is inte...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-24</span>
+                <a href="https://github.com/advisories/GHSA-6rf4-v2fh-m6p4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62998</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">REDAXO: Unwhitelisted ORDER BY Column in rex_list Allows Authenticated Column Enumeration</div>
+            <div class="card-body">### Summary
+The `rex_list` component reads the SQL sort column directly from the `sort` GET parameter without validating it against the set of columns declared sortable via `setColumnSortable()`. Although the value is wrapped in backticks via `escapeIdentifier()` (preventing classical SQL injection), this still allows any authenticated backend user...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-24</span>
+                <a href="https://github.com/advisories/GHSA-4f5f-j737-pm58" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-56669</span>
@@ -599,61 +654,6 @@ local. This allows unauthenticated access to `/v1` APIs such as `/v1/mo...</div>
             <div class="card-footer">
                 <span>Published: 2026-09-23</span>
                 <a href="https://github.com/advisories/GHSA-x5c9-v98j-722r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77420</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.5
-                </span>
-            </div>
-            <div class="card-title">JLine: ReDoS via `HISTORY_IGNORE` Configuration Variable</div>
-            <div class="card-body">### Summary
-
-The JLine3 `HISTORY_IGNORE` variable is converted into a Java regular expression with
-only partial escaping. As a result, regex metacharacters other than `*` and `:` are
-passed through to the regex engine. A crafted value such as `(a+)+b` can cause
-catastrophic backtracking each time a command line is added to history, hanging the
-read...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-23</span>
-                <a href="https://github.com/advisories/GHSA-5q95-hrpc-m3w3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-85724</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.6
-                </span>
-            </div>
-            <div class="card-title">Moquette: Pattern-ACL wildcard injection (cross-tenant authorization bypass) plus a remote-unauthenticated DoS cluster, a Will-message authorization bypass, and a cross-session durable-corruption bug</div>
-            <div class="card-body">moquette is reachable by untrusted MQTT clients (anonymous by default), so every byte from any client, including pre-authentication, is untrusted. This is a memory-safe JVM: the ceiling is authorization/ACL bypass + denial of service + cross-session integrity, **not RCE** (I did not find one and do not claim one). Audited at commit `da7f719a6bab982...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-23</span>
-                <a href="https://github.com/advisories/GHSA-5f42-97gr-vfhq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-73858</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Solspace Freeform: Limited Twig template injection via submitted field values</div>
-            <div class="card-body">### Summary
-
-A limited server-side Twig template injection issue was identified in Solspace Freeform for Craft CMS. In affected versions, submitted form field values could be evaluated as Twig in certain rendering contexts.
-
-Unauthenticated users could submit Twig expressions through public Freeform forms and have those expressions evaluated when t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-23</span>
-                <a href="https://github.com/advisories/GHSA-gxrg-x694-283w" target="_blank">Full Report →</a>
             </div>
         </div>
         
