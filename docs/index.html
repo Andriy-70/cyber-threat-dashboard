@@ -68,10 +68,133 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-25 20:47 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-26 02:11 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-57443</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">SCBE-AETHERMOORE Unauthenticated AetherBrowser Ops API Exposes Operator Email Digests</div>
+            <div class="card-body">### Summary
+
+The AetherBrowser API server (`scripts/aetherbrowser/api_server.py`) exposes the `POST /api/ops/check-email` endpoint without any authentication. Any remote attacker can call this endpoint and trigger execution of the `email_reader.py` subprocess, which connects to configured ProtonMail or Gmail accounts via IMAP and returns email meta...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-25</span>
+                <a href="https://github.com/advisories/GHSA-q986-4x7x-gx39" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vj8p-hp9x-gh47</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">mpp vulnerable to Gas Draining with low gas limit</div>
+            <div class="card-body">## Vulnerability
+When the server acts as the fee payer, `mpp` Elixir 0.4.0 (ZenHive/mpp) does not validate whether the `gas_limit` set by the client is enough before broadcasting. A malicious client can drain the server's gas without paying.
+
+A `transferWithMemo` call on Tempo Moderato testnet requires **~51,299 gas** to complete successfully. By s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-25</span>
+                <a href="https://github.com/advisories/GHSA-vj8p-hp9x-gh47" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-qpxh-ff8m-c62v</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">mpp vulnerable to Gas Draining with access list</div>
+            <div class="card-body">### Details
+When the server acts as the fee_payer, `mpp` Elixir 0.4.0 copies the client-supplied EIP-2930 access list verbatim into the cosigned fee-payer transaction. In `cosign_fee_payer`, the server re-signs the raw `base_fields` (index 5 of the 0x76 AASigned envelope) without inspecting the access list field, which is part of the signed payload...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-25</span>
+                <a href="https://github.com/advisories/GHSA-qpxh-ff8m-c62v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vv77-66rf-pm86</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">mpp vulnerable to Gas Draining with no limit</div>
+            <div class="card-body">### Details
+When the server acts as the fee_payer, the `mpp` Elixir 0.4.0 does not validate `gas_limit`, `max_fee_per_gas` and `max_priority_fee_per_gas` before cosigning the client's fee-payer transaction. A malicious client embeds arbitrarily large `max_fee_per_gas` and `max_priority_fee_per_gas` values in the signed envelope. The server cosigns ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-25</span>
+                <a href="https://github.com/advisories/GHSA-vv77-66rf-pm86" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-100368</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.4
+                </span>
+            </div>
+            <div class="card-title">CliInvoke.Specializations has command injection in PowerShell and Cmd shell wrappers</div>
+            <div class="card-body">### Impact
+An OS command injection vulnerability exists in the PowerShell and Cmd shell wrappers provided by the `CliInvoke.Specializations` package (the `PowershellProcessInvoker`/`CmdProcessInvoker` invokers, and the `UsePowerShell`/`UseCmd` middleware in v3 pre-release versions).
+
+The wrappers re-run a caller-supplied target and arguments inside...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-25</span>
+                <a href="https://github.com/advisories/GHSA-wrvw-254r-wpmv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-100369</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.4
+                </span>
+            </div>
+            <div class="card-title">CliInvoke: Argument Injection in Extensibility Runner Factory</div>
+            <div class="card-body">### Impact
+An argument-injection vulnerability exists in the `CliInvoke`
+package's runner factory: `RunnerProcessFactory` on the 2.x line and
+`RunnerConfigurationFactory` on the 3.x line.
+
+The factory joins the runner arguments, the caller's target, and the
+caller's arguments into a single `ProcessStartInfo.Arguments` string and
+hands it to the OS....</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-25</span>
+                <a href="https://github.com/advisories/GHSA-j73w-8hfr-4gc9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-62mm-xwmv-crhg</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">khoj has an unauthenticated path traversal in /home/ endpoint that allows file read from server filesystem</div>
+            <div class="card-body">### Summary
+The `/home/{file_path:path}` endpoint in `web_client.py` serves static files by directly concatenating the user-supplied `file_path` with the `home_directory` constant. There is no path traversal filtering, no path normalization check, and no authentication required. An attacker can use `../` sequences to read arbitrary files from the s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-25</span>
+                <a href="https://github.com/advisories/GHSA-62mm-xwmv-crhg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-86439</span>
@@ -493,128 +616,6 @@ Gateway API functionality is disabled by d...</div>
             <div class="card-footer">
                 <span>Published: 2026-09-24</span>
                 <a href="https://github.com/advisories/GHSA-w7c2-w76w-5hmj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61788</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">@bytebase/dbhub's read-only mode does not prevent database writes</div>
-            <div class="card-body">### Summary
- 
-Setting `readonly = true` on the `execute_sql` tool does not make the connection read-only. The connectors are written to set PostgreSQL `default_transaction_read_only=on` (and open SQLite in `readOnly` mode), but that code is gated on a config value that is never populated, so it never runs. The only thing left enforcing read-only is...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-24</span>
-                <a href="https://github.com/advisories/GHSA-mwwr-p57h-56pf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61742</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">DBHub HTTP transport DNS rebinding allows unauthenticated browser-origin SQL execution</div>
-            <div class="card-body">### Summary
-
-DBHub `0.21.2` exposes an unauthenticated HTTP MCP endpoint when started with the documented HTTP transport mode, for example `--transport http --port 8080`.
-
-The HTTP server attempts to protect browser-origin access by checking whether the `Origin` hostname equals the `Host` hostname, then reflecting the validated `Origin` into `Acces...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-24</span>
-                <a href="https://github.com/advisories/GHSA-fm8p-53ww-hf6w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61741</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.3
-                </span>
-            </div>
-            <div class="card-title">http4s-scala-xml has an XML External Entity (XXE) processing issue</div>
-            <div class="card-body">http4s-scala-xml provides `EntityDecoder[F, scala.xml.Elem]` instances that parse XML message bodies. These decoders used a `javax.xml.parsers.SAXParserFactory` obtained from `SAXParserFactory.newInstance` without any security configuration.  With the JDK's default settings, the parser resolves DOCTYPE declarations, external general and parameter e...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-24</span>
-                <a href="https://github.com/advisories/GHSA-cjx3-73hr-rpw7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61784</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">xhtml-purifier has HTML attribute-injection (sanitizer bypass) that leads to XSS</div>
-            <div class="card-body">xhtml-purifier does not HTML-entity-encode attribute values when serializing its sanitized output. In attributeString() (XHTMLPurifier.js, around line 148) the attribute value is concatenated directly into a double-quoted attribute without encoding. As a result, an attacker-controlled value in any allowed attribute (class, style, title, alt, src, h...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-24</span>
-                <a href="https://github.com/advisories/GHSA-j8r4-32c5-33rc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56744</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">`@bsv/wallet-toolbox` / `-client` / `-mobile` don't verify storage-supplied recipient output scripts against caller-requested outputs in createAction</div>
-            <div class="card-body">Reported by @echennells (Eric Chennells). Migrated from public issue #191 to a private advisory.
-
-**Affected:** `@bsv/wallet-toolbox` / `-client` / `-mobile`. Verified in `2.1.21` and `2.1.21-parity-fix.2`; the relevant code is the same at current HEAD
-
-**Summary:**
-When `createAction` runs against a remote `StorageClient`, the storage server retur...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-24</span>
-                <a href="https://github.com/advisories/GHSA-36f9-7rg5-cpf8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56738</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">phpMyFAQ has SQL Injection in `StopWords::add()` — Unescaped Stop Word Insertion</div>
-            <div class="card-body">## Summary
-
-The `StopWords::add()` method in phpMyFAQ builds a SQL `INSERT` statement using `sprintf()` and inserts the user-supplied stop word value directly into the query string **without calling the application's database escaping function** on it. A sibling method, `StopWords::update()`, which modifies an *existing* stop word, correctly escape...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-24</span>
-                <a href="https://github.com/advisories/GHSA-rw77-vq4g-x3hp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-56737</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">phpMyFAQ's two-factor authentication login bypasses the password factor</div>
-            <div class="card-body">### Summary
-The public two-factor verification endpoint `POST /check` logs a user in based **solely** on a valid
-6-digit TOTP token and a chosen `user-id`. It does **not** require — and is not bound to — a prior
-successful password authentication. For any account that has 2FA enabled, an unauthenticated attacker
-can authenticate **without knowing t...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-24</span>
-                <a href="https://github.com/advisories/GHSA-8gpw-xvpf-hvx5" target="_blank">Full Report →</a>
             </div>
         </div>
         
