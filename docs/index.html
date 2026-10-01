@@ -68,10 +68,449 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-09-30 21:34 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-01 02:39 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102930</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">virtualenv: Downloaded seed wheels (pip/setuptools) are not integrity-checked before use</div>
+            <div class="card-body">`download_wheel()` runs `pip download` and hands the result straight to the seeder, with nothing checking the bytes it gets back. The embedded pip and setuptools wheels carry a `BUNDLE_SHA256` that virtualenv checks on every load, but a wheel fetched over the network for the periodic-update feature or the `--download` flag had no equivalent verific...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-94p9-xgh2-xp45" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102938</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">virtualenv writes prompt values into pyvenv.cfg without sanitizing line boundaries, allowing configuration injection</div>
+            <div class="card-body">### Summary
+
+`pyvenv.cfg` is a line-based format with no escape syntax. `PyEnvCfg.write()` wrote values verbatim, while `PyEnvCfg._read_values()` parses the file with `str.splitlines()`. A value containing a line boundary therefore became additional configuration lines, and because reading is last-wins, the injected keys replaced any key written ea...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-9h9j-4vrj-gf7g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-92081</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">fastify vulnerable to Denial of Service via unhandled exception on HTTP/2 trailer responses</div>
+            <div class="card-body">### Impact
+
+`fastify` crashes with an uncaught `ERR_HTTP2_INVALID_CONNECTION_HEADERS` exception when a route that registers a response trailer via `reply.trailer()` is served over HTTP/2. Fastify unconditionally adds the `Transfer-Encoding: chunked` header when a trailer is set, which is forbidden on HTTP/2, so Node.js throws while serializing the ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-4mh8-r7rc-xpvc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-103001</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">PyJWT.decode() reintroduces options-dict mutation, enabling silent claim-verification bypass on dict reuse</div>
+            <div class="card-body">### Summary
+
+`PyJWT.decode()`/`decode_complete()` mutates a caller-supplied `options` dict in place whenever `verify_signature` is falsy, adding `verify_exp`/`verify_nbf`/`verify_iat`/`verify_aud`/`verify_iss`/`verify_sub`/`verify_jti` keys directly onto that object. If application code reuses the same `options` dict across calls (a config object, ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-gvp8-978c-rx2q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3hv7-mjh2-fv65</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Tornado: Unbounded query-string argument count allows event-loop-stalling DoS</div>
+            <div class="card-body">## Summary
+
+`HTTPServerRequest.__init__` in `tornado/httputil.py` parses the URL query string via
+`parse_qs_bytes()` with no field-count limit — while the sibling POST-body parsing path
+(`parse_body_arguments`) received a `max_num_fields=1000` cap added earlier in this exact
+same release (v6.5.8, commit `8d6363ed`), explicitly to bound parsing cost...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-3hv7-mjh2-fv65" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-chx6-46f5-w4vp</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">tornado: CurlAsyncHTTPClient enforces no response-size limit — decompression bomb drives unbounded memory accumulation to OOM</div>
+            <div class="card-body">An unbounded memory accumulation (decompression bomb) in `tornado.curl_httpclient.CurlAsyncHTTPClient` — the client-side sibling gap of CVE-2026-49855 — verified end-to-end on the 2026-08-15 master snapshot (`6.6.dev1`) and present unchanged in the latest release tag `v6.5.8` and on master (checked 2026-08-17). When a Tornado application configures...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-chx6-46f5-w4vp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-c2m8-h5v5-343r</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Tornado: StaticFileHandler follows symlinks outside static root (path traversal)</div>
+            <div class="card-body">### Summary
+StaticFileHandler allows an unauthenticated attacker to read arbitrary files from the server's filesystem by requesting a path that resolves to a symbolic link placed inside the static root directory. Any application that serves user-uploadable content, or whose static directory is populated by a build/deploy pipeline that creates symli...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-c2m8-h5v5-343r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-59cr-6r3x-644w</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">GitPython submodule update path traversal can write outside the repository</div>
+            <div class="card-body">**Affected:** `GitPython` **3.1.61** (latest release) and `main` — `git/objects/submodule/base.py`. `git diff 3.1.61 origin/main -- git/objects/submodule/` is empty, so both are identical here.
+
+---
+
+## The gap
+
+The fix for `GHSA-hmq2-w58f-27jc` added `Submodule._validated_name()` and wired it into `update()` and five siblings, closing the `.gitmod...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-59cr-6r3x-644w" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-93981</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.7
+                </span>
+            </div>
+            <div class="card-title">hono/jsx renders plain strings unescaped in boundary components, leading to XSS</div>
+            <div class="card-body">### Summary
+
+`hono/jsx` does not HTML-escape a plain string placed directly as a child or `fallback` of `Suspense` or `ErrorBoundary`, as the only child of a `Context.Provider`, or as the root value of `renderToString()` / `renderToReadableStream()` from `hono/jsx/dom/server`. Such a string is emitted as markup instead of text.
+
+### Details
+
+These ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-hxh3-vqpv-xpqv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-84504</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">fastify vulnerable to request body replacement via an async validation result collision</div>
+            <div class="card-body">### Impact
+
+Fastify runs a route's validator and, for a result shaped like `{ value, error }`, unwraps it: an `error` becomes a validation failure and `value` replaces the request part. This convention is intended for synchronous custom compilers (for example Joi). A JSON Schema `$async` validator, however, resolves with the validated data itself, ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-667r-xxjv-c9mm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-76169</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fastify vulnerable to authentication bypass via malformed URLs reaching encapsulated not-found handlers</div>
+            <div class="card-body">### Impact
+
+Fastify routes a malformed URL under one plugin prefix to the custom not-found handler of a different sibling plugin, invoking the handler registered last and skipping the `preHandler` declared in its `setNotFoundHandler()`. When the request method has no route in the main router, a malformed request target reaches Fastify's internal no...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-p68q-wchp-6fh7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-84469</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fastify vulnerable to request validation bypass via skipped boolean false schemas</div>
+            <div class="card-body">### Impact
+
+Fastify decided whether to validate a request part by checking its schema for JavaScript truthiness. JSON Schema Draft 7 defines the boolean `false` as a valid schema that rejects every instance, but because `false` is falsy, a route that set `body`, `querystring`, `params`, or `headers` to `false` had that part left uncompiled: no vali...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-hwr6-493r-vm6h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-84428</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">fastify vulnerable to header validation bypass via incomplete schema case normalization</div>
+            <div class="card-body">### Impact
+
+Fastify lowercases header-schema property names before compiling the schema, because Node.js stores request header names in lowercase. That normalization was incomplete: it lowercased only top-level `properties` keys and the root `required` array, and did not lowercase the JSON Schema Draft 7 `dependencies` keyword (its trigger keys and...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-9q9j-q6p8-xq58" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102820</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.2
+                </span>
+            </div>
+            <div class="card-title">pageant: Out-of-bounds read / oversized allocation in `pageant` MemoryMap::read via a malicious Pageant agent (Windows)</div>
+            <div class="card-body">## Summary
+
+`MemoryMap::read` in the `pageant` crate (part of the russh workspace, used by
+russh's SSH-agent client on Windows via `AgentClient::connect_pageant`) copies a
+**peer-controlled** number of bytes out of an 8192-byte shared-memory view with
+**no bounds check** — unlike the sibling `MemoryMap::write`, which correctly
+rejects oversize acce...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-g4mp-vgx3-xrvm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102821</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Russh: Unbounded memory exhaustion via CHANNEL_OPEN flood during a client-stalled rekey</div>
+            <div class="card-body">## Summary
+
+A russh **server** can be driven to unbounded heap growth (process OOM / kill) by
+a peer that speaks only standard SSH messages, in the **default configuration**.
+
+The peer starts a key re-exchange (sends `SSH_MSG_KEXINIT`) but never sends the
+follow-up `SSH_MSG_KEX_ECDH_INIT`, leaving the server's kex state machine in
+`SessionKexState:...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-35g8-35p8-c8fw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102983</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Astro: Netlify Image CDN allowlist bypass enables SSRF</div>
+            <div class="card-body">## Summary
+
+The `@astrojs/netlify` adapter generated regular expressions for Netlify Image CDN remote-image allowlists without anchoring them to the beginning of the URL. Netlify evaluates these expressions with `RegExp.test()`, so an allowed image origin appearing anywhere in a URL, including its path or query string, could satisfy the allowlist.
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-4233-jc72-56c5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102984</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Astro: Malformed port in the Host header can crash the Node adapter</div>
+            <div class="card-body">## Summary
+
+In the Astro Node adapter, a request whose `Host` header contains a malformed port (for example `example.com:65536` or `example.com:8080:8080`) produced an invalid request URL. The fallback intended to recover from an unparseable URL reused the same malformed host, so it failed again and raised an uncaught `TypeError: Invalid URL` while...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-qh8j-hqjv-7m4x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-87819</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">GitPython: Denial of Service via catastrophic backtracking (ReDoS) in Actor.name_email_regex — commit author/committer field parsing</div>
+            <div class="card-body">### Summary
+
+GitPython's `Actor.name_email_regex` regular expression (`git/util.py`, line 863)
+is vulnerable to catastrophic backtracking (ReDoS — Regular Expression Denial of
+Service). When GitPython parses the `author` or `committer` header of a git commit
+object that contains a long string with an unterminated `<` (no matching `>`), the
+Python r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-g5vv-9gxw-82hx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-whh4-5q6c-9v3x</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">GitPython: --no-index bypasses diff unsafe-option protections and enables a blind local-file content oracle</div>
+            <div class="card-body">### Summary
+
+GitPython 3.1.59 blocks a previously available local-file read path through unsafe git diff options such as -O/--orderfile.
+
+However, the high-level diff API still permits --no-index with the default allow_unsafe_options=False.
+
+--no-index changes the semantics of the paths arguments: instead of repository-relative pathspecs, Git inter...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-whh4-5q6c-9v3x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-87817</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">GitPython: Repository content can impersonate the git directory, leading to arbitrary code execution</div>
+            <div class="card-body">### Summary
+
+`Repo.__init__` decides which directory is the git directory by testing candidate paths in an order that
+considers the real `.git` **last**. Two earlier tests can be satisfied by ordinary tracked files. Git
+reserves only the literal name `.git`, so `HEAD`, `objects/`, `refs/`, `config`, `gitdir`, `commondir`
+and `hooks/` at a repositor...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-239g-whfq-7xj9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102822</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">russh: negotiating a MAC-requiring block cipher (CTR/CBC) with mac=none causes a slice-index-out-of-range panic</div>
+            <div class="card-body">### Summary
+`SshBlockCipher` implementations (AES-CBC, AES-CTR, 3DES-CBC, etc.) report `needs_mac() == true`, meaning they are documented/intended to always be paired with a separate integrity MAC. However, key-exchange negotiation only checks `needs_mac()` inside the *fallback* branch of MAC algorithm selection (used when no common MAC algorithm e...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-p8qx-h547-fjw9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102823</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">russh: Client-side channel-scoped Handler callbacks fire for channel IDs the client never opened</div>
+            <div class="card-body">### Summary
+CVE-2026-68930 was fixed by adding `Session::is_established_channel()` in `russh/src/server/encrypted.rs`, which gates every channel-scoped SERVER-side message (CHANNEL_REQUEST, CHANNEL_DATA, CHANNEL_EOF, CHANNEL_CLOSE, CHANNEL_WINDOW_ADJUST, CHANNEL_EXTENDED_DATA) on `enc.channels.get(&channel).is_some_and(|c| c.confirmed)` before invo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-47hw-gvq5-r2gm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102824</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Russh: Missing X25519 zero-point validation in hybrid ML-KEM key exchange</div>
+            <div class="card-body">## Vulnerability
+
+The hybrid ML-KEM 768 + X25519 key exchange implementation in `russh/src/kex/hybrid_mlkem.rs` does not validate that the remote peer's X25519 public key is not the zero point (all-zero 32-byte value). This allows a remote peer to force the X25519 contribution to the combined shared secret to zero, reducing the hybrid KEX to a sing...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-w3jg-pjxf-73p4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102825</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">Russh: Configured server auth-attempt cap is not enforced in the USERAUTH_REQUEST runtime path</div>
+            <div class="card-body">### Details
+
+#### Affected versions and vulnerable location
+
+- Confirmed present on default branch `main` at HEAD `0089c89c94753bebbec12b956c07a1cd38740379`.
+- Crate version at HEAD: `0.62.4`.
+- Vulnerable locations on current default branch:
+  - `russh/src/server/mod.rs:91` (`pub max_auth_attempts: usize`)
+  - `russh/src/server/mod.rs:121` (defaul...</div>
+            <div class="card-footer">
+                <span>Published: 2026-09-30</span>
+                <a href="https://github.com/advisories/GHSA-g6xm-f9xp-qq35" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-84377</span>
@@ -185,460 +624,6 @@ cause quadratic CPU work during deseriali...</div>
             <div class="card-footer">
                 <span>Published: 2026-09-30</span>
                 <a href="https://github.com/advisories/GHSA-cxp5-3px4-pw24" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-91776</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">jackson-databind retains every unknown raw type ID </div>
-            <div class="card-body">### Summary
-
-With `@JsonTypeInfo(use = Id.NAME, defaultImpl = ...)`, every distinct unknown
-raw type ID selects the same fallback deserializer but is retained as a
-separate key in `TypeDeserializerBase._deserializers`. An attacker who can
-repeatedly supply new unknown type IDs can grow this process-lifetime cache
-without a configured bound.
-
-### De...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-wv8q-qhhj-9h54" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-97jj-33gv-5xf9</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">league/commonmark: DisallowedRawHtml bypassed when a disallowed tag name ends the raw-HTML literal</div>
-            <div class="card-body">﻿## Summary
-
-The `DisallowedRawHtml` extension does not escape a disallowed tag when the tag name is the last thing in the raw HTML. A Markdown line containing just `<script` is emitted unchanged, and the next block can supply its attributes. With the shipped GFM defaults this allows stored XSS by anyone who can post Markdown.
-
-## Details
-
-`Disallo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-97jj-33gv-5xf9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-3q6v-r5mr-hxv8</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">league/commonmark: Quadratic-time denial of service in the GitHub Flavored Markdown Table extension block-start scan</div>
-            <div class="card-body">## Summary
-
-`league/commonmark`'s GitHub Flavored Markdown Table extension registers `TableStartParser` as a block-start parser. While a paragraph is the active block, the core block parser calls `TableStartParser::tryStart()` on every non-blank line. Its first action fetches the entire growing paragraph buffer via `getParagraphContent()` and runs ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-3q6v-r5mr-hxv8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101916</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">@grpc/grpc-js: In certain configurations, getAuthContext can return unauthorized certificates as though they were authorized</div>
-            <div class="card-body">### Impact
-When server credentials are created with the `requireClientCertificate` option set to `false`, `getAuthContext` does not distinguish between authorized and unauthorized certificates in its return value. This can create improper authentication vulnerabilities for `@grpc/grpc-js` users who use the result of `getAuthContext` for authenticat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-m9gg-hp2v-232j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101915</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">@grpc/grpc-js: The server transmits some error messages thrown by method handlers to the client in status messages</div>
-            <div class="card-body">### Impact
-If an application method handler crashes, the error message is included in the status message sent to the client. This can leak to the client any sensitive data that may be included in the error message. This impacts anyone using `@grpc/grpc-js` to run servers.
-
-### Patches
-This vulnerability is fixed in 1.13.6 and 1.14.5.
-
-### Workaroun...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-f596-whhp-79r4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101904</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios: Header Injection via Inherited headers After Minimal Interceptor</div>
-            <div class="card-body">## Summary
-
-Axios request interceptors may return a replacement config object. If an interceptor returns a plain object without an own `headers` property, `dispatchRequest()` later evaluates `config.headers` and can resolve an inherited `Object.prototype.headers` value. In a process where another vulnerability has polluted `Object.prototype.headers...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-j8rh-479h-cp32" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101900</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios: Fetch Adapter Header Injection via Inherited FormData getHeaders</div>
-            <div class="card-body">## Summary
-
-Axios contains a guard in the Node HTTP adapter to avoid using an inherited `Object.prototype.getHeaders` as a FormData header source. The fetch adapter calls the shared `resolveConfig()` helper before dispatch, and that helper lacks the same guard. If another vulnerability pollutes `Object.prototype` with FormData-like properties and `...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-4hqw-qxg8-jxx2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101905</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios: Node HTTP adapter prototype-pollution gadget allows request socket hijack via inherited createConnection</div>
-            <div class="card-body">## Summary
-
-Axios' Node HTTP adapter can act as a read-side prototype-pollution gadget for Node's sensitive `createConnection` request option. The adapter creates a null-prototype options object, but Node's HTTP client can copy or normalize request options into ordinary objects before connection creation. If `Object.prototype.createConnection` has ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-m8m8-qj5v-23w3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101899</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios: CIDR-form NO_PROXY entries are ignored, causing proxy exclusion bypass for internal IP ranges</div>
-            <div class="card-body">## Summary
-
-Axios supports proxy environment variables and evaluates `NO_PROXY` exclusions in the Node.js adapter. CIDR-form `NO_PROXY` entries such as `127.0.0.0/8`, `10.0.0.0/8`, or `169.254.169.254/32` are not interpreted as IP ranges. As a result, a request to an IP address inside a configured CIDR exclusion can still be sent through the config...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-44g4-m2mj-wpvx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101907</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios: maxRedirects: 0 is not enforced by the fetch adapter, allowing redirect-based SSRF</div>
-            <div class="card-body">## Summary
-
-Axios exposes `maxRedirects` to limit redirect following, and `maxRedirects: 0` is used by applications as a redirect-based SSRF guard. The Node HTTP adapter enforces this option. The fetch adapter does not read it and does not set a Fetch API `redirect` mode, so the runtime default of `redirect: 'follow'` applies.
-
-Applications are aff...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-r4gj-5m52-g5wh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101908</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios: Prototype pollution gadget in fetch adapter can alter outbound requests</div>
-            <div class="card-body">## Summary
-
-Axios fetch adapter requests can be altered by inherited properties on `fetchOptions`. The adapter resolves method, headers, body, signal, and credentials into `resolvedOptions`, creates a `Request`, and then calls `fetch(request, fetchOptions)` instead of `fetch(request, resolvedOptions)`. In runtimes such as Node's undici-backed fetch...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-vh66-26gq-q6x8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101902</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Axios: Prototype-Pollution Gadget in the Default Instance Allows Inherited Object.prototype.method to Override HTTP Method</div>
-            <div class="card-body">## Summary
-
-Axios default-instance requests that omit an explicit method can read an inherited `method` value from `Object.prototype`. If another vulnerability in the same process pollutes `Object.prototype.method`, calls such as `axios.request({ url })` and `axios({ url })` can send a state-changing HTTP method instead of the expected default `GET...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-9fr6-4gfg-395g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101903</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios: ReDoS in fromDataURI data: URL parser freezes the Node event loop (DoS)</div>
-            <div class="card-body">## Summary
-
-Axios for Node.js parses `data:` URLs in `lib/helpers/fromDataURI.js`. The current RFC-2397 parser uses a regular expression whose media type groups allow `/` inside both sides of the `type/subtype` match. A malformed `data:` URL containing many slashes and no comma forces the JavaScript regex engine to try many possible placements for ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-c29m-xwm3-cm6r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101906</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios: ReDoS (O(N²)) in shouldBypassProxy host normalization, reachable via untrusted redirect Location</div>
-            <div class="card-body">## Summary
-
-Axios `shouldBypassProxy()` normalizes hostnames with `hostname.replace(/\.+$/, '')`. For a hostname shaped as many dots followed by a non-dot, the anchored regex can perform quadratic backtracking. Because axios re-evaluates proxy bypass rules for redirected requests, a malicious server can trigger this synchronous work through a craft...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-mghh-pgcx-3jjj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101909</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios: Prototype Pollution Gadget in axios toFormData Options</div>
-            <div class="card-body">## Summary
-
-Axios form serialization reads `visitor`, `maxDepth`, `dots`, `indexes`, `metaTokens`, and `Blob` from an internal options object without own-property guards. When `Object.prototype` has been polluted elsewhere in the same process, those inherited values can change how axios serializes multipart and URL-encoded request bodies.
-
-Axios do...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-x97p-jq2g-jp4f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101898</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios: HTTP/2 adapter bypasses configured DNS lookup and proxy controls</div>
-            <div class="card-body">## Summary
-
-Axios for Node.js does not apply configured DNS lookup or proxy controls when a request uses `httpVersion: 2`. The HTTP/1 adapter path wraps and forwards `config.lookup`, builds normal request options, and applies proxy routing through `setProxy()`. The HTTP/2 path builds a session with `http2.connect()` using only `options.http2Options...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-3pq3-5fj3-cg6v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-101901</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Axios: Denial of Service via Unhandled 'error' Event in HTTP/2 ClientHttp2Session Initialization</div>
-            <div class="card-body">## Summary
-
-Axios versions with Node.js HTTP/2 support can terminate the caller’s process when a ClientHttp2Session emits an error event that is not handled by axios.
-
-This affects applications that use the Node HTTP adapter with httpVersion: 2. A malicious, unavailable, or non-HTTP/2 endpoint can cause an uncaught exception instead of a normal rej...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-542g-h47m-68v8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-97688</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">urllib3: Chunked Deflate streaming can enter an infinite loop</div>
-            <div class="card-body">### Impact
-
-urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading content in chunks instead of loading the entire response body into memory at once.
-
-urllib3 can decompress response bodies according to the HTTP `Content-Encoding` header. When streaming a compressed, chunked response, urllib3 first consume...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-gh4c-6fx4-qh6g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-vcvr-r3jv-pc5j</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Next.js: Remote Code Execution in next/og ImageResponse</div>
-            <div class="card-body">## Impact
-
-The Node.js `ImageResponse` implementation from `next/og` is affected by an upstream vulnerability. This can lead to remote code execution.
-
-Affected applications pass attacker-controlled values into SVG content, attributes, or styles during image generation:
-
-```tsx
-import { ImageResponse } from 'next/og'
-
-export async function GET(requ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-vcvr-r3jv-pc5j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-97689</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory</div>
-            <div class="card-body">## Impact
-
-urllib3's [streaming API](https://urllib3.readthedocs.io/en/2.7.0/advanced-usage.html#streaming-and-i-o) is designed for efficiently handling large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When decoding a [chunked-transfer-encoded response](https://httpwg.org/specs...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-vxq7-64xx-v4gw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-97687</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">urllib3: HTTPS proxy TLS configuration may be ignored or overridden</div>
-            <div class="card-body">## Impact
-
-urllib3 supports configuring TLS independently for an HTTPS proxy and the target server.
-
-`proxy_ssl_context`, `proxy_assert_hostname`, and `proxy_assert_fingerprint` configure the TLS connection to the proxy. `ssl_context` and the other target-specific TLS parameters configure the connection to the target server.
-
-In urllib3 versions 1....</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-8988-9cw3-xx77" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-96h4-vgxj-gvm2</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Nest: Unbounded memory growth in the NestJS TCP microservice transport</div>
-            <div class="card-body">## Summary
-
-A peer that can open a TCP connection to a NestJS microservice using the built-in TCP
-transport can make the server process allocate memory without limit, on either side of the
-connection, until the process is killed by the OS or by its container memory limit. No
-authentication, no credentials, and no valid message are required.
-
-Applic...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-96h4-vgxj-gvm2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-9c5c-9qcx-q35q</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">@nestjs/platform-fastify: Path-scoped middleware bypass via absolute-form request targets</div>
-            <div class="card-body">| Field | Value |
-| --- | --- |
-| Ecosystem | npm |
-| Package | `@nestjs/platform-fastify` |
-| Affected versions | `>= 12.0.0, < 12.0.2` and `< 11.2.4` |
-| Patched versions | `12.0.2` and `11.2.4` (upgrade to `12.0.3` / `11.2.5`) |
-
-### Summary
-
-On the Fastify adapter, an HTTP request that uses an **absolute-form request target** (`GET http://host/...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-9c5c-9qcx-q35q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-prgh-xp8r-p3m5</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Nodemailer addressparser: O(n^2) on comment-joined addresses enables a remote DoS (reachable via mailparser)</div>
-            <div class="card-body">### Summary
-
-`nodemailer/lib/addressparser` parses one shape of address in O(n^2) time. A single ~640 KB address value blocks the Node.js event loop for roughly 7 seconds. And it is reachable without auth: mailparser feeds inbound email headers straight into this parser, so one crafted email is enough to stall a service that parses mail.
-
-### Detai...</div>
-            <div class="card-footer">
-                <span>Published: 2026-09-30</span>
-                <a href="https://github.com/advisories/GHSA-prgh-xp8r-p3m5" target="_blank">Full Report →</a>
             </div>
         </div>
         
