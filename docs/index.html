@@ -68,10 +68,211 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-02 16:53 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-02 21:28 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xxv7-2vv3-h682</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.7
+                </span>
+            </div>
+            <div class="card-title">Trigger.dev: Server-side request forgery via unvalidated webhook alert-channel URL</div>
+            <div class="card-body">### Summary
+A project member can create a webhook alert channel whose delivery URL points at an internal address, and trigger.dev's control plane will send the alert there with no SSRF protection. The webhook URL is stored as an unvalidated string and is fetched directly from the webapp server, so a low-privilege authenticated user can make the ser...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-xxv7-2vv3-h682" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-qxpp-qjg8-x4jv</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">Trigger.dev: Run replay injects a task run into an attacker-chosen environment (cross-tenant write)</div>
+            <div class="card-body">### Summary
+The dashboard replay action authorizes the source run (it must belong to the caller's org), but the target environment for the replayed run is taken verbatim from the request body and is never checked for org or project membership. The environment lookup used by the replay path filters by id only. As a result, an authenticated user can ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-qxpp-qjg8-x4jv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-59944</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">Composer: GHSA-gjfg-22fp-rrxx fix bypass via symlinked package bin path</div>
+            <div class="card-body">## Summary
+
+A malicious or compromised Composer package could, when installed as a dependency, cause Composer to change the permissions of a file outside that package's own directory and to register a runnable `vendor/bin` command that points at that outside file. This is a path traversal and link following issue. It is not remote code execution, t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-96h3-5x6v-m776" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8mcx-5rqc-vhmf</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Dulwich: Arbitrary File Write (RCE) on Windows via Unvalidated Drive Letters in Tree Paths</div>
+            <div class="card-body">### Affected files
+* `dulwich/index.py` (Methods: `validate_path_element_ntfs`, `_tree_to_fs_path`)
+* `dulwich/porcelain/__init__.py` (Method: `_checked_worktree_path`)
+
+### Description / Summary
+A High-severity Path Traversal vulnerability exists in Dulwich's checkout logic when running on Windows. The functions responsible for validating NTFS pat...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-8mcx-5rqc-vhmf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-35mr-4567-66vg</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Dulwich: Infinite Loop Denial of Service (DoS) in Packfile Object Resolution</div>
+            <div class="card-body">### Affected file
+* `dulwich/pack.py` (Method: `Pack.resolve_object`)
+
+### Description / Summary
+A High-severity Denial of Service (DoS) vulnerability exists in the `Pack.resolve_object` method. When resolving an `OFS_DELTA` object, the resolver calculates the base offset using `base_offset = obj_offset - delta_offset`.
+
+If a malicious packfile con...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-35mr-4567-66vg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8w8g-wq8h-fq33</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
+                </span>
+            </div>
+            <div class="card-title">Dulwich: Symlink write-through in checkout(paths=[]) via raw os.open bypasses all symlink protections</div>
+            <div class="card-body">## Summary
+
+Dulwich's `porcelain.checkout(paths=[...])` code path writes files using raw `os.open(file_path, O_WRONLY|O_CREAT|O_TRUNC, mode)` followed by `f.write(obj.data)`. This code path does NOT call `build_file_from_blob()` at all, completely bypassing any symlink protections (including the unreleased d09f8af fix). `os.open` without `O_NOFOLLO...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-8w8g-wq8h-fq33" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-5fqc-mrg8-w798</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
+                </span>
+            </div>
+            <div class="card-title">Dulwich: Symlink directory traversal in filter-branch index_filter via cross-commit state persistence</div>
+            <div class="card-body">## Summary
+
+Dulwich's `filter_branch.py` `CommitFilter._apply_index_filter()` is vulnerable to symlink directory traversal. When processing commit history, materialized tree entries (including symlinks) persist in the working directory between commits, allowing a symlink from an ancestor commit to redirect file writes from a descendant commit to ar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-5fqc-mrg8-w798" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-cm62-gvxx-vmxx</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.6
+                </span>
+            </div>
+            <div class="card-title">Dulwich: Symlink directory traversal in stash pop allows arbitrary file write via intermediate directory symlinks</div>
+            <div class="card-body">## Summary
+
+Dulwich's `stash.py:pop()` function is vulnerable to symlink directory traversal, allowing an attacker to write arbitrary files outside the repository worktree when a victim pops a stash in a malicious repository.
+
+## Root Cause
+
+The `pop()` function at `dulwich/stash.py:236` uses `os.path.exists(parent_dir)` to check if a parent direct...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-cm62-gvxx-vmxx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-6g2r-675j-hx59</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.3
+                </span>
+            </div>
+            <div class="card-title">xxhash-rust: Safe xxh3 custom-secret API accepts too-short secret in release</div>
+            <div class="card-body">I have a minimized safe Rust witness for xxhash-rust 0.8.15.
+
+Safe public route:
+
+xxhash_rust::xxh3::xxh3_64_with_secret(&[0x41], &[])
+
+The caller-side harness contains no unsafe code. Under release execution, the internal minimum custom-secret length predicate is enforced only by debug_assert!. Release-Miri reports construction of a fixed-width re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-6g2r-675j-hx59" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61586</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Copernik XML Factory (stock JDK provider) has Improper restriction of XInclude resource resolution</div>
+            <div class="card-body">Copernik XML Factory through `0.1.1`, when running on its stock JDK provider, does not block XInclude resource resolution after an application enables XInclude on a factory returned by `XmlFactories.newDocumentBuilderFactory()` or `XmlFactories.newSAXParserFactory()`, or on an `XMLReader` passed through `XmlFactories.harden()`. The library's docume...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-xm28-xvqc-gxxg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62314</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.8
+                </span>
+            </div>
+            <div class="card-title">Anubis: Policy bypass via client controlled X-Original-URI header</div>
+            <div class="card-body">Any HTTP client can bypass Anubis bot protection on the default configuration by adding a single request header. No challenge needs to be solved.
+Affected versions: v1.22.0 through v1.25.0 (introduced in commit d1d631a, PR #1015)
+
+The root cause is in `lib/policy/checker.go`, `PathChecker.Check()`:
+```go
+func (pc *PathChecker) Check(r *http.Request...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-02</span>
+                <a href="https://github.com/advisories/GHSA-6wcg-mqvh-fcvg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-c9xm-49cp-xcr9</span>
@@ -433,201 +634,6 @@ The latest published vm2 release, **3.11.5**, and the current `main` branch are 
             <div class="card-footer">
                 <span>Published: 2026-10-01</span>
                 <a href="https://github.com/advisories/GHSA-27g9-p43v-cw3v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-92941</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 10.0
-                </span>
-            </div>
-            <div class="card-title">vm2 NodeVM can replace the host process TLS trust store</div>
-            <div class="card-body">Summary
-
-vm2 3.11.6 exposes the host `tls` module to a `NodeVM` when that builtin is explicitly allowed. Although the module object is wrapped as read-only, its functions still execute against process-wide host state. On Node.js versions that provide `tls.setDefaultCACertificates()`, sandbox code can replace the certificate authorities trusted by s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-98xx-8mx4-x7cm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-92945</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.2
-                </span>
-            </div>
-            <div class="card-title">vm2: External module allowlist uses a raw prefix test, so a prefix-sharing sibling package is treated as allowlisted</div>
-            <div class="card-body">## Summary
-
-`isPathAllowedForModule` decides whether a resolved path belongs to an allowlisted external module using a raw string prefix test. `node_modules/foo2` starts with `node_modules/foo`, so a package whose name merely shares a prefix with an allowlisted one is treated as being inside it, and a relative require from the allowlisted package r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-7q3f-wx44-378m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-102830</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">JupyterLab: Cross-site scripting (XSS) in JupyterLab via crafted language package (jupyterlab.json)</div>
-            <div class="card-body">## Description
-
-A language pack ships a `Plural-Forms` header saying how the language counts, for example `nplurals=2; plural=(n != 1);`. JupyterLab turns that string into a function with `new Function`, so the header gets executed. The check that meant to keep it safe was a regular expression. The regex was anchored at the start but not at the end...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-3jqq-pw4j-pqcj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-102904</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">JupyterLab: Argument injection in JupyterLab extension uninstall exposes server-readable files and internal URLs</div>
-            <div class="card-body">JupyterLab's PyPI extension manager runs `python -m pip uninstall` with the extension name taken from the request body. `ExtensionHandler.post` validates the name for `cmd=install` but not for `cmd=uninstall`, so a name that begins with `-` reaches the command line and pip reads it as an option rather than as a package.
-
-```python
-cmdline = [
-    s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-3325-v43h-43rv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-102831</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">JupyterLab: Cross-site scripting (XSS) in JupyterLab via notebook cells pasted from the system clipboard</div>
-            <div class="card-body">## Description
-
-JupyterLab 4.5.0 enabled copying and pasing cells through the system clipboard. The paste path parses clipboard text as cell JSON and inserts the cells without clearing `metadata.trusted`, so a payload can declare its own output as trusted. JupyterLab does not sanitize a trusted output and evaluates the `<script>` elements it contai...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-6966-vjj6-99xv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-89425</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">jackson-core: UTF8DataInputJsonParser._reportInvalidToken() missing maxErrorTokenLength limit -> unbounded StringBuilder growth (DoS)</div>
-            <div class="card-body">## Status
-
-**FULLY REPRODUCED.** A malformed token fed through `createParser(DataInput)` produced a
-20,000,109-character exception message from a 20-million-character attacker payload, while the
-identical payload fed through `createParser(InputStream)` produced a correctly bounded
-367-character message.
-
-## Affected Component / Version
-
-- **Package...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-7hhh-6rmp-j9qf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-89407</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title"> jackson-core: ReDoS: quadratic backtracking in NumberInput.PATTERN_FLOAT via looksLikeValidNumber()</div>
-            <div class="card-body">## Status
-
-**FULLY REPRODUCED** with a clean, textbook empirical signature: measured runtime grew almost
-exactly 4x for every doubling of input size across five consecutive doublings (5,000 → 160,000
-characters), confirming O(n²) behavior. A single 160,000-character string (smaller than a typical
-HTTP request body) took **74.4 seconds** for one cal...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-p6pp-m3f8-5c89" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-92708</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">devalue: `stringify`/`uneval` serialize shared memory</div>
-            <div class="card-body">### Impact
-
-`stringify` and `uneval` serialize a typed array by emitting its backing `ArrayBuffer`, not just the view. In the case of a Node `Buffer` object, the backing buffer is a process-wide shared pool, meaning unrelated memory can be serialized into a response that is then sent to the client. For a Node `Buffer` the backing store is Node's **...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-j22f-vq7h-c4qm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-hx4r-w6wj-j8fg</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">devalue: Residual sparse-array CPU amplification in uneval</div>
-            <div class="card-body">`uneval` performs synchronous work proportional to a sparse array's declared length. An application that passes attacker-influenced sparse values to `uneval` can suffer event-loop blocking. Since attacker-controlled creation of sparse arrays is so difficult, this vulnerability is very difficult to exploit....</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-hx4r-w6wj-j8fg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mcm9-63f2-9j32</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">devalue: Repeated primitive strings cause quadratic expansion in uneval</div>
-            <div class="card-body">Under very constrained circumstances, data that was `parse`d and then passed to `uneval` could turn a small payload into a very large serialized string....</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-mcm9-63f2-9j32" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-wf3x-273g-mvxv</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">devalue: Sparse arrays emitted by uneval cause eager allocation when evaluated</div>
-            <div class="card-body">Evaluating legitimate `uneval` output for a sparse array can allocate memory proportional to its declared length. A tiny serialized value can therefore cause large memory allocation in a consuming browser/runtime. This occurs during evaluation of generated code, not in default `parse` sparse-array construction.
-
-You would only be affected by this i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-01</span>
-                <a href="https://github.com/advisories/GHSA-wf3x-273g-mvxv" target="_blank">Full Report →</a>
             </div>
         </div>
         
