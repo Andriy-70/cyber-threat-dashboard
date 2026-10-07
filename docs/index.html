@@ -68,674 +68,591 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-07 12:08 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-07 22:19 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-41510</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
-                </span>
-            </div>
-            <div class="card-title">Coraza: Silent argument drop at ArgumentLimit allows bypass of ARGS-targeted rules via parameter flooding</div>
-            <div class="card-body">## Root Cause
-
-File: `internal/corazawaf/transaction.go`, lines 770–808 (since commit 2fd87b89, PR #812, 2023-06-14)
-
-```go
-func (tx *Transaction) AddGetRequestArgument(key string, value string) {
-    if tx.checkArgumentLimit(tx.variables.argsGet) {
-        tx.debugLogger.Warn().Msg("skipping get request argument, over limit")
-        return
-    }
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-6r3q-mjv7-xr8m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41508</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.8
-                </span>
-            </div>
-            <div class="card-title">Coraza: Truncated multipart body bypasses MULTIPART_STRICT_ERROR (rule 200003) via silent io.ErrUnexpectedEOF handling</div>
-            <div class="card-body">## Root Cause
-
-File: `internal/bodyprocessors/multipart.go` (since commit `3347961b`, PR #1453 *"feat: ignore unexpected EOF in MIME multipart request body processor"*, merged 2026-03-06, first shipped in `v3.4.0`).
-
-The multipart body processor treats `io.ErrUnexpectedEOF` as a benign condition. Three sites are affected; all mishandle the error th...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-r3rm-qphw-hh76" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-41504</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.8
-                </span>
-            </div>
-            <div class="card-title">Coraza: Native audit-log format allows CRLF injection and log forgery via request body and header fields</div>
-            <div class="card-body">## Root Cause
-
-File: `internal/auditlog/formats.go` — multiple sites write attacker-influenced bytes into the Native audit-log stream without escaping `\r` or `\n`:
-
-```go
-// Part B — request headers (lines 72–80)
-for k, vv := range al.Transaction().Request().Headers() {
-    for _, v := range vv {
-        res.WriteByte('\n')
-        res.WriteString...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-prpw-wwv7-xjjr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-86540</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">knowns OS Command Injection via Insecure LSP Binary Path Config in .knowns/config.json</div>
-            <div class="card-body">## Overview
-
-A critical **Arbitrary Code Execution (ACE)** vulnerability exists in the Knowns Language Server Protocol (LSP) detection and startup pipeline. The system blindly trusts the `settings.lsp.languages.<lang>.binary` field defined in the project-level `.knowns/config.json` file. 
-
-Because this field is **never validated** against an allowl...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-mc52-mwq4-vfx3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105855</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Payload didn't enforce field-level password update restrictions</div>
-            <div class="card-body">## Impact
-
-When an auth collection defined a field-level access.update restriction on the password field, the restriction was not enforced on the server correctly.
-
-## Patches
-
-Users should upgrade Payload packages to `>= 3.90.0` or `>= 4.0.0-canary.34`....</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-fx49-4h83-wjv9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105854</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Payload: ReDoS in Multipart Content-Type Validation</div>
-            <div class="card-body">## Impact
-A malformed multipart request body could take an extremely long time to finish.
-
-## Patches
-Users should upgrade Payload packages to `>= 3.90.0` or `>= 4.0.0-canary.34`....</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-2g7p-5934-q4w7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105849</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Payload vulnerable to API key disclosure through ordinary document reads</div>
-            <div class="card-body">### Impact
-
-Users with read access to other user documents could access their active API keys. An exposed key grants the target account’s permissions until rotated or disabled.
-
-You are affected if:
-
-- An authentication collection enables `useAPIKey`.
-- Users have read access to other user documents containing active API keys.
-
-### Patches
-
-Users s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-238x-w2j9-gwwr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105850</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Payload Ecommerce has an order confirmation validation issue</div>
-            <div class="card-body">## Impact
-When using the Stripe payment adapter, an order confirmation could be processed more than once under certain conditions.
-
-You are affected if:
-- You use `@payloadcms/plugin-ecommerce` with the Stripe payment adapter.
-
-Deployments that do not use the Stripe payment flow are not affected.
-
-## Patches
-Users should upgrade Payload packages to...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-8r29-2mp2-pmrw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105852</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Payload relationship-query authorization bypass</div>
-            <div class="card-body">## Impact
-
-A readable collection could expose information about protected documents in a related collection.
-
-**You are affected if:**
-
-- You expose a readable collection with a relationship to a collection protected by access.read where constraints.
-
-## Patches
-
-Users should upgrade Payload packages to `>= 3.90.0` or `>= 4.0.0-canary.34`.
-
-## Work...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-7c34-32v3-j575" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105853</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Payload: Token refresh and password reset responses may expose restricted user fields</div>
-            <div class="card-body">## Impact
-
-Token refresh and password reset responses could return fields that the requesting user did not have access to.
-
-You are affected if:
-
-- An authentication collection contains hidden or read-restricted fields.
-
-## Patches
-
-Authentication responses now apply field access and hidden-field filtering before returning user documents. Full user...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-xgv3-crq2-6f69" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105851</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Payload: Field access control bypass on auth collections</div>
-            <div class="card-body">## Impact
-
-Payload's duplicate operation copies field values from the source document even when a field is hidden, or its `access.read` or `access.create` rule would reject the value for that caller.
-
-The `disableDuplicate` collection setting, enabled by default on auth collections, did not stop this.
-
-## Patches
-
-Users should upgrade Payload packa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-vc4h-q48j-5hcx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105848</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Payload: Insufficient Access Control in Stripe REST Proxy</div>
-            <div class="card-body">## Impact
-
-An authenticated user could perform unintended Stripe operations through the optional Stripe REST proxy.
-
-**You are affected if ALL of these are true:**
-
-- Your application uses `@payloadcms/plugin-stripe`.
-- The optional Stripe REST proxy is enabled.
-- An authenticated user can reach the proxy.
-
-Deployments that do not enable the Stripe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-r9v2-gg2j-22q5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105806</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Payload: Improper access control for MCP API keys</div>
-            <div class="card-body">### Impact
-Under certain conditions, an authenticated user could manage MCP API keys outside their intended account allowing an attacker to escalate privileges through account takeover.
-
-Applications that do not use `@payloadcms/plugin-mcp` are not affected.
-
-### Patches
-Users should upgrade to `@payloadcms/plugin-mcp` version `3.88.0` or later.
-
-#...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-2q76-m6w6-qgc6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105844</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Payload: Prototype pollution in Payload Import Export plugin</div>
-            <div class="card-body">### Impact
-An unauthenticated user could cause unintended application behavior when the Import Export plugin is enabled, allowing an attacker to submit and execute remote code (RCE).
-
-Applications that do not use `@payloadcms/plugin-import-export` are not affected.
-
-### Patches
-Users should upgrade Payload packages to `>= 3.88.0` or `>= 4.0.0-canar...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-qf28-8hc6-vwrp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105845</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Payload: SQL Injection in SQLite and Postgres</div>
-            <div class="card-body">### Impact
-A user can submit a request that exploits a SQL Injection vulnerability in Payload.
-
-You are affected if:
-- You use an affected Payload version.
-- Untrusted users can query readable collections using dynamic filters or joins.
-
-You are not affected if you use MongoDB (`@payloadcms/mongodb`).
-
-### Patches
-Users should upgrade Payload packa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-v49j-62m6-pgrr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105846</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">Payload: Untrusted redirect URL parameter exploit</div>
-            <div class="card-body">### Impact
-Under certain conditions, an attacker can craft a redirect link that sends a guest user to an untrusted destination after authenticating.
-
-### Patches
-Users should upgrade Payload packages to `>= 3.88.0` or `>= 4.0.0-canary.27`.
-
-### Workarounds
-Upgrading is recommended. Until then, remove user-controlled redirect values from authenticat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-w84c-53h3-mc2g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105847</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Payload: Polymorphic join queries could disclose hidden fields</div>
-            <div class="card-body">### Impact
-
-A user with query access could use polymorphic join filters to infer hidden or read-restricted field values, including password-reset tokens.
-
-You are affected if:
-
-- You use an affected Payload version.
-- Users can query a collection with a polymorphic join to sensitive fields.
-
-### Patches
-
-Users should upgrade Payload packages to `>=...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-fpww-c55p-cjv6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105804</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Payload: Password hashes use insufficient PBKDF2 iterations</div>
-            <div class="card-body">### Impact
-The password-hashing configuration used a lower work factor than what is recommended.
-
-### Patches
-Payload now uses stronger password-hashing parameters and transparently upgrades older hashes following a successful login.
-
-Users should upgrade Payload packages to `>= 3.90.0` or `>= 4.0.0-canary.34`.
-
-### Workarounds
-Upgrading is recomme...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-q6mq-ch85-c8mm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105805</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Payload: Sort queries could expose protected field information</div>
-            <div class="card-body">### Impact
-Under certain conditions, sorting readable records could reveal limited information about fields the requester was not permitted to read.
-
-You are affected if untrusted users can query a collection, control its sorting, and sort by protected fields.
-
-### Patches
-Payload now applies field-level access checks to sort fields before executin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-9g87-32v6-3c2r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105795</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.1
-                </span>
-            </div>
-            <div class="card-title">Kiota: Unsafe oauth_card_path references in Kiota-generated API plugin manifests</div>
-            <div class="card-body">### Impact
-
-When generating an API plugin manifest from an attacker-controlled or compromised OpenAPI description, Kiota copies `x-ai-capabilities.response_semantics.oauth_card_path` into the manifest without validating that it is a safe package-relative file reference. An attacker can supply parent-directory traversal, rooted paths, or absolute UR...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-6gw6-rv2g-25mg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-105796</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">Kiota: Code injection through doc-comment delimiter reformation in Kiota Java and PHP generators</div>
-            <div class="card-body">### Impact
-
-An attacker who controls or tampers with an OpenAPI description can cause Kiota to emit attacker-controlled Java or PHP source outside a generated documentation comment. The affected sanitizers remove comment terminators rather than neutralizing them, allowing a terminator to reform from overlapping characters or from subsequent normali...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-rm89-rhwj-9j92" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-104850</span>
+                <span class="cve-id">CVE-2026-61439</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">MCP TypeScript SDK: OAuth client could send credentials to an authorization server chosen by the MCP server</div>
+            <div class="card-title">PraisonAI: Prompt Injection Defense Bypassed for HIGH-Level Threats</div>
             <div class="card-body">### Summary
-In affected versions, the SDK's OAuth client let the MCP server decide which authorization server received the client's OAuth credentials. Credentials were not tied to the authorization server they belong to.
+Injection Defense is a purpose-built prompt injection defense layer. It scans LLM inputs through six detection categories: instruction overrides, authority claims, boundary manipulation, obfuscation, financial manipulation, and self-harm instructions.
 
-A malicious or compromised MCP server could name its own authorization server. With no user interaction, the client would send i...</div>
+The defense is misconfigured by default. The block threshold defaults to Threat Level...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-6qxp-vccf-f47h" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-fj8f-m44g-c479" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-105800</span>
+                <span class="cve-id">CVE-2026-105642</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Ghost: Remote Code Execution via Bookmark Card Images</div>
+            <div class="card-body">### Impact
+
+An image processing library bundled with Ghost contained a vulnerability in its SVG handling. Any staff user, including Contributors, could create a bookmark card for an attacker-controlled website, resulting in arbitrary commands being run on the Ghost server.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost from v6.56....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-788w-68h3-cvxp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105643</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">Ghost: Stored XSS via Embed Card Previews</div>
+            <div class="card-body">### Impact
+
+Embed cards in the Ghost editor could be used to bypass the fix for GHSA-8vhf-xxpj-4qrg. Any staff user, including Contributors, could store scripts in post content that ran when another staff user opened the post in the editor, possibly resulting in compromise of that user's admin session.
+
+Self-hosted sites should leave the new `secur...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-69qc-f5m6-889c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105644</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">Ghost : Stored XSS via SVG Files in Content Imports</div>
+            <div class="card-body">### Impact
+
+SVG images included in content imports were stored without sanitization. An attacker who convinced an Administrator to import a crafted file could host scripts on the site's domain, possibly resulting in compromise of staff users' admin sessions.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost from v4.0.0 up to v6.65.0....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-hqq2-xqr2-fmx2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105645</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">Ghost: Regular Expression Denial of Service in External Media Inliner</div>
+            <div class="card-body">### Impact
+
+A crafted request to the external media inliner could cause excessive CPU usage, making the Ghost server unresponsive. Exploiting this requires Administrator access.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost from v5.37.0 up to v6.65.0.
+
+### Patches
+
+v6.67.0 contains a fix for this issue.
+
+### How to update
+
+For se...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-9m4w-fmjw-fvjq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105646</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">Ghost: Regular Expression Denial of Service in Content Import</div>
+            <div class="card-body">### Impact
+
+A crafted content import file could cause excessive CPU usage, making the Ghost server unresponsive. Exploiting this requires Administrator access.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost from v4.0.0 up to v6.65.0.
+
+### Patches
+
+v6.67.0 contains a fix for this issue.
+
+### How to update
+
+For self-hosters using Do...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-fwh9-qg68-vxp4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-106121</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.9
+                </span>
+            </div>
+            <div class="card-title">RabbitMQ: JSONReader in the default JSON-RPC mapper never terminates on truncated input, causing DoS</div>
+            <div class="card-body">## Summary
+
+`com.rabbitmq.tools.json.JSONReader.read()` never returns when its input ends inside a quoted string or a `//` line comment. Both scanners walk the input with `StringCharacterIterator.next()` but only compare against a delimiter, so once the iterator reaches `CharacterIterator.DONE` (`￿`) they loop forever. The string scanner (`string()...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-cqgh-8p3p-mx4m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105742</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
                     LOW 3.7
                 </span>
             </div>
-            <div class="card-title">i18next-http-backend incomplete URL validation permits SSRF</div>
-            <div class="card-body">There is an SSRF vulnerability when using `i18next-http-backend`. A colon in an attacker-controlled language value can make a custom path template request an unintended origin.
+            <div class="card-title">Docling: Configured HTTP headers sent to every remote image host named by a document</div>
+            <div class="card-body">### Summary
 
-This is reachable under the following conditions: Attacker controls i18next language or namespace input that is interpolated into loadPath.
+`HTMLBackendOptions.headers` is documented for passing authentication headers (API keys, bearer tokens) when fetching remote images. docling sends these headers on every remote image request, to whichever host the document names. An untrusted document that references an attacker-controlled image URL receives the caller's credentials.
 
-## Proof of Concept
-
-```js
-// S...</div>
+...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-xvq9-wjp8-hwqf" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-p3fw-7699-7926" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-105794</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
+                <span class="cve-id">CVE-2026-105743</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.0
                 </span>
             </div>
-            <div class="card-title">MsQuic: Improper Certificate Validation in Microsoft.Native.Quic.MsQuic.OpenSSL</div>
-            <div class="card-body"># Summary
+            <div class="card-title">Docling has SSRF guard bypass in remote resource fetching (DNS rebinding / multi-record resolution; no IP validation in HTML render mode)</div>
+            <div class="card-body">### Summary
 
-Improper TLS hostname verification allows a man-in-the-middle (MITM) attack on MsQuic. 
+When remote fetching is enabled (`enable_remote_fetch=True`, together with `fetch_images=True` or HTML `render_page=True`), docling's protection against requests to private and loopback addresses can be bypassed.
 
-# Details
-
-Only MsQuic with the OpenSSL and QuicTLS TLS backends is affected (the Schannel backend is not affected).
-
-## Patches
-
-2.6.1, 2.5.11, and 2.4.20
-
-# Impact
-
-An on-path attacker could spoof a server identity by using a certificate that doesn...</div>
+- The URL check resolves the host name once, to a single IPv4 address. The HTTP request then resolves it again. A name that...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-w5f4-fx9m-m4q7" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-pc36-qwjq-x68c" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-105801</span>
+                <span class="cve-id">CVE-2026-105744</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Docling has arbitrary file read/write (and command execution when shell-escape is enabled) when rendering untrusted TikZ with the opt-in Tectonic engine</div>
+            <div class="card-body">### Summary
+
+When the LaTeX backend is configured to render TikZ pictures with the Tectonic engine (`LatexBackendOptions(tikz_engine="tectonic")`), the TikZ body and the document preamble from the input file are compiled by Tectonic without any restriction on TeX's file primitives. A crafted `.tex` file can read files the process can read and write...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-x3q2-h9hx-4r4j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105748</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Docling: Crafted DoclingDocument JSON embeds local image files into converted output</div>
+            <div class="card-body">### Summary
+
+docling accepts serialized `DoclingDocument` JSON as an input format (`InputFormat.JSON_DOCLING`, enabled by default). A crafted JSON file can set a picture's image `uri` to a local file path. When the converted document is exported with embedded images (`ImageRefMode.EMBEDDED`, the CLI default for Markdown and HTML), the referenced fi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-p944-4xh2-x776" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105749</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Docling: Unbounded table rowspan/colspan in HTML, JATS, ODS and BoxNote backends causes CPU/memory exhaustion</div>
+            <div class="card-body">### Summary
+
+The HTML, JATS, ODS (OpenDocument spreadsheet) and BoxNote backends accept table `rowspan` / `colspan` values without an upper bound. A few bytes of input, such as `<td rowspan="100000000">`, make docling run loops proportional to the declared span and allocate a table grid of the declared size. The result is CPU and memory exhaustion....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-cgc7-9qp3-86m3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105745</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.7
+                </span>
+            </div>
+            <div class="card-title">Docling imports plugin entry points before the allow_external_plugins check</div>
+            <div class="card-body">### Summary
+
+`allow_external_plugins=False` (the default, and the CLI default) is meant to restrict docling to its own model plugins. However, docling's plugin factories call pluggy's `load_setuptools_entrypoints()`, which imports every module registered under docling's plugin entry-point group. Only afterwards does docling filter out modules outsi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-9jxx-vjrv-h2rq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105697</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Langflow: OS command injection (RCE) via arbitrary command in MCP stdio server configuration</div>
+            <div class="card-body">### Summary
+
+Before **Langflow 1.10.3**, the MCP stdio transport launched whatever `command` / `args` a user put in an MCP server configuration, with no allowlist and (before 1.10.3) wrapped in `bash -c "exec {command} ..."`. Any user able to reach the MCP server settings ("Settings → MCP Servers → Add MCP Server", `POST/PATCH /api/v2/mcp/servers/{...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-w794-rj3p-xv45" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105698</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Langflow : Cross-user flow access and vertex execution via deprecated /api/v1/build/{flow_id}/vertices endpoints</div>
+            <div class="card-body">### Summary
+
+Before **Langflow 1.10.1**, two deprecated but still-routed endpoints in the chat API did not check that the authenticated caller owns the flow referenced in the URL path:
+
+- `POST /api/v1/build/{flow_id}/vertices` (`retrieve_vertices_order`)
+- `POST /api/v1/build/{flow_id}/vertices/{vertex_id}` (`build_vertex`)
+
+Any authenticated user...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-gh98-4phw-6fmw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-106451</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">openapi-python-client: Malicious OpenAPI Documents can cause Arbitrary Code Generation</div>
-            <div class="card-body">### Impact
-A malicious OpenAPI document processed by any `openapi-python-client` prior to 0.29.1 can generate arbitrary Python code. When anyone imports the malicious client, that arbitrary Python code will execute.
+            <div class="card-title">yawkat LZ4 Java: Native library extraction to a shared temporary directory is vulnerable to file replacement by another local user</div>
+            <div class="card-body">### Summary
 
-### Patches
-Versions starting with 0.29.1 have updated with guardrails to prevent arbitrary code generation. Upgrade to this version ...</div>
+When no system-installed `liblz4-java` is found, `net.jpountz.util.Native.load()` extracts the bundled native library to `java.io.tmpdir` and loads it with `System.load`. The path of the extracted library can be predicted before it is created, and the library file is opened without exclusive creation. Another local user who can write t...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-5293-mq8x-g3xj" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-mcr4-qmvw-px4g" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-105799</span>
+                <span class="cve-id">CVE-2026-106449</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
+                    LOW 3.7
                 </span>
             </div>
-            <div class="card-title">LangChain: RediSearch Filter Injection via Unescaped Tag/Text Values</div>
-            <div class="card-body">## Summary
+            <div class="card-title">yawkat LZ4 Java: LZ4BlockInputStream with stopOnEmptyBlock=false recurses once per empty block, causing StackOverflowError</div>
+            <div class="card-body">### Summary
 
-`@langchain/redis` did not properly escape values used to construct structured RediSearch TAG and TEXT filters. An application that passes attacker-controlled values into these filters could allow the attacker to alter the resulting search query.
+When `LZ4BlockInputStream` is configured with `stopOnEmptyBlock = false` (the mode for reading concatenated block streams), it handles each empty block by calling `refill()` recursively. A long run of empty blocks exhausts the thread stack and throws `StackOverflowError` out of `read()` or `skip()`.
 
-## Affected versions
+### Details
 
-`@langchain/redis` versions through 1.1.0 are affected.
-
-## Impact
-
-...</div>
+In `net.jpountz.lz4.LZ...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-5x6v-p487-7qh2" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-343h-94h5-c4wr" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-26287</span>
+                <span class="cve-id">CVE-2026-106450</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">yawkat LZ4 Java: LZ4FrameInputStream reallocates block buffers for every frame, allowing CPU and GC amplification from small inputs</div>
+            <div class="card-body">### Summary
+
+`LZ4FrameInputStream` allocates two new buffers of the frame's maximum block size, up to 4 MiB each, every time it reads a frame header. Because concatenated frames are read by default, an input made of many minimal empty frames forces about 8 MiB of zeroed heap allocation for every 11 input bytes.
+
+### Details
+
+In `net.jpountz.lz4.LZ4...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-gm45-99xc-r7wv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105647</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.0
+                </span>
+            </div>
+            <div class="card-title">Ghost: Server-Side Request Forgery in Bookmark Fetching</div>
+            <div class="card-body">### Impact
+
+A validation issue allowed some functionality, such as Webmentions, to be abused by an unauthenticated user to make limited HTTP requests to hosts in the Ghost server's internal network. A successful attack would not result in any response data being returned.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost from v6.54.1...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-322m-ff4g-9vx9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105648</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.0
+                </span>
+            </div>
+            <div class="card-title">Ghost: Private IP Filtering Bypass via IPv6 Transition Addresses</div>
+            <div class="card-body">### Impact
+
+A validation issue allowed some functionality, such as Webmentions, to be abused by an unauthenticated user to make limited HTTP requests to hosts in the Ghost server's internal network on some network configurations. A successful attack would not result in any response data being returned.
+
+### Vulnerable versions
+
+This vulnerability i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-r7f2-6fj8-6fg2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105649</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
+                    HIGH 7.3
                 </span>
             </div>
-            <div class="card-title">External Secrets Operator: label enforcement bypass in webhook generator enables secret exfiltration</div>
-            <div class="card-body">## Summary
-A bug in the `webhook` generator initialization order incorrectly cleared the label-enforcement flag (`EnforceLabels`) after it was set, resulting in the provider-side check for `external-secrets.io/type=webhook` being skipped (and the operation to succeed while it should have failed with `secret does not contain needed label 'external-s...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-q7hv-xx6h-q2x8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-2r3x-4mrv-mcxf</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Vyper: Memory corruption using function calls within tuples / nested calls</div>
+            <div class="card-title">Ghost: Stored XSS via SVG Uploads Bypassing Sanitization</div>
             <div class="card-body">### Impact
-When performing a function call inside a tuple or as an argument inside another function call, there is a memory corruption issue that occurs because of an incorrect pointer to the the tip of the stack.
 
-Example code:
-```python
-@internal
-def _foo(a: uint256, b: uint256, c: uint256) -> (uint256, uint256, uint256, uint256, uint256):
-    re...</div>
+SVG media thumbnails, and SVG images uploaded with a non-SVG file extension, were stored without sanitization. This allowed any staff user, including Contributors, to host scripts on the site's domain, possibly resulting in compromise of other staff users' admin sessions.
+
+### Vulnerable versions
+
+This vulnerability is present in Ghost ...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-2r3x-4mrv-mcxf" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-8575-cr6v-7jh4" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-4v7v-gqf9-ww2g</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                <span class="cve-id">CVE-2026-105699</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">Vyper: Call stack corruption when passing complex type containing non-base type members as argument</div>
+            <div class="card-title">Langflow has Authenticated Cross-Project File Disclosure via Unscoped MCP Resource Handlers</div>
+            <div class="card-body">### Summary
+Langflow's project-scoped MCP transport authenticates the caller for the `project_id` in the connection URL, but the subsequent `resources/read` operation does not authorize the resource URI being requested. An authenticated user can connect to their own project-scoped MCP endpoint and supply a crafted file-download URI that points to a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-4hmc-cfm3-w43c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-94544</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">Next.js: Pending `use cache` fill can leak Draft Mode content into regular responses and persisted pages</div>
+            <div class="card-body">Pending `use cache` fills are shared across requests for the same key without distinguishing Draft Mode requests from regular requests. When two such requests overlap, the second request receives the first request's fill:
+
+- A regular request that overlaps an editor's Draft Mode request receives unpublished content, without any authentication.
+- A ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-3w37-wq28-93x7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-94543</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Next.js has cache poisoning of SSG and ISR pages in self-hosted applications</div>
+            <div class="card-body">Self-hosted Next.js applications that use the Pages Router with statically generated (SSG) or incrementally regenerated (ISR) pages can have a page's cache entry replaced with content from a different route, causing the affected page to serve wrong content to every visitor until the entry is revalidated. Applications deployed on Vercel are not affe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-4jqv-mc3x-m676" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-94486</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 5.4
+                </span>
+            </div>
+            <div class="card-title">Next.js has information disclosure in development server's Model Context Protocol endpoint</div>
+            <div class="card-body">The Next.js development server (`next dev`) exposes a Model Context Protocol endpoint that does not verify which website a request originates from, allowing a malicious website visited by the developer to read sensitive development data — including the project's location on disk, source code snippets from error reports, the route inventory, and dev...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-39w2-rjm5-chcv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-94485</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Next.js has information disclosure in App Router metadata image routes via dynamicParams bypass</div>
+            <div class="card-body">In Next.js App Router applications built with webpack, metadata image routes such as opengraph-image and twitter-image ignore the `dynamicParams` route segment option. An attacker can request metadata image URLs for dynamic segments that were deliberately excluded from `generateStaticParams()`....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-f87g-xv8r-7p7x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-94484</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.8
+                </span>
+            </div>
+            <div class="card-title">Next.js has cache poisoning in SSG/ISR rendering that leads to cross-user content substitution and persistent denial of service</div>
+            <div class="card-body">Next.js applications that use a root-level catch-all page together with statically generated or Incremental Static Regeneration routes can have their shared response cache poisoned by a single unauthenticated crafted request....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-mcj8-r9mp-w47p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-94483</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 6.5
+                </span>
+            </div>
+            <div class="card-title">Next.js has Server-Side Request Forgery in Image Optimization</div>
+            <div class="card-body">## Impact
+
+An attacker-controlled, allow-listed remote URL can lead to server-side request forgery (e.g. to private IPs) during Image Optimization. 
+
+## Workaround
+
+Audit allow-listed remote URLs in `images.remotePatterns` (see https://nextjs.org/docs/app/getting-started/images#remote-images) for hosts that may not be trusted with their DNS entries...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-cjq9-62q9-8jv4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105856</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Payload: SQL injection in SQLite/Postgres</div>
             <div class="card-body">### Impact
-When we pass a multi-dimensional array (like `[[1, 2], [3, 4]]`) as an argument to internal/external functions we get incorrect output. This is due to a stack management issue, because it was assumed that the size of each subtype of an array/struct is 32, which is not always correct.
 
-Example code:
-```python
-@internal
-def test_input(arr:...</div>
+An attacker who has read plus create or update access to a collection can submit a request that includes a SQL injection targeting a specific field path shape and operators in Payload's SQLite and Postgres.
+
+#### You are affected if:
+
+- You use `@payloadcms/db-sqlite` or `@payloadcms/db-d1-sqlite`.
+- You use `@payloadcms/db-postgres` or...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-4v7v-gqf9-ww2g" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-pj7x-6wpf-pgvp" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-vg88-3v92-rjx2</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                <span class="cve-id">CVE-2026-105858</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
                 </span>
             </div>
-            <div class="card-title">Vyper: Return inside for loop more than 1 level deep</div>
-            <div class="card-body"># VVE-2020-0002
-Earlier today, we received a responsible disclosure of a potential issue from @michwill (developer of @curvefi) for Vyper users who use return statements inside for loops of nested internal calls. Returning inside a for loop causes an invalid jump dest, reverting the transaction unnecessarily.
+            <div class="card-title">Payload: Remote Code Execution through first-register</div>
+            <div class="card-body">### Impact
+A crafted request to the public first-register operation can be used to perform a RCE exploit.
 
-MWE:
-```python
-@internal
-def _baz():
- ...</div>
+**You are affected if:**
+
+- You use local auth strategy and your application remains without an initial user created
+
+## Patches
+
+In the patched version data submission to create first user is properly sanitized.
+
+Users should upgrade Payload ...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-06</span>
-                <a href="https://github.com/advisories/GHSA-vg88-3v92-rjx2" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-07</span>
+                <a href="https://github.com/advisories/GHSA-97rh-rhh2-7vjv" target="_blank">Full Report →</a>
             </div>
         </div>
         
