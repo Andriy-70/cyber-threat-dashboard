@@ -68,568 +68,538 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-09 12:09 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-09 21:54 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107719</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.2
+                <span class="cve-id">GHSA-m687-p538-r5hp</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">fast-jwt: Verifier cache accepts expired JWTs without iat.</div>
-            <div class="card-body">### Summary
-`cacheSet` only derives its `exp` cache deadline inside `hasIat` (`src/verifier.js:127-140`). JWT `iat` is optional. For a valid token with `exp` but no `iat`, `cacheSet` substitutes `clockTimestamp + clockTolerance + cacheTTL` (`src/verifier.js:142-146`). Later, the cache path returns the saved payload before decoding or invoking `veri...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-x937-hj6v-793p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107726</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Hazelcast allows arbitrary member memory access by low-privileged client</div>
-            <div class="card-body">### Impact
+            <div class="card-title">Vikunja: Permissive Cross-domain Security Policy trusts every localhost origin which should not be trusted</div>
+            <div class="card-body">## Summary
 
-A flaw has been found in Hazelcast Enterprise Edition and Community Edition, which would allow a low-privileged malicious client to read arbitrary data in memory from any cluster member (including Java heap memory, off-heap data, and JVM process address space). Additionally, such a client may be able to cause one or more cluster members...</div>
+Vikunja ships with `cors.origins` defaulting to `http://127.0.0.1:*` and `http://localhost:*`, and sends `Access-Control-Allow-Credentials: true`, so a page served from any port on the user's own machine may make credentialed cross-origin requests to the API and read the responses. The mandatory `service.publicurl` is appended to that d...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-6v25-8wq6-xq4j" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-m687-p538-r5hp" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107716</span>
+                <span class="cve-id">GHSA-fmmf-xq98-g327</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Banks: Symlink traversal and arbitrary file disclosure/overwrite in DirectoryPromptRegistry</div>
-            <div class="card-body">### Summary
-In `banks.registries.DirectoryPromptRegistry`, prompt file paths and the index file (`index.json`) do not refuse symbolic links. When a prompt directory contains or accepts untrusted files (e.g. unpacked archives, shared repositories, or multi-tenant folders), symbolic links pointing outside the registry root can be used to disclose arb...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-556j-vv39-8rqv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107717</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Banks: User-controlled prompt input can be parsed as privileged chat messages</div>
+            <div class="card-title">Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check</div>
             <div class="card-body">## Summary
 
-  Banks' `Prompt.chat_messages()` method parses every rendered output line as a potential `ChatMessage` JSON
-  object. If attacker-controlled template data renders to JSON such as `{"role":"system","content":"..."}`,
-  Banks returns it as a privileged `system` message instead of treating it as plain user-controlled text.
+A project member with Write permission can delete an admin-tier link share on that project. The deletion authorization check reads the permission from an object populated only with URL IDs, rather than from the stored share. Its zero value is Read, so the check falls through to project Write permission instead of requiring Admin.
 
-  Applications...</div>
+## De...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-hmq2-7hp6-7crh" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-fmmf-xq98-g327" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107394</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Indico: Incomplete Server-Side Request Forgery (SSRF) check</div>
-            <div class="card-body">### Impact
-Indico makes outgoing requests to user-provides URLs in various places. This is mostly intentional and part of Indico's functionality, but of course it is never intended to let you access "special" targets such as localhost or cloud metadata endpoints. The previous fix (CVE-2026-25738) did not cover an edge case so it was still possible ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-2v95-h47v-g4x9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107395</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Indico: Missing access check in legacy session export API</div>
-            <div class="card-body">### Impact
-A legacy API to retrieve session details could be misused to retrieve metadata (such as title, description and conveners) of a restricted session within without having access to that session, as long as the event itself was accessible.
-
-### Patches
-You should to update to [Indico 3.3.13](https://github.com/indico/indico/releases/tag/v3.3...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-6p4f-j8j6-463q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107397</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.4
-                </span>
-            </div>
-            <div class="card-title">Indico: Cross-Site-Scripting in minutes editor</div>
-            <div class="card-body">### Impact
-There is a Cross-Site-Scripting vulnerability in the minute editor conflict UI tha's shown when concurrent edits are made to the same minutes in an event.
-
-### Patches
-You should to update to [Indico 3.3.13](https://github.com/indico/indico/releases/tag/v3.3.13) as soon as possible.
-See [the docs](https://docs.getindico.io/en/stable/inst...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-cw24-x4mj-fw3q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107396</span>
+                <span class="cve-id">GHSA-pjr3-86v4-5p7w</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.4
                 </span>
             </div>
-            <div class="card-title">Indico: Cross-Site-Scripting in link fields</div>
-            <div class="card-body">### Impact
-There is a Cross-Site-Scripting vulnerability in fields that allow entering custom URLs.
+            <div class="card-title">Vikunja: Explicit lower-permission share on a sub-project is silently overridden by an inherited parent permission (broken access control / privilege-management regression in v2.6.0)</div>
+            <div class="card-body">## Description
 
-### Patches
-You should to update to [Indico 3.3.13](https://github.com/indico/indico/releases/tag/v3.3.13) as soon as possible.
-See [the docs](https://docs.getindico.io/en/stable/installation/upgrade/) for instructions on how to update.
+### Summary
 
-### Workaro...</div>
+In Vikunja v2.6.0 the project-permission engine resolves a user's effective permission on a project as
+the **MAX over the entire reachable project subtree**. As a result, when a user has been granted a
+**higher** permission on a parent project and the owner *explicitly* shares a **child** project with
+that same user at ...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-c4wc-ggrj-jg9v" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-pjr3-86v4-5p7w" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107725</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Hazelcast has an authorization bypass in IMap Predicates API</div>
-            <div class="card-body">### Impact
-
-Missing authorization checks in the [Predicates API](https://docs.hazelcast.com/hazelcast/5.7/query/predicate-overview) may allow a malicious client to execute arbitrary code on a Hazelcast member.
-
-### Patches
-
-Enterprise customers should upgrade to a fixed version of Hazelcast Enterprise Edition:
- * 5.7.0
- * 5.6.1
- * 5.5.10
- * 5.4.5
- ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-w294-6q5q-53p8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107718</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">AdonisJS: Unencoded route parameters can produce open redirects</div>
-            <div class="card-body">Route parameters are inserted into generated URLs without URI encoding.
-
-When an application passes untrusted input to a route whose first path segment is dynamic, a value beginning with / can produce a scheme-relative URL. For example:
-
-```ts
-router.get('/:page', handler).as('pages.show')
-
-response.redirect().toRoute('pages.show', {
-  page: '/evil...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-2m6q-8v3h-jqww" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107399</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Mechanize sends credential headers to another origin after a meta refresh</div>
-            <div class="card-body">## Summary
-
-`mechanize` applied no trust boundary to a `meta` refresh, so credentials set through `Mechanize#request_headers=` followed a refresh that pointed at another origin.
-
-## Details
-
-`Mechanize::HTTP::Agent#response_follow_meta_refresh` fetched the refresh target with no notion of a crossed origin, so `@request_headers` were re-applied in f...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-c6rp-p8xm-4q9f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107715</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Mechanize sends credential headers to another host after an HTTP redirect</div>
-            <div class="card-body">## Summary
-
-`mechanize` leaked credentials to the redirect target when an HTTP redirect crossed to another host. Credentials set through `Mechanize#request_headers=` leaked even when they were `Authorization`.
-
-## Details
-
-Two defects, both in `lib/mechanize/http/agent.rb`.
-
-**1. `Mechanize#request_headers=` bypassed the redirect strip entirely.** ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-2mwr-xjcg-37j7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107720</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">fast-jwt: createVerifier accepts unsigned JWTs when key is '' or null and algorithms is explicitly set</div>
-            <div class="card-body">### Summary
-
-`createVerifier` in fast-jwt ≤ 6.3.0 skips signature verification entirely when the `key` option is a falsy synchronous value (`''` or `null`) **and** the `algorithms` option is set to a non-empty allowlist. An attacker who can present a JWT to the application — regardless of algorithm — can forge arbitrary claims without possessing an...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-8wpc-h4q6-8fxv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107722</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">fast-jwt: Incomplete patch of CVE-2026-34950: Non-whitespace key-prefix re-enables RSA→HS256 algorithm confusion</div>
-            <div class="card-body">### Summary
-
-The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It adds `key.trim()` to the PEM-detection path in `src/crypto.js`, but `String.prototype.trim()` only strips characters classified as whitespace by the ECMAScript specification. The subsequent `^`-anchored regex (`/^-----BEGIN(?: (RSA))? PUBLIC KEY-----/`) sti...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-ww5h-9m49-7xx4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107721</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">fast-jwt clockTolerance: Infinity silently bypasses both exp and nbf validation (and persists in the verifier cache)</div>
-            <div class="card-body">## Summary
-
-`createVerifier({ clockTolerance: Infinity })` silently bypasses both `exp` (expiry) AND `nbf` (not-before) validation. Any expired or not-yet-active token is accepted as valid. The same primitive also corrupts the verifier's internal cache so cached entries inherit infinite validity — they remain valid past a later developer-removed In...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-687g-22h4-j4w4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107723</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">fast-jwt : Silent claim-validator bypass when JWT payload is a JSON array</div>
-            <div class="card-body">### Summary
- `fast-jwt`'s `createVerifier` silently skips **all** configured claim validators (`exp`, `nbf`, `iss`, `aud`, `sub`, `jti`, `nonce`) when a validly-signed JWT carries a JSON array as its payload instead of an object. The verifier reports success while having enforced only the signature. This breaks the library's documented `allowedIss`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-5hjw-83fp-phq9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107724</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">fast-jwt treats raw public JWK JSON as an HMAC secret, enabling HS256 token forgery</div>
-            <div class="card-body">### Summary
-
-`fast-jwt` 6.2.4 silently classifies raw serialized public JWK JSON
-as an HMAC secret.
-
-If an application supplies public JWK JSON text as the verifier key and
-HS256 is explicitly allowed or automatically inferred, an attacker who
-knows the same public JSON text can use it as an HMAC key and create an
-arbitrary HS256 token that `fast-j...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-g3jj-5cmm-3hxx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61426</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.6
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: AgentOS defaults to network-exposed no-auth mode, allowing unauthenticated agent invocation and instruction disclosure</div>
-            <div class="card-body">## Summary
-
-The AgentOS server in the `praisonai` TypeScript/npm package ships an insecure default: it binds `0.0.0.0`, sets no API key, and uses CORS `*` with credentials. The API-key middleware is only registered when an API key is configured, so the documented quickstart (`new AgentOS({agents:[...]}).serve({port})`) exposes, **unauthenticated**,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-6wjp-v33h-5cvq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61442</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: Platform member PATCH routes allow owner resource rewrites and project lead reassignment delete bypass</div>
-            <div class="card-body"># Platform member PATCH routes allow owner resource rewrites and project lead reassignment delete bypass
-
-## Summary
-
-`praisonai-platform` lets an ordinary workspace member patch owner-created project, issue, and agent records even though the paired delete routes enforce owner/admin authorization. For projects, the member can first patch `lead_id` ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-c78w-2q4r-68r7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61434</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: Shell command allowlist bypass via find -exec built-in action</div>
-            <div class="card-body">### Summary
-
-The shell command execution hardening introduced in PraisonAI npm 1.7.2 / Python 4.6.58 to fix GHSA-5jv7-2mjm-h6qj (utility-tools shell chaining) and GHSA-vjv9-7m7j-h833 (SandboxExecutor chaining) can be bypassed via `find`'s built-in `-exec` action.
-
-The fix blocks shell metacharacters (`` ;|&`><$()${} ``) and uses `spawn()` with `she...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-cv3g-hj65-pcfh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61445</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls</div>
-            <div class="card-body">### Summary
-The `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-9mp3-24cc-77mg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61427</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.3
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: MCP HTTP-stream transport is unauthenticated by default, exposing tool enumeration and an unvalidated tool-call surface</div>
-            <div class="card-body">## Summary
-
-PraisonAI's MCP HTTP-stream server authenticates requests only when an API key is configured; the CLI defaults `--api-key` to `None`, so `praisonai mcp serve --transport http-stream` exposes the full MCP surface unauthenticated. A request with no `Authorization` (and no `Origin`) can `initialize` and `tools/list` (~50 tools), and the di...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-hc5v-gxvj-58wh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-61440</span>
+                <span class="cve-id">GHSA-hjx8-qv73-f7cm</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 6.5
                 </span>
             </div>
-            <div class="card-title">PraisonAI: Platform members can rewrite shared labels and owner issue labels without owner/admin authorization</div>
-            <div class="card-body"># Platform members can rewrite shared labels and owner issue labels without owner/admin authorization
-
-## Summary
-
-`praisonai-platform` lets an ordinary workspace member rename and recolor shared labels and add/remove labels on an owner-created issue even though direct label deletion is restricted to workspace admin/owner authority in current relea...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-xxgv-vgvj-qvxh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-60085</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: SecurityPolicy command/path/import restrictions are completely unenforced by the default SubprocessSandbox backend</div>
-            <div class="card-body">Summary
-SecurityPolicy in praisonaiagents/sandbox/config.py is a documented configuration data class with fields for allow_subprocess, allowed_paths, blocked_paths, allowed_commands, blocked_commands, allowed_imports, and blocked_imports. Its strict() classmethod is explicitly described as creating "a strict security policy for untrusted code," set...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-5r6c-gj4g-r697" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-60091</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.2
-                </span>
-            </div>
-            <div class="card-title">PraisonAI: Jobs API is unauthenticated by default and allows attacker-controlled webhook SSRF</div>
+            <div class="card-title">Vikunja: Webhooks and link shares survive every revocation path, so a removed collaborator keeps a live feed</div>
             <div class="card-body">## Summary
 
-PraisonAI's Async Jobs API enables its API-key middleware **only when `PRAISONAI_JOBS_API_KEY` is set**, so by default every endpoint is unauthenticated. An unauthenticated `POST /api/v1/runs` accepts an attacker-controlled `webhook_url`; on job completion the server POSTs the job payload to it via `httpx`. The `webhook_url` has an SSRF...</div>
+A collaborator removed from a project keeps a **live, automatic feed** of that project's contents, because nothing on any revocation path deletes the webhook they created while they had access.
+
+Vikunja already has a revocation-cleanup routine that deletes other derived rows for exactly this reason. Its set is `{task_assignees, subscrip...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-4w49-gwv8-fpjg" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-hjx8-qv73-f7cm" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107391</span>
+                <span class="cve-id">GHSA-fprf-r6rv-xg99</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
+                    MEDIUM 5.4
                 </span>
             </div>
-            <div class="card-title">music-metadata: MP4 stsd sample-entry size==0 causes a synchronous infinite loop (DoS) — unreleased regression on master</div>
+            <div class="card-title">Vikunja: Saved filter creation with an empty filter string recalculates task positions across all tenants</div>
             <div class="card-body">### Summary
 
-`StsdAtom.get()` in `lib/mp4/AtomToken.ts` parses an MP4 `stsd` (sample description) box's entry table by advancing a cursor with `off += size - 4`, where `size` is a 32-bit, attacker-controlled per-entry length read straight from the file. When `size == 0`, that advance is `0`, so a file declaring a huge `entry_count` and a first entr...</div>
+In Vikunja v2.6.0 the task position recalculation that runs when a saved filter view is created fails open when the requesting user has no accessible projects. Instead of aborting, the search that feeds the recalculation loses its project scope entirely and returns every task in the instance. The server then writes one `task_positions`...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-f94x-6692-553q" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-fprf-r6rv-xg99" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107387</span>
+                <span class="cve-id">GHSA-4hv6-xc92-j86g</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
+                    MEDIUM 6.5
                 </span>
             </div>
-            <div class="card-title">music-metadata: Uncontrolled memory allocation in APEv2 parser</div>
-            <div class="card-body">## Summary
-
-`music-metadata` 11.15.0 is vulnerable to uncontrolled memory allocation in the APEv2 parser.
-
-The parser reads the size of an APEv2 tag item from the input file and uses that value to allocate memory before checking whether the file actually contains that many bytes. A small crafted `.ape` file can declare a very large binary tag item,...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-53v6-4h7p-p4gj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107388</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
-                </span>
-            </div>
-            <div class="card-title">music-metadata: ID3v2 tag size not validated before allocation, causing memory exhaustion DoS</div>
+            <div class="card-title">Vikunja: WebSocket authentication ignores server-side session state, so revoked sessions keep receiving live pushes</div>
             <div class="card-body">### Summary
 
-The ID3v2 parser in music-metadata trusts the tag size field without validation and allocates the full requested buffer before reading. A specially crafted MP3 file with a truncated ID3v2 tag can force allocation of up to 268 MB from a 10-byte file, causing server memory exhaustion. This vulnerability affects all parsers that support I...</div>
+Vikunja v2.6.0 introduced server-side sessions with revocation semantics: `DELETE /api/v2/user/sessions/{id}` documents "Revokes a specific session by its UUID", and enabling TOTP calls `DeleteAllUserSessions` to invalidate all sessions. The WebSocket endpoint accepts any cryptographically valid user JWT without ever resolving its `sid...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-jjpr-9cvf-cq55" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-4hv6-xc92-j86g" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107389</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
-                </span>
-            </div>
-            <div class="card-title">music-metadata: EBML parser trusts element lengths, allowing memory exhaustion or process abort</div>
-            <div class="card-body">## Summary
-
-The Matroska/WebM EBML parser decodes attacker-controlled variable-length integer (VINT) element lengths without first validating that the declared element fits within its enclosing container or the available input. Leaf lengths are then used directly for string-token and `Uint8Array` allocations.
-
-A very small crafted `.webm`, `.mkv`, ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-5gfj-9q3v-qfp3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-107286</span>
+                <span class="cve-id">CVE-2026-107805</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">Pydantic AI: Concurrency-limited models can keep their slot when a streamed request ends early</div>
-            <div class="card-body">> This issue was posted by Codex Desktop using gpt-6.1-sol on behalf of David.
+            <div class="card-title">Nginx UI: Unauthenticated signed-request body staging can exhaust temporary storage</div>
+            <div class="card-body">## Summary
 
-### Summary
-
-Applications that wrap a model with `ConcurrencyLimitedModel` or `limit_model_concurrency` can permanently lose shared concurrency capacity when a streamed request releases its slot from a different task than the one that acquired it. This can happen when a...</div>
+In Nginx UI versions 2.5.0 through 2.5.x, the node-signature authentication path staged an attacker-controlled request body in a temporary file and synchronized it to disk before validating the body digest and cryptographic signature. An unauthenticated remote client that can reach the API can provide syntactically valid signature metad...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-08</span>
-                <a href="https://github.com/advisories/GHSA-6fqq-452j-qhrp" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-j3hg-9rp3-5hw9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107804</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Nginx UI: Bundled reverse proxy can bypass IP allowlists and enable shared login lockout</div>
+            <div class="card-body">## Summary
+
+In Nginx UI versions 2.2.0 through 2.5.x, the official bundled reverse-proxy topology did not preserve the external client identity used by Gin. The backend treated the local proxy peer as the client because no trusted proxy was configured, while the proxy supplied the actual address in forwarding headers.
+
+## Impact
+
+This has two disti...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-9h23-53f4-q947" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108259</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">Tina: Code injection via unescaped Git branch name in generated client source</div>
+            <div class="card-body">### Summary
+
+`@tinacms/cli` inserts the raw Git branch value into the generated `client.ts` source without escaping or encoding. A Git-valid branch name can close the string literal and inject an arbitrary JavaScript expression that executes when the consumer build imports the generated client module.
+
+### Affected component
+
+- **Source (branch rea...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-pwhx-cvv3-qj5c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108261</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">TinaCMS admin preview iframe loads an attacker-controlled origin from the URL fragment</div>
+            <div class="card-body">### Summary
+
+The TinaCMS admin builds its preview `<iframe src>` from the `/~/*` hash-router splat without checking that the value stays same-origin. A fragment with a doubled slash (`#/~//attacker.example/p`) becomes the protocol-relative URL `//attacker.example/p`, so the admin frames an external site. That same unvalidated string derives `expect...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-x34j-47hf-4xg7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108260</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.6
+                </span>
+            </div>
+            <div class="card-title">@tinacms/web-components: `tina-markdown` writes rich-text link URLs into `href` without scheme validation, allowing stored XSS</div>
+            <div class="card-body">### Summary
+
+`<tina-markdown>` renders a rich-text AST into the DOM and, for `a` nodes, assigns the node's URL straight to the anchor's `href` with no scheme check. A link authored in the CMS as `javascript:…` renders as a live `javascript:` anchor, so a visitor who clicks it executes attacker-supplied script in the site's origin. Every sibling ren...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-c42q-qvc3-j6vg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108258</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Shiny for Python has path traversal in bookmark restore</div>
+            <div class="card-body">### Impact
+
+Shiny for Python's bookmark-restore path accepted a client-supplied `_state_id_`
+query-string value and joined it into the server-side bookmark directory
+(`<cwd>/shiny_bookmarks/<id>`) without validating it. A value containing `..`
+path segments, or an absolute path, could therefore cause the server to open and
+parse `input.json` and `v...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-47c3-hpmg-7j6p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w2ch-4xgr-22ww</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Task relation deletion does not check read access to the other task, allowing cross-project relation removal</div>
+            <div class="card-body">## Summary
+
+Deleting a task relation only requires write access on the base task. Unlike relation creation, it does not verify that the caller can read the other task. A user with write access to one project can therefore delete relations whose other end lives in a project they have no access to. Since the delete removes both the forward and invers...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-w2ch-4xgr-22ww" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-8wvg-r2j4-3737</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Assignee email addresses disclosed to read-only project members via the task assignees endpoint</div>
+            <div class="card-body">### Summary
+`TaskAssginee.ReadAll` returns assignee user objects without blanking the `Email` field, disclosing assignee email addresses to any read-only project member. Every sibling path that returns user objects obfuscates the email; this one does not.
+
+### Details
+`pkg/models/task_assignees.go` (~lines 306-344) does `Select("users.*")` and retu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-8wvg-r2j4-3737" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3hc7-r24j-rpwc</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Cross-project task disclosure through subtask expansion</div>
+            <div class="card-body">### Summary
+Vikunja lets a task in one project have a subtask that lives in a different project. When listing a project's tasks, an option pulls in those subtasks (?expand%5B%5D=subtasks). The main listing is correctly filtered to the projects the caller can access, but the subtask expansion is not: it returns the linked subtasks regardless of whet...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-3hc7-r24j-rpwc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-g38j-7v97-x298</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: CalDAV relation creation bypasses TaskRelation.CanCreate, allowing an unauthorized write into any task by known UID</div>
+            <div class="card-body">### Summary
+Creating a task relation over CalDAV does not run the `TaskRelation.CanCreate` permission check that the REST API enforces. An attacker can attach a relation to any task whose UID they know, including tasks in projects they have no access to. The identical operation over REST is correctly refused with 403.
+
+### Details
+`persistRelations...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-g38j-7v97-x298" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107842</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Contao: Protected page content is disclosed to anonymous visitors after contao.search.index_protected is disabled</div>
+            <div class="card-body">`ModuleSearch` decides whether to filter protected pages out of search results based on the current value of `contao.search.index_protected`, but the authorisation data lives per row in `tl_search`. Turning the setting off removes
+the filter without removing the rows, so protected pages that were indexed while it was on are returned to unauthentica...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-x2rp-9qf7-2fmq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107843</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Contao: The registration module re-sends activation mails</div>
+            <div class="card-body">`ModuleRegistration::compile()` reaches its follow-up registration branch on **any** POST to a page carrying the module. That branch checks neither `FORM_SUBMIT` nor the captcha result computed immediately above it, and `resendActivationMail()` leads to `OptInToken::send()`, which has no rate limit at all.
+
+### Impact
+
+Anyone on the internet can ma...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-mfxh-vp55-7gc6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107848</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.5
+                </span>
+            </div>
+            <div class="card-title">Contao: Cross-site request forgery in custom backend actions</div>
+            <div class="card-body">`RequestTokenListener` is the only generic `REQUEST_TOKEN` validator in Contao and it only runs on POST. On the GET side the guard is local and declarative, and it only fires when an `act` parameter is present. Every back end action dispatched through a different parameter therefore has no CSRF protection at all. This is a family rather than a sing...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-9ff2-p842-45wq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107844</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Contao: Path traversal in the images controller</div>
+            <div class="card-body">`ImagesController` joins the user controlled `{path}` onto the configured image target directory with `Path::join()`, which canonicalises `..` segments, and never calls `Path::isBasePath()` to confirm the result stayed inside that directory. An unauthenticated GET with percent encoded dot segments therefore escapes the directory and the file is ret...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-mrvp-7wmx-5m4h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107845</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">Contao: Cross-site scripting in the comments bundle</div>
+            <div class="card-body">An unauthenticated front end visitor can post a comment containing a XSS injection. The victim is any back end user who opens the Comments module, and moderation makes exposure certain rather than preventing it. No `Content-Security-Policy` header is sent on the Contao back end, so nothing mitigates the inline handler.
+
+### Impact
+
+Anyone on the in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-628f-v4f6-p37r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107850</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Contao: Improper access control in the preview links module</div>
+            <div class="card-body">`core-bundle/config/services.yaml` registers the preview access voter with the class `Contao\CoreBundle\Security\Voter\DataContainer\PreviewAccessVoter`, but the class shipped on disk is named `PreviewVoter`. Symfony resolves the class with `getReflectionClass($class, false)`, gets `null`, silently skips the interface based autoconfiguration that w...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-q6wp-fr43-gm9v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-107851</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Contao: Improper access control in the table access voter</div>
+            <div class="card-body">Due to a caching defect in the security voter that governs table-level access to Contao's Data Container (DCA) backend, a low-privileged, non-admin backend user can obtain unauthorized read, create, update, and delete access to database tables outside their assigned module permissions. This includes tables containing sensitive personal data, such a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-5974-gfqc-wrcm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-91970</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Planka migration retains an unbounded aggregate of attacker-served attachments and can OOM the API</div>
+            <div class="card-body"># Planka migration retains an unbounded aggregate of attacker-served attachments and can OOM the API
+
+## Summary
+
+The always-registered Planka migration lets any ordinary user select a Planka server. Although Vikunja caps each JSON response, pagination loop, and attachment independently, it has no aggregate job budget. The conversion stage download...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-wq92-8x3r-fm38" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-91969</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Unbounded CSV row cardinality permits API process termination</div>
+            <div class="card-body"># Unbounded CSV row cardinality permits API process termination
+
+## Summary
+
+The authenticated v2 CSV migration route caps upload bytes but not parsed row cardinality. It reads every record into a [][]string and then materializes a full task object for every row before insertion. Two million one-cell rows fit in a roughly 4 MB multipart request yet...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-pqf9-h8g4-8gmh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-91968</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Unbounded nested task-filter recursion permits API process termination</div>
+            <div class="card-body"># Unbounded nested task-filter recursion permits API process termination
+
+## Summary
+
+Authenticated task-list routes accept a filter expression without a length or nesting-depth bound, preprocess it, parse it recursively through fexpr, and recursively convert the resulting expression tree. A syntactically valid deeply nested expression well below t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-xxc3-xpmc-vmvr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-91979</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Denial of service via decompression bomb in the data import</div>
+            <div class="card-body">### Summary
+Vikunja lets you export your data as a zip and import it back. The import doesn't limit how large the archive expands to, how many files it contains, or how much storage one user can consume, and it appears to hold the whole archive in memory while processing it. Because the archive is compressed, a ~20 MB upload made of highly compress...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-w7jp-mf2v-8342" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-91981</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Link-share token can enumerate users through the v2 API</div>
+            <div class="card-body">### Summary
+A link-share token, the credential you hand out to let someone view a shared project, can call the v2 user-search endpoints, which it was never meant to reach. The v1 versions of the same endpoints correctly reject link-share tokens; the v2 versions don't. As a result, anyone with a share link can list every member of the shared project...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-vfxw-3x8p-2vjr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-91980</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Any user can enumerate every team and its members by attaching arbitrary teams to a throwaway project</div>
+            <div class="card-body">### Summary
+When you share a project with a team, the API lets you attach any team on the instance, including teams you have nothing to do with, as long as you're an admin of the project. Listing a project's teams then returns each team's full member roster. So any logged-in user can spin up a throwaway project, attach team IDs one by one, and read...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-39p5-2wrr-xh29" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-91971</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Vikunja: Unbounded image decode on avatar and project-background uploads enables decode/resize amplification</div>
+            <div class="card-body">### Summary
+The 50-megapixel decode guard exists only on the task-attachment preview path. Avatar and project-background uploads decode uploaded images with no pixel cap. Worse, the avatar resize fixes the output height at 1024 and derives the width from the aspect ratio, so a tiny extreme-aspect-ratio PNG expands to an enormous output image — an i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-09</span>
+                <a href="https://github.com/advisories/GHSA-4vh2-39rq-rq8j" target="_blank">Full Report →</a>
             </div>
         </div>
         
