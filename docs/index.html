@@ -68,10 +68,184 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-16 15:38 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-16 20:08 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-100349</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">kin-openapi openapi3filter: nil-pointer panic in ValidateResponse on a response header declared with content</div>
+            <div class="card-body">## Summary
+
+`ValidateResponse` panics on a nil pointer when a spec declares a response header with `content` instead of `schema`. `doc.Validate()` accepts that document, so the crash comes from a spec the library just called valid.
+
+Same class as GHSA-jpcw-4wr7-c3vq, which covered the request-parameter case in v0.144.0; this is the response-header ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-74vm-87hj-r66f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-58494</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Wasmtime: WASI hard links bypass wasmtime-wasi's FilePerms for destination</div>
+            <div class="card-body">## Summary
+
+Wasmtime's WASI filesystem implementation lets a guest with a read-only source file capability overwrite that file by hard-linking it into another preopen that allows file writes. An attacker who can run a WASI guest can bypass `WasiCtxBuilder` per-preopen `FilePerms` and modify host files that were exposed as `FilePerms::READ`.
+
+This a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-4ch3-9j33-3pmj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-6fj4-rcr3-r7rr</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">lopdf has a stack overflow via deeply nested PDF objects</div>
+            <div class="card-body">`lopdf::Document::load_mem` (and the other `load*` entry points) parses nested PDF arrays and dictionaries with unbounded recursion. A small crafted PDF whose Catalog contains a deeply nested array (`/X [[[ … ]]]`, on the order of 10,000 levels) exhausts the call stack and aborts the process with `SIGABRT`.
+
+Because this is a stack-overflow abort r...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-6fj4-rcr3-r7rr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102834</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">JavaCV: Integer Overflow in IPCameraFrameGrabber Causes Infinite-Loop DoS</div>
+            <div class="card-body">### Summary
+`IPCameraFrameGrabber` parses the `Content-Length` value from the multipart MJPEG HTTP stream returned by the configured IP camera without any bounds checking. A malicious or compromised camera endpoint - or any network attacker able to tamper with the plaintext HTTP response (these streams are conventionally accessed over `http://`, as...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-rxjv-24xq-76wc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96620</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Claude Agent SDK: Argument Injection via resume Option Allows Arbitrary Command Execution</div>
+            <div class="card-body">The Claude Agent SDK for Python passed the `resume` option to the Claude CLI without validation, allowing a value beginning with `-` to be interpreted as a separate CLI flag. An attacker who controlled the `resume` value could inject an `--mcp-config` flag defining a stdio MCP server, resulting in arbitrary command execution at CLI startup that byp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-h4mw-j7qp-8mwm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62994</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">CoreDNS `k8s_external` headless AXFR can emit an empty transfer batch that panics the `transfer` plugin</div>
+            <div class="card-body">### Summary
+
+A network DNS client allowed to request AXFR for a CoreDNS zone can trigger a panic when CoreDNS is configured with `k8s_external` headless-service zone transfers and Kubernetes contains a headless service endpoint with no declared ports. The built-in `k8s_external` transferer can emit an empty `[]dns.RR` batch, and the shared `transfe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-74w3-63xv-x9mv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-76894</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
+                </span>
+            </div>
+            <div class="card-title">ckan-mcp-server: DataStore Table UI resource does not validate postMessage origin (in) and posts to targetOrigin "*" (out)</div>
+            <div class="card-body">## Summary
+
+The MCP Apps UI resource (an interactive DataStore table rendered in the host's webview/iframe) communicates with its parent via `postMessage`. Its inbound `message` listener performs no `event.origin` validation, and its outbound messages are sent with target origin `'*'`. Any window/frame able to reach the document can inject data int...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-vqff-r82h-9crc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-54893</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">swoosh has email-derived URL path injection in Microsoft Graph endpoint</div>
+            <div class="card-body">### Summary
+
+`Swoosh.Adapters.MsGraph` builds its Microsoft Graph API request URL by interpolating the sender's email address directly into the URL path (`/users/{from}/sendMail`) without percent-encoding or validation. In applications that derive the `from` address from untrusted or user-influenced input (a relay, a contact form, or a "send as" fe...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-754j-98wh-57rf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-68549</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.3
+                </span>
+            </div>
+            <div class="card-title">ClickMigrate has Path Traversal in "revision -m" argument</div>
+            <div class="card-body">### Impact
+A path traversal vulnerability in the `revision` command allowed a crafted migration name supplied via the `-m` argument to escape the intended migrations directory.
+
+Under specific conditions, an attacker could cause the tool to create a `.sql` file in an arbitrary location writable by the user executing the command.
+
+This issue is only...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-vgf9-9mxx-hq54" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-102941</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">gomarkdown/markdown IsSafeURL panics on short URLs</div>
+            <div class="card-body">## Summary
+
+IsSafeURL slices url[:nPath] before checking that len(url) >= nPath, so a URL shorter than a path prefix (0, 1 or 2 bytes) triggers a slice-bounds panic, and this is reached end to end when the html.Safelink hardening flag is enabled and the input contains an empty or very short link destination, giving an unrecoverable crash DoS. Confi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-cv23-7vc5-jfh7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-102989</span>
@@ -429,209 +603,6 @@ CVE-2026-30973 [(GHSA-rfx7-4xw3-gh4m)](https://github.com/appium/appium/security
             <div class="card-footer">
                 <span>Published: 2026-10-15</span>
                 <a href="https://github.com/advisories/GHSA-cr65-55v9-xhvv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-100350</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">kin-openapi deepObject query decoding repeatedly compiles an invariant regular expression</div>
-            <div class="card-body">### Summary
-
-`openapi3filter` decodes `deepObject`-style query parameters by looping over **every** key in the request's query string. Inside that loop it recompiles a **loop-invariant** regular expression on every iteration. The pattern depends only on the spec-defined parameter name, not on the loop variable, so it is compiled `N` times for `N` q...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-h4r5-mxv5-8mjc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-102748</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Dgraph: Zero Unauthenticated HTTP Admin removeNode Denial of Service</div>
-            <div class="card-body">### Summary
-
-Dgraph `v25.3.8` exposes a Zero HTTP administrative surface that is unauthenticated when port `6080` is reachable.
-
-The exposed routes include:
-
-- `/state`
-- `/assign`
-- `/removeNode`
-- `/moveTablet`
-
-An unauthenticated request to `/removeNode?id=1&group=0` on a single-node standalone deployment breaks the Zero control plane and leaves...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-qj98-gp63-54xj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-104266</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">tinytag: Infinite loop when parsing certain M4A files containing invalid atoms</div>
-            <div class="card-body">### Impact
-An M4A file containing a sub-atom with a size of zero in the `----` atom makes the parser enter an infinite loop, resulting in a denial-of-service for programs reading such files with tinytag.
-
-### Patches
-The issue has been fixed in tinytag 2.3.0, by reusing the primary atom parsing code path that contains appropriate size checks.
-
-### ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-24cc-9352-h2pg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-104102</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">copyparty FTP: upload outside defined volumes (limited path traversal)</div>
-            <div class="card-body">The FTP and FTPS server -- if enabled -- would allow uploading to any folder that the copyparty process had permission to write to.
-
-The FTP-server is default-disabled, and must be explicitly enabled in the config with global-option `ftp` or `ftps` to be affected. Additionally, SFTP was not affected at all; only FTP and FTPS.
-
-This was not a full r...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-phv8-wgjp-g4p9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-104252</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Vitess vttablet /twopcz reflected XSS</div>
-            <div class="card-body">From: xylove21
-To: security@vitess.io
-Subject: [Security Report] Vitess vttablet /twopcz reflected XSS
-Date: Tue, 24 Jun 2026 14:30:00 +0800
-
-## Summary
-
-The `twopczHandler` in
-`go/vt/vttablet/tabletserver/twopcz.go` (line 185) reflects the `Action`
-and `dtid` form values directly into the HTML response body via
-`fmt.Fprintln(w, msg)` — **without H...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-v75v-6fpf-gvw8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-104250</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">unstructured: Stored XSS via unescaped HTML generation</div>
-            <div class="card-body">### Summary
-
-When `unstructured` parses an untrusted document and outputs the result as HTML, malicious markup contained in the document (e.g. `<img src=x onerror=...>`) is left in the output HTML without escaping. When that output is displayed in a browser, the script embedded in the document executes in the viewer's browser.
-
-### Details
-
-`partit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-v5mq-3xhg-98m9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-103929</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">mise permits untrusted local configuration to override default shell arguments</div>
-            <div class="card-body">## Summary
-
-Untrusted local .mise.toml [settings] can set the shell interpreter args (unix/windows default_inline / default_file shell_args), yielding arbitrary command execution, because those command-interpreter settings were not added to the global_only denylist the CVE-2026-55448 fix relies on. Code execution from an untrusted repository with n...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-g74g-rg72-j2p3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-100348</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">kin-openapi spec loader panics on a self-referential additionalProperties $ref (nil-pointer DoS)</div>
-            <div class="card-body">The defect
-----------
-Confirmed at HEAD (f0407d5, v0.144.0). openapi3/loader.go, inside resolveComponent's drill closure (around line 455), the case *SchemaRef branch for pathPart == "additionalProperties" dereferences c.Value.AdditionalProperties with no nil-check on c.Value:
-
-    case *SchemaRef:
-        if pathPart == "additionalProperties" {
-  ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-mh7x-f8wq-4jhx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-100347</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">kin-openapi: Unauthenticated panic (DoS) in openapi3filter legacy router via non-canonical/unsupported HTTP method on a static path</div>
-            <div class="card-body">## Summary
-The `openapi3filter.ValidationHandler` (the exported, documented request-validation middleware) hard-wires the legacy router (`routers/legacy`). That router matches the incoming request method verbatim against a trie built exclusively from upper-cased canonical HTTP methods. A request carrying a method token that is not one of the 9 stan...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-fh4f-47mf-f2gj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-102603</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Gotify: Insufficiently Protected Password Change endpoint</div>
-            <div class="card-body">The password change endpoint (`POST /current/user/password`) in Gotify versions <= 2.9.1 does not require knowledge of the current password. An attacker in possession of a valid client token can set a new password for the affected user. Recovering the account requires administrator intervention or direct database access.
-
-## PoC
-
-```bash
-# Attacker...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-3hcj-9m7p-wwm9" target="_blank">Full Report →</a>
             </div>
         </div>
         
