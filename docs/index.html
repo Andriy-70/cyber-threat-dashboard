@@ -68,10 +68,70 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-16 20:08 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-17 01:45 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96627</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Arcane: Delegated users:update permission allows admin account takeover via password reset (no privilege-hierarchy check)</div>
+            <div class="card-body">## Summary
+A user holding the delegated `users:update` permission can reset the global administrator's password and take over the admin account. `UpdateUser` sets the target user's `PasswordHash` from the request body for ANY target with no comparison of caller-vs-target privilege. Because role assignment and role CRUD are deliberately gated by `Re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-pw5q-rjx4-7f7p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96628</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">Arcane: Environment access token bypasses the admin-required authorization gate on `/api/debug/pprof`</div>
+            <div class="card-body">## Summary
+
+Arcane v2.10.2 contains an authorization inconsistency in `AuthMiddleware.managerAuth`.
+
+When a request supplies a valid environment access token through the `X-Arcane-Agent-Token` header, `managerAuth` resolves the associated environment, installs an environment-scoped permission set, and immediately calls `next(c)`.
+
+This occurs befor...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-mp22-58ff-6fhr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105192</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport</div>
+            <div class="card-body">### Summary
+
+LMCache is vulnerable to Unauthenticated Remote Code Execution via Pickle Deserialization on the Multiprocess ZMQ Transport
+
+
+
+### Details
+
+LMCache multiprocess mode, also called distributed mode, opens an unauthenticated ZeroMQ ROUTER so worker processes can register and share KV cache blocks. The intended clients are sibling LMCache ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-16</span>
+                <a href="https://github.com/advisories/GHSA-w5f2-9q9c-ff4h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-100349</span>
@@ -548,61 +608,6 @@ Argo CD checks an Application's AppProject before it creates resources during a 
             <div class="card-footer">
                 <span>Published: 2026-10-15</span>
                 <a href="https://github.com/advisories/GHSA-fmxq-cgp8-87wp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-100351</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">kin-openapi: ValidationHandler security-requirement bypass via encoded-path operation confusion</div>
-            <div class="card-body">## Summary
-
-`openapi3filter.ValidationHandler.Middleware` validates requests with kin-openapi's
-legacy router, which selects an OpenAPI operation from the decoded `URL.Path`. The
-method is documented as implementing `gorilla/mux.MiddlewareFunc`, but a downstream
-gorilla/mux router configured with `UseEncodedPath()` selects its handler from the
-enco...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-23vg-4cjm-66q5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-103975</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Appium: Symlink based Zip Slip in @appium/support ZIP extraction</div>
-            <div class="card-body">### Summary
-
-CVE-2026-30973 [(GHSA-rfx7-4xw3-gh4m)](https://github.com/appium/appium/security/advisories/GHSA-rfx7-4xw3-gh4m) was a plain path traversal in the entry name. The containment check built an Error object without throwing it, so an entry literally named something like `../evil.txt` was written outside the destination. That issue was fixe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-qfxx-c367-67f8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-103030</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Dio: Cross-origin redirect leaks sensitive request headers in `dio_http2_adapter`</div>
-            <div class="card-body">### Summary
-
-`dio_http2_adapter` follows HTTP `Location` redirects without stripping sensitive request headers when the redirect target is a different origin. An attacker who can cause any origin server to return a cross-origin `302` redirect receives the victim's `Authorization`, `Cookie`, and `Proxy-Authorization` headers verbatim. This vulnerabi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-cr65-55v9-xhvv" target="_blank">Full Report →</a>
             </div>
         </div>
         
