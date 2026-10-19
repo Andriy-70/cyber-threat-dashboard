@@ -68,10 +68,226 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-19 11:21 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-19 17:49 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-111064</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">aiohttp server lacks an initial request/header timeout</div>
+            <div class="card-body">### Summary
+
+The keepalive timeout was not used during the initial portion of a request.
+
+### Impact
+
+An attacker could keep an idle connection open indefinitely before sending any data.
+
+### Workaround
+
+Use a reverse proxy (as recommended for all production deployments) with sensible keepalive limits....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-5wr8-gcqf-gqf3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-111063</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">AIOHTTP: Secure attribute not enforced for shared cookie</div>
+            <div class="card-body">### Summary
+
+The Secure attribute was not being enforced for the shared cookie.
+
+### Impact
+
+It may be possible to send a shared cookie marked Secure through an unencrypted request....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-494j-54xm-rwp3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-2g87-pp6c-29x5</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">aiohttp: Multiple instances of excessive or unbounded memory/CPU use</div>
+            <div class="card-body">### Summary
+
+Multiple cases were found where aiohttp could use excessive or unbounded memory, or excessive CPU consumption on attacker controlled requests.
+
+### Impact
+
+An attacker could cause resource exhaustion through specially crafted requests....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-2g87-pp6c-29x5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-111061</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">russh: Unbounded memory allocation in agent protocol server via crafted constraint records</div>
+            <div class="card-body">### Summary
+
+`russh_keys::agent::server::add_key` (`russh/src/keys/agent/server.rs:271-319`) spawns a dedicated tokio task for every 5-byte `SSH_AGENT_CONSTRAIN_LIFETIME` record attached to an added key, each cloning the key blob and sleeping for the declared lifetime (up to ~136 years). The loop has no per-request task budget, and spawned tasks ar...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-4wc5-f2rc-q74m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-111062</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">A russh SSH server accepts a publickey authentication whose signature uses a different algorithm than the one named in the request</div>
+            <div class="card-body">### Details
+
+In `russh/src/server/encrypted.rs`, `server_read_auth_request_pk` (0.63.3, around lines 880-990):
+
+* The requested algorithm name (`pubkey_algo`) is read and only used to decode the key: `PublicKeyOrCertificate::decode(&pubkey_algo, &pubkey_key)`. The derived `hash_alg` is then dropped (`PublicKeyOrCertificate::PublicKey { ref key, .. ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-j7h2-66j4-ghjf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-111059</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">Mercury: Stored / DOM Cross-Site Scripting (XSS): mr.Markdown renders untrusted content as raw, unsanitized HTML</div>
+            <div class="card-body">## Summary
+
+Mercury turns Jupyter notebooks into shared web apps/dashboards. The `mr.Markdown`
+widget converts its input to HTML with **python-markdown and no sanitization
+step**. `MarkdownWidget` is an `ipywidgets.HTML` widget, whose value is written to
+the page as **raw HTML (via `innerHTML`) with no sanitization**, so the result
+reaches the DOM ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-2658-85cv-9wwq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-111057</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 10.0
+                </span>
+            </div>
+            <div class="card-title">Mercury: Unauthenticated Remote Code Execution in /api/terminals - access control bypass</div>
+            <div class="card-body">### Summary
+A missing comma in `mercury_app/block_handler.py`'s `BLOCKED_PATTERNS` list causes the blocklist to fail to cover the `/api/terminals` endpoint. As a result, any unauthenticated attacker can spawn a full, interactive OS-level shell on the host running Mercury.
+
+### Details
+The blocklist in `mercury_app/block_handler.py` is defined as:
+`...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-f8c7-rwf9-fmgm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-953h-535j-jg2v</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">agent-router: MCP session resume does not verify the embedded anti-hijacking subject; default Helm seed makes session IDs forgeable</div>
+            <div class="card-body">## Summary
+
+The MCP proxy's client-facing session ID embeds the authenticated caller's
+subject (JWT `sub` claim) specifically as an anti-hijacking discriminator —
+matching the Model Context Protocol specification's documented session-hijacking
+guidance (https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices#session-h...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-953h-535j-jg2v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-pcc4-rvhr-2pr8</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Graphify Fortran extractor: incomplete cpp #include hardening allows arbitrary host-file read/exfiltration when indexing an untrusted repo</div>
+            <div class="card-body">## Summary
+
+The Fortran extractor's C-preprocessor step (`graphify/extractors/fortran.py`, `_cpp_preprocess`) applies an incomplete `#include` hardening. The `-nostdinc -I /dev/null` flags it relies on (comment "Security (F-007)") do **not** stop a capital-`F` Fortran source file from including **absolute paths** (`#include "/etc/passwd"`) or from ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-pcc4-rvhr-2pr8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-111058</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Mercury: Unauthenticated Remote Code Execution via /api/kernels</div>
+            <div class="card-body">Mercury runs a JupyterLab server with **anonymous access by default** (`mercury_app/__main__.py` sets `--IdentityProvider.token=''` when no `--token`/`MERCURY_TOKEN` is given; when tokenless it also sets `--ServerApp.disable_check_xsrf=True`). It relies on a **blocklist** (`mercury_app/block_handler.py` `BLOCKED_PATTERNS`: `/lab`, `/api/terminals`,...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-rv4m-xm3f-3ccq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108372</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">LoopX serve-status permissive CORS policy exposes control-plane state and private Markdown files</div>
+            <div class="card-body">## Summary
+
+`loopx serve-status` sends `Access-Control-Allow-Origin: *` on **every** response,
+including its unauthenticated `GET` routes. Because the endpoint is unauthenticated and
+bound to a fixed, well-known loopback port, **any website the operator visits can read
+LoopX control-plane state and the contents of Markdown files inside every regist...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-19</span>
+                <a href="https://github.com/advisories/GHSA-vx2m-gpq4-8j5q" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-96627</span>
@@ -406,208 +622,6 @@ File pattern filters (`denied_patterns` / `allowed_patterns`) were evaluated on 
             <div class="card-footer">
                 <span>Published: 2026-10-15</span>
                 <a href="https://github.com/advisories/GHSA-pq7j-f95f-qfcv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-95838</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">containerd: Unpack DoS via repeated opaque whiteouts</div>
-            <div class="card-body">### Impact
-
-A vulnerability exists in containerd's layer unpack handler where the processing of certain image layers causes superlinear time complexity. During the unpack operation, specific file configurations within the layer can trigger repeated directory traversals.
-
-Consequently, pulling or importing a maliciously crafted image can result in i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-rp3h-jf77-q9p4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-85747</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.8
-                </span>
-            </div>
-            <div class="card-title">Distribution: Client `manifests.Get()` does not verify returned content against requested digest</div>
-            <div class="card-body">### Summary
-
-`registry/client.(*manifests).Get(ctx, dgst, …)` fetches a manifest by digest but never hashes the returned body and compares it against the requested digest. A malicious or compromised registry, or any MITM on the registry connection, can serve arbitrary manifest bytes in response to a digest-pinned request and the client returns the ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-685w-q87j-wqw3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-84994</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Qwik: Crashing any Qwik Server via Resource thenable</div>
-            <div class="card-body">### Summary
-
-A Qwik server in the default configuration can be crashed with one unauthenticated HTTP request. During qwik-json body parsing, `ResourceSerializer.$fill$` does `Promise.resolve(resource._resolved)`. If `_resolved` is a plain object whose `.then` is a QRL for an unregistered symbol, the async QRL rejects, the rejection is orphaned, and...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-x586-xvc8-g7q6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-95837</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">containerd CRI plugin: Checkpoint restore bypasses destination security context</div>
-            <div class="card-body">### Impact
-
-A vulnerability in containerd's CRI implementation allows a container restored from an untrusted checkpoint via the `CreateContainer` API to bypass the destination security context and execute with elevated privileges. When restoring a container from a checkpoint archive or annotated OCI image, CRIU restores process credentials, Linux c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-p7v4-vr35-mj6f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-106495</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">Backstage: Improper access control in backend action invocation</div>
-            <div class="card-body">### Impact
-
-An authenticated user could invoke actions that an operator had excluded through action configuration. Existing action permissions and downstream authorization remain enforced.
-
-### Patches
-
-Patched in `@backstage/backend-defaults` version `0.17.8`
-
-### Workarounds
-
-Limit access to action invocation endpoints to trusted service callers ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-3xr5-8w6c-p5gw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-100353</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">kin-openapi: Incomplete Fix for GHSA-p6wj-qrr4-pgh5: Three Unpatched nil-Items Panic Paths in openapi3filter</div>
-            <div class="card-body">## Summary
-
-The fix for GHSA-p6wj-qrr4-pgh5 addressed a nil-pointer dereference that occurs when an OpenAPI 3.1 array schema omits the `items` keyword (which is legal under JSON Schema 2020-12). That fix patched three decoder paths: the standalone `parseArray` function, the top-level array check in `UrlencodedBodyDecoder`, and `MultipartBodyDecoder...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-vrcc-3ch7-hppw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-100354</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">kin-openapi: Uncontrolled Recursion on Circular allOf/anyOf/oneOf Schemas Causes Fatal Process Crash</div>
-            <div class="card-body">## Summary
-
-kin-openapi's spec loader and spec-time validator both handle circular schema references safely: the loader resolves circular `$ref`s on purpose (to support recursive data structures), and `Schema.validate()` uses stack-based cycle detection. `Validate()` therefore accepts a schema whose `allOf` / `anyOf` / `oneOf` chain refers back to ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-g8cf-rcjf-c8cf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-100352</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">kin-openapi: YAML NaN/Inf Values Bypass Built-in Guards and Panic via OAS 3.1 Validation Path</div>
-            <div class="card-body">## Summary
-
-kin-openapi guards against `NaN` and `Inf` values in its built-in schema visitor (`visitJSON`) by returning `ErrSchemaInputNaN` / `ErrSchemaInputInf` when a `float64` input violates those constraints. For OAS 3.1 specs, however, `Schema.VisitJSON` routes through `useJSONSchema2020`, which hands the value directly to `santhosh-tekuri/jso...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-rj39-cv6w-8wv7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77564</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.3
-                </span>
-            </div>
-            <div class="card-title">Talos Linux: Support bundle does not redact registry credentials</div>
-            <div class="card-body">### Summary
-When generating a support bundle with `talosctl support` the credentials entered for private registries are included in the bundle.
-
-
-### Details
-
-Within the generated support bundle, inside `resources/registryconfigs.cri.talos.dev.yaml` the `auth` field of the spec is retained.
-The same, potentially sensitive information is present wit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-7cxh-94cf-mfp6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77524</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication</div>
-            <div class="card-body">## Summary
-
-A namespace admin who creates a `TriggerAuthentication` and a `ScaledObject` in their own namespace can make the KEDA operator send its own ServiceAccount token to a tenant-controlled URL. That token holds `["*"]/["*"] get` cluster-wide, so it reads every Secret in every namespace, plus `batch/jobs` and `horizontalpodautoscalers` create...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-637c-6jxx-4rwm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77459</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete resource hooks</div>
-            <div class="card-body">### Impact
-
-Argo CD checks an Application's AppProject before it creates resources during a sync. That check covers destination namespaces and servers, cluster-scoped resource allow and deny lists, and namespaced resource allow and deny lists, including resource names. PreDelete and PostDelete hooks skip it. When the Application is deleted, Argo CD...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-15</span>
-                <a href="https://github.com/advisories/GHSA-fmxq-cgp8-87wp" target="_blank">Full Report →</a>
             </div>
         </div>
         
