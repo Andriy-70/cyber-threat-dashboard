@@ -68,10 +68,403 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-22 10:43 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-22 16:08 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-103004</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">next.js cache leak across root param values in nested 'use cache' functions</div>
+            <div class="card-body">### Impact
+
+With Cache Components enabled (`cacheComponents: true`), a `'use cache'` function that calls another `'use cache'` function that reads a root param can be keyed incorrectly when the inner call is served from an existing entry: the enclosing function's cache key then omits that root param. The enclosing entry is written once and reused f...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-h694-7cp9-m8p3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-110871</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Nodemailer: Quadratic (O(n^2)) DKIM header unfolding lets a large folded header cause remote denial of service during signing</div>
+            <div class="card-body">## Summary
+
+When nodemailer DKIM-signs an outbound message, its DKIM message parser unfolds RFC 5322 header continuation lines with a loop that concatenates each continuation line onto the preceding line and then re-tests the anchored regex `/^[ \t]/` against the growing merged line on every iteration. Re-testing the regex against the ever-growing ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-39m8-27wv-hr27" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96778</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pillow: Heap buffer overflow writing JPEG comment after ICC profile fills buffer</div>
+            <div class="card-body">```
+============================================================================
+Heap buffer overflow writing JPEG comment after ICC profile fills buffer
+Location: src/libImaging/JpegEncode.c:330  in ImagingJpegEncode()
+Commit:   a707c6b21c313880d0771e54965d142dd42358b6
+============================================================================
+``...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-g7cr-3p24-7wf7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96644</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pillow: Heap over-read in WMF/EMF rendering via 16-bit dimension truncation (Windows builds)</div>
+            <div class="card-body">### Summary
+On Windows builds, Pillow stores EMF and WMF image dimensions without a range check and passes them to the native `drawwmf` handler. That code sizes its allocation from dimensions truncated into 16-bit header fields but copies the result using the full 32-bit dimensions. A crafted metafile that is wide and short passes the decompression...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-9v9v-9qvf-h2hj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96643</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pillow: PNG eXIf chunk makes EXIF parsing run in quadratic time</div>
+            <div class="card-body">### Summary
+  A PNG file with a large eXIf chunk full of repeated 6-byte markers makes Pillow's EXIF parser take seconds of CPU instead of milliseconds. The cost grows with the square of the chunk size, so a normal small-photo-sized file is enough to cause real delay.
+
+  ### Details
+  `Exif.load()` in `src/PIL/Image.py` strips a marker from the sta...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-g4qv-2jxx-769h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96642</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pillow: TarIO negative size field causes infinite CPU-spin loop</div>
+            <div class="card-body">### Summary
+`TarIO.__init__` does not check that a tar header's size field is positive. A crafted header with a negative size makes it seek backward onto itself. This causes an infinite loop that uses 100% CPU and never returns.
+
+### Details
+`TarIO.__init__` reads 512-byte tar headers one at a time, looking for a member with a given name. For each ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-3j72-p6qg-6xp7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96641</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Pillow: Reachable undefined behavior in native integer operations, potentially leading to denial of service or logic integrity compromise</div>
+            <div class="card-body">### Summary
+Affected Object and Source
+
+Package: Pillow 12.3.0
+Source: PyPI sdist pillow-12.3.0.tar.gz
+SHA-256: 3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce
+Sink: src/_imaging.c:2809:15, xsize += dx
+
+### Details
+The code in Pillow 12.3.0 is:
+```c
+for (xsize = 0; *text; text++) {
+    int dx = self->glyphs[*text].dx;
+    if (dx > ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-4rm8-3hmm-39fg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96640</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pillow PDF append accepts malformed shared page-tree DAG causing resource exhaustion</div>
+            <div class="card-body">### Summary
+Pillow's documented PDF append path can spend disproportionate CPU time on a compact malformed PDF page tree.
+
+An attacker who can supply an existing PDF to an application that appends an image with `Image.save(..., format="PDF", append=True)` can provide a malformed `/Pages` tree where each level repeats the same child `/Pages` referen...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-mrfp-p49p-3hf2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96639</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Pillow multi-frame loaders can reuse stale native image storage after mode transitions</div>
+            <div class="card-body">### Summary
+Pillow multi-frame image loaders can retain native `ImagingCore` storage allocated for one frame while changing the Python-side image `mode` and decoder tiles for a later frame.
+
+If frame 0 allocates storage for a narrow mode such as `L`, and a later frame of the same dimensions switches to a wider mode such as `RGB` or `CMYK`, Pillow m...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-v9pv-5gc8-w2m6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96638</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Pillow: BMP RLE decoder memory-amplification DoS via unbounded delta escape / absolute mode</div>
+            <div class="card-body">## Summary
+BmpRleDecoder can be forced to allocate gigabytes of memory from a kilobyte-sized crafted BMP file via unbounded growth in the delta escape and absolute mode branches.
+
+## Affected versions
+All versions up to and including current HEAD (v13.0.0.dev0, commit e7a7ea84)
+
+## Root cause
+BmpRleDecoder.decode() (BmpImagePlugin.py:327-395) build...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-24rc-8hj2-v98c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96637</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Pillow: Decompression bomb check bypass in SpiderImagePlugin.seek() leads to unbounded allocation DoS</div>
+            <div class="card-body">## Summary
+SpiderImagePlugin's seek() bypasses the decompression bomb check, allowing a tiny (<1KB) crafted SPIDER stack file to trigger a multi-gigabyte allocation on im.load().
+
+## Affected versions
+All versions up to and including current HEAD (v13.0.0.dev0, commit e7a7ea84)
+
+## Root cause
+Image.open() runs Image._decompression_bomb_check(im.siz...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-g842-9rc4-69pw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96636</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Pillow: Decompression-bomb protection bypass via multi-frame seek() in MPO and DCX (MpoImageFile.seek / DcxImageFile.seek)</div>
+            <div class="card-body">### Summary
+Pillow's decompression-bomb protection (`Image._decompression_bomb_check`, gated by `Image.MAX_IMAGE_PIXELS`) is enforced only on the **first frame**, inside `Image.open()`. For multi-frame formats, `seek()` re-parses the target frame's header and resets `self._size`. `GifImagePlugin` and `TiffImagePlugin` re-run the bomb check on `seek...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-p8hx-v2p6-rp84" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114139</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Sentry-Javascript: Middleware Bypass when using Tunnel route</div>
+            <div class="card-body">### Impact
+
+The `tunnelRoute` option makes the SDK send browser events to a path on your own Next.js server (for example `/monitoring`), where a rewrite forwards them to Sentry to prevent ad blockers from blocking them. To keep those envelope requests from being rejected by your middleware, the SDK skips middleware for them.
+
+The middleware skip wa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-mchm-gjx6-7h55" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-2464-fhr4-w9xw</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Unauthenticated Remote Code Execution in Image Optimization API when SVG files are used</div>
+            <div class="card-body">## Impact
+
+A memory-related vulnerability has been discovered in an upstream library used for Image Optimization can lead to possible remote code execution (RCE) when Next.js runs on glibc-based Linux.
+
+## Workaround
+
+Ensure the version of `sharp` used by Next.js is greater than or equal to `0.35.5`. Fresh installs automatically get a fixed version...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-2464-fhr4-w9xw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-96889</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">Librsvg: Use-after-free when XML includes have duplicated entities</div>
+            <div class="card-body">Librsvg uses libxml2, a C library, to parse XML.  When librsvg parses
+an SVG document which has a nested Xinclude, an XML entity declaration
+with a duplicate name as an existing one can cause a use-after-free error.
+
+While libxml2 is expanding an internal entity, a recursive XInclude
+can parse another document that declares an entity with the same
+...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-cpvr-w4j5-2mpg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-94482</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Denial of Service in App Router using Server Actions</div>
+            <div class="card-body">## Impact
+
+Crafted requests targeting Next.js applications using App Router with at least one Server Action can lead to excessive CPU usage blocking processing of further requests in the same process.
+
+## Workarounds
+
+No workaround exists besides upgrading. Applications using Pages Router or not using Server Actions are not vulnerable....</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-p3m5-59mp-jv5r" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114129</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.2
+                </span>
+            </div>
+            <div class="card-title">stream-json: FlexAssembler string/RegExp path filters join the full key stack per container start, giving O(depth^2) CPU denial of service</div>
+            <div class="card-body">## Summary
+
+`FlexAssembler`, the custom-container assembler shipped in the `stream-json` package (`src/core/utils/flex-assembler.js`, re-exported at `stream-json/utils/flex-assembler.js` and `stream-json/web/utils/flex-assembler.js`), compiles a string or RegExp path `filter` into a matcher that runs `keyStack.join(separator)` on every container st...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-jj87-hc4r-jwfw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-pxh4-856f-4h89</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">PyJWT: HS256/384/512 verify accepts empty HMAC key via oct JWK (PyJWK/PyJWKClient) enabling token forgery</div>
+            <div class="card-body">### Summary
+
+`HMACAlgorithm.from_jwk` accepts a symmetric (`kty=oct`) JWK whose `k` value is
+the empty string and returns a zero-length key without raising. When a token is
+then verified with that key object (a `PyJWK`, or a `PyJWK` resolved by
+`PyJWKSet` / `PyJWKClient`), the HMAC verifier computes
+`HMAC(key=b"", signing_input)` and accepts any to...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-pxh4-856f-4h89" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114135</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Jupyter Server: Gateway WebSocket handler bypasses kernel execute authorization</div>
+            <div class="card-body">### Summary
+
+Jupyter Server's gateway WebSocket handler checks that a user is authenticated, but it does not ask the configured Authorizer whether that user may execute kernels.
+
+In Jupyter Server 2.0.0 through 2.5.0, enabling GatewayClient.url automatically replaced the normal kernel channel handler with this gateway-specific handler. An authentic...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-354v-3q48-cv69" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-63430</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">ammonia: mXSS  via MathML `annotation-xml` encoding strip</div>
+            <div class="card-body">If a certain set of MathML tags are enabled, an attacker can inject arbitrary JavaScript code into the user's browser.
+
+The `annotation-xml` tag has slightly different behavior than the other "integration point"
+tags in MathML and SVG, but ammonia didn't handle it, so it didn't correctly
+strip the namespace-incompatible tags.
+
+This vulnerability on...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-9jh8-v38h-cvhr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-113716</span>
@@ -285,392 +678,6 @@ Pillow's PDF write...</div>
             <div class="card-footer">
                 <span>Published: 2026-10-21</span>
                 <a href="https://github.com/advisories/GHSA-jg86-v3jv-hrpm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112391</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Pillow: PdfParser can recurse without limit in get_value() and linearize_page_tree()</div>
-            <div class="card-body">### Summary
-`PdfParser`'s `get_value()` can recurse without any limit and crash with an uncaught `RecursionError`. It is reachable through `Image.save(im, fp=<pdf>, format="PDF", append=True)` when the existing PDF file is attacker-controlled. This is the same class of bug as https://github.com/advisories/GHSA-r73j-pqj5-w3x7 (the /Prev trailer chai...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-254f-3936-288h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112901</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Pillow: ReDoS in XbmImagePlugin: 512-byte file stalls Image.open() for minutes</div>
-            <div class="card-body">```
-============================================================================
-ReDoS in XbmImagePlugin: 512-byte file stalls Image.open() for minutes
-Location: src/PIL/XbmImagePlugin.py:58  in XbmImageFile._open()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
-
-A...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-xgh8-jp6q-p5x8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112898</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Image.quantize() with empty palette leaks uninitialized stack memory</div>
-            <div class="card-body">```
-============================================================================
-Image.quantize() with empty palette leaks uninitialized stack memory
-Location: src/libImaging/Palette.c:216  in ImagingPaletteCacheUpdate()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-`...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-rfgq-q3w2-pmv2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112401</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Quadratic GIF comment concatenation allows DoS in Image.open()</div>
-            <div class="card-body">```
-============================================================================
-Quadratic GIF comment concatenation allows DoS in Image.open()
-Location: src/PIL/GifImagePlugin.py:266  in GifImageFile._seek()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
-
-Opening ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-74r2-7ff9-mjj2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112390</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Infinite loop in MIC n_frames when the embedded TIFF</div>
-            <div class="card-body">```
-============================================================================
-Infinite loop in MIC n_frames when the embedded TIFF has 3+ IFDs
-Location: src/PIL/MicImagePlugin.py:86  in MicImageFile.tell()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
-
-A crafte...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-22hg-r758-rrw9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112891</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Quadratic GIF comment copying during save</div>
-            <div class="card-body">On Pillow 12.3.0 and upstream `main` (`ad277e2761b489681e71b51e91367d46b0ceabb9`), a GIF with a long comment makes `_get_global_header()` copy portions of the comment repeatedly when saving, including comments carried over from untrusted images. I suggest provisional **Moderate** severity for crafted-image CPU denial of service, with CVSS-B 6.9 ass...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-fc9g-5qg7-mf45" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112392</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: NULL dereference in ImagingExpand via rank filters on zero-size images</div>
-            <div class="card-body">```
-============================================================================
-NULL dereference in ImagingExpand via rank filters on zero-size images
-Location: src/libImaging/Filter.c:79  in ImagingExpand()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
-
-Applying...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-27h8-gf7j-v5hc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112405</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: NULL pointer dereference in Image.merge via an unvalidated band 0</div>
-            <div class="card-body">### Summary
-`Image.merge()` checks the mode of every input band except band 0. If band 0 is a single-band `I` or `F` image, the native merge routine reads a pixel pointer that is NULL for those modes and the process crashes. The IPTC plugin reaches this from a plain `Image.open()` followed by a load, and IPTC has no magic-byte prefilter, so a craft...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-cp9v-662q-vvx9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112893</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Invalid free in FreeType glyph rendering when a stroker is active</div>
-            <div class="card-body">### Summary
-When text is drawn with a non-zero stroke width, Pillow creates a FreeType stroker and then loads each glyph. If `FT_Load_Glyph` fails for a glyph, the cleanup path calls `FT_Done_Glyph` on the `glyph` variable. That variable is not initialized before the first measurement loop, and in the render loop it is not reset to NULL after each ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-j4m9-6w36-pw47" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112402</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Double free in ImagingScaleAffine on calloc failure via Image.transform</div>
-            <div class="card-body">```
-============================================================================
-Double free in ImagingScaleAffine on calloc failure via Image.transform
-Location: src/libImaging/Geometry.c:866  in ImagingScaleAffine()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-7mwm-ghpf-9vrm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112394</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Pillow: P;2L and P;4L decoders may read 1 to 3 bytes past the passed buffer size</div>
-            <div class="card-body">### Summary
-
-On `main`, even with the guard in #9725, it's possible to have these decoders read 1 to 3 bytes past the end of the passed buffer with a suitable width/height.
-
-### Details
-
-`ImagingRawDecode` and the `P;2L` / `P;4L` unpackers disagree about how many bytes a line of data occupies.
-
-The raw decoder derives the line size from the bits pe...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-4558-3h8r-v8xp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112900</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Argument Injection in Ghostscript call, potentially leading into RCE</div>
-            <div class="card-body">### Summary
-`PIL.EpsImagePlugin.Ghostscript()` builds the Ghostscript command line using the input file path (`fp.name`) **without sanitization**, placing it at `-f <infile>`. A filename beginning with `-` is interpreted by Ghostscript as an option, giving command-line argument injection; chainable to RCE (see Impact). Reproduces with Pillow's defa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-w889-685w-c8fh" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113786</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">pypdf: Unvalidated JPEG image data loading</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to arbitrary image parsers being called. This requires loading an image which claims to use the `/DCTDecode` filter (JPEG data).
-
-Users which do not have the optional *Pillow* dependency installed in their environment are not affected.
-
-### Patches
-
-This has been fixed ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-5hx5-vpf9-5wcv" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112948</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Vitest: Servers misapply `server.fs.deny`, serving `.env`, private keys, `.git`, and the API token file</div>
-            <div class="card-body">### Summary
-
-In Vitest 5, Vite's `server.fs.deny` is not applied as intended on Vitest's dev servers. Depending on the server, files that Vite refuses to serve by default (such as `.env`, private keys and certificates, `.npmrc`, and `.git`) or Vitest's own API token file (`.vitest-secret-token`) can be read over plain HTTP by a client that can reac...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-p458-7748-mcp3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112949</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">Vitest: Code injection via unauthenticated manual mock registration</div>
-            <div class="card-body">### Summary
-
-`@vitest/mocker`'s `interceptorPlugin` accepts mock registrations on Vite's dev-server WebSocket with no authentication, and interpolates the mock's `url` into generated module source without escaping. A client that can reach the dev server can make it serve arbitrary JavaScript in place of any project module, which then runs in the de...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-qxg6-89mg-rqv8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112950</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Vitest: Windows backslash traversal bypasses the @vitest/mocker redirect allowlist fix</div>
-            <div class="card-body">## Summary
-
-The path traversal fix released for [GHSA-82fw-gwwq-j7x9](https://github.com/vitest-dev/vitest/security/advisories/GHSA-82fw-gwwq-j7x9) can be bypassed on Windows by using a backslash in the redirect URL pathname.
-
-The fixed code joins an attacker-controlled URL pathname with the Vite root using `node:path/posix`, then passes that strin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-xp26-3454-mjgp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112953</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">ApostropheCMS: Exposure of Sensitive Information via predictable export filenames</div>
-            <div class="card-body">## Summary
-
-When a user exports content through `@apostrophecms/import-export`, the module copies the generated archive into uploadfs at `/exports/` and returns a public URL under `/uploads/exports/`. The filename is fully deterministic: site `shortName`, document type, a `YYYYMMDDHHmmss` timestamp, and the format extension. There is no secret toke...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-5gc8-frw3-3vqm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-62197</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 8.5
-                </span>
-            </div>
-            <div class="card-title">OpenClaw: Browser CDP discovery could accept blocked WebSocket URLs</div>
-            <div class="card-body">### Summary
-
-Browser CDP discovery could accept blocked WebSocket URLs. In affected versions, a lower-trust caller or configured input path could reach network destinations that should have been blocked by OpenClaw policy.
-
-This advisory is scoped to the named feature and configuration. It does not change OpenClaw's trusted-operator model: authenti...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-3x84-qq85-fj65" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114125</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Storybook: Missing origin validation in Storybook preview allows code injection from malicious websites</div>
-            <div class="card-body">**Summary:** A malicious website may be able to cause unauthorized file changes in a developer’s project while an affected Storybook development server is running. Under additional conditions, a changed file could be executed by a local runtime with the developer’s privileges. We are not aware of exploitation in the wild.
-
-## Who is impacted?
-
-You ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-f2ph-cmg5-wxc8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113800</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Electron: HID and USB permission checks can be attributed to the wrong origin</div>
-            <div class="card-body">### Impact
-For `hid` and `usb` permission checks made from an iframe, `session.setPermissionCheckHandler` was given the top-level frame's origin and details instead of the requesting frame's. Apps that allow these permissions based on origin could grant an embedded frame access intended for the top-level page.
-
-You're only affected if you use `setP...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-fw47-9c62-h3vw" target="_blank">Full Report →</a>
             </div>
         </div>
         
