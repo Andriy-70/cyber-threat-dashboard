@@ -68,616 +68,574 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-22 16:08 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-22 20:53 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-103004</span>
+                <span class="cve-id">CVE-2026-113721</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.5
+                </span>
+            </div>
+            <div class="card-title">virtualenv: Generated files can follow existing destination links</div>
+            <div class="card-body">## Summary
+
+Generated activation files and pyvenv.cfg can follow existing links and write outside the requested environment. The
+template writer tests exists() before unlinking, which misses dangling symlinks; the configuration writer opens the
+existing path directly.
+
+Anthropic's OSS Scanner reported this as `ANT-2026-XBEOCBS1` in `virtualenv-2026...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-558c-9hv2-4prj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-78g4-xqwv-q3g8</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Pillow: Bundled libopenjp2 2.5.4 in all wheels since 11.1.0 carries OSV-2025-219 heap-buffer-overflow write reachable from Image.open().load()</div>
+            <div class="card-body">### Summary
+
+Every Pillow wheel from 11.1.0 onward bundles a libopenjp2 containing a heap-buffer-overflow **write** that is fixed upstream on master but has never appeared in an OpenJPEG release. See https://osv.dev/vulnerability/OSV-2025-219
+
+Because the wheel bundles its own copy, a patched host OS does not help. It is reachable from `Image.open(...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-78g4-xqwv-q3g8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114132</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">next.js cache leak across root param values in nested 'use cache' functions</div>
-            <div class="card-body">### Impact
-
-With Cache Components enabled (`cacheComponents: true`), a `'use cache'` function that calls another `'use cache'` function that reads a root param can be keyed incorrectly when the inner call is served from an existing entry: the enclosing function's cache key then omits that root param. The enclosing entry is written once and reused f...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-h694-7cp9-m8p3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-110871</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Nodemailer: Quadratic (O(n^2)) DKIM header unfolding lets a large folded header cause remote denial of service during signing</div>
-            <div class="card-body">## Summary
-
-When nodemailer DKIM-signs an outbound message, its DKIM message parser unfolds RFC 5322 header continuation lines with a loop that concatenates each continuation line onto the preceding line and then re-tests the anchored regex `/^[ \t]/` against the growing merged line on every iteration. Re-testing the regex against the ever-growing ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-39m8-27wv-hr27" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96778</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Heap buffer overflow writing JPEG comment after ICC profile fills buffer</div>
-            <div class="card-body">```
-============================================================================
-Heap buffer overflow writing JPEG comment after ICC profile fills buffer
-Location: src/libImaging/JpegEncode.c:330  in ImagingJpegEncode()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-``...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-g7cr-3p24-7wf7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96644</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Heap over-read in WMF/EMF rendering via 16-bit dimension truncation (Windows builds)</div>
-            <div class="card-body">### Summary
-On Windows builds, Pillow stores EMF and WMF image dimensions without a range check and passes them to the native `drawwmf` handler. That code sizes its allocation from dimensions truncated into 16-bit header fields but copies the result using the full 32-bit dimensions. A crafted metafile that is wide and short passes the decompression...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-9v9v-9qvf-h2hj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96643</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: PNG eXIf chunk makes EXIF parsing run in quadratic time</div>
-            <div class="card-body">### Summary
-  A PNG file with a large eXIf chunk full of repeated 6-byte markers makes Pillow's EXIF parser take seconds of CPU instead of milliseconds. The cost grows with the square of the chunk size, so a normal small-photo-sized file is enough to cause real delay.
-
-  ### Details
-  `Exif.load()` in `src/PIL/Image.py` strips a marker from the sta...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-g4qv-2jxx-769h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96642</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: TarIO negative size field causes infinite CPU-spin loop</div>
-            <div class="card-body">### Summary
-`TarIO.__init__` does not check that a tar header's size field is positive. A crafted header with a negative size makes it seek backward onto itself. This causes an infinite loop that uses 100% CPU and never returns.
-
-### Details
-`TarIO.__init__` reads 512-byte tar headers one at a time, looking for a member with a given name. For each ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-3j72-p6qg-6xp7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96641</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Pillow: Reachable undefined behavior in native integer operations, potentially leading to denial of service or logic integrity compromise</div>
-            <div class="card-body">### Summary
-Affected Object and Source
-
-Package: Pillow 12.3.0
-Source: PyPI sdist pillow-12.3.0.tar.gz
-SHA-256: 3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce
-Sink: src/_imaging.c:2809:15, xsize += dx
-
-### Details
-The code in Pillow 12.3.0 is:
-```c
-for (xsize = 0; *text; text++) {
-    int dx = self->glyphs[*text].dx;
-    if (dx > ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-4rm8-3hmm-39fg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96640</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow PDF append accepts malformed shared page-tree DAG causing resource exhaustion</div>
-            <div class="card-body">### Summary
-Pillow's documented PDF append path can spend disproportionate CPU time on a compact malformed PDF page tree.
-
-An attacker who can supply an existing PDF to an application that appends an image with `Image.save(..., format="PDF", append=True)` can provide a malformed `/Pages` tree where each level repeats the same child `/Pages` referen...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-mrfp-p49p-3hf2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96639</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.8
-                </span>
-            </div>
-            <div class="card-title">Pillow multi-frame loaders can reuse stale native image storage after mode transitions</div>
-            <div class="card-body">### Summary
-Pillow multi-frame image loaders can retain native `ImagingCore` storage allocated for one frame while changing the Python-side image `mode` and decoder tiles for a later frame.
-
-If frame 0 allocates storage for a narrow mode such as `L`, and a later frame of the same dimensions switches to a wider mode such as `RGB` or `CMYK`, Pillow m...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-v9pv-5gc8-w2m6" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96638</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Pillow: BMP RLE decoder memory-amplification DoS via unbounded delta escape / absolute mode</div>
-            <div class="card-body">## Summary
-BmpRleDecoder can be forced to allocate gigabytes of memory from a kilobyte-sized crafted BMP file via unbounded growth in the delta escape and absolute mode branches.
-
-## Affected versions
-All versions up to and including current HEAD (v13.0.0.dev0, commit e7a7ea84)
-
-## Root cause
-BmpRleDecoder.decode() (BmpImagePlugin.py:327-395) build...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-24rc-8hj2-v98c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96637</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Decompression bomb check bypass in SpiderImagePlugin.seek() leads to unbounded allocation DoS</div>
-            <div class="card-body">## Summary
-SpiderImagePlugin's seek() bypasses the decompression bomb check, allowing a tiny (<1KB) crafted SPIDER stack file to trigger a multi-gigabyte allocation on im.load().
-
-## Affected versions
-All versions up to and including current HEAD (v13.0.0.dev0, commit e7a7ea84)
-
-## Root cause
-Image.open() runs Image._decompression_bomb_check(im.siz...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-g842-9rc4-69pw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-96636</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Pillow: Decompression-bomb protection bypass via multi-frame seek() in MPO and DCX (MpoImageFile.seek / DcxImageFile.seek)</div>
-            <div class="card-body">### Summary
-Pillow's decompression-bomb protection (`Image._decompression_bomb_check`, gated by `Image.MAX_IMAGE_PIXELS`) is enforced only on the **first frame**, inside `Image.open()`. For multi-frame formats, `seek()` re-parses the target frame's header and resets `self._size`. `GifImagePlugin` and `TiffImagePlugin` re-run the bomb check on `seek...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-p8hx-v2p6-rp84" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114139</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Sentry-Javascript: Middleware Bypass when using Tunnel route</div>
-            <div class="card-body">### Impact
-
-The `tunnelRoute` option makes the SDK send browser events to a path on your own Next.js server (for example `/monitoring`), where a rewrite forwards them to Sentry to prevent ad blockers from blocking them. To keep those envelope requests from being rejected by your middleware, the SDK skips middleware for them.
-
-The middleware skip wa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-mchm-gjx6-7h55" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-2464-fhr4-w9xw</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Next.js: Unauthenticated Remote Code Execution in Image Optimization API when SVG files are used</div>
+            <div class="card-title">Nuxt: Server-side route rules (`redirect`, `headers`, `proxy`, `ssr`) are skipped for case-variant paths when routing is case-insensitive</div>
             <div class="card-body">## Impact
 
-A memory-related vulnerability has been discovered in an upstream library used for Image Optimization can lead to possible remote code execution (RCE) when Next.js runs on glibc-based Linux.
+With the default `router.options.sensitive: false`, Nuxt's page router resolves routes case-insensitively, so `/Admin` renders the same page as `/admin`. On the server, however, route rules were resolved with Nitro's route-rule matcher, which matches keys case-sensitively. A request whose path differs from a rule key only in letter case ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-vjh5-4x84-xrqp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114133</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Nuxt server islands render `useHeadSafe` input without sanitisation</div>
+            <div class="card-body">## Impact
+
+`useHeadSafe` restricts head input to an allowlist of safe tags and attributes. For example, `bodyAttrs` is limited to `class` and `style`, event handler attributes are removed, and `<script>` tags are only kept for JSON types.
+
+When `useHeadSafe` is called inside a server island (a `.server.vue` component or page, or a component rendere...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-xfq5-w38q-pc2x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114130</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Nuxt: Incomplete fix for GHSA-934w-87qh-qr26: a `javascript:` URL prefixed with an ASCII control character executes from `<NuxtLink>` when `pages` is disabled</div>
+            <div class="card-body">## Impact
+
+An application that renders `<NuxtLink :to="...">` with a value it does not control can be made to render an anchor whose `href` executes script in the application's origin when clicked.
+
+This is an incomplete fix for [GHSA-934w-87qh-qr26](https://github.com/nuxt/nuxt/security/advisories/GHSA-934w-87qh-qr26) (CVE-2026-53722). It only aff...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-jjm6-p2m9-9w4x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114131</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Nuxt: Route rules are matched against the raw request path, so a percent-encoded segment can bypass `appMiddleware` on dynamic and catch-all routes</div>
+            <div class="card-body">### Summary
+
+Nuxt compared `routeRules` keys against the raw request path, without decoding percent-encoding, while the router decodes parameters when it resolves a route. A request whose path is percent-encoded can therefore resolve to a page while failing to match the route rule meant to protect it, so the rule's `appMiddleware` never runs, inclu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-6gq8-jgmh-3ffp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113789</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">pypdf: Possible long runtimes/large memory usage when retrieving form fields</div>
+            <div class="card-body">### Impact
+
+An attacker who uses this vulnerability can craft a PDF which leads to large memory usage and/or long runtimes. This requires retrieving the form fields of a document.
+
+### Patches
+
+This has been fixed in [pypdf==6.21.0](https://github.com/py-pdf/pypdf/releases/tag/6.21.0).
+
+### Workarounds
+
+If you cannot upgrade yet, consider applying ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-6vvc-x485-93v7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113790</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">pypdf: Possible large memory usage when parsing arrays and dictionaries</div>
+            <div class="card-body">### Impact
+
+An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing arrays and/or dictionaries with lots of elements.
+
+### Patches
+
+This has been fixed in [pypdf==6.21.0](https://github.com/py-pdf/pypdf/releases/tag/6.21.0).
+
+### Workarounds
+
+If you cannot upgrade yet, consider applying the c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-f54x-cmq8-qg57" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113791</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">pypdf: Possible large memory usage when parsing content streams</div>
+            <div class="card-body">### Impact
+
+An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing content streams with many small operations.
+
+### Patches
+
+This has been fixed in [pypdf==6.21.0](https://github.com/py-pdf/pypdf/releases/tag/6.21.0).
+
+### Workarounds
+
+If you cannot upgrade yet, consider applying the changes...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-cgf9-327m-v77c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113796</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">Electron: SameSite cookie restrictions are not applied to windows opened from links</div>
+            <div class="card-body">### Impact
+
+Pages opened into a new window from a link were loaded as if the app itself had navigated there rather than the page that contained the link, so the request was treated as same-site: `SameSite=Strict` cookies were sent and `Sec-Fetch-Site` did not identify the initiating page. Content shown in the app could use this to make a credential...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-2p8c-gr87-2676" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113798</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Electron: Pointer lock permission requests can be attributed to the wrong frame</div>
+            <div class="card-body">### Impact
+For `pointerLock` permission requests made from some cross-origin iframes, `session.setPermissionRequestHandler()` was given the top-level frame's `requestingUrl` and `isMainFrame` instead of the requesting frame's. Apps that grant pointer lock based on the requesting origin could grant it to embedded content under the top-level page's i...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-x562-297c-g43g" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113797</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.1
+                </span>
+            </div>
+            <div class="card-title">Electron: Extension tabs.query returns tab URLs and titles without the tabs permission</div>
+            <div class="card-body">### Impact
+`chrome.tabs.query()` returned each tab's `url` and `title` to extensions that held neither the `tabs` permission nor matching host permissions, so any loaded extension could read the URL and title of every webContents in its session.
+
+Apps are only affected if they load extensions (`session.extensions.loadExtension`) that they do not fu...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-98mx-cjp9-gchm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114122</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.9
+                </span>
+            </div>
+            <div class="card-title">Electron: Frame subscription trusts GPU-supplied frame geometry</div>
+            <div class="card-body">### Impact
+Frame data received from the GPU process for `webContents.beginFrameSubscription` was not fully validated by the main process. A compromised GPU process could cause the main process to read out-of-bounds memory while producing the captured frame images, disclosing memory or crashing the app.
+
+Apps are only affected if they use `webConten...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-3qxv-5xgr-q7w9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114124</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.9
+                </span>
+            </div>
+            <div class="card-title">Electron: Off-screen rendering on macOS trusts GPU-supplied frame geometry</div>
+            <div class="card-body">### Impact
+In offscreen rendering mode on macOS, frame data received from the GPU process was not fully validated by the main process. A compromised GPU process could cause the main process to read out-of-bounds memory while producing `paint` event images, disclosing memory or crashing the app. GHSA-pfmc-3mgc-p6fp covers the same issue on the other...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-h3v5-h239-pg29" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114121</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Electron: openExternal permission requests can be attributed to the wrong origin</div>
+            <div class="card-body">### Impact
+Requests to open external protocol URLs could be attributed to a document other than the one that asked for them, so the `requestingUrl` passed to `session.setPermissionRequestHandler` was a trusted origin for a launch untrusted content had requested. An origin-based handler could therefore let untrusted content launch an OS-registered e...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-997q-gvvc-jwmx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-673q-mjm6-r5xr</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Next.js: Unauthenticated Remote Code Execution in `use cache` functions returning typed arrays</div>
+            <div class="card-body">## Impact
+
+A vulnerability in applications using App router with Cache Component can lead to remote code execution. The application needs to have a `use cache` function that returns multiple typed arrays.
 
 ## Workaround
 
-Ensure the version of `sharp` used by Next.js is greater than or equal to `0.35.5`. Fresh installs automatically get a fixed version...</div>
+There is no known workaround for affected applications with such `use cache` functions. You should upgrade immediately even if yo...</div>
             <div class="card-footer">
                 <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-2464-fhr4-w9xw" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-673q-mjm6-r5xr" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-96889</span>
+                <span class="cve-id">CVE-2026-114145</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
+                    HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">Librsvg: Use-after-free when XML includes have duplicated entities</div>
-            <div class="card-body">Librsvg uses libxml2, a C library, to parse XML.  When librsvg parses
-an SVG document which has a nested Xinclude, an XML entity declaration
-with a duplicate name as an existing one can cause a use-after-free error.
+            <div class="card-title">GitPython validates a submodule's ".git" path only after cloning into it (RCE)</div>
+            <div class="card-body">### Summary
 
-While libxml2 is expanding an internal entity, a recursive XInclude
-can parse another document that declares an entity with the same
-...</div>
+
+`create_submodule(name, path, url)` clones a submodule into the repo's own `.git`
+directory before it rejects the path. A `path` of ".git/hooks" is accepted by the
+pre-clone check, so the submodule is cloned straight into the live hooks directory,
+and a file named `post-checkout` in the submodule becomes an executable
+`.git/hooks/post...</div>
             <div class="card-footer">
                 <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-cpvr-w4j5-2mpg" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-83vg-56qc-22m7" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-94482</span>
+                <span class="cve-id">CVE-2026-107832</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">fastify is vulnerable to header validation bypass via case-sensitive propertyNames</div>
+            <div class="card-body">### Impact
+
+Fastify lowercases header names in a `headers` schema before compilation, because Node.js stores request header names in lowercase. This normalization does not reach the header names held in a `propertyNames` subschema's `enum` and `const`. A header-name deny-list written in the canonical header case, such as `propertyNames: { not: { en...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-389g-gv7q-r4x8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114142</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title">Next.js: Denial of Service in App Router using Server Actions</div>
-            <div class="card-body">## Impact
-
-Crafted requests targeting Next.js applications using App Router with at least one Server Action can lead to excessive CPU usage blocking processing of further requests in the same process.
-
-## Workarounds
-
-No workaround exists besides upgrading. Applications using Pages Router or not using Server Actions are not vulnerable....</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-p3m5-59mp-jv5r" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114129</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.2
-                </span>
-            </div>
-            <div class="card-title">stream-json: FlexAssembler string/RegExp path filters join the full key stack per container start, giving O(depth^2) CPU denial of service</div>
-            <div class="card-body">## Summary
-
-`FlexAssembler`, the custom-container assembler shipped in the `stream-json` package (`src/core/utils/flex-assembler.js`, re-exported at `stream-json/utils/flex-assembler.js` and `stream-json/web/utils/flex-assembler.js`), compiles a string or RegExp path `filter` into a matcher that runs `keyStack.join(separator)` on every container st...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-jj87-hc4r-jwfw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-pxh4-856f-4h89</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.4
-                </span>
-            </div>
-            <div class="card-title">PyJWT: HS256/384/512 verify accepts empty HMAC key via oct JWK (PyJWK/PyJWKClient) enabling token forgery</div>
+            <div class="card-title">toml-node: Prototype pollution: parsing a TOML document can write to Object.prototype</div>
             <div class="card-body">### Summary
-
-`HMACAlgorithm.from_jwk` accepts a symmetric (`kty=oct`) JWK whose `k` value is
-the empty string and returns a zero-length key without raising. When a token is
-then verified with that key object (a `PyJWK`, or a `PyJWK` resolved by
-`PyJWKSet` / `PyJWKClient`), the HMAC verifier computes
-`HMAC(key=b"", signing_input)` and accepts any to...</div>
+CVE-2026-63376 described prototype pollution through __proto__ key-path desynchronization and was fixed in 4.1.2 by rewriting the path bookkeeping and adding an ownedContainers WeakSet. The desynchronization is still reachable, spelled with a quote character instead of a dot, and the owned-container check is not applied on the path that...</div>
             <div class="card-footer">
                 <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-pxh4-856f-4h89" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-h895-cgqg-jf52" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-114135</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">Jupyter Server: Gateway WebSocket handler bypasses kernel execute authorization</div>
-            <div class="card-body">### Summary
-
-Jupyter Server's gateway WebSocket handler checks that a user is authenticated, but it does not ask the configured Authorizer whether that user may execute kernels.
-
-In Jupyter Server 2.0.0 through 2.5.0, enabling GatewayClient.url automatically replaced the normal kernel channel handler with this gateway-specific handler. An authentic...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-354v-3q48-cv69" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-63430</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">ammonia: mXSS  via MathML `annotation-xml` encoding strip</div>
-            <div class="card-body">If a certain set of MathML tags are enabled, an attacker can inject arbitrary JavaScript code into the user's browser.
-
-The `annotation-xml` tag has slightly different behavior than the other "integration point"
-tags in MathML and SVG, but ammonia didn't handle it, so it didn't correctly
-strip the namespace-incompatible tags.
-
-This vulnerability on...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-9jh8-v38h-cvhr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113716</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.5
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Builtin creation follows linked environment directories</div>
-            <div class="card-body">## Summary
-
-The builtin creator accepts existing directory symlinks through ensure_dir() and writes environment files through those
-directories. This permits writes outside the requested destination.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-MUFJEG11` in `virtualenv-20261015-005`, received on 15 October 2026.
-
-## Affected area
-
-Directory ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-cw65-gx24-rc82" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113724</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.5
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Deletion recovery can change a symlink target's mode</div>
-            <div class="card-body">## Summary
-
-The deletion error handler obtains permission bits with lstat() but applies them through chmod(), which follows
-symlinks. On an eligible unlink failure this can change permissions outside the destination.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-UK90QC27` in `virtualenv-20261015-005`, received on 15 October 2026.
-
-## Affected...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-43mp-35q3-x3fq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113722</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Generated POSIX console launchers interpret destination paths as shell syntax</div>
-            <div class="card-body">## Summary
-
-A destination path supplied to virtualenv can be interpreted as shell syntax by a generated POSIX console launcher. The
-app-data seeder and pip delegate launcher generation to distlib but supply the interpreter path in a form that does not
-preserve it as literal data in the shell wrapper.
-
-## Affected area
-
-POSIX console scripts generat...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-c978-59m8-c77v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112902</span>
+                <span class="cve-id">CVE-2026-114141</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH None
                 </span>
             </div>
-            <div class="card-title"> Pillow: Memory disclosure and segfault in libtiff encoder via crafted TIFF tags</div>
-            <div class="card-body">```
-============================================================================
-Memory disclosure and segfault in libtiff encoder via crafted TIFF tags
-Location: src/encode.c:1014  in PyImaging_LibTiffEncoderNew()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
+            <div class="card-title">toml-node: Quadratic-complexity DoS via many array-of-tables headers in toml.parse()</div>
+            <div class="card-body">## Summary
 
-A ...</div>
+`toml.parse()` is vulnerable to a quadratic-complexity (O(n²)) denial-of-service via many
+array-of-tables (`[[name]]`) headers. `addTableArray()` in `lib/compiler.js` rescans two
+entire bookkeeping Sets on every `[[name]]` header without pruning unrelated or distinct
+entries, so a document containing n such headers costs O(n²) compiler ...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-xvh5-g6gv-559v" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-4qx8-w7c3-pj3p" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-112393</span>
+                <span class="cve-id">CVE-2026-114143</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">toml-node: Quadratic-complexity DoS via long dotted keys or table paths in toml.parse()</div>
+            <div class="card-body">## Summary
+
+`toml.parse()` is vulnerable to a quadratic-complexity (O(n²)) denial-of-service via a single
+long dotted key, table header, or inline-table key. A ~100KB crafted document causes a
+multi-second synchronous hang; a ~200KB document crashes the Node.js process outright with an
+uncatchable out-of-memory error. This is a separate, unpatched ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-9j65-hcg3-gc64" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114144</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">toml-node: Uncontrolled resource consumption (CPU DoS) via unbounded-length integer literals in toml.parse()</div>
+            <div class="card-body">### Summary
+`toml.parse()` converts integer literals (hex, octal, binary, and decimal) to `BigInt` without first bounding the length of the digit sequence. Since `BigInt(string)` construction from a very long numeric string runs in super-linear time, a single small, well-formed TOML document containing one long integer literal can pin a Node.js pro...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-9qmh-m7c6-f92p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114126</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Storybook dev server vulnerable to code injection from the local network</div>
+            <div class="card-body">**Summary:** The Storybook dev server exposes its WebSocket authentication token to any client that can load its HTML pages. Any host on a LAN can open a Storybook app by IP address, and therefore obtain the token. The WebSocket can be used to inject code into story files or to create new files. Under the right circumstances, an attacker can execut...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-px85-f4q5-jh77" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114128</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Astro: Reflected/Stored XSS via unescaped <script>/<style> tag content in JSX/MDX rendering</div>
+            <div class="card-body">## Summary
+
+Astro's JSX and MDX rendering pipeline treated string children of `<script>` and `<style>` elements as trusted HTML. When a dynamic value was passed through a JSX expression, such as `<script>{value}</script>`, an attacker-controlled value containing `</script>` or `</style>` could terminate the element and inject arbitrary HTML and Jav...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-98hj-9722-w3j8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114127</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Astro: Arbitrary CSS injection in Astro View Transitions</div>
+            <div class="card-body">### Summary
+
+Astro's server-side View Transition CSS generator did not keep string animation properties within their generated CSS declarations. In an application that passes attacker-controlled data into an animation property such as `duration`, a value containing CSS delimiters could terminate the declaration and rule, then add attacker-selected ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-mpr7-6m5w-76rw" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114604</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">GraphQL Tools: Prototype pollution in mergeIncrementalResult via non-primitive path segments</div>
+            <div class="card-body">## Report metadata
+
+| Field | Value |
+| --- | --- |
+| Package | `@graphql-tools/utils` (npm, `pkg:github/ardatan/graphql-tools`) |
+| Repository | https://github.com/ardatan/graphql-tools |
+| Component | `mergeIncrementalResult` / `setObjectKeyPath` (`packages/utils/src/mergeIncrementalResult.ts`) |
+| Vulnerability class | Prototype pollution (via u...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-c4qx-w738-7hr3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75508</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">GraphQL-core: Denial of service via comment tokens bypassing the parser's max_tokens limit</div>
+            <div class="card-body">### Summary
+
+The parser's `max_tokens` limit — the documented defence against oversized GraphQL
+documents — did not count comment tokens. A document padded with comments could
+therefore pass a `max_tokens` check of any size while still allocating one `Token`
+object per comment, all of which stay reachable for the lifetime of the parsed
+document. A ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-r77w-qph3-7vf8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-75507</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">GraphQL-core: Denial of service via quadratic complexity in the OverlappingFieldsCanBeMerged validation rule</div>
+            <div class="card-body">### Summary
+
+The `OverlappingFieldsCanBeMerged` validation rule can be driven into quadratic — and
+in the worst case `O(n²·m²)` — running time by a small, highly compressible query. A
+single 364 KB document can occupy one CPU core for over five minutes during
+*validation*, before any resolver runs. Because the rule is part of `specified_rules`
+and ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-vj8h-fx38-h3vc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-cg2g-xh64-v4q7</span>
                 <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
                     CRITICAL None
                 </span>
             </div>
-            <div class="card-title">Pillow: Heap buffer overflow in _tiffWriteProc when saving TIFF to BytesIO</div>
-            <div class="card-body">```
-============================================================================
-Heap buffer overflow in _tiffWriteProc when saving TIFF to BytesIO
-Location: src/libImaging/TiffDecode.c:94  in _tiffWriteProc()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
+            <div class="card-title">DOMPurify SAFE_FOR_TEMPLATES bypass: split template expressions survive in attached shadow root content on DOM output modes</div>
+            <div class="card-body">## Summary
 
-Pillow ...</div>
+When DOMPurify is configured with `SAFE_FOR_TEMPLATES: true` together with a DOM-returning mode (`RETURN_DOM: true`, `RETURN_DOM_FRAGMENT: true`, or `IN_PLACE: true`), template expressions such as `{{...}}`, `${...}`, and `<%...%>` survive sanitization inside the text content of an attached shadow root. The post-walk safety net `_scrubT...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-332p-7hrc-92wf" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-cg2g-xh64-v4q7" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-112396</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
+                <span class="cve-id">GHSA-mrv2-3pqr-j5jr</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">Pillow: Heap use-after-free when encoding TIFF to an in-memory buffer</div>
+            <div class="card-title">DOMPurify IN_PLACE: hook that removes a parent or sibling leaves the detached subtree's event handlers armed (incomplete fix for GHSA-p98j-92pf-mc4p)</div>
             <div class="card-body">### Summary
-Saving an image as TIFF to an in-memory buffer can trigger a heap use-after-free if libtiff rejects a tag at encode time. When `TIFFWriteScanline` fails, the encoder frees its output buffer but leaves the libtiff handle open. Later, when the encoder object is torn down, `TIFFClose` flushes buffered bytes through the write callback and w...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-4rr5-89j8-mwwm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112406</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Infinite loop in PdfParser.rewrite_pages on page tree Parent cycle</div>
-            <div class="card-body">```
-============================================================================
-Infinite loop in PdfParser.rewrite_pages on page tree Parent cycle
-Location: src/PIL/PdfParser.py:505  in PdfParser.rewrite_pages()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
 
-A PD...</div>
+The 3.4.16 fix for GHSA-p98j-92pf-mc4p only covers a hook that removes the node it was called for. If an `IN_PLACE` hook removes a different node, like the current node's parent or a sibling that has not been visited yet, that subtree is never walked or neutralized. Event handlers in it stay on the elements, and an `<img onerror>` that...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-f2g6-542v-9j58" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112399</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: APNG background disposal allocates full canvas before decompression bomb check</div>
-            <div class="card-body">```
-============================================================================
-APNG background disposal allocates full canvas before decompression bomb check
-Location: src/PIL/PngImagePlugin.py:1000  in PngImageFile._seek()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-=========================================================================...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-5xm2-6676-qcp9" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112892</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: MSP RLE decoder expands a tiny file into unbounded memory</div>
-            <div class="card-body">### Summary
-The MSP RLE decoder expands run-length data into an in-memory buffer with no cap tied to the declared image size. A small file that passes the pixel-count check can force hundreds of megabytes or more of allocation when the application loads pixels.
-
-### Details
-The MSP decoder writes each run into an unbounded `io.BytesIO` and can expa...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-gg2r-wvfm-q9rx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112894</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Quadratic-time DoS in PDF save_all (PdfParser.next_object_id)</div>
-            <div class="card-body">```
-============================================================================
-Quadratic-time DoS in PDF save_all (PdfParser.next_object_id)
-Location: src/PIL/PdfParser.py:629  in next_object_id()
-Commit:   a707c6b21c313880d0771e54965d142dd42358b6
-============================================================================
-```
-
-Pillow's PDF write...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-21</span>
-                <a href="https://github.com/advisories/GHSA-jg86-v3jv-hrpm" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-22</span>
+                <a href="https://github.com/advisories/GHSA-mrv2-3pqr-j5jr" target="_blank">Full Report →</a>
             </div>
         </div>
         
