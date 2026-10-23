@@ -68,10 +68,214 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-23 15:58 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-23 20:42 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115478</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">obsidian-tc: Memory-lifecycle tools overwrite unowned notes or partially commit lifecycle changes</div>
+            <div class="card-body">### Summary
+`create_entity`, `link_entities`, `rename_entity`, `unlink_entities` and `delete_entity` regenerate a memory note's body from SQLite at the computed `memory/<type>/<name>.md` path. When a note already existed at that path and was not owned by the entity being written (a hand-authored note, or an orphan left by a different entity whose n...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-r3g7-r4hr-m258" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62204</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.6
+                </span>
+            </div>
+            <div class="card-title">SiYuan: Missing consistency check between packageName and repoURL/repoHash in bazaar package install allows overwriting an existing, trusted plugin</div>
+            <div class="card-body">## Summary
+
+`installBazaarPlugin` (and the equivalent endpoints for widgets/icons/templates/themes) accept
+`packageName`, `repoURL`, and `repoHash` as independent request fields with no validation that
+they refer to the same package. `packageName` alone determines the install destination;
+`repoURL`/`repoHash` alone determine what content gets downl...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-rpx2-p6hp-x5gj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73054</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">SiYuan: A parser differential between the WebSocket keepalive exemption and the session quarantine allows unauthenticated access to the broadcast event stream</div>
+            <div class="card-body">### Summary
+
+Two checks on the same WebSocket request URI parse it differently. The authentication exemption for keepalive sessions matches raw substrings, while the quarantine introduced to contain those sessions reads a parsed query parameter. Because Go's `url.Values.Get` returns only the first value for a repeated key, a single URI can satisfy ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-c8w8-3pqp-wr83" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73630</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.8
+                </span>
+            </div>
+            <div class="card-title">SiYuan: authFilePublishAccess distinguishes hidden and forbidden documents from public and nonexistent ones, and issues a publish-auth cookie for documents it reports as forbidden</div>
+            <div class="card-body">### Summary
+
+`/api/filetree/authFilePublishAccess` is registered with `CheckAuth` only and is reachable anonymously. It never sets a failure code, so its outcome is signalled entirely by the response message and by whether a `Set-Cookie` header is present. Those two signals differ across access tiers, which lets an anonymous caller determine, for a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-4pjg-x8qj-33j5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-73049</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.8
+                </span>
+            </div>
+            <div class="card-title">SiYuan: The publish filter for database backlinks consults the forbidden list instead of the visibility list, disclosing hidden-tier documents to anonymous readers</div>
+            <div class="card-body">### Summary
+
+`/api/av/getAttributeViewBacklinks` filters its results for reader roles through `FilterAttributeViewBacklinksByPublishAccess`. That function resolves its ignore list with `GetDisablePublishAccess`, which covers only the forbidden tier. Documents at the hidden tier are absent from that list, so they pass the check.
+
+The result is that ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-p4qw-vx5p-g984" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-xp3q-r38w-vgqm</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.8
+                </span>
+            </div>
+            <div class="card-title">SiYuan: The publish filter for local storage returns the administrator's entire storage map with only three keys sanitized</div>
+            <div class="card-body">### Relationship to GHSA-hgfg-j9pg-43xw
+
+That advisory concerned the administrator's live UI layout, and commit `63c7d5474` resolved it by removing `FilterUILayoutByPublishIgnore` and nulling `Conf.UILayout` for readers. That fix is correct and complete for the live layout.
+
+This report concerns a different endpoint, a different filter function and...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-xp3q-r38w-vgqm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-77363</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.6
+                </span>
+            </div>
+            <div class="card-title">obsidian-tc HTTP transport lacks Origin/DNS-rebinding protection, enabling drive-by vault access on loopback</div>
+            <div class="card-body">### Impact
+The Streamable HTTP transport was constructed without `enableDnsRebindingProtection`/`allowedHosts`/`allowedOrigins` and performed no `Origin`-header validation. With the documented `auth.mode: "none"` loopback default, a **drive-by web page could `POST http://127.0.0.1/mcp`** and receive caller `http-local` with scopes `["*"]` — full va...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-pqh8-4pj7-32xx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-77362</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">obsidian-tc Bridge tools leak denied-note data via unfiltered sibling fields</div>
+            <div class="card-body">### Impact
+Bridge tool results filtered only the `items` array against the read ACL and passed sibling fields through unfiltered: `tasks_filter` emitted `groups` whose counts reflected denied notes, `makemd_query` returned `...result` siblings, and `list_templates` enumerated Templater template paths and parsed user-function bodies with no read-whi...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-43r2-c7g8-prc8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115477</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">obsidian-tc: Declined human-in-the-loop confirmations can permit destructive calls over HTTP</div>
+            <div class="card-body">### Summary
+On a Streamable HTTP deployment with `auth.jwtSecret` configured, serving a 2026-07-28-era client that declared `elicitation.form` support, a call to a dispatch-gated tool (`destructive: true`, or a scope with an HITL floor) that was offered an `inputRequired` confirmation could still complete after the human declined, cancelled, or the...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-737x-cwfr-5vvc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-77366</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">obsidian-tc tokens can access arbitrary configured vaults</div>
+            <div class="card-body">### Impact
+Tool dispatch did not check the caller-supplied `input.vault` against the caller's bound vault (`ctx.vaultId`); the folder ACL was a single global instance and the JWT carried no vault claim. As a result, **any valid token could read, write, or delete any configured vault** by passing `input.vault`, defeating multi-tenant isolation acros...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-84c9-qqpq-2pq5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-77364</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">obsidian-tc: Default folder ACL is fail-open; .obsidian plugin secrets are readable by default</div>
+            <div class="card-body">### Impact
+With a default configuration, an undefined `readPaths`/`writePaths` meant allow-all, the `strictReadDefault` flag was inert, and the `.obsidian`/`.git`/`.trash` control directories were denied only during enumeration — not on the direct request path. A caller could read `.obsidian/plugins/*/data.json`, exfiltrating **plugin API keys and ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-cvp8-vvgf-69q4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-77361</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.7
+                </span>
+            </div>
+            <div class="card-title">obsidian-tc : Symlink read-ACL scope bypass via lexical path checks</div>
+            <div class="card-body">### Impact
+ACL checks ran on the lexical vault-relative path while containment used the realpath. An in-vault symlink placed under an allowed glob, whose realpath resolved into a denied folder, passed the read ACL — an intra-vault read-ACL-scope bypass. It requires an out-of-band-planted symlink (no MCP tool creates one) and is not a vault-root esc...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-c5xx-h28h-f682" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-113721</span>
@@ -417,225 +621,6 @@ Fastify lowercases header names in a `headers` schema before compilation, becaus
             <div class="card-footer">
                 <span>Published: 2026-10-22</span>
                 <a href="https://github.com/advisories/GHSA-389g-gv7q-r4x8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114142</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">toml-node: Prototype pollution: parsing a TOML document can write to Object.prototype</div>
-            <div class="card-body">### Summary
-CVE-2026-63376 described prototype pollution through __proto__ key-path desynchronization and was fixed in 4.1.2 by rewriting the path bookkeeping and adding an ownedContainers WeakSet. The desynchronization is still reachable, spelled with a quote character instead of a dot, and the owned-container check is not applied on the path that...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-h895-cgqg-jf52" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114141</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">toml-node: Quadratic-complexity DoS via many array-of-tables headers in toml.parse()</div>
-            <div class="card-body">## Summary
-
-`toml.parse()` is vulnerable to a quadratic-complexity (O(n²)) denial-of-service via many
-array-of-tables (`[[name]]`) headers. `addTableArray()` in `lib/compiler.js` rescans two
-entire bookkeeping Sets on every `[[name]]` header without pruning unrelated or distinct
-entries, so a document containing n such headers costs O(n²) compiler ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-4qx8-w7c3-pj3p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114143</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">toml-node: Quadratic-complexity DoS via long dotted keys or table paths in toml.parse()</div>
-            <div class="card-body">## Summary
-
-`toml.parse()` is vulnerable to a quadratic-complexity (O(n²)) denial-of-service via a single
-long dotted key, table header, or inline-table key. A ~100KB crafted document causes a
-multi-second synchronous hang; a ~200KB document crashes the Node.js process outright with an
-uncatchable out-of-memory error. This is a separate, unpatched ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-9j65-hcg3-gc64" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114144</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">toml-node: Uncontrolled resource consumption (CPU DoS) via unbounded-length integer literals in toml.parse()</div>
-            <div class="card-body">### Summary
-`toml.parse()` converts integer literals (hex, octal, binary, and decimal) to `BigInt` without first bounding the length of the digit sequence. Since `BigInt(string)` construction from a very long numeric string runs in super-linear time, a single small, well-formed TOML document containing one long integer literal can pin a Node.js pro...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-9qmh-m7c6-f92p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114126</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">Storybook dev server vulnerable to code injection from the local network</div>
-            <div class="card-body">**Summary:** The Storybook dev server exposes its WebSocket authentication token to any client that can load its HTML pages. Any host on a LAN can open a Storybook app by IP address, and therefore obtain the token. The WebSocket can be used to inject code into story files or to create new files. Under the right circumstances, an attacker can execut...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-px85-f4q5-jh77" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114128</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">Astro: Reflected/Stored XSS via unescaped <script>/<style> tag content in JSX/MDX rendering</div>
-            <div class="card-body">## Summary
-
-Astro's JSX and MDX rendering pipeline treated string children of `<script>` and `<style>` elements as trusted HTML. When a dynamic value was passed through a JSX expression, such as `<script>{value}</script>`, an attacker-controlled value containing `</script>` or `</style>` could terminate the element and inject arbitrary HTML and Jav...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-98hj-9722-w3j8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114127</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Astro: Arbitrary CSS injection in Astro View Transitions</div>
-            <div class="card-body">### Summary
-
-Astro's server-side View Transition CSS generator did not keep string animation properties within their generated CSS declarations. In an application that passes attacker-controlled data into an animation property such as `duration`, a value containing CSS delimiters could terminate the declaration and rule, then add attacker-selected ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-mpr7-6m5w-76rw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114604</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">GraphQL Tools: Prototype pollution in mergeIncrementalResult via non-primitive path segments</div>
-            <div class="card-body">## Report metadata
-
-| Field | Value |
-| --- | --- |
-| Package | `@graphql-tools/utils` (npm, `pkg:github/ardatan/graphql-tools`) |
-| Repository | https://github.com/ardatan/graphql-tools |
-| Component | `mergeIncrementalResult` / `setObjectKeyPath` (`packages/utils/src/mergeIncrementalResult.ts`) |
-| Vulnerability class | Prototype pollution (via u...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-c4qx-w738-7hr3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-75508</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">GraphQL-core: Denial of service via comment tokens bypassing the parser's max_tokens limit</div>
-            <div class="card-body">### Summary
-
-The parser's `max_tokens` limit — the documented defence against oversized GraphQL
-documents — did not count comment tokens. A document padded with comments could
-therefore pass a `max_tokens` check of any size while still allocating one `Token`
-object per comment, all of which stay reachable for the lifetime of the parsed
-document. A ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-r77w-qph3-7vf8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-75507</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">GraphQL-core: Denial of service via quadratic complexity in the OverlappingFieldsCanBeMerged validation rule</div>
-            <div class="card-body">### Summary
-
-The `OverlappingFieldsCanBeMerged` validation rule can be driven into quadratic — and
-in the worst case `O(n²·m²)` — running time by a small, highly compressible query. A
-single 364 KB document can occupy one CPU core for over five minutes during
-*validation*, before any resolver runs. Because the rule is part of `specified_rules`
-and ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-vj8h-fx38-h3vc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-cg2g-xh64-v4q7</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">DOMPurify SAFE_FOR_TEMPLATES bypass: split template expressions survive in attached shadow root content on DOM output modes</div>
-            <div class="card-body">## Summary
-
-When DOMPurify is configured with `SAFE_FOR_TEMPLATES: true` together with a DOM-returning mode (`RETURN_DOM: true`, `RETURN_DOM_FRAGMENT: true`, or `IN_PLACE: true`), template expressions such as `{{...}}`, `${...}`, and `<%...%>` survive sanitization inside the text content of an attached shadow root. The post-walk safety net `_scrubT...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-cg2g-xh64-v4q7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-mrv2-3pqr-j5jr</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">DOMPurify IN_PLACE: hook that removes a parent or sibling leaves the detached subtree's event handlers armed (incomplete fix for GHSA-p98j-92pf-mc4p)</div>
-            <div class="card-body">### Summary
-
-The 3.4.16 fix for GHSA-p98j-92pf-mc4p only covers a hook that removes the node it was called for. If an `IN_PLACE` hook removes a different node, like the current node's parent or a sibling that has not been visited yet, that subtree is never walked or neutralized. Event handlers in it stay on the elements, and an `<img onerror>` that...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-mrv2-3pqr-j5jr" target="_blank">Full Report →</a>
             </div>
         </div>
         
