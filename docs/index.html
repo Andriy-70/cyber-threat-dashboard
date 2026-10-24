@@ -68,559 +68,568 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-23 20:42 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-24 02:08 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-115478</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">obsidian-tc: Memory-lifecycle tools overwrite unowned notes or partially commit lifecycle changes</div>
-            <div class="card-body">### Summary
-`create_entity`, `link_entities`, `rename_entity`, `unlink_entities` and `delete_entity` regenerate a memory note's body from SQLite at the computed `memory/<type>/<name>.md` path. When a note already existed at that path and was not owned by the entity being written (a hand-authored note, or an orphan left by a different entity whose n...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-r3g7-r4hr-m258" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-62204</span>
+                <span class="cve-id">CVE-2026-112937</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.6
+                    MEDIUM 6.1
                 </span>
             </div>
-            <div class="card-title">SiYuan: Missing consistency check between packageName and repoURL/repoHash in bazaar package install allows overwriting an existing, trusted plugin</div>
-            <div class="card-body">## Summary
-
-`installBazaarPlugin` (and the equivalent endpoints for widgets/icons/templates/themes) accept
-`packageName`, `repoURL`, and `repoHash` as independent request fields with no validation that
-they refer to the same package. `packageName` alone determines the install destination;
-`repoURL`/`repoHash` alone determine what content gets downl...</div>
+            <div class="card-title">filelock: ReadWriteLock on the hard-link route deletes any directory another user renames onto its .filelock-* link directory name</div>
+            <div class="card-body">`ReadWriteLock` and `AsyncReadWriteLock` (the SQLite-backed reader/writer lock) remove their private `.filelock-*` link directories with `shutil.rmtree` (a recursive delete) on a remembered path. They do not check that the path still names the directory they created. This happens on the hard-link route (a hard link is a second name for the same fil...</div>
             <div class="card-footer">
                 <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-rpx2-p6hp-x5gj" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-jqc4-5cvw-7w85" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-73054</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
+                <span class="cve-id">CVE-2026-112913</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.3
                 </span>
             </div>
-            <div class="card-title">SiYuan: A parser differential between the WebSocket keepalive exemption and the session quarantine allows unauthenticated access to the broadcast event stream</div>
-            <div class="card-body">### Summary
-
-Two checks on the same WebSocket request URI parse it differently. The authentication exemption for keepalive sessions matches raw substrings, while the quarantine introduced to contain those sessions reads a parsed query parameter. Because Go's `url.Values.Get` returns only the first value for a repeated key, a single URI can satisfy ...</div>
+            <div class="card-title">filelock: ReadWriteLock on Windows acts on SQLite side files another local user places beside its database</div>
+            <div class="card-body">On Windows, `ReadWriteLock` and `AsyncReadWriteLock` (the SQLite-backed reader/writer lock) connect SQLite to the lock database by its path, in every directory. SQLite derives three side files from that path: `<database>-journal`, the rollback journal (pages saved to undo an interrupted write); `<database>-wal`, the write-ahead log (changes kept ou...</div>
             <div class="card-footer">
                 <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-c8w8-3pqp-wr83" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-9vhv-jxww-xfm5" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-73630</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.8
+                <span class="cve-id">CVE-2026-112907</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.5
                 </span>
             </div>
-            <div class="card-title">SiYuan: authFilePublishAccess distinguishes hidden and forbidden documents from public and nonexistent ones, and issues a publish-auth cookie for documents it reports as forbidden</div>
-            <div class="card-body">### Summary
-
-`/api/filetree/authFilePublishAccess` is registered with `CheckAuth` only and is reachable anonymously. It never sets a failure code, so its outcome is signalled entirely by the response message and by whether a `Set-Cookie` header is present. Those two signals differ across access tiers, which lets an anonymous caller determine, for a...</div>
+            <div class="card-title">filelock: On Windows an oplock on a soft lock's marker holds SoftFileLock.acquire() past its timeout and blocks the stale break</div>
+            <div class="card-body">On Windows the soft locks (`SoftFileLock`, `MarkerSoftFileLock`, `SoftFileLease`, their async forms, and a `FileLock` that fell back to a soft lock) read their marker by path. The marker is the lock file whose presence says a process holds the lock. Each `acquire()` attempt that finds a marker opens it with `os.open` to read the holder's process id...</div>
             <div class="card-footer">
                 <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-4pjg-x8qj-33j5" target="_blank">Full Report →</a>
+                <a href="https://github.com/advisories/GHSA-567q-5qvw-pf92" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-73049</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.8
-                </span>
-            </div>
-            <div class="card-title">SiYuan: The publish filter for database backlinks consults the forbidden list instead of the visibility list, disclosing hidden-tier documents to anonymous readers</div>
-            <div class="card-body">### Summary
-
-`/api/av/getAttributeViewBacklinks` filters its results for reader roles through `FilterAttributeViewBacklinksByPublishAccess`. That function resolves its ignore list with `GetDisablePublishAccess`, which covers only the forbidden tier. Documents at the hidden tier are absent from that list, so they pass the check.
-
-The result is that ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-p4qw-vx5p-g984" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-xp3q-r38w-vgqm</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.8
-                </span>
-            </div>
-            <div class="card-title">SiYuan: The publish filter for local storage returns the administrator's entire storage map with only three keys sanitized</div>
-            <div class="card-body">### Relationship to GHSA-hgfg-j9pg-43xw
-
-That advisory concerned the administrator's live UI layout, and commit `63c7d5474` resolved it by removing `FilterUILayoutByPublishIgnore` and nulling `Conf.UILayout` for readers. That fix is correct and complete for the live layout.
-
-This report concerns a different endpoint, a different filter function and...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-xp3q-r38w-vgqm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77363</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.6
-                </span>
-            </div>
-            <div class="card-title">obsidian-tc HTTP transport lacks Origin/DNS-rebinding protection, enabling drive-by vault access on loopback</div>
-            <div class="card-body">### Impact
-The Streamable HTTP transport was constructed without `enableDnsRebindingProtection`/`allowedHosts`/`allowedOrigins` and performed no `Origin`-header validation. With the documented `auth.mode: "none"` loopback default, a **drive-by web page could `POST http://127.0.0.1/mcp`** and receive caller `http-local` with scopes `["*"]` — full va...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-pqh8-4pj7-32xx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77362</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.3
-                </span>
-            </div>
-            <div class="card-title">obsidian-tc Bridge tools leak denied-note data via unfiltered sibling fields</div>
-            <div class="card-body">### Impact
-Bridge tool results filtered only the `items` array against the read ACL and passed sibling fields through unfiltered: `tasks_filter` emitted `groups` whose counts reflected denied notes, `makemd_query` returned `...result` siblings, and `list_templates` enumerated Templater template paths and parsed user-function bodies with no read-whi...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-43r2-c7g8-prc8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115477</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">obsidian-tc: Declined human-in-the-loop confirmations can permit destructive calls over HTTP</div>
-            <div class="card-body">### Summary
-On a Streamable HTTP deployment with `auth.jwtSecret` configured, serving a 2026-07-28-era client that declared `elicitation.form` support, a call to a dispatch-gated tool (`destructive: true`, or a scope with an HITL floor) that was offered an `inputRequired` confirmation could still complete after the human declined, cancelled, or the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-737x-cwfr-5vvc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77366</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">obsidian-tc tokens can access arbitrary configured vaults</div>
-            <div class="card-body">### Impact
-Tool dispatch did not check the caller-supplied `input.vault` against the caller's bound vault (`ctx.vaultId`); the folder ACL was a single global instance and the JWT carried no vault claim. As a result, **any valid token could read, write, or delete any configured vault** by passing `input.vault`, defeating multi-tenant isolation acros...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-84c9-qqpq-2pq5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77364</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">obsidian-tc: Default folder ACL is fail-open; .obsidian plugin secrets are readable by default</div>
-            <div class="card-body">### Impact
-With a default configuration, an undefined `readPaths`/`writePaths` meant allow-all, the `strictReadDefault` flag was inert, and the `.obsidian`/`.git`/`.trash` control directories were denied only during enumeration — not on the direct request path. A caller could read `.obsidian/plugins/*/data.json`, exfiltrating **plugin API keys and ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-cvp8-vvgf-69q4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-77361</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">obsidian-tc : Symlink read-ACL scope bypass via lexical path checks</div>
-            <div class="card-body">### Impact
-ACL checks ran on the lexical vault-relative path while containment used the realpath. An in-vault symlink placed under an allowed glob, whose realpath resolved into a denied folder, passed the read ACL — an intra-vault read-ACL-scope bypass. It requires an out-of-band-planted symlink (no MCP tool creates one) and is not a vault-root esc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-c5xx-h28h-f682" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113721</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.5
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Generated files can follow existing destination links</div>
-            <div class="card-body">## Summary
-
-Generated activation files and pyvenv.cfg can follow existing links and write outside the requested environment. The
-template writer tests exists() before unlinking, which misses dangling symlinks; the configuration writer opens the
-existing path directly.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-XBEOCBS1` in `virtualenv-2026...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-558c-9hv2-4prj" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-78g4-xqwv-q3g8</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.1
-                </span>
-            </div>
-            <div class="card-title">Pillow: Bundled libopenjp2 2.5.4 in all wheels since 11.1.0 carries OSV-2025-219 heap-buffer-overflow write reachable from Image.open().load()</div>
-            <div class="card-body">### Summary
-
-Every Pillow wheel from 11.1.0 onward bundles a libopenjp2 containing a heap-buffer-overflow **write** that is fixed upstream on master but has never appeared in an OpenJPEG release. See https://osv.dev/vulnerability/OSV-2025-219
-
-Because the wheel bundles its own copy, a patched host OS does not help. It is reachable from `Image.open(...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-78g4-xqwv-q3g8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114132</span>
+                <span class="cve-id">CVE-2026-113713</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Nuxt: Server-side route rules (`redirect`, `headers`, `proxy`, `ssr`) are skipped for case-variant paths when routing is case-insensitive</div>
-            <div class="card-body">## Impact
+            <div class="card-title">virtualenv: Temporary app-data can leave dangling seed package links</div>
+            <div class="card-body">## Summary
 
-With the default `router.options.sensitive: false`, Nuxt's page router resolves routes case-insensitively, so `/Admin` renders the same page as `/admin`. On the server, however, route rules were resolved with Nitro's route-rule matcher, which matches keys case-sensitively. A request whose path differs from a rule key only in letter case ...</div>
+The app-data seeder can leave an environment linked to temporary package files that virtualenv deletes when creation
+finishes. The environment-variable and configuration-file forms of `symlink_app_data` can enable this state even though
+the command-line flag is disabled for temporary app-data. The resulting environment depends on a cach...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-vjh5-4x84-xrqp" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-4f8h-vr72-p32c" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-114133</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Nuxt server islands render `useHeadSafe` input without sanitisation</div>
-            <div class="card-body">## Impact
-
-`useHeadSafe` restricts head input to an allowlist of safe tags and attributes. For example, `bodyAttrs` is limited to `class` and `style`, event handler attributes are removed, and `<script>` tags are only kept for JSON types.
-
-When `useHeadSafe` is called inside a server island (a `.server.vue` component or page, or a component rendere...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-xfq5-w38q-pc2x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114130</span>
+                <span class="cve-id">CVE-2026-113717</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
                     LOW None
                 </span>
             </div>
-            <div class="card-title">Nuxt: Incomplete fix for GHSA-934w-87qh-qr26: a `javascript:` URL prefixed with an ASCII control character executes from `<NuxtLink>` when `pages` is disabled</div>
-            <div class="card-body">## Impact
+            <div class="card-title">virtualenv: Pip seeding with download omits wheel digest verification</div>
+            <div class="card-body">## Summary
 
-An application that renders `<NuxtLink :to="...">` with a value it does not control can be made to render an anchor whose `href` executes script in the application's origin when clicked.
+The pip seeder acquires bundled wheels with download=False and lets pip access the index when --download is selected.
+Index candidates on that path do not pass through virtualenv's wheel digest verification.
 
-This is an incomplete fix for [GHSA-934w-87qh-qr26](https://github.com/nuxt/nuxt/security/advisories/GHSA-934w-87qh-qr26) (CVE-2026-53722). It only aff...</div>
+Anthropic's OSS Scanner reported this as `ANT-2026-74ALJBUF` in `virtualenv-20261015-005`, received on 15 October 2026.
+
+## Affec...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-jjm6-p2m9-9w4x" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-cx28-75q4-x26q" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-114131</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
+                <span class="cve-id">CVE-2026-113714</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
                 </span>
             </div>
-            <div class="card-title">Nuxt: Route rules are matched against the raw request path, so a percent-encoded segment can bypass `appMiddleware` on dynamic and catch-all routes</div>
-            <div class="card-body">### Summary
+            <div class="card-title">virtualenv: Downloaded wheel selection and caching precede verification</div>
+            <div class="card-body">## Summary
 
-Nuxt compared `routeRules` keys against the raw request path, without decoding percent-encoding, while the router decodes parameters when it resolves a route. A request whose path is percent-encoded can therefore resolve to a page while failing to match the route rule meant to protect it, so the rule's `appMiddleware` never runs, inclu...</div>
+Wheel downloads go directly into the reusable wheelhouse, while the verification target is selected from pip's textual
+output. A verification failure does not remove the downloaded file from that cache.
+
+Anthropic's OSS Scanner reported this as `ANT-2026-ST00DRO3` in `virtualenv-20261015-005`, received on 15 October 2026.
+
+## Affected a...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-6gq8-jgmh-3ffp" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-494p-63j8-28p3" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-113789</span>
+                <span class="cve-id">CVE-2026-113718</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">virtualenv: Xonsh activation literals depend on the script decoding codec</div>
+            <div class="card-body">## Summary
+
+Caller-supplied prompt text can become executable syntax in the xonsh activation script. An attacker must influence the
+value passed to virtualenv, and a user must subsequently activate the environment.
+
+## Affected area
+
+Xonsh reads a UTF-8 activation script using a legacy multibyte encoding such as GBK. Printable non-ASCII bytes can
+c...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-394h-qwmc-48pf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113720</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">pypdf: Possible long runtimes/large memory usage when retrieving form fields</div>
-            <div class="card-body">### Impact
+            <div class="card-title">virtualenv: Seeded files retain permissions from an older cache</div>
+            <div class="card-body">## Summary
 
-An attacker who uses this vulnerability can craft a PDF which leads to large memory usage and/or long runtimes. This requires retrieving the form fields of a document.
+The app-data copy seeder uses shutil.copy, which preserves cached file modes independently of the current umask. A cache
+populated under permissive permissions can therefore produce files with wider access in later environments.
 
-### Patches
-
-This has been fixed in [pypdf==6.21.0](https://github.com/py-pdf/pypdf/releases/tag/6.21.0).
-
-### Workarounds
-
-If you cannot upgrade yet, consider applying ...</div>
+Anthropic's OSS Scanner reported this as `ANT-2026-487MH6OW` in `virtualenv-20261015-005`, received on 15 Oc...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-6vvc-x485-93v7" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-fc2g-4w5p-6whm" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-113790</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
+                <span class="cve-id">CVE-2026-113723</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
                 </span>
             </div>
-            <div class="card-title">pypdf: Possible large memory usage when parsing arrays and dictionaries</div>
-            <div class="card-body">### Impact
+            <div class="card-title">virtualenv: Bash prompt values can change meaning under older compatibility modes</div>
+            <div class="card-body">## Summary
 
-An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing arrays and/or dictionaries with lots of elements.
+Caller-supplied prompt text can become executable syntax in the bash activation prompt. An attacker must influence the
+value passed to virtualenv, and a user must subsequently activate the environment and draw the prompt.
 
-### Patches
+## Affected area
 
-This has been fixed in [pypdf==6.21.0](https://github.com/py-pdf/pypdf/releases/tag/6.21.0).
-
-### Workarounds
-
-If you cannot upgrade yet, consider applying the c...</div>
+Bash runs with compatibility level 4.2 and draws the environment prompt. Its replacement-string b...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-f54x-cmq8-qg57" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-6w3r-xr62-4xcp" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-113791</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">pypdf: Possible large memory usage when parsing content streams</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing content streams with many small operations.
-
-### Patches
-
-This has been fixed in [pypdf==6.21.0](https://github.com/py-pdf/pypdf/releases/tag/6.21.0).
-
-### Workarounds
-
-If you cannot upgrade yet, consider applying the changes...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-cgf9-327m-v77c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113796</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.2
-                </span>
-            </div>
-            <div class="card-title">Electron: SameSite cookie restrictions are not applied to windows opened from links</div>
-            <div class="card-body">### Impact
-
-Pages opened into a new window from a link were loaded as if the app itself had navigated there rather than the page that contained the link, so the request was treated as same-site: `SameSite=Strict` cookies were sent and `Sec-Fetch-Site` did not identify the initiating page. Content shown in the app could use this to make a credential...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-2p8c-gr87-2676" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113798</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">Electron: Pointer lock permission requests can be attributed to the wrong frame</div>
-            <div class="card-body">### Impact
-For `pointerLock` permission requests made from some cross-origin iframes, `session.setPermissionRequestHandler()` was given the top-level frame's `requestingUrl` and `isMainFrame` instead of the requesting frame's. Apps that grant pointer lock based on the requesting origin could grant it to embedded content under the top-level page's i...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-x562-297c-g43g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113797</span>
+                <span class="cve-id">CVE-2026-113715</span>
                 <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.1
+                    LOW None
                 </span>
             </div>
-            <div class="card-title">Electron: Extension tabs.query returns tab URLs and titles without the tabs permission</div>
-            <div class="card-body">### Impact
-`chrome.tabs.query()` returned each tab's `url` and `title` to extensions that held neither the `tabs` permission nor matching host permissions, so any loaded extension could read the URL and title of every webContents in its session.
+            <div class="card-title">virtualenv: Venv configuration readback can reinterpret path boundaries</div>
+            <div class="card-body">## Summary
 
-Apps are only affected if they load extensions (`session.extensions.loadExtension`) that they do not fu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-98mx-cjp9-gchm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114122</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.9
-                </span>
-            </div>
-            <div class="card-title">Electron: Frame subscription trusts GPU-supplied frame geometry</div>
-            <div class="card-body">### Impact
-Frame data received from the GPU process for `webContents.beginFrameSubscription` was not fully validated by the main process. A compromised GPU process could cause the main process to read out-of-bounds memory while producing the captured frame images, disclosing memory or crashing the app.
+The venv creator reads the standard library's generated pyvenv.cfg with splitlines() and merges all resulting keys over
+virtualenv's configuration. Line-boundary characters from destination data can therefore become configuration structure
+before output sanitization.
 
-Apps are only affected if they use `webConten...</div>
+Anthropic's OSS Scanner reported this as `ANT-2026-6ZQHJ6VI` in `virt...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-3qxv-5xgr-q7w9" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-qmx5-4p3x-wvqf" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-114124</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.9
-                </span>
-            </div>
-            <div class="card-title">Electron: Off-screen rendering on macOS trusts GPU-supplied frame geometry</div>
-            <div class="card-body">### Impact
-In offscreen rendering mode on macOS, frame data received from the GPU process was not fully validated by the main process. A compromised GPU process could cause the main process to read out-of-bounds memory while producing `paint` event images, disclosing memory or crashing the app. GHSA-pfmc-3mgc-p6fp covers the same issue on the other...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-h3v5-h239-pg29" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114121</span>
+                <span class="cve-id">CVE-2026-113719</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
+                    MEDIUM 4.5
                 </span>
             </div>
-            <div class="card-title">Electron: openExternal permission requests can be attributed to the wrong origin</div>
-            <div class="card-body">### Impact
-Requests to open external protocol URLs could be attributed to a document other than the one that asked for them, so the `requestingUrl` passed to `session.setPermissionRequestHandler` was a trusted origin for a launch untrusted content had requested. An origin-based handler could therefore let untrusted content launch an OS-registered e...</div>
+            <div class="card-title">virtualenv: Seed replacement does not contain metadata deletion paths</div>
+            <div class="card-body">## Summary
+
+The app-data seeder joins paths from existing distribution metadata to site-packages and deletes the resulting paths
+without checking containment within the environment.
+
+Anthropic's OSS Scanner reported this as `ANT-2026-SXOEHWP7` in `virtualenv-20261015-005`, received on 15 October 2026.
+
+## Affected area
+
+Removal of a previously inst...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-997q-gvvc-jwmx" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-hhxq-47xx-j5xx" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">GHSA-673q-mjm6-r5xr</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Next.js: Unauthenticated Remote Code Execution in `use cache` functions returning typed arrays</div>
-            <div class="card-body">## Impact
-
-A vulnerability in applications using App router with Cache Component can lead to remote code execution. The application needs to have a `use cache` function that returns multiple typed arrays.
-
-## Workaround
-
-There is no known workaround for affected applications with such `use cache` functions. You should upgrade immediately even if yo...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-673q-mjm6-r5xr" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-114145</span>
+                <span class="cve-id">CVE-2026-109461</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">GitPython validates a submodule's ".git" path only after cloning into it (RCE)</div>
-            <div class="card-body">### Summary
+            <div class="card-title">MSAL Node authorization code flow may disclose parameters to an attacker-controlled endpoint</div>
+            <div class="card-body">### Impact
 
+Origin validation error in Microsoft Authentication Library (MSAL) for Node.js allows an unauthorized attacker to disclose information over a network. This affects the auth_code flow.
 
-`create_submodule(name, path, url)` clones a submodule into the repo's own `.git`
-directory before it rejects the path. A `path` of ".git/hooks" is accepted by the
-pre-clone check, so the submodule is cloned straight into the live hooks directory,
-and a file named `post-checkout` in the submodule becomes an executable
-`.git/hooks/post...</div>
+### Patches
+
+Version 7.1.0 and higher are patched.
+
+### Workarounds
+
+Ensure you pass in only the auth_code to to acquireTokenByCode...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-83vg-56qc-22m7" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-xcx6-jx8p-x3h5" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-107832</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
+                <span class="cve-id">CVE-2026-109869</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">fastify is vulnerable to header validation bypass via case-sensitive propertyNames</div>
+            <div class="card-title">undici vulnerable to Denial of Service via unhandled error on excessive content-encodings</div>
             <div class="card-body">### Impact
 
-Fastify lowercases header names in a `headers` schema before compilation, because Node.js stores request header names in lowercase. This normalization does not reach the header names held in a `propertyNames` subschema's `enum` and `const`. A header-name deny-list written in the canonical header case, such as `propertyNames: { not: { en...</div>
+undici's `fetch()` crashes the Node.js process when a malicious server returns a response with more than five content codings and closes the connection before sending the body. undici rejects such responses (a content-encoding limit), but it created the internal response stream before that check and returned without attaching an error l...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-22</span>
-                <a href="https://github.com/advisories/GHSA-389g-gv7q-r4x8" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-xjj6-f33q-929c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-109924</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to Denial of Service via unbounded memory in the EventSource parser</div>
+            <div class="card-body">### Impact
+
+undici's `EventSource` client can be driven to exhaust process memory by a malicious or compromised Server-Sent Events peer. By sending millions of tiny completed `data:` fields with no blank event separator, or a single unfinished line split across many chunks, the parser retains a growing amount of per-field and per-chunk state. The b...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-4qv8-2p9j-2685" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-109841</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">undici vulnerable to Subresource Integrity bypass via non-lowercase algorithm tokens</div>
+            <div class="card-body">### Impact
+
+undici's `fetch()` verifies Subresource Integrity (SRI) metadata by looking up the algorithm token in a lowercase-only set, but the SRI specification defines a valid token by its ASCII-lowercase form. A correct but non-lowercase token such as `SHA256-...` or `Sha256-...` is therefore treated as unknown and skipped. When no recognized al...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-f72v-6w45-q472" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115897</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Serialize JavaScript: Cross-site scripting (XSS) via unescaped </script at the end of a serialized function body</div>
+            <div class="card-body">### Impact
+
+`serialize-javascript` escapes its output so it is safe to embed inside a
+`<script>` element. Before 7.1.3 that guarantee did not hold for a **function
+value whose source ends in a bare `</script`**.
+
+Each function body is escaped on its own, and a bare `</script` was only
+neutralized when followed — within the same body — by a characte...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-m5mm-p8h7-m29v" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113872</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">multer vulnerable to Denial of Service via a pending asynchronous fileFilter after request teardown</div>
+            <div class="card-body">### Impact
+
+When `multer` is configured with an asynchronous `fileFilter`, a single request can crash the Node.js process. If a request is aborted (for example when one file is rejected) while another file's async `fileFilter` is still pending, the pending callback later resumes a parsing stream that multer has already torn down. busboy then emits ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-q7qp-rjg7-q26m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115886</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">MLflow: SSRF on unauthenticated MLflow servers via third-party scorer kwargs in the scorer invoke, register, and GenAI evaluate endpoints</div>
+            <div class="card-body">### Summary
+MLflow's tracking server exposes `POST /ajax-api/3.0/mlflow/scorer/invoke` with **no authentication**, and the handler reflectively instantiates an attacker-named class from attacker-supplied JSON with unconstrained constructor kwargs. With the optional `trulens` + `trulens-providers-litellm` packages installed, an unauthenticated attac...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-2wqp-q3c6-ccj5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115883</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">LangGraph: Namespace labels containing `.` reach other namespaces in Postgres and SQLite stores</div>
+            <div class="card-body">### Summary
+
+The Postgres and SQLite stores save a namespace as its labels joined with `.`, so `("tenant", "bob")` and `("tenant.bob",)` map to the same stored namespace. `put` rejected labels containing `.`, but `get`, `search`, `delete`, `list_namespaces`, their async versions, and ops passed directly to `batch`/`abatch` did not. A caller that co...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-6hmw-9432-67qq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115895</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.8
+                </span>
+            </div>
+            <div class="card-title">Happy DOM: Incomplete fix for CVE-2026-33943: unsanitized import alias leads to host code execution</div>
+            <div class="card-body">## Summary
+
+The ESM compiler in `happy-dom@20.14.5` does not validate imported local binding aliases before interpolating them into generated JavaScript.
+
+As a result, an invalid ESM import alias can be transformed into a valid JavaScript destructuring default initializer and executed.
+
+This appears to be an alternate injection path and incomplete ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-834v-8h66-3h79" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115892</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Wasmtime: Panic lowering a host-created component model stream into a guest that expects a different payload type</div>
+            <div class="card-body">### Summary
+
+Wasmtime may panic when the host lowers a component model `stream` or `future` into a guest, if the host created that stream or future with one payload type and the guest expects a different one. This can happen when an embedder creates a stream or future, passes it through a guest, receives it back under a type-erased type such as `St...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-9pvw-hwfg-92h5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115889</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.9
+                </span>
+            </div>
+            <div class="card-title">Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation</div>
+            <div class="card-body">## Summary
+
+In Wasmtime prior to v43, the Cranelift compiler backend bit-packs its SSA value indices in a way that can result in silent overflow in release builds, and result in incorrect value references in the IR resulting in arbitrary miscompilation. A very large Wasm function body, or one that is specially crafted to use many SSA values, can us...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-897f-g5gm-fmxm" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-112906</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.7
+                </span>
+            </div>
+            <div class="card-title">filelock: SoftFileLock evicts a fresh lock file whose watched age another local user's pre-dated file passed on through inode reuse</div>
+            <div class="card-body">`SoftFileLock` and `MarkerSoftFileLock` evict an unparsable marker (the lock file at `<path>`, whose presence says a process holds the lock) once a waiting contender has watched it unchanged for two seconds. `SoftFileLease` expires a lease the same way. The watch tells two looks apart by the marker's modification time (mtime) and inode number (the ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-2g95-wg33-c5x2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-112914</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">filelock: SoftFileLock stale-break restore follows a swapped-in symbolic link and hard-links a file of the user running the lock into the lock directory</div>
+            <div class="card-body">When a soft-lock stale break finds that the marker (the lock file at `<path>`) it renamed aside was a live one recreated by a successor, the restore branch of `break_lock_file()` checks the break name with `lstat` (a check that reads a name without following a symbolic link) and then calls `os.link(break_path, lock_file)` by name. On CPython 3.12 a...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-crv4-6mhj-j5jh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-112940</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">filelock ReadWriteLock: SQLite reopens the lock database by name, so a planted symlink or journal file makes the lock user's process overwrite or unlink its own files</div>
+            <div class="card-body">`ReadWriteLock` and `AsyncReadWriteLock` (the SQLite-backed reader/writer lock) hand SQLite a name they do not control. On Linux the lock validates its database through a descriptor (the number the kernel gives a process for an open file). It then connects SQLite to `/proc/self/fd/<n>`, a Linux path that names the process's own open file `n`. SQLit...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-v4x8-3wr5-3wq8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-h4fr-cmh5-qr62</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.3
+                </span>
+            </div>
+            <div class="card-title">Fallow: A `.*` glob segment let an analyzed repository make Fallow test paths in the parent of the project root</div>
+            <div class="card-body">### Impact
+
+Fallow expands some globs from the analyzed repository on disk. Before 3.34.0, a segment such as `.*`, `.?` or `..*` in such a glob also matched the special `..` entry. The `glob` crate tests `..` against a segment that starts with a literal `.`. Fallow validates plugin glob patterns and refuses absolute paths and `..` segments, but the...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-h4fr-cmh5-qr62" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115569</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.3
+                </span>
+            </div>
+            <div class="card-title">Fallow: Jest and Vitest `projects` entries let an analyzed repository make Fallow read files outside the project root</div>
+            <div class="card-body">### Impact
+
+Fallow reads the Jest and Vitest configs of the repository that it analyzes. A Jest `projects` entry or a Vitest `test.projects` entry can name a path. Fallow followed such an entry to a config file and read that file, also when the file was outside the project root. These forms reached outside the root:
+
+- an absolute path or glob, for...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-jfwm-3p3c-6hx5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-112398</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL None
+                </span>
+            </div>
+            <div class="card-title">Pillow: Heap buffer overflow in FlashPix (FPX) JPEG decoding leads to code execution</div>
+            <div class="card-body">### Credits
+
+**Researcher**: Alex Bouffard (mixbo@pebwalker.com)
+
+### Summary
+
+A heap buffer overflow in Pillow's FlashPix (FPX) JPEG-tile decoder lets an attacker achieve arbitrary code execution by getting an application to open a single crafted file with `Image.open()`. The file is recognized by content (the OLE2 magic), not by extension, so any...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-5x8w-8jj5-q52h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-f2hq-32vh-53cc</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">postal-mime: Quadratic CPU consumption when decoding a header of many joinable RFC 2047 base64 encoded words</div>
+            <div class="card-body">### Impact
+
+Decoding a header that holds a long run of joinable RFC 2047 base64 encoded words, such as `=?utf-8?B?QUJD?=` repeated tens of thousands of times in a `Subject`, `From`, `To`, a filename or a description, took time quadratic in the number of words. The join check ran a regex over the text joined so far for every word, which flattens the...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-f2hq-32vh-53cc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114501</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Pillow: Arrow export leaks stale heap memory when PILLOW_ALIGNMENT > 1</div>
+            <div class="card-body">### Summary
+
+When [`PILLOW_ALIGNMENT`](https://pillow.readthedocs.io/en/stable/reference/block_allocator.html#memory-pools) is set above 1, exporting an image to Arrow returns uninitialized heap memory mixed in with the pixel data. That memory can include pixels from images the process freed earlier. 
+
+### Details
+
+With an alignment above 1, the de...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-23</span>
+                <a href="https://github.com/advisories/GHSA-654x-cwwv-5j9c" target="_blank">Full Report →</a>
             </div>
         </div>
         
