@@ -68,568 +68,542 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-27 11:08 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-27 16:54 UTC</div>
             </header>
             <div class="grid">
                 
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-112937</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.1
-                </span>
-            </div>
-            <div class="card-title">filelock: ReadWriteLock on the hard-link route deletes any directory another user renames onto its .filelock-* link directory name</div>
-            <div class="card-body">`ReadWriteLock` and `AsyncReadWriteLock` (the SQLite-backed reader/writer lock) remove their private `.filelock-*` link directories with `shutil.rmtree` (a recursive delete) on a remembered path. They do not check that the path still names the directory they created. This happens on the hard-link route (a hard link is a second name for the same fil...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-jqc4-5cvw-7w85" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112913</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.3
-                </span>
-            </div>
-            <div class="card-title">filelock: ReadWriteLock on Windows acts on SQLite side files another local user places beside its database</div>
-            <div class="card-body">On Windows, `ReadWriteLock` and `AsyncReadWriteLock` (the SQLite-backed reader/writer lock) connect SQLite to the lock database by its path, in every directory. SQLite derives three side files from that path: `<database>-journal`, the rollback journal (pages saved to undo an interrupted write); `<database>-wal`, the write-ahead log (changes kept ou...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-9vhv-jxww-xfm5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112907</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 2.5
-                </span>
-            </div>
-            <div class="card-title">filelock: On Windows an oplock on a soft lock's marker holds SoftFileLock.acquire() past its timeout and blocks the stale break</div>
-            <div class="card-body">On Windows the soft locks (`SoftFileLock`, `MarkerSoftFileLock`, `SoftFileLease`, their async forms, and a `FileLock` that fell back to a soft lock) read their marker by path. The marker is the lock file whose presence says a process holds the lock. Each `acquire()` attempt that finds a marker opens it with `os.open` to read the holder's process id...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-567q-5qvw-pf92" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113713</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Temporary app-data can leave dangling seed package links</div>
-            <div class="card-body">## Summary
-
-The app-data seeder can leave an environment linked to temporary package files that virtualenv deletes when creation
-finishes. The environment-variable and configuration-file forms of `symlink_app_data` can enable this state even though
-the command-line flag is disabled for temporary app-data. The resulting environment depends on a cach...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-4f8h-vr72-p32c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113717</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Pip seeding with download omits wheel digest verification</div>
-            <div class="card-body">## Summary
-
-The pip seeder acquires bundled wheels with download=False and lets pip access the index when --download is selected.
-Index candidates on that path do not pass through virtualenv's wheel digest verification.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-74ALJBUF` in `virtualenv-20261015-005`, received on 15 October 2026.
-
-## Affec...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-cx28-75q4-x26q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113714</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Downloaded wheel selection and caching precede verification</div>
-            <div class="card-body">## Summary
-
-Wheel downloads go directly into the reusable wheelhouse, while the verification target is selected from pip's textual
-output. A verification failure does not remove the downloaded file from that cache.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-ST00DRO3` in `virtualenv-20261015-005`, received on 15 October 2026.
-
-## Affected a...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-494p-63j8-28p3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113718</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Xonsh activation literals depend on the script decoding codec</div>
-            <div class="card-body">## Summary
-
-Caller-supplied prompt text can become executable syntax in the xonsh activation script. An attacker must influence the
-value passed to virtualenv, and a user must subsequently activate the environment.
-
-## Affected area
-
-Xonsh reads a UTF-8 activation script using a legacy multibyte encoding such as GBK. Printable non-ASCII bytes can
-c...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-394h-qwmc-48pf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113720</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Seeded files retain permissions from an older cache</div>
-            <div class="card-body">## Summary
-
-The app-data copy seeder uses shutil.copy, which preserves cached file modes independently of the current umask. A cache
-populated under permissive permissions can therefore produce files with wider access in later environments.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-487MH6OW` in `virtualenv-20261015-005`, received on 15 Oc...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-fc2g-4w5p-6whm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113723</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Bash prompt values can change meaning under older compatibility modes</div>
-            <div class="card-body">## Summary
-
-Caller-supplied prompt text can become executable syntax in the bash activation prompt. An attacker must influence the
-value passed to virtualenv, and a user must subsequently activate the environment and draw the prompt.
-
-## Affected area
-
-Bash runs with compatibility level 4.2 and draws the environment prompt. Its replacement-string b...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-6w3r-xr62-4xcp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113715</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Venv configuration readback can reinterpret path boundaries</div>
-            <div class="card-body">## Summary
-
-The venv creator reads the standard library's generated pyvenv.cfg with splitlines() and merges all resulting keys over
-virtualenv's configuration. Line-boundary characters from destination data can therefore become configuration structure
-before output sanitization.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-6ZQHJ6VI` in `virt...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-qmx5-4p3x-wvqf" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113719</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.5
-                </span>
-            </div>
-            <div class="card-title">virtualenv: Seed replacement does not contain metadata deletion paths</div>
-            <div class="card-body">## Summary
-
-The app-data seeder joins paths from existing distribution metadata to site-packages and deletes the resulting paths
-without checking containment within the environment.
-
-Anthropic's OSS Scanner reported this as `ANT-2026-SXOEHWP7` in `virtualenv-20261015-005`, received on 15 October 2026.
-
-## Affected area
-
-Removal of a previously inst...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-hhxq-47xx-j5xx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-109461</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">MSAL Node authorization code flow may disclose parameters to an attacker-controlled endpoint</div>
-            <div class="card-body">### Impact
-
-Origin validation error in Microsoft Authentication Library (MSAL) for Node.js allows an unauthorized attacker to disclose information over a network. This affects the auth_code flow.
-
-### Patches
-
-Version 7.1.0 and higher are patched.
-
-### Workarounds
-
-Ensure you pass in only the auth_code to to acquireTokenByCode...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-xcx6-jx8p-x3h5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-109869</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">undici vulnerable to Denial of Service via unhandled error on excessive content-encodings</div>
-            <div class="card-body">### Impact
-
-undici's `fetch()` crashes the Node.js process when a malicious server returns a response with more than five content codings and closes the connection before sending the body. undici rejects such responses (a content-encoding limit), but it created the internal response stream before that check and returned without attaching an error l...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-xjj6-f33q-929c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-109924</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">undici vulnerable to Denial of Service via unbounded memory in the EventSource parser</div>
-            <div class="card-body">### Impact
-
-undici's `EventSource` client can be driven to exhaust process memory by a malicious or compromised Server-Sent Events peer. By sending millions of tiny completed `data:` fields with no blank event separator, or a single unfinished line split across many chunks, the parser retains a growing amount of per-field and per-chunk state. The b...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-4qv8-2p9j-2685" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-109841</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">undici vulnerable to Subresource Integrity bypass via non-lowercase algorithm tokens</div>
-            <div class="card-body">### Impact
-
-undici's `fetch()` verifies Subresource Integrity (SRI) metadata by looking up the algorithm token in a lowercase-only set, but the SRI specification defines a valid token by its ASCII-lowercase form. A correct but non-lowercase token such as `SHA256-...` or `Sha256-...` is therefore treated as unknown and skipped. When no recognized al...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-f72v-6w45-q472" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115897</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Serialize JavaScript: Cross-site scripting (XSS) via unescaped </script at the end of a serialized function body</div>
-            <div class="card-body">### Impact
-
-`serialize-javascript` escapes its output so it is safe to embed inside a
-`<script>` element. Before 7.1.3 that guarantee did not hold for a **function
-value whose source ends in a bare `</script`**.
-
-Each function body is escaped on its own, and a bare `</script` was only
-neutralized when followed — within the same body — by a characte...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-m5mm-p8h7-m29v" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-113872</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">multer vulnerable to Denial of Service via a pending asynchronous fileFilter after request teardown</div>
-            <div class="card-body">### Impact
-
-When `multer` is configured with an asynchronous `fileFilter`, a single request can crash the Node.js process. If a request is aborted (for example when one file is rejected) while another file's async `fileFilter` is still pending, the pending callback later resumes a parsing stream that multer has already torn down. busboy then emits ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-q7qp-rjg7-q26m" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115886</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">MLflow: SSRF on unauthenticated MLflow servers via third-party scorer kwargs in the scorer invoke, register, and GenAI evaluate endpoints</div>
-            <div class="card-body">### Summary
-MLflow's tracking server exposes `POST /ajax-api/3.0/mlflow/scorer/invoke` with **no authentication**, and the handler reflectively instantiates an attacker-named class from attacker-supplied JSON with unconstrained constructor kwargs. With the optional `trulens` + `trulens-providers-litellm` packages installed, an unauthenticated attac...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-2wqp-q3c6-ccj5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115883</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">LangGraph: Namespace labels containing `.` reach other namespaces in Postgres and SQLite stores</div>
-            <div class="card-body">### Summary
-
-The Postgres and SQLite stores save a namespace as its labels joined with `.`, so `("tenant", "bob")` and `("tenant.bob",)` map to the same stored namespace. `put` rejected labels containing `.`, but `get`, `search`, `delete`, `list_namespaces`, their async versions, and ops passed directly to `batch`/`abatch` did not. A caller that co...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-6hmw-9432-67qq" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115895</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 8.8
-                </span>
-            </div>
-            <div class="card-title">Happy DOM: Incomplete fix for CVE-2026-33943: unsanitized import alias leads to host code execution</div>
-            <div class="card-body">## Summary
-
-The ESM compiler in `happy-dom@20.14.5` does not validate imported local binding aliases before interpolating them into generated JavaScript.
-
-As a result, an invalid ESM import alias can be transformed into a valid JavaScript destructuring default initializer and executed.
-
-This appears to be an alternate injection path and incomplete ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-834v-8h66-3h79" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115892</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Wasmtime: Panic lowering a host-created component model stream into a guest that expects a different payload type</div>
-            <div class="card-body">### Summary
-
-Wasmtime may panic when the host lowers a component model `stream` or `future` into a guest, if the host created that stream or future with one payload type and the guest expects a different one. This can happen when an embedder creates a stream or future, passes it through a guest, receives it back under a type-erased type such as `St...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-9pvw-hwfg-92h5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115889</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL 9.9
-                </span>
-            </div>
-            <div class="card-title">Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation</div>
-            <div class="card-body">## Summary
-
-In Wasmtime prior to v43, the Cranelift compiler backend bit-packs its SSA value indices in a way that can result in silent overflow in release builds, and result in incorrect value references in the IR resulting in arbitrary miscompilation. A very large Wasm function body, or one that is specially crafted to use many SSA values, can us...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-897f-g5gm-fmxm" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112906</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.7
-                </span>
-            </div>
-            <div class="card-title">filelock: SoftFileLock evicts a fresh lock file whose watched age another local user's pre-dated file passed on through inode reuse</div>
-            <div class="card-body">`SoftFileLock` and `MarkerSoftFileLock` evict an unparsable marker (the lock file at `<path>`, whose presence says a process holds the lock) once a waiting contender has watched it unchanged for two seconds. `SoftFileLease` expires a lease the same way. The watch tells two looks apart by the marker's modification time (mtime) and inode number (the ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-2g95-wg33-c5x2" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112914</span>
+                <span class="cve-id">CVE-2026-110816</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM 5.3
                 </span>
             </div>
-            <div class="card-title">filelock: SoftFileLock stale-break restore follows a swapped-in symbolic link and hard-links a file of the user running the lock into the lock directory</div>
-            <div class="card-body">When a soft-lock stale break finds that the marker (the lock file at `<path>`) it renamed aside was a live one recreated by a successor, the restore branch of `break_lock_file()` checks the break name with `lstat` (a check that reads a name without following a symbolic link) and then calls `os.link(break_path, lock_file)` by name. On CPython 3.12 a...</div>
+            <div class="card-title">qs : qs.stringify with arrayFormat 'comma' throws an uncaught TypeError on array elements carrying a non-callable own toString (DoS)</div>
+            <div class="card-body">## Summary
+
+`qs.stringify(obj, { arrayFormat: 'comma' })` throws an uncaught `TypeError: Cannot convert object to primitive value` when an array in `obj` contains an element that carries an own, non-callable `toString` property (for example `{ a: [ { toString: 'x' } ] }`). A remote, unauthenticated attacker who can influence an object that the appl...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-crv4-6mhj-j5jh" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-6pq8-jhm2-2vcw" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-112940</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.1
-                </span>
-            </div>
-            <div class="card-title">filelock ReadWriteLock: SQLite reopens the lock database by name, so a planted symlink or journal file makes the lock user's process overwrite or unlink its own files</div>
-            <div class="card-body">`ReadWriteLock` and `AsyncReadWriteLock` (the SQLite-backed reader/writer lock) hand SQLite a name they do not control. On Linux the lock validates its database through a descriptor (the number the kernel gives a process for an open file). It then connects SQLite to `/proc/self/fd/<n>`, a Linux path that names the process's own open file `n`. SQLit...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-v4x8-3wr5-3wq8" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-h4fr-cmh5-qr62</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.3
-                </span>
-            </div>
-            <div class="card-title">Fallow: A `.*` glob segment let an analyzed repository make Fallow test paths in the parent of the project root</div>
-            <div class="card-body">### Impact
-
-Fallow expands some globs from the analyzed repository on disk. Before 3.34.0, a segment such as `.*`, `.?` or `..*` in such a glob also matched the special `..` entry. The `glob` crate tests `..` against a segment that starts with a literal `.`. Fallow validates plugin glob patterns and refuses absolute paths and `..` segments, but the...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-h4fr-cmh5-qr62" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115569</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.3
-                </span>
-            </div>
-            <div class="card-title">Fallow: Jest and Vitest `projects` entries let an analyzed repository make Fallow read files outside the project root</div>
-            <div class="card-body">### Impact
-
-Fallow reads the Jest and Vitest configs of the repository that it analyzes. A Jest `projects` entry or a Vitest `test.projects` entry can name a path. Fallow followed such an entry to a config file and read that file, also when the file was outside the project root. These forms reached outside the root:
-
-- an absolute path or glob, for...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-jfwm-3p3c-6hx5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-112398</span>
-                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
-                    CRITICAL None
-                </span>
-            </div>
-            <div class="card-title">Pillow: Heap buffer overflow in FlashPix (FPX) JPEG decoding leads to code execution</div>
-            <div class="card-body">### Credits
-
-**Researcher**: Alex Bouffard (mixbo@pebwalker.com)
-
-### Summary
-
-A heap buffer overflow in Pillow's FlashPix (FPX) JPEG-tile decoder lets an attacker achieve arbitrary code execution by getting an application to open a single crafted file with `Image.open()`. The file is recognized by content (the OLE2 magic), not by extension, so any...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-5x8w-8jj5-q52h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">GHSA-f2hq-32vh-53cc</span>
+                <span class="cve-id">CVE-2026-109855</span>
                 <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
                     HIGH 7.5
                 </span>
             </div>
-            <div class="card-title">postal-mime: Quadratic CPU consumption when decoding a header of many joinable RFC 2047 base64 encoded words</div>
+            <div class="card-title">undici WebSocket client vulnerable to Denial of Service via failed HTTP/2 handshake</div>
             <div class="card-body">### Impact
 
-Decoding a header that holds a long run of joinable RFC 2047 base64 encoded words, such as `=?utf-8?B?QUJD?=` repeated tens of thousands of times in a `Subject`, `From`, `To`, a filename or a description, took time quadratic in the number of words. The join check ran a regex over the text joined so far for every word, which flattens the...</div>
+undici's experimental WebSocket client (enabled by default via `allowH2: true`) crashes the Node.js process when it connects to a malicious server over HTTP/2. If the server answers the WebSocket upgrade with a response that fails handshake validation, undici aborts the request, but the abort is a no-op because the request is already ma...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-f2hq-32vh-53cc" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-qq8j-7v2v-3rwp" target="_blank">Full Report →</a>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <span class="cve-id">CVE-2026-114501</span>
+                <span class="cve-id">CVE-2026-114616</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">Authlib accepts an empty HMAC key, allowing JWS/JWT signature forgery (HS256/HS384/HS512)</div>
+            <div class="card-body">Reporter: Cavan Loughran, Celvex Group Inc.
+
+Summary
+
+Authlib's symmetric (oct) key handling accepts an empty key (empty bytes b'' / empty string '') as a valid HMAC signing and verification key. An empty HMAC key produces a deterministic digest that any party can reproduce, so an attacker who knows (or can cause) the application to verify a token ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-8m4g-j4wp-wgcg" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-vp88-798v-h67f</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.3
+                </span>
+            </div>
+            <div class="card-title">rustls: ECH rejection can expose buffered application data to authenticated outer server before `ech_required` alert</div>
+            <div class="card-body">In rustls 0.23.44 and 0.23.45, application data that a client buffers before the handshake completes is sent to the server even when the server rejects Encrypted Client Hello (ECH).
+
+When the server rejects ECH, the client completes the handshake with the outer ClientHello and authenticates the server against the ECH config's `public_name`. At the ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-vp88-798v-h67f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-w44r-93j7-qv28</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">rustls: An unauthenticated ServerHello poisons the per-name key-exchange record, so later ClientHellos carry only a classical X25519 share</div>
+            <div class="card-body">## Summary
+
+The client records the server-selected key-exchange group per server name when it processes the ServerHello, before the server is authenticated. A network attacker can answer one connection attempt for a target name with a ServerHello that selects X25519 and close the connection. Later ClientHellos for that name carry one X25519 share w...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-w44r-93j7-qv28" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-c8m5-c952-6cm4</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.0
+                </span>
+            </div>
+            <div class="card-title">Rustls: Session Debug formatting exposes TLS master secrets and resumption PSKs</div>
+            <div class="card-body">### Summary
+
+Formatting a client session value with Debug exposes its TLS 1.2 master secret or TLS 1.3 resumption PSK. A custom session store that logs these values can disclose keys to readers of the logs. Ordinary connection and built-in cache diagnostics remain redacted, and the session-store interface already warns that its values are sensitive...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-c8m5-c952-6cm4" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-h2v8-394m-p7vv</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 3.7
+                </span>
+            </div>
+            <div class="card-title">Rustls: Brotli certificate decompression can allocate an attacker-controlled amount of memory up to 1 GiB before authentication.</div>
+            <div class="card-body">### Summary
+
+The built-in (but disabled by default) Brotli certificate decoder bounds the output buffer but accepts an input-selected history window. A header of five bytes can specify a 1 GiB window allocation. A peer can abort a process whose allocator cannot satisfy that request. A client must enable Brotli and connect to the peer; a server must...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-h2v8-394m-p7vv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114620</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.4
+                </span>
+            </div>
+            <div class="card-title">Authlib: Unvalidated request_uri fetch in JWT-secured authorization request (JAR) leading to SSRF</div>
+            <div class="card-body">### Summary
+
+Authlib's RFC 9101 (JAR) extension passes the attacker-controlled `request_uri` authorization parameter straight to the `get_request_object()` fetch hook with no validation, at a pre-authentication endpoint. Authlib already defines the pre-registration allowlist for this (`request_uris` client metadata and `require_request_uri_registra...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-x4rv-c3wx-4cr8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114617</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.2
+                </span>
+            </div>
+            <div class="card-title">Authlib: ID token can disable its own nonce validation via the nonce_supported claim</div>
+            <div class="card-body">### Summary
+
+`OpenIDMixin.parse_id_token()` reads the `nonce_supported` claim from the ID token it is validating. When that claim is boolean `false`, the expected nonce is set to `None` and nonce validation is skipped for that token.
+
+An ID token that carries this claim is therefore accepted in a session whose nonce does not match. A captured, vali...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-c5mf-xmp2-59rc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114618</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.8
+                </span>
+            </div>
+            <div class="card-title">Authlib: Default JWT bearer grant accepts assertions for the wrong audience</div>
+            <div class="card-body">## Description
+
+### Summary
+
+Authlib's default RFC 7523 JWT bearer grant leaves `get_audiences()` empty, so `verify_claims()` only checks that an `aud` claim *exists* instead of requiring it to match the current authorization server's token endpoint. An attacker holding a legitimately issued JWT assertion for *any* audience can present it to a diff...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-fch4-3c6x-j4gc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114619</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.6
+                </span>
+            </div>
+            <div class="card-title">Authlib: OpenID implicit grant checks raw scope instead of allowed scope before issuing ID tokens</div>
+            <div class="card-body">## Report metadata
+
+| Field | Value |
+| --- | --- |
+| Package | `authlib` (PyPI, `pkg:pypi/authlib`) |
+| Repository | https://github.com/authlib/authlib |
+| Component | `authlib.oidc.core.grants.implicit.OpenIDImplicitGrant.validate_authorization_request` |
+| Vulnerability class | Authorization bypass: a client's scope restriction is bypassed for O...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-q686-2qmg-hqc7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114615</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">Authlib incomplete algorithm-confusion fix permits HMAC forgery with prefixed public keys</div>
+            <div class="card-body">## Summary
+
+`OctKey.import_key()` carries the only guard that stops an asymmetric public key from being used as an
+HMAC secret in `authlib.jose`. That guard is `raw_key.startswith(POSSIBLE_UNSAFE_KEYS)` — anchored at
+byte 0 — while the loader that consumes the identical bytes on the asymmetric path
+(`cryptography.hazmat.primitives.serialization.loa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-7vr2-2fgp-9w7p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108360</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.4
+                </span>
+            </div>
+            <div class="card-title">PhpSpreadsheet: SSRF whitelist bypass via unre-validated HTTP redirect in Drawing::setPath external image loading</div>
+            <div class="card-body">## Summary
+PhpSpreadsheet's `Worksheet\Drawing::setPath()` validates an external-image URL against an operator-supplied `isWhitelisted` callback **once**, on the initial URL only, then fetches it with `file_get_contents()` using a stream context that does **not** set `follow_location => 0`. A whitelisted host that returns an HTTP `302 Location:` re...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-2phh-27fw-q4gc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108359</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">PhpSpreadsheet ODS Reader: Unbounded number-rows-repeated → CPU & Memory Exhaustion (DoS)</div>
+            <div class="card-body">## Summary
+
+When PhpSpreadsheet loads an OpenDocument Spreadsheet (`.ods`), `Ods::processTableRow()`
+reads the `table:number-rows-repeated` attribute of a `<table:table-row>` with an unchecked 
+`(int)` cast, then materialises one cell per repeated row. This value is **completely unbounded**, 
+so a **single ~1.4 KB file** can instruct the reader to ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-j2w7-387v-m2rq" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108358</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">PhpSpreadsheet: XmlScanner Bypass via ISO-2022 Escape Sequences Allows XXE and Denial of Service</div>
+            <div class="card-body">### Summary
+PhpSpreadsheet's `XmlScanner::scan()` uses a regex pattern that only accounts for NULL byte (0x00) interleaving when detecting `<!DOCTYPE`. ISO-2022 escape sequences (0x1B bytes) inserted between the characters of the pattern break the regex match entirely, allowing DOCTYPE declarations with entity definitions to pass through undetected...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-3x94-m842-937c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108357</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">PhpSpreadsheet: XmlScanner Bypass via Double-Encoded unentity() TOCTOU Allows XXE and Denial of Service</div>
+            <div class="card-body">### Summary
+The SpreadsheetML XML reader (`Reader\Xml`) scans file content **twice** through `XmlScanner::scan()`, and each scan runs an `unentity()` callback that calls `html_entity_decode()` **after** the pattern check. By double-encoding the `<` character as `&#38;#60;`, the first scan decodes `&#38;` to `&` (forming `&#60;`), and the second sca...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-rxj4-h86g-25gc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116591</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">compress zstd: Panic on two-block frames</div>
+            <div class="card-body">### Summary
+
+A crafted ~27 KB two-block zstd frame makes DecodeAll and the streaming decoder panic with an out-of-range slice index instead of returning a decode error. The same bytes decode fine with the reference zstd. Any program that decompresses untrusted zstd input can be crashed by it. Reproduced on v1.20.0 and v1.20.1.
+
+Released in https://...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-fpmh-frq8-7rj8" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114614</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW 2.6
+                </span>
+            </div>
+            <div class="card-title">Authlib: is_secure_transport() loopback exemption can be bypassed with a userinfo component, allowing cleartext-HTTP URLs to non-loopback hosts</div>
+            <div class="card-body">### Summary
+`authlib.common.security.is_secure_transport()` is used throughout Authlib to enforce the OAuth 2.0 / OIDC requirement that endpoint and redirect URIs use TLS, with an RFC 8252 §7.3 exemption for loopback `http://` URIs. The check is implemented as a textual `str.startswith` prefix match, so a URL such as `http://localhost:80@evil.examp...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-jj7h-c3hg-m23x" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114605</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">dnspython dns.name.from_wire_parser() excessive CPU use</div>
+            <div class="card-body">### Impact
+A maliciously crafted DNS message may cause dns.name.from_wire_parser() to use excessive CPU for DNS name decompression.  Applications that process untrusted DNS wire form messages with dnspython may be degraded or DoS'd by the extra CPU use required.
+
+### Patches
+This problem is fixed in dnspython 2.9.0.
+
+### Workarounds
+There are no kn...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-45c3-73f7-pv4m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116588</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Datadog dd-trace-py: ReDoS in URL query string obfuscation</div>
+            <div class="card-body">### Summary
+
+A regular expression used to obfuscate URL query strings can consume excessive CPU when processing certain attacker-controlled input. This can stall request processing and cause denial of service in applications using affected HTTP tracing integrations.
+
+### Details
+
+The default query-string obfuscation pattern can exhibit excessive ba...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-3633-r77q-h3v3" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116589</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">Datadog dd-trace-py: IAST instrumentation can lead to application DOS</div>
+            <div class="card-body">### Summary
+
+A flaw in dd-trace-py’s IAST instrumentation can cause the Python application process to terminate unexpectedly when processing certain attacker-controlled input. Only applications with IAST enabled are affected. IAST is disabled by default.
+
+### Details
+
+The affected IAST string-processing instrumentation does not properly handle cert...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-p3m5-h5v9-vqj6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-106435</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">MongoDB Python Driver: Out-of-bounds read in BSON decoding via a malformed Regex element</div>
+            <div class="card-body">### Impact
+The C extension's BSON decoder scans a Regex element's pattern and flags strings with strlen before checking the document's remaining length, so a crafted truncated Regex element can read past the end of the caller's buffer. bson.decode and bson.decode_all accept mmap and array buffers, which carry no NUL sentinel; the read can cross int...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-98qm-wvgf-w4cf" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114053</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">vLLM: Request-controlled mm_processor_kwargs.code_revision allows remote code execution</div>
+            <div class="card-body">## Summary
+
+An untrusted multimodal request can set `mm_processor_kwargs.code_revision`. When vLLM serves a model whose Hugging Face processor uses dynamic `auto_map` code and the operator enabled `--trust-remote-code`, this request value reaches `AutoProcessor.from_pretrained` and selects the Python revision imported by Transformers.
+
+This lets a ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-h3rc-6mm3-gc2m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-3w55-933p-8pv5</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">Strands Agents: Local Privilege Escalation via Symlink Attack in Default Session File Storage</div>
+            <div class="card-body">## Summary
+
+The `FileSessionManager` defaults to storing session data in `/tmp/strands/sessions/` (a world-writable directory) using predictable file paths and a write pattern (`open(path + ".tmp", "w")` → `os.replace()`) that follows symbolic links. A local attacker can exploit this to overwrite arbitrary files or inject malicious session data for...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-3w55-933p-8pv5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-763v-5pjm-fx36</span>
                 <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
                     MEDIUM None
                 </span>
             </div>
-            <div class="card-title">Pillow: Arrow export leaks stale heap memory when PILLOW_ALIGNMENT > 1</div>
-            <div class="card-body">### Summary
-
-When [`PILLOW_ALIGNMENT`](https://pillow.readthedocs.io/en/stable/reference/block_allocator.html#memory-pools) is set above 1, exporting an image to Arrow returns uninitialized heap memory mixed in with the pixel data. That memory can include pixels from images the process freed earlier. 
-
-### Details
-
-With an alignment above 1, the de...</div>
+            <div class="card-title">Strands Agents: Default FileSessionManager storage is world-readable on shared systems</div>
+            <div class="card-body">There is a local confidentiality issue in the default `FileSessionManager` storage behavior. By default it writes session data under `/tmp/strands/sessions` and relies on the process umask for directory and file permissions. On systems using the common `umask 022`, the session directories are `0755` and JSON files are `0644`, so other local users c...</div>
             <div class="card-footer">
-                <span>Published: 2026-10-23</span>
-                <a href="https://github.com/advisories/GHSA-654x-cwwv-5j9c" target="_blank">Full Report →</a>
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-763v-5pjm-fx36" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-93451</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">snappy-java: Heap buffer overflow in Snappy.uncompress*Array typed-array methods</div>
+            <div class="card-body">### Impact
+`Snappy.uncompressCharArray`, `uncompressShortArray`, `uncompressIntArray`, `uncompressLongArray`, `uncompressFloatArray` and `uncompressDoubleArray` sized the result array by dividing the declared uncompressed byte length by the element size, but native code wrote the full byte length. If the declared length is not a multiple of the ele...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-gwq9-9ffj-mvrv" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116590</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">snappy-java: JVM crash from unchecked ranges in Snappy.arrayCopy and SnappyOutputStream.rawWrite</div>
+            <div class="card-body">### Impact
+`Snappy.arrayCopy(Object src, int offset, int byteLength, Object dest, int destOffset)` called a native `memcpy` without validating the ranges. A negative or oversized `byteLength` or offset read or wrote outside the arrays and crashed the JVM. `SnappyOutputStream.rawWrite` and `SnappyInputStream.rawRead`, and therefore the typed-array `...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-xqrx-qh46-34m7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-108106</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">snappy-java: Unbounded memory allocation from attacker-declared uncompressed lengtha</div>
+            <div class="card-body">### Impact
+Several decompression paths in snappy-java allocate an output buffer sized by the uncompressed length declared in the first bytes of the compressed data, before decompressing or validating it. A few bytes of crafted input can therefore force an allocation of up to 2 GB, causing `OutOfMemoryError` (denial of service), or a `NegativeArrayS...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-q233-g92q-qxp6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-114510</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.1
+                </span>
+            </div>
+            <div class="card-title">Flexible GraphRAG: Cypher/Graph Injection via broken string-escaping in FalkorDB adapter (_escape()) - full graph wipe from ingested-document content</div>
+            <div class="card-body">**Description**
+def _escape(v: str) -> str:
+    return str(v).replace("'", "\\'").replace("\\", "\\\\")
+The escaping order is backwards, exactly like the classic HTML double-escape bug: step 1 inserts a literal backslash in front of every ', then step 2 re-matches that just-inserted backslash and doubles it. For an input ending in a single quote, t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-vqrg-773h-4wxc" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-g5ff-637f-6q2m</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">LiteLLM: internal_user_viewer arbitrary local file read via `vertex_ai_credentials`</div>
+            <div class="card-body">## Summary
+
+An authenticated LiteLLM proxy user could read arbitrary local files from the proxy runtime by sending a crafted `vertex_ai_credentials` value to `/utils/transform_request`. The request-body safety blocklist rejected `vertex_credentials` but missed its alias `vertex_ai_credentials`, which let the value reach the Vertex AI credential loa...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-27</span>
+                <a href="https://github.com/advisories/GHSA-g5ff-637f-6q2m" target="_blank">Full Report →</a>
             </div>
         </div>
         
