@@ -68,10 +68,112 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-28 21:56 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-29 03:03 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115927</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Tornado: Event loop blocking and excess memory use from chunked bodies with many small chunks</div>
+            <div class="card-body">### Summary
+
+When Tornado reads an HTTP/1.1 body that uses chunked transfer encoding, it processes all chunks that have already arrived without yielding to the event loop. A client can send a body made of millions of 1-byte chunks, which blocks the event loop (and therefore every other connection served by that process) for the entire time it takes...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-28</span>
+                <a href="https://github.com/advisories/GHSA-r4j5-9xpp-3985" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116578</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Tornado: Open redirect in RedirectHandler via protocol-relative URLs</div>
+            <div class="card-body">### Summary
+
+`tornado.web.RedirectHandler` builds its target URL by substituting parts of the request path into a template. Depending on where those substitutions appear in the template, an attacker can craft a request that redirects to a host of their choosing. This creates an open redirect on the application's domain, which can be used in phishin...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-28</span>
+                <a href="https://github.com/advisories/GHSA-pw9p-v7r6-gx4p" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116577</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">Tornado: Quadratic CPU usage when parsing HTTP headers with line folding</div>
+            <div class="card-body">### Summary
+
+Tornado's HTTP header parser takes quadratic time (O(n²)) when a header value is continued across many "obsolete line folding" (obs-fold) lines. An unauthenticated attacker can send a request whose header block is mostly short continuation lines. Parsing it uses a large amount of CPU on the IOLoop thread and blocks every other connecti...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-28</span>
+                <a href="https://github.com/advisories/GHSA-pcg2-g6cj-q92c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116695</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Crass: Incorrect tokenization of bad URLs enables CSS sanitizer bypass</div>
+            <div class="card-body">## Summary
+
+Crass's tokenizer didn't terminate a bad URL token at a `)` that followed an escaped backslash (`\\`). As a result, Crass consumed more input as part of the bad URL than a spec-compliant browser does. CSS sanitizers that parse untrusted CSS with Crass and re-emit it could be tricked into passing through declarations, style rules, or at-...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-28</span>
+                <a href="https://github.com/advisories/GHSA-pq4g-8rxf-4g29" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-116576</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">systeminformation vulnerable to Windows command injection in services() through Unicode quotation marks</div>
+            <div class="card-body">### Summary
+
+On Windows, `systeminformation@5.33.15` builds a PowerShell command using the value passed to `services()`. The default sanitizer removes ASCII quotes but keeps Unicode curly quotes, spaces, and parentheses. A crafted service name can use those characters to break out of the generated filter string and run a PowerShell expression. The ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-28</span>
+                <a href="https://github.com/advisories/GHSA-3f7j-7jwc-fxfj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115923</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Backstage catalog rules can be bypassed for URL locations using encoded path segments</div>
+            <div class="card-body">## Summary
+
+`@backstage/plugin-catalog-backend` matches URL-type locations against `catalog.rules` location patterns using the raw URL string submitted by the user, while URL readers resolve that same string in canonical form when fetching the location's content. A URL can therefore be crafted so that it appears to belong to a trusted location scop...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-28</span>
+                <a href="https://github.com/advisories/GHSA-w658-mh9p-ww8f" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-117601</span>
@@ -524,123 +626,6 @@ Denial of service vulnerability. Any application that parses untrusted JSON via 
             <div class="card-footer">
                 <span>Published: 2026-10-28</span>
                 <a href="https://github.com/advisories/GHSA-vvm8-gf78-28g4" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116585</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Go JOSE: Panic during CBC-HMAC processing</div>
-            <div class="card-body">### Summary
-
-Decrypting a ciphertext with "A128CBC-HS256", "A192CBC-HS384", or "A256CBC-HS512" can result in a panic on untrusted input.
-
-Note this advisory is the same as https://github.com/go-jose/go-jose/security/advisories/GHSA-6mp9-8xrw-74r4.
-
-### Details
-
-Insufficient validation of parameters can lead to attempting to index into an empty buff...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-4w3g-jfj2-cw2q" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116673</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.3
-                </span>
-            </div>
-            <div class="card-title">systeminformation has path traversal in Linux networkStats() that allows symlink-based file disclosure outside /sys/class/net</div>
-            <div class="card-body">### Summary
-
-On Linux, `systeminformation@5.33.13` builds `/sys/class/net/<iface>` paths from the caller-supplied `networkStats(iface)` value without checking that the resolved path stays inside `/sys/class/net`. A caller who can create a symlink fixture and control the value passed to this API can make the function return the first line of a file ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-4vjg-vx72-qq4g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116674</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 6.5
-                </span>
-            </div>
-            <div class="card-title">systeminformation has prototype pollution in `networkStats()` via the interface name</div>
-            <div class="card-body">## Summary
-
-`networkStats()` keeps a per interface cache for computing `rx_sec` / `tx_sec` between calls.
-The cache is a plain JavaScript object and is indexed with the interface name the caller
-supplied. Passing the name `__proto__` makes every cache write land on `Object.prototype`
-instead of the cache, polluting every object in the Node.js proce...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-7648-jmwf-vw7j" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115885</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.4
-                </span>
-            </div>
-            <div class="card-title">LangGraph CLI prints the registry push token in `langgraph deploy --verbose` output</div>
-            <div class="card-body">### Summary
-
-`langgraph deploy --verbose` printed the temporary registry push token that the CLI uses to log Docker in to the deployment's image registry. Anyone who could read that output, for example in CI logs, could use the token until it expired.
-
-### Details
-
-When Docker is available, `langgraph deploy` builds the image locally, requests a pu...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-8prr-f582-jqq3" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115887</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">graphql-scalars PhoneNumber scalar is vulnerable to regular expression denial of service</div>
-            <div class="card-body">## Summary
-
-The regular expression behind `GraphQLPhoneNumber` since 1.24.1 backtracks exponentially. A string made of a run of digits followed by one character that makes the match fail (for example `"1".repeat(30) + "x"`) blocks the JavaScript thread for seconds, and every additional digit doubles the time.
-
-graphql-js calls `parseLiteral` while ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-x8rm-f576-gq67" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116579</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Autobahn Python: permessage-brotli inflates a whole frame before maxMessagePayloadSize is checked (incomplete fix of GHSA-hxp9-w8x3-p566)</div>
-            <div class="card-body">### Summary
-
-permessage-brotli inflates each frame fully before checking maxMessagePayloadSize, so one 421-byte frame makes the server allocate about 545 MiB even with a 1 MiB message limit (brotli expands about 1,000,000:1). Any unauthenticated client can exhaust server memory this way on servers that enable permessage-brotli. This bypasses the GH...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-pjh6-c8mg-3x7m" target="_blank">Full Report →</a>
             </div>
         </div>
         
