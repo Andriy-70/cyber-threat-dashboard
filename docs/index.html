@@ -68,10 +68,107 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-30 11:43 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-10-30 17:18 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-119284</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">joserfc: Compact JWS size guard allocates attacker-controlled segments before rejection</div>
+            <div class="card-body">## Summary
+
+joserfc 1.7.4 defines compact-JWS header, payload, and signature limits, but
+calls `value.split(b".")` before validating them. Python `bytes.split()` copies
+the attacker-controlled segments, so the current guard allocates roughly one
+complete payload before rejecting it.
+
+## Reproduction
+
+```bash
+.venv-research/bin/python 06-practical-t...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-30</span>
+                <a href="https://github.com/advisories/GHSA-9pg5-8c7x-5hfx" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-119283</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">joserfc: Unbounded JWE General JSON `recipients` Array Leads to CPU Exhaustion (DoS) via Repeated RSA Private-Key Decryption</div>
+            <div class="card-body">### Summary
+
+`joserfc.jwe.decrypt_json()`, the library's public parser for JWE General JSON Serialization, accepts an attacker-controlled `recipients` array of unbounded length and performs one full private-key decryption operation (`decrypt_cek`) for **every** recipient present in the input, with no cap on recipient count. An unauthenticated netwo...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-30</span>
+                <a href="https://github.com/advisories/GHSA-jpxq-7h8p-2q76" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-f3fj-9625-rv3m</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.9
+                </span>
+            </div>
+            <div class="card-title">charmbracelet/soft-serve: Race in `SetPrivate` leaves a private repository readable by unauthenticated users</div>
+            <div class="card-body">## Summary
+
+Soft Serve cached repository records in memory with no expiry, and trusted the cached record for every access check. `SetPrivate` cleared the cached record before it saved the new visibility, and not afterwards.
+
+A request that arrived between the two read the old, public record from the database and cached it after the change was saved...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-30</span>
+                <a href="https://github.com/advisories/GHSA-f3fj-9625-rv3m" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-fgxm-5hvv-x4vh</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 5.3
+                </span>
+            </div>
+            <div class="card-title">charmbracelet/soft-serve HTTP responses disclose the existence and names of private repositories</div>
+            <div class="card-body">## Summary
+
+Soft Serve answers Go's `?go-get=1` requests by walking up the requested path until it finds a repository, then rendering that repository's name and clone URL into a `go-import` meta tag. The walk checked that each candidate repository existed, but never that the caller could read it.
+
+A request for a path inside a private repository, s...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-30</span>
+                <a href="https://github.com/advisories/GHSA-fgxm-5hvv-x4vh" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-119282</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH None
+                </span>
+            </div>
+            <div class="card-title">@nx/maven and @nx/gradle have OS command injection via nx.json plugin options</div>
+            <div class="card-body">## Summary
+
+`@nx/maven` and `@nx/gradle` spawn their project-graph analyzers through a shell and interpolate plugin options read from `nx.json` straight into the command line. Because a shell parses the whole line, an option value containing shell syntax is executed as a command by any `nx` command that constructs the project graph. Anyone who clon...</div>
+            <div class="card-footer">
+                <span>Published: 2026-10-30</span>
+                <a href="https://github.com/advisories/GHSA-qm8w-vx34-5j9j" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-118664</span>
@@ -527,91 +624,6 @@ In CMS 5, the password reset flow let a user with multi-factor authentication en
             <div class="card-footer">
                 <span>Published: 2026-10-29</span>
                 <a href="https://github.com/advisories/GHSA-68wq-phq7-p2vg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-115927</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Tornado: Event loop blocking and excess memory use from chunked bodies with many small chunks</div>
-            <div class="card-body">### Summary
-
-When Tornado reads an HTTP/1.1 body that uses chunked transfer encoding, it processes all chunks that have already arrived without yielding to the event loop. A client can send a body made of millions of 1-byte chunks, which blocks the event loop (and therefore every other connection served by that process) for the entire time it takes...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-r4j5-9xpp-3985" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116578</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW None
-                </span>
-            </div>
-            <div class="card-title">Tornado: Open redirect in RedirectHandler via protocol-relative URLs</div>
-            <div class="card-body">### Summary
-
-`tornado.web.RedirectHandler` builds its target URL by substituting parts of the request path into a template. Depending on where those substitutions appear in the template, an attacker can craft a request that redirects to a host of their choosing. This creates an open redirect on the application's domain, which can be used in phishin...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-pw9p-v7r6-gx4p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116577</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.3
-                </span>
-            </div>
-            <div class="card-title">Tornado: Quadratic CPU usage when parsing HTTP headers with line folding</div>
-            <div class="card-body">### Summary
-
-Tornado's HTTP header parser takes quadratic time (O(n²)) when a header value is continued across many "obsolete line folding" (obs-fold) lines. An unauthenticated attacker can send a request whose header block is mostly short continuation lines. Parsing it uses a large amount of CPU on the IOLoop thread and blocks every other connecti...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-pcg2-g6cj-q92c" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116695</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM None
-                </span>
-            </div>
-            <div class="card-title">Crass: Incorrect tokenization of bad URLs enables CSS sanitizer bypass</div>
-            <div class="card-body">## Summary
-
-Crass's tokenizer didn't terminate a bad URL token at a `)` that followed an escaped backslash (`\\`). As a result, Crass consumed more input as part of the bad URL than a spec-compliant browser does. CSS sanitizers that parse untrusted CSS with Crass and re-emit it could be tricked into passing through declarations, style rules, or at-...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-pq4g-8rxf-4g29" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-116576</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.8
-                </span>
-            </div>
-            <div class="card-title">systeminformation vulnerable to Windows command injection in services() through Unicode quotation marks</div>
-            <div class="card-body">### Summary
-
-On Windows, `systeminformation@5.33.15` builds a PowerShell command using the value passed to `services()`. The default sanitizer removes ASCII quotes but keeps Unicode curly quotes, spaces, and parentheses. A crafted service name can use those characters to break out of the generated filter string and run a PowerShell expression. The ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-28</span>
-                <a href="https://github.com/advisories/GHSA-3f7j-7jwc-fxfj" target="_blank">Full Report →</a>
             </div>
         </div>
         
