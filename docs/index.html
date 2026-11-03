@@ -68,10 +68,186 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-11-03 13:05 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-11-03 22:37 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-115878</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.8
+                </span>
+            </div>
+            <div class="card-title">Stanza: RCE via pickle deserialization in the lemmatizer</div>
+            <div class="card-body">## TL;DR
+
+Loading an attacker-supplied lemma `.pt` runs arbitrary code as the loading user. Since 1.14.0 the lemmatizer stores `pos_dict` as a gzip-compressed pickle in the checkpoint's `dicts` field (a `bytes` value). `torch.load(weights_only=True)` treats `bytes` as a primitive and passes it through unexamined, so its allowlist never sees the inn...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-gh9r-c94j-cmp5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44267</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfiltered `.constructor` member access</div>
+            <div class="card-body">### Summary
+
+An unauthenticated attacker who controls a string passed to any Elo JavaScript-emission path — `defaultFormats.elo.parse()`, the `bin/elo` CLI, or the live browser playground at `elo-lang.org/try` — can execute arbitrary code in the host JavaScript runtime. A payload built from the `.constructor.constructor` chain compiles, without mod...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-33r5-xmm8-v6x5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44266</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.8
+                </span>
+            </div>
+            <div class="card-title">Elo Ruby backend has Remote Code Execution via unescaped `#{...}` interpolation in emitted string literals and subtype-constraint labels</div>
+            <div class="card-body">### Summary
+
+Elo's Ruby backend emits attacker-controlled text into Ruby double-quoted strings without escaping the `#` character. Because `#` begins Ruby's interpolation sequences — `#{expr}`, `#@ivar`, `#@@cvar`, `#$gvar` — and any expression wrapped in `#{...}` may use backticks for shell execution, an Elo program that contains a crafted string ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-7w38-ggh5-v542" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-44265</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.4
+                </span>
+            </div>
+            <div class="card-title">Elo backends have code injection via unvalidated emission of programmatic AST fields</div>
+            <div class="card-body">### Summary
+
+Elo's programmatic AST API accepts arbitrary values in many node fields without runtime type or syntax validation. Each backend's emit stage interpolates those values straight into the generated source with no escape pass. An integrator that populates the AST from JSON-deserialised input, plugin output, or any other untyped source ther...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-x9rp-7wh3-2rj5" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-p3jp-9v83-76w9</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Microsoft Security Advisory CVE-2026-111497 - .NET Brotli Decoder Out-of-bounds Write Vulnerability</div>
+            <div class="card-body">## Executive summary
+
+A buffer overflow vulnerability exists in the Brotli decompression library used by .NET. This vulnerability may allow an unauthenticated attacker to read or corrupt process memory. This could lead to information disclosure, denial of service, or elevation of privilege.
+
+ASP.NET Core and HttpClient do not automatically decompre...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-p3jp-9v83-76w9" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62331</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.2
+                </span>
+            </div>
+            <div class="card-title">praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/ directory (stored instruction injection)</div>
+            <div class="card-body">### Impact
+
+A remote Telegram user can write files to arbitrary paths inside an agent's persistent workspace volume (`praktor-wk-<workspace>`, mounted at `/workspace/agent`), escaping the documented `uploads/` directory.
+
+The attacker controls the Telegram document filename, which was concatenated into the destination path without sanitization (`in...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-48v2-6jcm-fc99" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-11800</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.1
+                </span>
+            </div>
+            <div class="card-title">Keycloak has authentication bypass via jwt algorithm confusion</div>
+            <div class="card-body">### Description
+A flaw was found in Keycloak. This JWT algorithm confusion vulnerability in the JWT Authorization Grant flow allows an attacker with valid client credentials to bypass signature verification. By forging an assertion, the attacker can create unauthorized access tokens. This enables the attacker to impersonate any federated user linke...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-j97h-3f8r-mrjr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-9ppr-wfw9-xvr2</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM None
+                </span>
+            </div>
+            <div class="card-title">Netfoil doesn't decrement TTL</div>
+            <div class="card-body">### Summary
+TTL was not decremented, so stale records would continue to be served....</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-9ppr-wfw9-xvr2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62848</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.3
+                </span>
+            </div>
+            <div class="card-title">Metalama: Unsafe deserialization over Metalama's Visual Studio inter-process named pipe enables local code execution</div>
+            <div class="card-body">## Summary
+
+Metalama uses a local named-pipe channel to communicate between its Visual Studio processes — the Visual Studio UI process (`devenv`), the out-of-process Roslyn code-analysis process, and the CodeLens process. This channel deserialized messages from the pipe **without restricting which CLR types could be instantiated**. A local process ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-h26j-4vp7-x9w2" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">GHSA-m3qr-fvp4-78xj</span>
+                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
+                    LOW None
+                </span>
+            </div>
+            <div class="card-title">Arc has unauthenticated application log disclosure via `/api/v1/logs`</div>
+            <div class="card-body">## Summary
+
+Arc exposes `GET /api/v1/logs` without authentication even when authentication is enabled by default. The route is registered before the global Fiber authentication middleware, and the handler returns recent buffered application logs without performing its own authorization check.
+
+## Details
+
+Arc applies the global auth middleware afte...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-03</span>
+                <a href="https://github.com/advisories/GHSA-m3qr-fvp4-78xj" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">GHSA-j656-3hf2-fvjc</span>
@@ -498,179 +674,6 @@ ConstructedPayloadDecoderBase._decodeComponentsSchemaless inserts every decoded 
             <div class="card-footer">
                 <span>Published: 2026-10-30</span>
                 <a href="https://github.com/advisories/GHSA-fm9c-5rcf-2q5p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-118775</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Forge: ASN.1 OID first arc truncation in asn1.oidToDer</div>
-            <div class="card-body">### Summary
-
-`asn1.oidToDer()` did not range-check the first two arcs of an OID string, so an OID such as `0.42.840.113549.1.1.1` or `4294977127.18.840.113549.1.1.1` was encoded as the DER of a different OID (here rsaEncryption, `1.2.840.113549.1.1.1`). This is an incomplete fix of CVE-2025-66030. Fixed in node-forge 1.4.1.
-
-### Details
-
-X.690 sect...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-4642-5mcj-2rqw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-118777</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 4.8
-                </span>
-            </div>
-            <div class="card-title">Forge: Prototype Pollution in forge.http cookie handling via a malicious Set-Cookie</div>
-            <div class="card-body">### Summary
-The `forge.http` client stored cookies from `Set-Cookie` response headers in a plain object keyed by cookie name and path. A malicious server could use the cookie name `__proto__` to add properties to `Object.prototype`, use inherited names such as `constructor` to add properties to `Object`, and send an empty cookie value to delete `Ob...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-6wvx-3r32-xmcg" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-118778</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Forge: TLS client crash when the server sends no certificate</div>
-            <div class="card-body">### Summary
-The forge TLS client's check for a missing server certificate read the wrong property and never ran. A malicious TLS server, or an on-path attacker who removes the server's Certificate message, can make `connection.process()` throw a `TypeError`, which crashes applications that use the forge TLS client. Fixed in node-forge 1.4.1.
-
-### D...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-525v-9gp9-w22h" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-118779</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Forge: Regular expression denial of service in PEM decoding (pem.decode)</div>
-            <div class="card-body">### Summary
-`pem.decode()`, which every node-forge API that parses PEM input uses, split messages with a regular expression that takes polynomial time on input without a matching END line, and parsed encapsulated headers with regular expressions that take quadratic time on long header lines. A remote attacker can block the Node.js event loop for se...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-7wch-p9px-956x" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-118781</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 2.9
-                </span>
-            </div>
-            <div class="card-title">Forge: Denial of Service via infinite loop in BigInteger.modInverse() with negative input (incomplete fix of CVE-2026-33891)</div>
-            <div class="card-body">### Summary
-
-`BigInteger.prototype.modInverse()` in node-forge's bundled jsbn library enters an infinite loop when the value or the modulus is negative, for example when a negative public exponent is passed to `forge.pki.rsa.generateKeyPair()`. This is an incomplete fix of CVE-2026-33891 (GHSA-5m6q-g25r-mvwx), which handled only a zero value. Fixed...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-h6cr-wjv9-3cpp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-118780</span>
-                <span class="severity" style="background: #3fb95022; color: #3fb950; border: 1px solid #3fb950">
-                    LOW 3.7
-                </span>
-            </div>
-            <div class="card-title">Forge: verifyCertificateChain() removes trusted CA certificates with the same subject from the CA store</div>
-            <div class="card-body">### Summary
-
-When a CA store created by `pki.createCaStore()` holds two or more certificates with the same subject name, `pki.verifyCertificateChain()` permanently removes those certificates from the store while trying each one as the issuer. A peer can send any certificate that names that subject as its issuer to make all later verifications again...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-4487-j8r4-4g2f" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119186</span>
-                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
-                    MEDIUM 5.9
-                </span>
-            </div>
-            <div class="card-title">Forge: AES-GCM authentication bypass via unvalidated tagLength option</div>
-            <div class="card-body">### Summary
-
-The AES-GCM mode in forge.cipher does not validate the tagLength option passed to start(). With a tagLength of 0 or a value that converts to 0 (such as null, false, '' or '0'), the authentication tag is empty, and decipher.finish() returns true for any ciphertext and additional data when the supplied tag is empty or missing. Fixed in n...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-5cwg-6vw7-rj6p" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-118782</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Forge: PKCS#12 MAC forgery and constant-key PBE via zero iteration count</div>
-            <div class="card-body">### Summary
-
-forge.pkcs12.pkcs12FromAsn1() accepts a PKCS#12 MAC iteration count of zero (or less) from the input, and the PKCS#12 key derivation function then returns a constant key that does not depend on the password or salt. An attacker who does not know the password can modify a PKCS#12/PFX file and compute a MAC that verifies with any passwor...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-jc66-7q78-782g" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119188</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Forge: Denial of service in TLS record processing via a record interleaved with a fragmented handshake message</div>
-            <div class="card-body">### Summary
-
-A connection created with `forge.tls.createConnection()` throws an uncaught `TypeError` from `process()` when it receives a record of another content type while waiting for the rest of a handshake message that was split across records. A peer can trigger this with 18 bytes before the handshake, without authentication, which terminates ...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-8hrf-8g6f-7xwp" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119187</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">Forge: Denial of service in TLS record processing via call stack exhaustion</div>
-            <div class="card-body">### Summary
-
-Connections created with `forge.tls.createConnection()` processed received TLS records recursively, one stack level per record. A peer can send one chunk of thousands of small records, such as heartbeat records, which are accepted before the handshake, and `process()` throws `RangeError: Maximum call stack size exceeded`, which termina...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-hqq3-7jhf-c5jx" target="_blank">Full Report →</a>
             </div>
         </div>
         
