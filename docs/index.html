@@ -68,10 +68,66 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-11-04 13:20 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-11-04 22:56 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-55098</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735</div>
+            <div class="card-body">### Summary
+
+The fix for CVE-2026-47735 (released 2026.06.1) is incomplete. It added a DuckDB sandbox (`SET GLOBAL allowed_directories=[<storage root>]; SET GLOBAL enable_external_access=false`) and an Arc SQL-layer denylist of the **literal** functions `read_parquet(` and `arc_partition_agg(`. The sandbox correctly blocks reads **outside** the sto...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-04</span>
+                <a href="https://github.com/advisories/GHSA-93cm-2v4m-c56c" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-93363</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 4.3
+                </span>
+            </div>
+            <div class="card-title">@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter</div>
+            <div class="card-body">### Impact
+In affected configurations, client upload access does not consistently align with the associated collection’s access configuration.
+
+You are affected if:
+- You use client uploads with `@payloadcms/storage-vercel-blob`.
+- Authenticated users can access the client-upload route.
+
+Applications that do not enable client uploads are not affect...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-04</span>
+                <a href="https://github.com/advisories/GHSA-mc8m-rr6c-r5qr" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-113787</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.1
+                </span>
+            </div>
+            <div class="card-title">odf-kit: HTML injection leading to XSS in odtToHtml() and odsToHtml() via unescaped style attribute values</div>
+            <div class="card-body">### Summary
+
+ODF style attribute values are interpolated into `style="..."` attributes without HTML-escaping in **both** of odf-kit's to-HTML renderers (`odtToHtml` and `odsToHtml`). A double-quote character inside an attacker-controlled style value breaks out of the attribute, allowing arbitrary HTML/attribute injection — and therefore script exec...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-04</span>
+                <a href="https://github.com/advisories/GHSA-3cgg-c5pp-57h6" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-115878</span>
@@ -619,61 +675,6 @@ In pyasn1 through 0.6.4, decoding a constructed BIT STRING with many fragments r
             <div class="card-footer">
                 <span>Published: 2026-10-30</span>
                 <a href="https://github.com/advisories/GHSA-2qm8-x737-gmw5" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119197</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">pyasn1 has quadratic-complexity denial of service in binary REAL decoding</div>
-            <div class="card-body">## Summary
-
-In pyasn1 0.6.4 and earlier, decoding a binary-encoded ASN.1 REAL with a large mantissa can consume CPU time quadratic in the mantissa length. The BER, CER, and DER decoders all use the affected `RealPayloadDecoder`. An application is exposed when it passes attacker-controlled ASN.1 containing a REAL value to one of these decoders, eith...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-mm57-4v3p-rchx" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119195</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">pyasn1 has quadratic-time denial of service in constructed string and indefinite-length ANY decoding</div>
-            <div class="card-body">## Summary
-
-In pyasn1 0.6.4 and earlier, decoding a constructed OCTET STRING or character string made of many fragments can spend disproportionate CPU time repeatedly copying the accumulated value. A separate indefinite-length `ANY` path has the same problem while collecting the encoded components. The work grows roughly quadratically with the numb...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-9m75-vc3g-4x39" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119194</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">pyasn1 has quadratic CPU use in schemaless BER/CER/DER container decoding</div>
-            <div class="card-body">### Summary
-
-When an application decodes attacker-controlled BER, CER, or DER data without an ASN.1 schema, a container with many distinct long tag IDs can cause quadratic CPU use. Repeated inputs can exhaust CPU and reduce service availability.
-
-### Details
-
-ConstructedPayloadDecoderBase._decodeComponentsSchemaless inserts every decoded component’...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-fm9c-5rcf-2q5p" target="_blank">Full Report →</a>
             </div>
         </div>
         
