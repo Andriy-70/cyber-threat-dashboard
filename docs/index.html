@@ -68,10 +68,82 @@
         <div class="container">
             <header>
                 <h1>🛡️ Cyber Threat Intelligence</h1>
-                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-11-05 13:34 UTC</div>
+                <div class="status">● GitHub Security Advisory Feed • Updated: 2026-11-05 22:57 UTC</div>
             </header>
             <div class="grid">
                 
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-62300</span>
+                <span class="severity" style="background: #ffeb3b22; color: #ffeb3b; border: 1px solid #ffeb3b">
+                    MEDIUM 6.5
+                </span>
+            </div>
+            <div class="card-title">filecoin-pin: Unbounded DAG pinning can exhaust server resources</div>
+            <div class="card-body">## Summary
+
+The IPFS Pinning Service API implementation accepts a caller-controlled CID through `POST /pins`, queues background processing, and then recursively fetches the full DAG with `helia.pins.add(cid)`. The route and background pinning path do not enforce a request rate limit, per-user quota, maximum DAG byte count, maximum block count, trav...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-05</span>
+                <a href="https://github.com/advisories/GHSA-m5ph-mmg5-6w5h" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-61536</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 7.5
+                </span>
+            </div>
+            <div class="card-title">Banks: Unsafe importlib.import_module of attacker-controlled Tool.import_path in CompletionExtension allows RCE</div>
+            <div class="card-body">## Summary
+
+  `banks` parses `Tool` JSON objects from the rendered body of `{% completion %}` blocks and later resolves their
+  `import_path` field through `importlib.import_module(...)` + `getattr(...)` to obtain the callable that handles a tool
+   call. There is no allowlist or sanitization on `import_path`, so any importable Python attribute (e....</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-05</span>
+                <a href="https://github.com/advisories/GHSA-64vx-6h2c-rjh7" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-105769</span>
+                <span class="severity" style="background: #ff4d4d22; color: #ff4d4d; border: 1px solid #ff4d4d">
+                    CRITICAL 9.3
+                </span>
+            </div>
+            <div class="card-title">kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts</div>
+            <div class="card-body">### Summary
+
+kaniko before v1.25.20 can send a Microsoft Entra ID (Azure AD) access token for Azure Resource Manager to a registry host an attacker controls. A Dockerfile that references an image on a lookalike host, such as `FROM x.azurecr.io.attacker.com/img`, is enough. The build needs no `RUN` instruction and never has to push.
+
+The flaw is in ...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-05</span>
+                <a href="https://github.com/advisories/GHSA-5q7h-w9jf-cx97" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="cve-id">CVE-2026-12411</span>
+                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
+                    HIGH 8.4
+                </span>
+            </div>
+            <div class="card-title">lxd allows Cross-guest volume hijack via DevLXD device patch</div>
+            <div class="card-body">### Summary
+
+A guest can mount another guest's custom storage volume over `/dev/lxd` and read or write its contents without owning it. The DevLXD storage API blocks access to volumes you don't own, but the instance device-update path that attaches a volume to a container without checks ownership. Any guest in a project with `security.devlxd.managem...</div>
+            <div class="card-footer">
+                <span>Published: 2026-11-05</span>
+                <a href="https://github.com/advisories/GHSA-hhf9-qw4v-72xp" target="_blank">Full Report →</a>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <span class="cve-id">CVE-2026-55098</span>
@@ -583,98 +655,6 @@ If you cannot upgrade yet, consider applying the changes from PR [#4251](h...</d
             <div class="card-footer">
                 <span>Published: 2026-10-30</span>
                 <a href="https://github.com/advisories/GHSA-42gh-23hr-vphw" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119207</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">pypdf has possible large memory usage for exceptions in strict mode</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires loading an invalid dictionary.
-
-### Patches
-
-This has been fixed in [pypdf==6.21.3](https://github.com/py-pdf/pypdf/releases/tag/6.21.3).
-
-### Workarounds
-
-If you cannot upgrade yet, consider applying the changes from PR [#4265](http...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-4vqv-7265-gm2w" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119208</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">pypdf has possible long runtimes/large memory usage for encrypted PDF files</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to large runtimes/memory usage. This requires accessing the page count of an encrypted PDF file, which itself declares a wrong `/Count` value.
-
-### Patches
-
-This has been fixed in [pypdf==6.21.3](https://github.com/py-pdf/pypdf/releases/tag/6.21.3).
-
-### Workarounds
-
-If...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-62m5-6wh8-28x7" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119209</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH None
-                </span>
-            </div>
-            <div class="card-title">pypdf has possible large memory usage when parsing cross-reference streams</div>
-            <div class="card-body">### Impact
-
-An attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires opening a file with cross-reference streams.
-
-### Patches
-
-This has been fixed in [pypdf==6.21.3](https://github.com/py-pdf/pypdf/releases/tag/6.21.3).
-
-### Workarounds
-
-If you cannot upgrade yet, consider applying the changes from P...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-x3rh-gjgm-fmqc" target="_blank">Full Report →</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <span class="cve-id">CVE-2026-119196</span>
-                <span class="severity" style="background: #ffa50022; color: #ffa500; border: 1px solid #ffa500">
-                    HIGH 7.5
-                </span>
-            </div>
-            <div class="card-title">pyasn1 has quadratic CPU consumption in constructed BIT STRING decoding</div>
-            <div class="card-body">## Summary
-
-In pyasn1 through 0.6.4, decoding a constructed BIT STRING with many fragments repeatedly shifts and copies the entire value accumulated so far. For fixed-size fragments, CPU time grows quadratically with the encoded input size. An application that passes sufficiently large, attacker-controlled ASN.1 data to an affected decoder can suff...</div>
-            <div class="card-footer">
-                <span>Published: 2026-10-30</span>
-                <a href="https://github.com/advisories/GHSA-2qm8-x737-gmw5" target="_blank">Full Report →</a>
             </div>
         </div>
         
